@@ -1,5 +1,9 @@
 {
   "new_matching_units": 121,
   "previous_matches_lost": 0,
-  "remaining_goal_complete": false
+  "remaining_goal_complete": false,
+  "backend_followup": {
+    "new_matching_units": 0,
+    "previous_matches_lost": 0
+  }
 }

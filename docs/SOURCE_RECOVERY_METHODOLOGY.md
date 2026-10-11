@@ -100,6 +100,12 @@ marker expressions still require separate rules and remain failures.
 
 ## Discovered pitfalls
 
+- Extending an already merged comparison chain must share its last operand and
+  keep its entire earlier prefix. Using the second operand as the shared value
+  caused a three-link negated guard to evaluate its second call twice. An owned
+  failing fixture reproduced the extra call; the corrected fixture preserves
+  return values, short-circuit order and NaN behavior. A negative fixture also
+  checks that explicitly separate comparisons retain their distinct calls.
 - A decompiler may take a nested function's name from its renamed local
   binding instead of its surviving `co_name`. This made otherwise present
   helpers appear missing on both sides of the unit comparison. Restoring the
@@ -253,13 +259,19 @@ process's zero exit code must never be interpreted as a fidelity pass.
   exception behavior with the original code. Known default values are attached
   explicitly to selected pure functions without executing their module bodies.
 - The unpacker is now **0.4.5-einstein.1** at commit
-  `f255e38072b2876387e3fb01ef613002d102ab7e`. Its 75 regression cases report
+  `269dbbbe2f4de0f0c92efedff75e119b45cb053c`. Its 75 regression cases report
   74 passes and one documented expected failure in the legacy native backend;
-  the optional modern context-manager path passes. The unchanged modern
-  backend remains at `6fb29332f605964723a697058f78a504c6868838`.
+  the optional modern context-manager path passes. The modern backend is now
+  **0.6.4-einstein.1** at `eac23e08251c065536aa8422d2de5ac5cdbc45ca`, with
+  14 owned behavior regressions and 26 existing Rust tests passing. The latest
+  follow-up full-corpus audit has identical coverage and no lost matches; the
+  chain fix adds no further module-completion claims.
   Its pinned backend and native build also pass the unpacker fork's
-  [GitHub source regressions](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38182350990)
-  and [native build](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38182351024).
+  [GitHub source regressions](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38183000706)
+  and [native build](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38183000714).
+  The backend's [behavior workflow](https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38182958576)
+  and [Linux/macOS/Windows builds, tests and clippy](https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38182958580)
+  are also green.
 - The current full inventory exports all 274 payloads and validates all 14,291
   nested code objects. Source generation produces compilable candidates for
   all 274 modules. The Energy AI database module's nested `try`/`else`/`finally`
