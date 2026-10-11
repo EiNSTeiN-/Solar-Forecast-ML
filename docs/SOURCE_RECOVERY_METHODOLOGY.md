@@ -133,6 +133,12 @@ marker expressions still require separate rules and remain failures.
   Correctly retaining user handlers can expose decompiler failures previously
   hidden by excessive cleanup. Invalid candidates must be repaired rather
   than restoring that incorrect cleanup rule.
+- One async transaction method split a nested handler-bearing `try` from its
+  `else` and `finally` suites, emitting illegal source. The writer now rejoins
+  only that specific structure, preserving every recovered statement. Its
+  source compiles, but its cleanup-block order still differs from the reference
+  bytecode and remains an explicit fidelity failure. Grammar repair alone is
+  not semantic verification.
 
 ## Reproducible commands
 
@@ -177,7 +183,7 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **10,199 matched units out of 14,291** and
+- The latest full audit reports **10,320 matched units out of 14,291** and
   **12 complete module matches**. Those 12 sources (140 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
   evidence in `recovery/verified-manifest.json`. Eleven have not yet undergone
@@ -185,6 +191,7 @@ process's zero exit code must never be interpreted as a fidelity pass.
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - The current full inventory exports all 274 payloads and validates all 14,291
   nested code objects. Source generation produces compilable candidates for
-  273 modules. One Energy AI database module still has malformed nested
-  `try`/`else`/`finally` source; it remains a failure and has not been replaced
-  with a stub. Compilable candidates still require full unit verification.
+  all 274 modules. The Energy AI database module's nested `try`/`else`/`finally`
+  structure now compiles, but structural warnings and a transaction cleanup
+  instruction-order mismatch remain. It has not passed fidelity verification.
+  Compilable candidates still require full unit verification.

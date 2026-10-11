@@ -2,21 +2,21 @@
   "summary": {
     "protected_modules": 274,
     "bytecode_verified_modules": 274,
-    "source_compiles_modules": 273,
+    "source_compiles_modules": 274,
     "all_units_match_modules": 12,
     "reference_units": 14291,
-    "matched_units": 10199,
+    "matched_units": 10320,
     "input_files_unchanged": true,
     "vendor_modules_imported": 0,
     "behavioral_equivalence_verified": false,
     "unit_results": {
-      "normalized_bytecode_match": 10199,
-      "instructions": 2219,
-      "exception_table": 1179,
-      "missing_source_unit": 228,
+      "normalized_bytecode_match": 10320,
+      "instructions": 2281,
+      "exception_table": 1229,
+      "missing_source_unit": 232,
       "signature": 158,
       "unsupported_marker_pattern": 71,
-      "missing_reference_unit": 216
+      "missing_reference_unit": 220
     },
     "scopes": {
       "main": 99,
@@ -2407,12 +2407,13 @@
       "path": "extra_features/solar_forecast_eai/data/db_manager.py",
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
-      "source_compiles": false,
+      "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 0,
+      "matched_units": 121,
       "reference_units": 237,
       "input_unchanged": true,
-      "error": "ValueError: Source generation failed: expected 'except' or 'finally' block (<unknown>, line 1954)"
+      "source_origin": "decompiler_candidate",
+      "source_units": 237
     },
     {
       "path": "extra_features/solar_forecast_eai/data/eai_consumption_sample_store.py",

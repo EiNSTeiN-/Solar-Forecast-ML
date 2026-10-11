@@ -1,12 +1,12 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "15ddb50420b73c116c35709b8ea606985af631a5",
+    "commit": "b64cba837cb0ef3dcd3b49ff05dfd7335f666e17",
     "version": "0.4.3-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
-    "commit": "854caa6f8b53c41f15d9b11f495eccfde8022b47",
+    "commit": "d75133e62146082ef1af2fc748e5f277e73d1173",
     "version": "0.6.2-einstein.1"
   },
   "interpreter": "3.14.2",
@@ -15,7 +15,7 @@
     "unpacker_test_cases": 65,
     "unpacker_passes": 64,
     "native_expected_failures": 1,
-    "backend_existing_tests_passed": 25,
+    "backend_existing_tests_passed": 26,
     "backend_behavior_tests_passed": 8,
     "selected_module_behavior_tests_passed": 4,
     "selected_module_input_cases": 409,
