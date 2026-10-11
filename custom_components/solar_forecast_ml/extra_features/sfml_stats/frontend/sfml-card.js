@@ -581,9 +581,9 @@ class SfmlCard extends HTMLElement {
       this.liveChip.hidden = true;
     }
 
-    let accClass = "poor";
-    if (accuracy >= 90) accClass = "good";
-    else if (accuracy >= 75) accClass = "warn";
+    let accClass = accuracy == null ? "" : "poor";
+    if (accuracy != null && accuracy >= 90) accClass = "good";
+    else if (accuracy != null && accuracy >= 75) accClass = "warn";
 
     // 270° arc on r=52 (circumference 326.7): visible arc length 245
     const arcLen = 245;
@@ -602,7 +602,7 @@ class SfmlCard extends HTMLElement {
               <div class="group">
                 <span class="group-name">${this._escape(p.name)}</span>
                 <span class="group-power">${this._power(power)}</span>
-                <div class="group-track"><div class="group-fill" style="width:${width}%"></div></div>
+                <div class="group-track" style="visibility:${numberOrNull(p.max_today) > 0 ? "visible" : "hidden"}"><div class="group-fill" style="width:${width}%"></div></div>
                 <span class="group-kwh">${kwh != null ? this._kwh(kwh) : "–"}</span>
               </div>`;
           }).join("")}
@@ -726,7 +726,7 @@ class SfmlCard extends HTMLElement {
     return `
       <div class="chart">
         <div class="legend">
-          <span><i class="l-actual"></i>${this._t("actual")}</span>
+          ${rows.some(r => r.actual_kwh != null) ? `<span><i class="l-actual"></i>${this._t("actual")}</span>` : ""}
           <span><i class="l-forecast"></i>${this._t("forecast")}</span>
         </div>
         <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">

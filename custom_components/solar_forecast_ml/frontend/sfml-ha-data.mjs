@@ -59,8 +59,9 @@ export function forecastSnapshot(hass, config = {}, now = new Date()) {
     return target_hour < 24 && prediction_kwh != null && prediction_kwh >= 0
       ? [{ target_hour, prediction_kwh, actual_kwh: null }] : [];
   });
-  const peak = hass.states?.[`${prefix}_best_hour_for_consumption`]?.state;
-  const peakHour = /^\d{2}:00$/.test(peak || '') ? Number(peak.slice(0, 2)) : null;
+  const peak = rows.filter(row => row.prediction_kwh > 0)
+    .reduce((best, row) => !best || row.prediction_kwh > best.prediction_kwh ? row : best, null);
+  const peakHour = peak?.target_hour ?? null;
   return {
     summary: {
       today: {
