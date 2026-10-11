@@ -1,3 +1,5 @@
+import { forecastSnapshot, numberOrNull } from "./sfml-ha-data.mjs?v=50.0.1-einstein.1";
+// Fork changes by EiNSTeiN-. Powered by Solar Forecast ML by Zara-Toorox.
 // SFML Forecast Lovelace Card
 // (C) 2026 Zara-Toorox
 
@@ -81,6 +83,7 @@ class SfmlCard extends HTMLElement {
   }
 
   _num(value, digits = 2) {
+    if (numberOrNull(value) == null) return "–";
     return new Intl.NumberFormat(this._locale, {
       minimumFractionDigits: digits,
       maximumFractionDigits: digits,
@@ -88,7 +91,8 @@ class SfmlCard extends HTMLElement {
   }
 
   _kwh(value) {
-    const v = Number(value) || 0;
+    const v = numberOrNull(value);
+    if (v == null) return "–";
     return `${this._num(v, v >= 100 ? 0 : v >= 10 ? 1 : 2)} kWh`;
   }
 
@@ -538,7 +542,7 @@ class SfmlCard extends HTMLElement {
     `;
     this.shadowRoot.querySelector(".title-text").textContent = this._config.title || this._t("title");
     this.shadowRoot.querySelector(".brand-icon").src = SFML_BRAND_ICON;
-    this.shadowRoot.querySelector(".tagline").textContent = this._t("tagline");
+    this.shadowRoot.querySelector(".tagline").textContent = this._t("tagline") + " · Powered by Solar Forecast ML by Zara-Toorox";
     this.shadowRoot.querySelector(".brand-link").href = SFML_BRAND_URL[this._lang];
     this.shadowRoot.querySelector(".state").textContent = this._t("loading");
     this.container = this.shadowRoot.querySelector(".body");
@@ -547,32 +551,9 @@ class SfmlCard extends HTMLElement {
 
   async updateData() {
     if (!this._hass || !this.container) return;
-
-    const now = Date.now();
-    const needHourly = !this._hourlyAt || now - this._hourlyAt > SFML_HOURLY_REFRESH_MS;
-
-    try {
-      const [summary, energyFlow, solar] = await Promise.all([
-        this._hass.callApi("GET", "sfml_stats/summary"),
-        this._hass.callApi("GET", "sfml_stats/energy_flow"),
-        needHourly
-          ? this._hass.callApi("GET", "sfml_stats/solar?days=1&hourly=true").catch(() => null)
-          : Promise.resolve(null),
-      ]);
-
-      if (!summary || !energyFlow) {
-        if (!this._rendered) this._showState(this._t("error"));
-        return;
-      }
-      if (solar) {
-        this._hourly = solar.data?.hourly || [];
-        this._hourlyAt = now;
-      }
-      this.render(summary, energyFlow);
-    } catch (err) {
-      console.error("SFML Card fetch error:", err);
-      if (!this._rendered) this._showState(this._t("error"));
-    }
+    const snapshot = forecastSnapshot(this._hass, this._config);
+    this._hourly = snapshot.hourly;
+    this.render(snapshot.summary, snapshot.energyFlow);
   }
 
   _showState(text) {
@@ -581,16 +562,16 @@ class SfmlCard extends HTMLElement {
   }
 
   render(summary, energyFlow) {
-    const todayActual = Number(energyFlow.statistics?.solar_yield_daily ?? summary.today?.production ?? 0);
-    const todayForecast = Number(summary.today?.forecast ?? 0);
-    const tomorrowForecast = Number(summary.today?.forecast_tomorrow ?? 0);
-    const accuracy = Number(summary.today?.accuracy ?? 0);
+    const todayActual = numberOrNull(energyFlow.statistics?.solar_yield_daily ?? summary.today?.production);
+    const todayForecast = numberOrNull(summary.today?.forecast);
+    const tomorrowForecast = numberOrNull(summary.today?.forecast_tomorrow);
+    const accuracy = numberOrNull(summary.today?.accuracy);
     const peakHour = summary.today?.peak_hour;
     const livePower = energyFlow.flows?.solar_power;
     const panels = energyFlow.panels || [];
     const currentHour = summary.time_context?.current_hour ?? energyFlow.time_context?.current_hour;
 
-    const ratio = todayForecast > 0 ? todayActual / todayForecast : 0;
+    const ratio = todayForecast > 0 && todayActual != null ? todayActual / todayForecast : 0;
     const pct = Math.round(ratio * 100);
 
     if (livePower != null && livePower > 0) {
@@ -613,9 +594,9 @@ class SfmlCard extends HTMLElement {
         <div class="groups">
           <div class="groups-title">${this._t("groups")}</div>
           ${panels.map((p) => {
-            const power = Number(p.power) || 0;
+            const power = numberOrNull(p.power);
             const max = Math.max(Number(p.max_today) || 0, power, 1);
-            const width = Math.round((power / max) * 100);
+            const width = power == null ? 0 : Math.round((power / max) * 100);
             const kwh = p.actual_today_kwh;
             return `
               <div class="group">

@@ -1206,6 +1206,9 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         async_shutdown_database_service,
     )
 
+    from .fork_frontend import async_setup_frontend
+
+    await async_setup_frontend(hass)
     hass.data.setdefault(DOMAIN, {})
     await async_setup_database_service(
         hass,

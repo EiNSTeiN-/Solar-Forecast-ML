@@ -1,3 +1,26 @@
+> **EiNSTeiN- personal fork — V50.0.1-einstein.1**
+>
+> Powered by Solar Forecast ML by Zara-Toorox.
+>
+> This fork repairs remote Lovelace card loading through an HTTP proxy. The
+> cards use authenticated Home Assistant entity data and preserve missing
+> values. The weather card shows the selected Home Assistant weather entity;
+> protected STATS radiation/astronomy diagnostics are not reproduced.
+>
+> Multi-bank forecasting is **not implemented** in this release. See the
+> [source audit and implementation plan](docs/MULTI_BANK_FEASIBILITY.md).
+> The existing forecasting engine remains based on upstream V50.0.0.
+>
+> Install this fork as a HACS custom integration repository:
+> `EiNSTeiN-/Solar-Forecast-ML`. Preserve the existing `solar_forecast_ml`
+> configuration entry when replacing the upstream HACS download.
+> New resources are published automatically after Core starts. Refresh the
+> browser after installing so it loads the updated resource URLs.
+>
+> For forecast readiness, configure the warning card with `mode: status` and
+> `entity: sensor.solar_forecast_ml_system_status`. The weather card accepts
+> `weather_entity: weather.your_weather_entity`.
+
 <p align="center">
   <img src="custom_components/solar_forecast_ml/brand/logo@2x.png" alt="Solar Forecast ML" width="180">
 </p>

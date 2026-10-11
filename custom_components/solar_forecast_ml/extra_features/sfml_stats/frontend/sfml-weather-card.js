@@ -1,3 +1,5 @@
+import { weatherSnapshot } from "./sfml-ha-data.mjs?v=50.0.1-einstein.1";
+// Fork changes by EiNSTeiN-. Powered by Solar Forecast ML by Zara-Toorox.
 // SFML Solar Weather Lovelace Card
 // (C) 2026 Zara-Toorox
 
@@ -8,7 +10,7 @@ const WEATHER_BRAND_URL = { de: "https://www.solarforecastml.com/de/", en: "http
 const WEATHER_TEXT = {
   de: {
     title: "Solarwetter",
-    tagline: "Lokal korrigierte Wetterprognose",
+    tagline: "Wetter aus Home Assistant",
     potential: { good: "Solarpotenzial hoch", medium: "Solarpotenzial mittel", poor: "Solarpotenzial gering" },
     feels: "Gefühlt {v}",
     dayLength: "Tageslänge {v}",
@@ -35,7 +37,7 @@ const WEATHER_TEXT = {
   },
   en: {
     title: "Solar weather",
-    tagline: "Locally corrected weather forecast",
+    tagline: "Weather from Home Assistant",
     potential: { good: "High solar potential", medium: "Medium solar potential", poor: "Low solar potential" },
     feels: "Feels like {v}",
     dayLength: "Day length {v}",
@@ -676,7 +678,7 @@ class SfmlWeatherCard extends HTMLElement {
     `;
     this.shadowRoot.querySelector(".title-text").textContent = this._config.title || this._t("title");
     this.shadowRoot.querySelector(".brand-icon").src = WEATHER_BRAND_ICON;
-    this.shadowRoot.querySelector(".tagline").textContent = this._t("tagline");
+    this.shadowRoot.querySelector(".tagline").textContent = this._t("tagline") + " · Powered by Solar Forecast ML by Zara-Toorox";
     this.shadowRoot.querySelector(".brand-link").href = WEATHER_BRAND_URL[this._lang];
     this.shadowRoot.querySelector(".state").textContent = this._t("loading");
     this.container = this.shadowRoot.querySelector(".body");
@@ -686,7 +688,7 @@ class SfmlWeatherCard extends HTMLElement {
   async updateData() {
     if (!this._hass || !this.container) return;
     try {
-      const data = await this._hass.callApi("GET", "sfml_stats/weather/dashboard");
+      const data = weatherSnapshot(this._hass, this._config);
       if (!data || !data.success) {
         if (!this._rendered) this._showState(this._t("error"));
         return;

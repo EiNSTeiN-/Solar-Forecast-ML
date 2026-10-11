@@ -1,3 +1,4 @@
+// Fork changes by EiNSTeiN-. Powered by Solar Forecast ML by Zara-Toorox.
 // SFML Weather Warning Lovelace Card
 // (C) 2026 Zara-Toorox
 
@@ -616,7 +617,7 @@ class SfmlWarningCard extends HTMLElement {
     `;
     this.shadowRoot.querySelector(".title-text").textContent = this._config.title || this._t("title");
     this.shadowRoot.querySelector(".brand-icon").src = WARNING_BRAND_ICON;
-    this.shadowRoot.querySelector(".tagline").textContent = this._t("tagline");
+    this.shadowRoot.querySelector(".tagline").textContent = (this._config.mode === "status" ? "Solar Forecast ML status" : this._t("tagline")) + " · Powered by Solar Forecast ML by Zara-Toorox";
     this.shadowRoot.querySelector(".brand-link").href = WARNING_BRAND_URL[this._lang];
     this.shadowRoot.querySelector(".state").textContent = this._t("loading");
     this.container = this.shadowRoot.querySelector(".body");
@@ -626,6 +627,18 @@ class SfmlWarningCard extends HTMLElement {
   render() {
     if (!this.container || !this._hass) return;
     const now = Date.now();
+
+    if (this._config.mode === "status") {
+      this.countChip.hidden = true;
+      const state = this._stateObj;
+      const status = state?.state || "unavailable";
+      const missing = ["unavailable", "unknown"].includes(status);
+      const action = missing ? "Forecast telemetry is unavailable." : state.attributes?.action || status;
+      const healthy = status === "ok";
+      const icon = healthy ? "mdi:check-circle-outline" : missing ? "mdi:cloud-off-outline" : "mdi:progress-clock";
+      this.container.innerHTML = `<div class="state"><ha-icon icon="${icon}"></ha-icon><p>${this._escape(action)}</p></div>`;
+      return;
+    }
 
     if (!this._stateObj) {
       this.countChip.hidden = true;
