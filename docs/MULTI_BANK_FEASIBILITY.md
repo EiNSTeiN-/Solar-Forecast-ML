@@ -64,9 +64,12 @@ bank-aware pipeline with explicit interfaces to the forecasting engine.
 Adding UI fields without connecting those fields to training would create
 a misleading configuration screen, so this release does not do that.
 
-Do not patch hidden coordinator attributes, decrypt PyArmor payloads,
-disable license checks, or treat an aggregate SOC as a substitute for bank
-ownership. Two isolated component instances would also need independent
+The separately authorized static source recovery effort is documented in
+[SOURCE_RECOVERY_METHODOLOGY.md](SOURCE_RECOVERY_METHODOLOGY.md). It remains
+in progress; the installed package still uses the protected engine. Avoid
+hidden coordinator attribute patches and preserve license behavior. An
+aggregate SOC cannot substitute for bank ownership. Two isolated component
+instances would also need independent
 storage, IDs and scheduled tasks; duplicating the config entry is not a
 verified solution.
 

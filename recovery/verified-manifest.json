@@ -1,0 +1,114 @@
+{
+  "comparison": "normalized bytecode under the documented whitelist",
+  "modules": [
+    {
+      "path": "core/core_panel_group_forecast.py",
+      "original_payload_sha256": "3830d381dc9f2c7a6725bff476140c1d0cd0a32d3ef7f2872cda18ea315bd641",
+      "reconstructed_source_sha256": "a332799e4cf6baeeb53754c7cc757edc71ea182fa5bf76efe51521cb1dd9467e",
+      "matched_units": 17,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "data/data_shadow_group_math.py",
+      "original_payload_sha256": "f490124f9c96f622cc2a5b8467023ada4aba237396cefe06fe5882feb055245f",
+      "reconstructed_source_sha256": "08c1c0d8a3a0bb0c503fa9f1f15edce178a6e5c02e60a05bfec52281c04f2178",
+      "matched_units": 8,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 4
+    },
+    {
+      "path": "data/schema_sql.py",
+      "original_payload_sha256": "d869f5b83237bcbad3fbc17bd9ae19cea207829c88febedbd1bf3f30dd984e7a",
+      "reconstructed_source_sha256": "ac2d0f82c2478b88ca3108c211321dbbdbd477d99d9e614fe09d7fdd5e6aa65a",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/grid_price_monitor/license/policy.py",
+      "original_payload_sha256": "e43d486fbfe651e02e8ca84643faf823b7fd847eb7adc3138b452690c116c56c",
+      "reconstructed_source_sha256": "cdffcf50bb8911984a71b85e37a489545c722c499ca61c6256733edf3df7e9a6",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/factory.py",
+      "original_payload_sha256": "f1696fc6d12306c24b79551e8b9ce0146954f736830cfe00df3841b4a5fc6c67",
+      "reconstructed_source_sha256": "f9a90ffc70bfeb595458e3f98191aff8111141e6ae13cd09459c290d692d4443",
+      "matched_units": 17,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/sfml_stats/core/consumer_atlas.py",
+      "original_payload_sha256": "e8389ca80b015ea5ed21c7da549c8bd78a5c5462a82f5862089146fe9f563949",
+      "reconstructed_source_sha256": "46e6a66cde52782b8830f79a0b75eb2f10328122aae312a3899db8f55a7257bc",
+      "matched_units": 24,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/sfml_stats/core/grid_split.py",
+      "original_payload_sha256": "e9df7bb22dd22f34388e42869b61f6caae64db0a15df0412dc605f6f3217785a",
+      "reconstructed_source_sha256": "00d4ff7bef6733e1f2bb08c9cae2087a6cfbc187472cc6c42725cdc75a0800d4",
+      "matched_units": 19,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/license/policy.py",
+      "original_payload_sha256": "2471b9a97b730d6f552d3966e5963bdf2fee2216d1d815c4274a776108e5bdae",
+      "reconstructed_source_sha256": "cdffcf50bb8911984a71b85e37a489545c722c499ca61c6256733edf3df7e9a6",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/ai/__init__.py",
+      "original_payload_sha256": "2d3da2ae031b0553a310b509277e2e27a74b0a1cf3fdff047395eee6907416c8",
+      "reconstructed_source_sha256": "e6f7476dd382787ea195b9627ec8b89bbecada79f68caba3221662c85c40f3e4",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "physics/poa_beam.py",
+      "original_payload_sha256": "0cda75b78d6291d03197edf9d9b6146020fff6ab2c378bc00ec09695bc8b423b",
+      "reconstructed_source_sha256": "c998018cd0de4f223cbaf2a78fb8b6b079a1af22c248810d9fbcee04aa2bb3bd",
+      "matched_units": 21,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "production/production_rest_of_day_uplift.py",
+      "original_payload_sha256": "6cf6ffa4425b2c5279c62a76061826fed4f321ee1578f6d535f8426cd2179f59",
+      "reconstructed_source_sha256": "c66fe37439fbbeae4bf9b8bc57c05940eee823b9c29d476356109a75f113e6cc",
+      "matched_units": 5,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    },
+    {
+      "path": "sensors/conservative_planning.py",
+      "original_payload_sha256": "92b21c792e436ec5ebb69d5a46e78003cfc949f9d417739bf54daa2f916155e2",
+      "reconstructed_source_sha256": "3d737d2713cf0e7040342cfe0cdf8cf80dd181e77f7ce042f36a69733731275e",
+      "matched_units": 25,
+      "all_units_match": true,
+      "readability_refactored": false,
+      "behavior_tests": 0
+    }
+  ],
+  "complete_goal": false
+}

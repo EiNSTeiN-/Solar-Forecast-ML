@@ -1,0 +1,1673 @@
+{
+  "attribution": "Powered by Solar Forecast ML by Zara-Toorox",
+  "source_commit": "ea3d8fb2af5ec07a4f35078f2eeb7224dda99ef6",
+  "scope": "All protected payloads, including bundled companion integrations",
+  "files": [
+    {
+      "path": "ai/ai_drift_monitor.py",
+      "scope": "main",
+      "sha256": "ec0249afa7959526b7eed1c39ebc5110f1eb54387faf8ca373643dc0328a6141",
+      "bytes": 197267
+    },
+    {
+      "path": "ai/ai_feature_engineering.py",
+      "scope": "main",
+      "sha256": "e24d6a9c5362c25e7fd6c3cc5a9e5884bd334af6197c5fd994e19c5976499f0d",
+      "bytes": 68400
+    },
+    {
+      "path": "ai/ai_feature_importance.py",
+      "scope": "main",
+      "sha256": "52699fb1ea99e95b35461705beb17114bb40858310ee0a62389be7179926ac79",
+      "bytes": 61743
+    },
+    {
+      "path": "ai/ai_grid_search.py",
+      "scope": "main",
+      "sha256": "1ce73d6de5d2591b365a10a72bae057c459ea00bf96c2c10c74196a3c4791fe4",
+      "bytes": 76509
+    },
+    {
+      "path": "ai/ai_model_promotion.py",
+      "scope": "main",
+      "sha256": "bf5e69170b88244cc374b88c25dd92ec0b18f1f00eda08bbb2399d5b1b037785",
+      "bytes": 232444
+    },
+    {
+      "path": "ai/ai_model_reaction.py",
+      "scope": "main",
+      "sha256": "b14f15014a19c70e743f232a35cb58f1c661d5df29055d08e237b09456050ace",
+      "bytes": 18157
+    },
+    {
+      "path": "ai/ai_predictor.py",
+      "scope": "main",
+      "sha256": "e420e1fa001f5a20db5e029ab78c5e82e4c82c1f0701194be1f6856a47493855",
+      "bytes": 573318
+    },
+    {
+      "path": "ai/ai_tiny_lstm.py",
+      "scope": "main",
+      "sha256": "d942a617cdb2b37ea28f22b33840952612c1faee397f15128ccf3d4036b3674e",
+      "bytes": 190122
+    },
+    {
+      "path": "ai/ai_tiny_ridge.py",
+      "scope": "main",
+      "sha256": "6b52521a09b6261d1bfafd1d9c7ead01251796c28216149d059530b3dc1991c2",
+      "bytes": 121620
+    },
+    {
+      "path": "ai/ai_weather_mlp.py",
+      "scope": "main",
+      "sha256": "01eb77a929d1146ab2ed1f3e6a233ba78a59472e54d5b8a45e49b579db3c1695",
+      "bytes": 131268
+    },
+    {
+      "path": "astronomy/astronomy_cache.py",
+      "scope": "main",
+      "sha256": "288df6f2e4a94773de19f7979eca341566a373c67360c3a52b8ffa95d2450679",
+      "bytes": 109830
+    },
+    {
+      "path": "astronomy/astronomy_cache_manager.py",
+      "scope": "main",
+      "sha256": "a67e691e81ae51c5cd21050bfa6869e5be9062f683e5afa06c6756ee8491767a",
+      "bytes": 46649
+    },
+    {
+      "path": "astronomy/max_peak_tracker.py",
+      "scope": "main",
+      "sha256": "dcec91e6e5fc0f151d11956a45cb62a614e50f22879ff2721f0f60c8aa48be45",
+      "bytes": 31115
+    },
+    {
+      "path": "coordinator.py",
+      "scope": "main",
+      "sha256": "2518b2305598b36a838eb2c747823bb0949c963e0a77462eedd09e2c40412218",
+      "bytes": 290517
+    },
+    {
+      "path": "core/core_artifact_crypto.py",
+      "scope": "main",
+      "sha256": "c2efd54390bc811bf883c48538f95843efa20a3761eafc085451039a588a44f8",
+      "bytes": 47788
+    },
+    {
+      "path": "core/core_coordinator_helpers.py",
+      "scope": "main",
+      "sha256": "426d6381107cdc95aa6e5f2f084672b97a999dc81f49028df1d8211b9c4c09fc",
+      "bytes": 26214
+    },
+    {
+      "path": "core/core_coordinator_init_helpers.py",
+      "scope": "main",
+      "sha256": "1c2c6d2cce65c1d6a392a875e056547ca9f6c8642b4549508824066e6bdb8d37",
+      "bytes": 25331
+    },
+    {
+      "path": "core/core_coordinator_update_helpers.py",
+      "scope": "main",
+      "sha256": "e6f8da7e604ba970398353f25fd329315f52229bfb1e81f5abba427019cda483",
+      "bytes": 72466
+    },
+    {
+      "path": "core/core_dependency_handler.py",
+      "scope": "main",
+      "sha256": "8329eed0f0b9724aa2013a62b34f689dca7446c4a7dfce4f6e1776ffce7d7e3d",
+      "bytes": 32338
+    },
+    {
+      "path": "core/core_dev_mode.py",
+      "scope": "main",
+      "sha256": "8afe8e4d9253cb12af5213809965f583ce8e77f9ca4c6cc84fb60d78eeec0fb3",
+      "bytes": 123091
+    },
+    {
+      "path": "core/core_helpers.py",
+      "scope": "main",
+      "sha256": "97a3c92509aa7c25da72321febbd0112cce45783d49800fefe5bd8498e110a15",
+      "bytes": 45679
+    },
+    {
+      "path": "core/core_hubble.py",
+      "scope": "main",
+      "sha256": "dd0d5dbbf810425d042a05e6e16f21cdd6c8cea1f74f0c1b1ad5a8608cdd6398",
+      "bytes": 23341
+    },
+    {
+      "path": "core/core_panel_group_forecast.py",
+      "scope": "main",
+      "sha256": "3830d381dc9f2c7a6725bff476140c1d0cd0a32d3ef7f2872cda18ea315bd641",
+      "bytes": 27693
+    },
+    {
+      "path": "core/core_shadow_forecast.py",
+      "scope": "main",
+      "sha256": "60387f76829d7e3c33a5c8ecb9d25a7f2cd8ffbb27ed9e273134d6df3f396738",
+      "bytes": 32291
+    },
+    {
+      "path": "core/core_startup_data_resolver.py",
+      "scope": "main",
+      "sha256": "70688d62290218d263ad910d8c2e9268d32ff9fea99906ec72da10c4d61c997c",
+      "bytes": 74014
+    },
+    {
+      "path": "data/data_daily_summaries.py",
+      "scope": "main",
+      "sha256": "a054befbce27195265759ece07a36da0acb95ad31e1110cd9513a05117a956f4",
+      "bytes": 204338
+    },
+    {
+      "path": "data/data_ensemble_shadow.py",
+      "scope": "main",
+      "sha256": "faec71737d6b838db6d35e300a820226e1e790e0a71c639adb2a61fb63b4e84e",
+      "bytes": 139577
+    },
+    {
+      "path": "data/data_forecast_handler.py",
+      "scope": "main",
+      "sha256": "4b8087292cd8252af09e1ef739b5cd436d058b86719483526ff9e593ff74abd4",
+      "bytes": 132233
+    },
+    {
+      "path": "data/data_frost_detection.py",
+      "scope": "main",
+      "sha256": "d8849ad59a3a8b825579ad6fbaa6938a7fd1dd30ab9a68af4a7a712236096952",
+      "bytes": 88634
+    },
+    {
+      "path": "data/data_hourly_predictions.py",
+      "scope": "main",
+      "sha256": "6a4b945604a9e7053c5928c8b2b382eb23b13ad7783ab742c8747f0edb9fb6bd",
+      "bytes": 236575
+    },
+    {
+      "path": "data/data_learning_filter.py",
+      "scope": "main",
+      "sha256": "9bb609aa69f6e964d21a0997b2fe9fde5366650d63ac302faf5ee0b82340e7c3",
+      "bytes": 123257
+    },
+    {
+      "path": "data/data_manager.py",
+      "scope": "main",
+      "sha256": "3680cee06af38f1d079f19da7d08f991b4aab87e8a8590ecef5a9c28203ff7a8",
+      "bytes": 230493
+    },
+    {
+      "path": "data/data_ml_handler.py",
+      "scope": "main",
+      "sha256": "e0c9ad203e3bd7496216b84761cb3c307906c722b0fc427a6af54bb38faf57c5",
+      "bytes": 85892
+    },
+    {
+      "path": "data/data_model_candidate_shadow.py",
+      "scope": "main",
+      "sha256": "6ecd812f4bdf4528cc6b6f919a32fa2c5eacb4a7196b7a6c7f52f82f5dcecb0a",
+      "bytes": 216681
+    },
+    {
+      "path": "data/data_model_promotion_policy.py",
+      "scope": "main",
+      "sha256": "af8b958c4086471d9ffcf399d350e65fa5bd95429fe37ec8d9b231e1de800422",
+      "bytes": 33769
+    },
+    {
+      "path": "data/data_open_meteo_client.py",
+      "scope": "main",
+      "sha256": "8b15ed3198b12396ee3a6d46a9f71ab9a2495700452adf40bf1b40ad8093bd7e",
+      "bytes": 244106
+    },
+    {
+      "path": "data/data_operational_forecast_handler.py",
+      "scope": "main",
+      "sha256": "273cb1bd1e60a3719f82b7f6d6a85bd11e51d108b6053ea9b8f74dc9a4b31f0e",
+      "bytes": 182872
+    },
+    {
+      "path": "data/data_schema_validator.py",
+      "scope": "main",
+      "sha256": "abac49bf93bc4a96757f2114001d6b005005c3735d83367cef9303ede0a16160",
+      "bytes": 72936
+    },
+    {
+      "path": "data/data_shadow_detection.py",
+      "scope": "main",
+      "sha256": "0d9d184a48faa6469da742e6972e47413caf7301877a3a22b3326b0c12f7d338",
+      "bytes": 250078
+    },
+    {
+      "path": "data/data_shadow_group_math.py",
+      "scope": "main",
+      "sha256": "f490124f9c96f622cc2a5b8467023ada4aba237396cefe06fe5882feb055245f",
+      "bytes": 22044
+    },
+    {
+      "path": "data/data_shadow_observation.py",
+      "scope": "main",
+      "sha256": "7a107234d1d08be31fbd24e1a2893cb57d34cc5d53abaf82070f0894d39c2dbe",
+      "bytes": 56633
+    },
+    {
+      "path": "data/data_shadow_pattern_learning.py",
+      "scope": "main",
+      "sha256": "bdf00195228949dd7e27f2c19632f9493e580882df555ba16d675c1831cc6fdf",
+      "bytes": 309697
+    },
+    {
+      "path": "data/data_startup_initializer.py",
+      "scope": "main",
+      "sha256": "3f615f2f984f174ad5cd88992061d4baa8a75bb2304417b47c6c1f47d09f6c1a",
+      "bytes": 114138
+    },
+    {
+      "path": "data/data_validator.py",
+      "scope": "main",
+      "sha256": "d4c66118c6b7634461594fd834ac70684b7778c5a3a97b68d59f47958a403086",
+      "bytes": 73736
+    },
+    {
+      "path": "data/data_visibility_learner.py",
+      "scope": "main",
+      "sha256": "408bc807f0a0e752c2f013f9f2fb2f4362ccf32a761d284e05108a3aac8f9de5",
+      "bytes": 93745
+    },
+    {
+      "path": "data/data_weather_actual_tracker.py",
+      "scope": "main",
+      "sha256": "4b275584c4d53698ee4469afc4c03a606583a7bdb674bf4bc681849b2b4eb264",
+      "bytes": 331610
+    },
+    {
+      "path": "data/data_weather_corrector.py",
+      "scope": "main",
+      "sha256": "2b4eab9aba347fdaf8209e199369b1e46481b465ed103dacdcb4a7ea661ff399",
+      "bytes": 220085
+    },
+    {
+      "path": "data/data_weather_expert_blender.py",
+      "scope": "main",
+      "sha256": "e80f53b1d005096304abacc8ad0f665a6c82304720cd1cae1fe37c2eacfd4ff1",
+      "bytes": 313696
+    },
+    {
+      "path": "data/data_weather_kalman.py",
+      "scope": "main",
+      "sha256": "09f02ca65ed6a0541751f72168659d548538a38bfd7d6d77e25c96921437c902",
+      "bytes": 35610
+    },
+    {
+      "path": "data/data_weather_pipeline_manager.py",
+      "scope": "main",
+      "sha256": "2c48ef0ec994252005081675d581b182d7a26ea58011fccf54b089c1b7e7de5b",
+      "bytes": 133442
+    },
+    {
+      "path": "data/data_weather_precision.py",
+      "scope": "main",
+      "sha256": "357bb24551d8d947646f35cd384c737a22ef0218ee5c93e74aadddc21826ffab",
+      "bytes": 193474
+    },
+    {
+      "path": "data/data_weather_radiation_ensemble.py",
+      "scope": "main",
+      "sha256": "31401d9e63215a8f4ed707ab39e5a2ad210a81fa301b1fb0ba4a3e67e31a7fd3",
+      "bytes": 150372
+    },
+    {
+      "path": "data/db_manager.py",
+      "scope": "main",
+      "sha256": "88c8537bea71fce990fe0cd9577cd77d81b45da2fc5b0dba8614c84d46dabb8d",
+      "bytes": 2907028
+    },
+    {
+      "path": "data/json_migration.py",
+      "scope": "main",
+      "sha256": "1acfb273a215e2c3a37d8908ea2b4cfbc5ec22312596f2a61888b71ef09cb7a8",
+      "bytes": 549773
+    },
+    {
+      "path": "data/schema_sql.py",
+      "scope": "main",
+      "sha256": "d869f5b83237bcbad3fbc17bd9ae19cea207829c88febedbd1bf3f30dd984e7a",
+      "bytes": 376847
+    },
+    {
+      "path": "data/sfml_weather_provider.py",
+      "scope": "main",
+      "sha256": "4cebb6344ab63f70e1fdf7c9fa803206dbc325568a00f41203bc000a70b7a62d",
+      "bytes": 111888
+    },
+    {
+      "path": "data/weather_types.py",
+      "scope": "main",
+      "sha256": "2ddf6e28e62d1b9b494ab8bfee8f1d468cb0ce317900581b37690ec6efd374b8",
+      "bytes": 39196
+    },
+    {
+      "path": "extra_features/grid_price_monitor/coordinator.py",
+      "scope": "grid_price_monitor",
+      "sha256": "620fc026b87da073eb1e9f641d0aa514aca681f0232dda2903bb92273d7aa900",
+      "bytes": 290918
+    },
+    {
+      "path": "extra_features/grid_price_monitor/core/battery_tracker.py",
+      "scope": "grid_price_monitor",
+      "sha256": "6e002bceaf1e81cdd3bf97d1ef74e991cba7abe3b2840ec625f28f11316a4860",
+      "bytes": 60613
+    },
+    {
+      "path": "extra_features/grid_price_monitor/core/calculator.py",
+      "scope": "grid_price_monitor",
+      "sha256": "c6b75fb7089efe7c9064e56072859ced76fb2052d1277aa67dd97c8edb30c537",
+      "bytes": 51368
+    },
+    {
+      "path": "extra_features/grid_price_monitor/core/price_service.py",
+      "scope": "grid_price_monitor",
+      "sha256": "f565753f1ba28ace69ca8ccb11801e83ff81872d8631cffa8c88d6474d5dc131",
+      "bytes": 67729
+    },
+    {
+      "path": "extra_features/grid_price_monitor/core/thresholds.py",
+      "scope": "grid_price_monitor",
+      "sha256": "927c4f00a751b79bf2e82ccc39a9960e314220aa382ef258d51ca174da4c740a",
+      "bytes": 37889
+    },
+    {
+      "path": "extra_features/grid_price_monitor/license/codec.py",
+      "scope": "grid_price_monitor",
+      "sha256": "b5fc6ec1249a68085374f357c6721d99db88b1cb54fdd6674cab353656fd1c61",
+      "bytes": 13347
+    },
+    {
+      "path": "extra_features/grid_price_monitor/license/entitlements.py",
+      "scope": "grid_price_monitor",
+      "sha256": "94dba93bd0975aa93438d7e7dc484d9c5d56ad2c3f6881897ae75daab686e57a",
+      "bytes": 58468
+    },
+    {
+      "path": "extra_features/grid_price_monitor/license/policy.py",
+      "scope": "grid_price_monitor",
+      "sha256": "e43d486fbfe651e02e8ca84643faf823b7fd847eb7adc3138b452690c116c56c",
+      "bytes": 3051
+    },
+    {
+      "path": "extra_features/grid_price_monitor/license/validator.py",
+      "scope": "grid_price_monitor",
+      "sha256": "f88b506c4b10489f88d7623f34e3d001c40bb8bb10158c9e3be2a940bc89d01f",
+      "bytes": 38977
+    },
+    {
+      "path": "extra_features/grid_price_monitor/storage/demo_persist.py",
+      "scope": "grid_price_monitor",
+      "sha256": "aeeb37588e7cef37687e631ee145b709287ede076f9ddb889cf7293ef2b54c01",
+      "bytes": 14671
+    },
+    {
+      "path": "extra_features/grid_price_monitor/storage/history_manager.py",
+      "scope": "grid_price_monitor",
+      "sha256": "2e980ef1b6be229890b471299699711e9bcbf1819cc3d52cb7de8e8445d1c594",
+      "bytes": 68729
+    },
+    {
+      "path": "extra_features/grid_price_monitor/storage/price_cache.py",
+      "scope": "grid_price_monitor",
+      "sha256": "58dabfc7a14a0819dc3650732fa0aefae09619ee66b8612f78c6f8f2558774ea",
+      "bytes": 56652
+    },
+    {
+      "path": "extra_features/grid_price_monitor/storage/price_writer.py",
+      "scope": "grid_price_monitor",
+      "sha256": "48de04a4e4f32fc6f2aad02689f15f8861ba3f8c6e00a9001cddffd1f5575ca5",
+      "bytes": 66478
+    },
+    {
+      "path": "extra_features/grid_price_monitor/storage/statistics_store.py",
+      "scope": "grid_price_monitor",
+      "sha256": "abcaac9b6da947641b59551ca6e9ba37b04949e812fdcfe5caba6985a5779449",
+      "bytes": 64979
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/awattar.py",
+      "scope": "grid_price_monitor",
+      "sha256": "5ed5afb546db5355b6f0541cf92b763e21585121805dc8f90ee9df308efeb92e",
+      "bytes": 19446
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/corrections.py",
+      "scope": "grid_price_monitor",
+      "sha256": "72409d15fe330dbbd148c8288705f27a47385033adb08e3d00288939e2c239b9",
+      "bytes": 141177
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/csv_community.py",
+      "scope": "grid_price_monitor",
+      "sha256": "08f8d80a4278f204db780192e71dbfd58270d50af6d48b4fe48cd4a41ca6b2ed",
+      "bytes": 8567
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/csv_import.py",
+      "scope": "grid_price_monitor",
+      "sha256": "2e5cc9dd2988a01f0fbcc0eb1896efff17e9875bec5d56356a42fbf67c9d7b43",
+      "bytes": 120477
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/demo.py",
+      "scope": "grid_price_monitor",
+      "sha256": "18c661d4cfe2cbf1f2c67479db13b1aabe1ac245d46195dd10e24aa7aca304bc",
+      "bytes": 11666
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/factory.py",
+      "scope": "grid_price_monitor",
+      "sha256": "f1696fc6d12306c24b79551e8b9ce0146954f736830cfe00df3841b4a5fc6c67",
+      "bytes": 29186
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/fixed.py",
+      "scope": "grid_price_monitor",
+      "sha256": "19ff1b5f4419dba3fbb250721fa171f0525f08ac47a2da0ac0d94e85dfb5d49e",
+      "bytes": 9607
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/time_of_use.py",
+      "scope": "grid_price_monitor",
+      "sha256": "1dcf5a0f53d6483890ee876fb460a41e592e322ad4f0143c608d9e6f6a186668",
+      "bytes": 25451
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/time_windows.py",
+      "scope": "grid_price_monitor",
+      "sha256": "a9a56141a44c9db61cb727d8a17e10874d390c3e237e36a46ebdee3c23d13093",
+      "bytes": 25530
+    },
+    {
+      "path": "extra_features/sfml_stats/api/billing_views.py",
+      "scope": "sfml_stats",
+      "sha256": "8a25500c7ef8ab78d315b831b4c1692f227e83c74e0f9ff17c61c241dc3e477a",
+      "bytes": 175532
+    },
+    {
+      "path": "extra_features/sfml_stats/api/common.py",
+      "scope": "sfml_stats",
+      "sha256": "454f6baf4ee1003a7f057d449c2721b028e87356d04214ca9a79e0db2b65c59c",
+      "bytes": 200803
+    },
+    {
+      "path": "extra_features/sfml_stats/api/consumer_views.py",
+      "scope": "sfml_stats",
+      "sha256": "e74c02e755a7b418d3057d444a53e89b9ba651e6d84587eb9481ce27158e9e1f",
+      "bytes": 207741
+    },
+    {
+      "path": "extra_features/sfml_stats/api/context.py",
+      "scope": "sfml_stats",
+      "sha256": "682ce481e0dce0e22fade18647ac954cc806f88a140053c7aa6f3cb4268fb614",
+      "bytes": 3094
+    },
+    {
+      "path": "extra_features/sfml_stats/api/corrections.py",
+      "scope": "sfml_stats",
+      "sha256": "62ade2a416669cc13fe2daa3df26d503286abf57b2e7f80ecc0ab56cc373024a",
+      "bytes": 118481
+    },
+    {
+      "path": "extra_features/sfml_stats/api/dev_mode_views.py",
+      "scope": "sfml_stats",
+      "sha256": "7b3834239b505a4f7f619484d284db6cba893ef01f6e0e85a37f9d2944a665f2",
+      "bytes": 33450
+    },
+    {
+      "path": "extra_features/sfml_stats/api/eai.py",
+      "scope": "sfml_stats",
+      "sha256": "fd2b568b8a7f24855b7ba0e1e998a3a47054e17449a04ddfa5baa2ecf294ed9d",
+      "bytes": 109285
+    },
+    {
+      "path": "extra_features/sfml_stats/api/ems.py",
+      "scope": "sfml_stats",
+      "sha256": "d5bd97d3b44e290026dc15e36c3b802a245e4e0dbc8ece72360548c377a11390",
+      "bytes": 63946
+    },
+    {
+      "path": "extra_features/sfml_stats/api/export_views.py",
+      "scope": "sfml_stats",
+      "sha256": "723e0cf9a01b02a28a62c09774f829dd24b1be5709c9c6b45e93d2f3854b984b",
+      "bytes": 160123
+    },
+    {
+      "path": "extra_features/sfml_stats/api/frontend_views.py",
+      "scope": "sfml_stats",
+      "sha256": "b285ad4058c8a88da702b00e3200a0b6e81514bb4a878119e7cca62ed3fb55a2",
+      "bytes": 82592
+    },
+    {
+      "path": "extra_features/sfml_stats/api/gpm.py",
+      "scope": "sfml_stats",
+      "sha256": "c78b6c93835395699ec4c9167a7cc6280f090d9f1cd943641c56e32629bb0bac",
+      "bytes": 377998
+    },
+    {
+      "path": "extra_features/sfml_stats/api/gpm_monthly.py",
+      "scope": "sfml_stats",
+      "sha256": "692c1940e2de0929397834f9df05e41a1db1c223ce51a7717066b8dcb20137d9",
+      "bytes": 112259
+    },
+    {
+      "path": "extra_features/sfml_stats/api/heating.py",
+      "scope": "sfml_stats",
+      "sha256": "227e7264c1d497c546b32edb7b1f6ef1f83300dd8b454cff4b44d20e51ec3f18",
+      "bytes": 108402
+    },
+    {
+      "path": "extra_features/sfml_stats/api/hubble.py",
+      "scope": "sfml_stats",
+      "sha256": "6fa0ba6b9ea3e394708de4f1e5b50ca3e61388111c18bc2b1adf36bf8432a079",
+      "bytes": 85720
+    },
+    {
+      "path": "extra_features/sfml_stats/api/modern.py",
+      "scope": "sfml_stats",
+      "sha256": "797ab9e7c0e86c630d34be3d79457f8f71f846c087d626e8b2b1f4ffbd8a855a",
+      "bytes": 69666
+    },
+    {
+      "path": "extra_features/sfml_stats/api/modern_weather_energy.py",
+      "scope": "sfml_stats",
+      "sha256": "29a263a77ab64b7d33325673afb1830101f19e7b3ff9fcc0ccf1df439cd2c4d1",
+      "bytes": 32726
+    },
+    {
+      "path": "extra_features/sfml_stats/api/premium_dashboard.py",
+      "scope": "sfml_stats",
+      "sha256": "f663857376e435d1bfb4c7d5b93765a603c43124f4a37dbf1549c44f27b263f5",
+      "bytes": 124284
+    },
+    {
+      "path": "extra_features/sfml_stats/api/settings_views.py",
+      "scope": "sfml_stats",
+      "sha256": "c3fad5e7706fafaf9e4b413f9daef3ed940254c6e389fd436cbdf99f581487f3",
+      "bytes": 140749
+    },
+    {
+      "path": "extra_features/sfml_stats/api/shadow_views.py",
+      "scope": "sfml_stats",
+      "sha256": "a30878f6082ecf2dd875e9046b962b28994c59d2dc7a646422b3e71aac0801d0",
+      "bytes": 112656
+    },
+    {
+      "path": "extra_features/sfml_stats/api/smart_charging.py",
+      "scope": "sfml_stats",
+      "sha256": "eb66bdcb128893626b7221e231e9e53852b4eab6c179da0108c52531adf1b8f9",
+      "bytes": 120436
+    },
+    {
+      "path": "extra_features/sfml_stats/api/smart_charging_dashboard.py",
+      "scope": "sfml_stats",
+      "sha256": "2ec704c766409321037222553f1c790d0ba63c284ad5e694faf8ef43564b5739",
+      "bytes": 137875
+    },
+    {
+      "path": "extra_features/sfml_stats/api/solar_views.py",
+      "scope": "sfml_stats",
+      "sha256": "d86d44b9f22fbe856448acce42a100b09de26fa81d4670fcb90ec8093a1d5b2b",
+      "bytes": 692091
+    },
+    {
+      "path": "extra_features/sfml_stats/api/statistics_views.py",
+      "scope": "sfml_stats",
+      "sha256": "c1984d1c338e5f7fef540bd2aa7029d3036053c354834909e9f95739d2550b7c",
+      "bytes": 72322
+    },
+    {
+      "path": "extra_features/sfml_stats/api/support.py",
+      "scope": "sfml_stats",
+      "sha256": "b24127ef2ab809bbc62cae9f51af72f14b641b0fec32304ae2e7167809628d0e",
+      "bytes": 90494
+    },
+    {
+      "path": "extra_features/sfml_stats/api/tomorrow.py",
+      "scope": "sfml_stats",
+      "sha256": "642aad6d1719eb89785ba215620c5b56f47556c47f38daadfcf269bb42030747",
+      "bytes": 227966
+    },
+    {
+      "path": "extra_features/sfml_stats/api/views.py",
+      "scope": "sfml_stats",
+      "sha256": "b92800d4027075a258c16baa6d4e6eb193e0761e12111b1d4dc3dbab525202ec",
+      "bytes": 29428
+    },
+    {
+      "path": "extra_features/sfml_stats/api/weather_views.py",
+      "scope": "sfml_stats",
+      "sha256": "0fac4650e42aface007ef43e00900cdf6cce24ad59e32fb82c56517af5244cab",
+      "bytes": 192622
+    },
+    {
+      "path": "extra_features/sfml_stats/api/websocket.py",
+      "scope": "sfml_stats",
+      "sha256": "8a2371ace1e434c408c0d4a6ffabf9c88d517952cb2f3dd2f2460bb7a76e02fd",
+      "bytes": 55290
+    },
+    {
+      "path": "extra_features/sfml_stats/core/amortization.py",
+      "scope": "sfml_stats",
+      "sha256": "80805e8f96b121ff8039899843687710c23170417ff7f937cf8446d67c9df9b5",
+      "bytes": 39960
+    },
+    {
+      "path": "extra_features/sfml_stats/core/battery_tracker.py",
+      "scope": "sfml_stats",
+      "sha256": "28c69855db7b9add0979eb8481d0ec4041de23d042138187d3aa74c3deedf5b9",
+      "bytes": 57564
+    },
+    {
+      "path": "extra_features/sfml_stats/core/billing.py",
+      "scope": "sfml_stats",
+      "sha256": "870d16c7fe70cdb0ebf3d0deafb29d6b0fdbd2f3c9489ac955617735038ffd37",
+      "bytes": 189995
+    },
+    {
+      "path": "extra_features/sfml_stats/core/charging_status.py",
+      "scope": "sfml_stats",
+      "sha256": "dbaac0df1ddf56d578a6eaea4f2a28c7d251b5bf779e31936ae1ee84513ae58c",
+      "bytes": 26246
+    },
+    {
+      "path": "extra_features/sfml_stats/core/consumer_atlas.py",
+      "scope": "sfml_stats",
+      "sha256": "e8389ca80b015ea5ed21c7da549c8bd78a5c5462a82f5862089146fe9f563949",
+      "bytes": 50857
+    },
+    {
+      "path": "extra_features/sfml_stats/core/corrected_energy.py",
+      "scope": "sfml_stats",
+      "sha256": "be57be3b1e8d79f033d4dda45e15175598f90b0dd38ab50d96b54fb6e0ba4efc",
+      "bytes": 250078
+    },
+    {
+      "path": "extra_features/sfml_stats/core/corrections.py",
+      "scope": "sfml_stats",
+      "sha256": "466551e596c9c809b26d1512574635ef0606c00a153eac68d134a4188c9d9198",
+      "bytes": 380444
+    },
+    {
+      "path": "extra_features/sfml_stats/core/daily_aggregator.py",
+      "scope": "sfml_stats",
+      "sha256": "1ee9f491e95575953b34853a95d37349d25bbef302f786f3f5cd1596872dcc4e",
+      "bytes": 69673
+    },
+    {
+      "path": "extra_features/sfml_stats/core/daily_costs.py",
+      "scope": "sfml_stats",
+      "sha256": "9c190cb128edcb683bf747ed8fe942943c6adc7d41cad772f44fc1dd3eac70f2",
+      "bytes": 68108
+    },
+    {
+      "path": "extra_features/sfml_stats/core/dev_mode.py",
+      "scope": "sfml_stats",
+      "sha256": "72a4e357ffcb15ec1e8a4ed61df05247467d96806aec39c0cb91f40443b7a514",
+      "bytes": 27779
+    },
+    {
+      "path": "extra_features/sfml_stats/core/eai_wp_sources.py",
+      "scope": "sfml_stats",
+      "sha256": "7f2d9debbb9c01b358d2f07bff68be3c9d456e10679a063795d69c1aed2a33cb",
+      "bytes": 45594
+    },
+    {
+      "path": "extra_features/sfml_stats/core/ems.py",
+      "scope": "sfml_stats",
+      "sha256": "a378dffb9fdb5d72cc7247e79e41c5eda6a6664e1b0c44bb1de089044acca4f1",
+      "bytes": 727450
+    },
+    {
+      "path": "extra_features/sfml_stats/core/energy_balance.py",
+      "scope": "sfml_stats",
+      "sha256": "ef8cbede81a8e46c2765710abfa438dcc1b050b07759ab7a0ecdfb28b95f58b2",
+      "bytes": 35486
+    },
+    {
+      "path": "extra_features/sfml_stats/core/energy_context.py",
+      "scope": "sfml_stats",
+      "sha256": "471ec0567088d9f1be260dfd833c6a2a325afa84b2ed2bec1a981a298c5f9939",
+      "bytes": 93795
+    },
+    {
+      "path": "extra_features/sfml_stats/core/energy_efficiency.py",
+      "scope": "sfml_stats",
+      "sha256": "9944e6dbe2bb0d9059343cfe31fb10ec39db7b2c381a01fae91a40919fe25e14",
+      "bytes": 79025
+    },
+    {
+      "path": "extra_features/sfml_stats/core/forecast_collector.py",
+      "scope": "sfml_stats",
+      "sha256": "d067c247e808fb72537b41d727bddc72d79500894120910571d093c49cf168a9",
+      "bytes": 169287
+    },
+    {
+      "path": "extra_features/sfml_stats/core/forecast_quality.py",
+      "scope": "sfml_stats",
+      "sha256": "c0fb31bac587742b4d954e7ec9e56a2e57137d66e4ee77d9252b3d6d295c083f",
+      "bytes": 140784
+    },
+    {
+      "path": "extra_features/sfml_stats/core/grid_charge_gate.py",
+      "scope": "sfml_stats",
+      "sha256": "4a6c760fd5314a767102bc9d449373a53ff74ee84fd70b97bbb65a980e565dc8",
+      "bytes": 44417
+    },
+    {
+      "path": "extra_features/sfml_stats/core/grid_import_split.py",
+      "scope": "sfml_stats",
+      "sha256": "f717a5c213880d24b9648e47f6814b591a298267323717ac5745a02d0ac71c98",
+      "bytes": 98858
+    },
+    {
+      "path": "extra_features/sfml_stats/core/grid_split.py",
+      "scope": "sfml_stats",
+      "sha256": "e9df7bb22dd22f34388e42869b61f6caae64db0a15df0412dc605f6f3217785a",
+      "bytes": 34650
+    },
+    {
+      "path": "extra_features/sfml_stats/core/grid_split_backfill.py",
+      "scope": "sfml_stats",
+      "sha256": "976ebd205361e4b795ea5fd4f151b21c28023829541c9d42f3fe26fd2edc52c8",
+      "bytes": 69464
+    },
+    {
+      "path": "extra_features/sfml_stats/core/heating.py",
+      "scope": "sfml_stats",
+      "sha256": "05a2b6cb12e529606b08e681b7dfe60853bf9ede257ab245416b0243ad0aff09",
+      "bytes": 715175
+    },
+    {
+      "path": "extra_features/sfml_stats/core/heating_model.py",
+      "scope": "sfml_stats",
+      "sha256": "4cc659d5d6b908217d02adbd35fe360505b98e64a80e9e8e3f29cf96579b0c2a",
+      "bytes": 71597
+    },
+    {
+      "path": "extra_features/sfml_stats/core/heatpump_today.py",
+      "scope": "sfml_stats",
+      "sha256": "45066af1c76486a776b775e5f1ccb6167e09950ee0b6a9d8a21b0622848c1d40",
+      "bytes": 36141
+    },
+    {
+      "path": "extra_features/sfml_stats/core/hourly_aggregator.py",
+      "scope": "sfml_stats",
+      "sha256": "590785ec27ac7c221f59c8db0e5f01d5ecbef0b0a81d33087de231441f283b62",
+      "bytes": 180941
+    },
+    {
+      "path": "extra_features/sfml_stats/core/invoice_archive.py",
+      "scope": "sfml_stats",
+      "sha256": "3b87e38aa9426e1f4b40d81ad3109805ffe1bc80449249e5e04bbdaae856a7de",
+      "bytes": 63371
+    },
+    {
+      "path": "extra_features/sfml_stats/core/power_integration.py",
+      "scope": "sfml_stats",
+      "sha256": "faa7a20d6702fb09df2c7966271b830d2053e0d1c7f06f16b5971c05cea90a3a",
+      "bytes": 35138
+    },
+    {
+      "path": "extra_features/sfml_stats/core/price_mode.py",
+      "scope": "sfml_stats",
+      "sha256": "ff10264dbad39885c188b7f49fef5427d5c7d49ab511a095897958e891fa1922",
+      "bytes": 67189
+    },
+    {
+      "path": "extra_features/sfml_stats/core/reprice.py",
+      "scope": "sfml_stats",
+      "sha256": "e527b922630a273b2b8686f682c4510b4c58a79baeabe74e15e06b0c560b2fae",
+      "bytes": 56982
+    },
+    {
+      "path": "extra_features/sfml_stats/core/shadow_context.py",
+      "scope": "sfml_stats",
+      "sha256": "dd6200155d9a08c43e3ae28e12d1c015d9bf32a051d62a1ed717f9d4f50dbb5b",
+      "bytes": 54161
+    },
+    {
+      "path": "extra_features/sfml_stats/core/smart_charging.py",
+      "scope": "sfml_stats",
+      "sha256": "a0989996f94907d63a0dd435f17ec0d6d9c2ac61a829f44001a03d3da6a1b4f1",
+      "bytes": 149350
+    },
+    {
+      "path": "extra_features/sfml_stats/core/smc_enable.py",
+      "scope": "sfml_stats",
+      "sha256": "145a82b23af7c138de1c0dfe6f19f0c1b9651a006e4a0d332a0b2fc0f58bbc08",
+      "bytes": 10394
+    },
+    {
+      "path": "extra_features/sfml_stats/core/solar_forecast_reader_gpm.py",
+      "scope": "sfml_stats",
+      "sha256": "b7ab43d5eb2762e65a3595a6b3603e6310ecd91510d5f50a20fbb858dcb4e254",
+      "bytes": 32819
+    },
+    {
+      "path": "extra_features/sfml_stats/core/support_report.py",
+      "scope": "sfml_stats",
+      "sha256": "5f6ebecff37a3e7478ddc5716794a1ffc204b87eafc887b1f2654846dd62ff19",
+      "bytes": 115331
+    },
+    {
+      "path": "extra_features/sfml_stats/core/support_submit.py",
+      "scope": "sfml_stats",
+      "sha256": "48f43e80ede1b9b18cd9f428a088a4548d901c4678c6e4c1e091364028d0e9ce",
+      "bytes": 26569
+    },
+    {
+      "path": "extra_features/sfml_stats/core/tariff_manager.py",
+      "scope": "sfml_stats",
+      "sha256": "9663f8ea869cf4f939847d6771d20da7246ed4e2bdaa0198256540264deb1697",
+      "bytes": 125431
+    },
+    {
+      "path": "extra_features/sfml_stats/core/weather_energy.py",
+      "scope": "sfml_stats",
+      "sha256": "bac30df3c7dca7c8a65b79a56ff782b9b6d492a7bf16199371373f617bc1f632",
+      "bytes": 114986
+    },
+    {
+      "path": "extra_features/sfml_stats/core/yearly_history.py",
+      "scope": "sfml_stats",
+      "sha256": "041e3aa1436571f1a9615a36b0061ae10cfccc42ac9033674c0e3afff2b8d963",
+      "bytes": 94115
+    },
+    {
+      "path": "extra_features/sfml_stats/mock/eai/scenarios.py",
+      "scope": "sfml_stats",
+      "sha256": "0e1aa1b6248634459250435ec62948cd046451b78475c24a95d905922c9c83f5",
+      "bytes": 109427
+    },
+    {
+      "path": "extra_features/sfml_stats/power_sources_collector.py",
+      "scope": "sfml_stats",
+      "sha256": "c711495d7144a453e3abaf63428c251b45adafaf3749d53978fbc1d4a55ce809",
+      "bytes": 260565
+    },
+    {
+      "path": "extra_features/sfml_stats/readers/annual_forecast_reader.py",
+      "scope": "sfml_stats",
+      "sha256": "96ee1ea0e53b4f460263910bbb22b6dead7fbdfa772aec13f9017b3e4b238797",
+      "bytes": 121183
+    },
+    {
+      "path": "extra_features/sfml_stats/readers/forecast_comparison_reader.py",
+      "scope": "sfml_stats",
+      "sha256": "f021ba95aa1035a625d88b4d442ba019e8bc594702e2cf3c166fef26a4db3651",
+      "bytes": 68789
+    },
+    {
+      "path": "extra_features/sfml_stats/readers/modern_analytics_reader.py",
+      "scope": "sfml_stats",
+      "sha256": "0a9995512dd5f959fc7d064d87fbd624e5fb0cefd18e04cbbd0d64e01f92bc92",
+      "bytes": 85588
+    },
+    {
+      "path": "extra_features/sfml_stats/readers/solar_reader.py",
+      "scope": "sfml_stats",
+      "sha256": "add62399d203deffd1a32c7aaac34f422e8211d1fd8f6c53c0464f22c64df861",
+      "bytes": 209033
+    },
+    {
+      "path": "extra_features/sfml_stats/readers/weather_energy_reader.py",
+      "scope": "sfml_stats",
+      "sha256": "14191caaadb7086818499b88bb6091d6131910f229ce9db4fa39ee09e77eb0e2",
+      "bytes": 79567
+    },
+    {
+      "path": "extra_features/sfml_stats/readers/weather_reader.py",
+      "scope": "sfml_stats",
+      "sha256": "b468ab9978fc8995fccf831374af2dcf66da0a837f092eb2ae6ad98ffcb2bfae",
+      "bytes": 64843
+    },
+    {
+      "path": "extra_features/sfml_stats/sensors/binary_sensors.py",
+      "scope": "sfml_stats",
+      "sha256": "e29fbdb2cba516c62a3d2352fbd2a32795f65799bbe483882214ba9e8b5c11c0",
+      "bytes": 79180
+    },
+    {
+      "path": "extra_features/sfml_stats/sfml_data_reader.py",
+      "scope": "sfml_stats",
+      "sha256": "205c7b68c98102078188779cd610190d16bb47eeff2443b21ad51e07e5ce8621",
+      "bytes": 149143
+    },
+    {
+      "path": "extra_features/sfml_stats/weather_collector.py",
+      "scope": "sfml_stats",
+      "sha256": "447f24451fbc47adee267611d97f70b6eab7c14a2f0d30252ff65b4ad2b3e773",
+      "bytes": 103819
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_best_hour.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "7992d373a3b97d775cdb2521b4e4610a4bfbce56cbb08e30c93ccb29f70b44c6",
+      "bytes": 13388
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_dni_tracker.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "8431a3ada0305cc82f9259bf00071522d269a6ff7f0e570da13b2516f3b225c1",
+      "bytes": 37630
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_drift_monitor.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "ec43e5d35b1298a898d0daa91660b219b47edec21c0e10bcdcda29bdb96a8a1a",
+      "bytes": 122564
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_feature_engineering.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "174d7dfca141aa19ee4ce98738157dd9115eeea4266699926429a31bd6957775",
+      "bytes": 48619
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_feature_importance.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "74e054215d3b60ba4fca2ba9f4fb1f6adf1e50aa55d49276fb28886c1a066665",
+      "bytes": 65044
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_grid_search.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "2f06bc02e347521e88aa321c9efe5154fa2ce74b79367f1d6fa79fbed7d044e9",
+      "bytes": 73939
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_predictor.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "3e513a1607be834ece017d2fcdcca5c7c1b1b1b09e6472332ab2094e5dbb9ea7",
+      "bytes": 259216
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_seasonal.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "43907190d85f9a82d795c743f75a7828273c147f118cf0675018549fd3a0986b",
+      "bytes": 24047
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_tiny_lstm.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "dd43702bda3343f9a934c3dca1fae1c0405ebb33e9664fb1f9c9336785eb1533",
+      "bytes": 154177
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_tiny_ridge.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "28b29ffb6194a19706e122f266591b85d7459ae7bfd85d06c05ea50c0c961c08",
+      "bytes": 84192
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_weather_mlp.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "1cc7e661c0ddd6bdae79d745b21e27c3a1419ed77b9759a3091424f94a414741",
+      "bytes": 68376
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/automation.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "fb0605905e021c8f043d5d5e634d87716c285bf4d1bc449794ffd671eb472b90",
+      "bytes": 140461
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/capability.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "2a42c2606b8f5082b7e5312f31c76de57664648055e5850be48740ee18acf638",
+      "bytes": 60602
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/consumption/consumption_adaptive_forecast.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "4e50054c79109ed54c43ffd4e12d66b0089052ff91ce437a018a1b8805772291",
+      "bytes": 143067
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/consumption/consumption_history.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "8a07dfca8d09d4ca96f29011603abdfafc2c219a083d8ce82c1dba30d4738713",
+      "bytes": 67449
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/consumption/consumption_morning_routine.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "57fea7161e138536602f12f6026502be418ef4017d8248ba43438580ed98d5b1",
+      "bytes": 160463
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/consumption/consumption_rule_based_strategy.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "3b1c8b217e185d50ed7672382a2cbde0a9a815b3149de6e1a8771eafcb04f353",
+      "bytes": 35531
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/consumption/consumption_scheduled_tasks.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "b99459679c988b62d2abf9947b04643247000503b683c129087bf69ecf64509e",
+      "bytes": 620458
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/consumption/consumption_tracker.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "e183bb52f2ce5c832eea126485fc2f3c1a95fc63f5063a0bd1a9148bd52895df",
+      "bytes": 112411
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/coordinator.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "becad700f25b4d6308b52f9d48026e141ee407f86a40aabab99c6450e802f426",
+      "bytes": 244534
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/core/core_coordinator_update_helpers.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "0994c0dded30b5c6c8ab39e93a8b38cf7e5bab140264b8a5c890655f9164dad1",
+      "bytes": 64889
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/core/core_startup_data_resolver.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "c59395147ab9c28ea5352951d01779ab016093aa3d0d38c318ad3653a3ba2228",
+      "bytes": 72969
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_daily_summaries.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "eb4f95889e758b995b02844755d998149700ca97794e58a7f310b61e49be43ab",
+      "bytes": 184084
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_forecast_handler.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "9b21ae0869f758b385d51691a229b7a1a6fa8ccee3b9fcafd2e7f19677f0b4d3",
+      "bytes": 106684
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_frost_detection.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "6f753a667d7383d6e2734ccbc9c0b3e54ac34602deabf2af52d0e1b353c33fce",
+      "bytes": 88278
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_hourly_predictions.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "f7aa66606e77445ca979787ce984debb37c34e5df6bcf5fb6f52dbc206ddad78",
+      "bytes": 187579
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_learning_filter.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "49a119b3c4f70392cac48de5bb3cabd1c2f28af7ed6ed138a7897f5870a659bc",
+      "bytes": 98358
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_manager.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "c8b4f57db8057383c3b51560d454030fcef8c58ae6675ef158dd703fbd922bcd",
+      "bytes": 207732
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_ml_handler.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "494b7ad60afa3a06d39de8cc3f3a5d75b29816aefa9c4335952e74f8ade9a2d5",
+      "bytes": 115773
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_open_meteo_client.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "dc09533de24e120c4b06b6023c23dc72c7abca8437f706241876bef1df0f6b5a",
+      "bytes": 149986
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_schema_validator.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "3116630323f05506b008690958870b218f48269e8cc1bda25ffbd9c754316f4b",
+      "bytes": 69920
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_shadow_detection.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "8f345cb6655a5a2e884fa12a0376c2ebb5a681245e9bd6858e74c7d97d4be98a",
+      "bytes": 135060
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_shadow_pattern_learning.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "d09021b7f25597e0dc7219c50111274caa291ddca2bb1779a584db01085bfbb2",
+      "bytes": 163523
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_validator.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "350cec973bb4f3c5295b17b47a9629955fbdeb57bab525dffc71ef1240fc2ae4",
+      "bytes": 73441
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_visibility_learner.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "2efd7b50b8e50409c20cb236ce4a249ee0e886a70319c16020ac9b5d7bcfb1f1",
+      "bytes": 95583
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_weather_actual_tracker.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "c989587b42e066bbfc358625697c3491af6cddab4070e4f6464eb80227c26846",
+      "bytes": 318628
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "bd77aa95b0ac8514396a08a483a30cf23a6c629641aa60fd9dea1cd44adfb2e8",
+      "bytes": 137205
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "d44cb915d23e4c5310a61efccfcd45cd34685c965df6f7cc887dc4dda90b21c2",
+      "bytes": 272072
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_weather_kalman.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "4b4ac872f820e4c462695ca9f329ab646a4a0384214f0f731654b32f317926fb",
+      "bytes": 35728
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_weather_pipeline_manager.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "8e2a9295cfc340d39dfa657a9f9e726b22627eef59331a0ba816057214320fa3",
+      "bytes": 106885
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_weather_precision.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "0a42616cc8126119bafbd02248cf2a4b3c9a5337ceef0e388387e4d9dc8185a4",
+      "bytes": 171102
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/db_manager.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "597ae6c2af80fb90a8adea63b85c1008e372657b76d10b8e23662e7f18fcc380",
+      "bytes": 928286
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/eai_consumption_sample_store.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "51e7883a348f73447b99469737168fb81dace35b1568e1888efd62c0e10e80b2",
+      "bytes": 75031
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/json_migration.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "96fe8fcaef7fd758eed482ed9799e824da8180eeb55b31db15c5e3aa9b87f1aa",
+      "bytes": 548148
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/weather_types.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "9781a6f3e9d6e33ebeb97b24a4b264ab4f34f36eaece35a6aff724f1d6ca1d68",
+      "bytes": 26900
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/energy_context.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "8ed6e13d500eab94ad82060c5288c49d795135e0a3c98f932ffb2b53e1dd2954",
+      "bytes": 110777
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/forecast/forecast_orchestrator.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "8d7551daf63faecb31f378beea91239246f7f0ea4d46327c9f6d8e825498cc44",
+      "bytes": 71997
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/forecast/forecast_rule_based_strategy.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "f044451f3bd4bf8668750754c858cbed06b269bd71f52b33f263e44f72acd713",
+      "bytes": 179881
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/forecast/forecast_weather_calculator.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "2d4b8c099ce592e05e6b7bc4002d07cec589cba68794654bca7ade92c3ad3bb4",
+      "bytes": 54923
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/forecast/forecast_weather_data_processor.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "a1815bb38625f17a3d01824f0767ddf4abe1da2124ea4b3f95c55677902a6f83",
+      "bytes": 37699
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/insights.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "1daf755042d01b5caf9c8ef10d231ce49c071e7f2c0c247da7bfa1028354658f",
+      "bytes": 661128
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/license/codec.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "6ad5ef259bd6c1df05c68d6615f91ab7a54249c037ce9696599e50d5c458ff0c",
+      "bytes": 13043
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/license/policy.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "2471b9a97b730d6f552d3966e5963bdf2fee2216d1d815c4274a776108e5bdae",
+      "bytes": 3079
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/license/validator.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "fe913082af7c57e4da90e055efd82f0813390117f50d25edafe647c0167e3f4c",
+      "bytes": 38365
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/mobility.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "82358dc3228d0aadccaf9773a0163e5065cada37a835f0b39b63072955642ff0",
+      "bytes": 180124
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/runtime.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "aab7e95527e055df27fef7c3b21cd9b8597126d2a6ca1399bcc97dcff829ef18",
+      "bytes": 163179
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/thermal_loss.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "64ab8db5e3646cf45c962b7aa3dd0a5fba111c5efe9a896594b29cc8cbe2f8e0",
+      "bytes": 36383
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "60dcb161f442aa3822b9c3e2e2b8987cf5c7fb1877b5bf98da847ef607eea395",
+      "bytes": 242129
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_engine.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "23182cd2d65e30961a9d1c68ebe78000f29a47a571b389b82f18b7ddda9b134b",
+      "bytes": 123586
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/weather_contract.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "f72b52e443cb6def020041f4f1615f83d1bafc518802f0378ae804018a9038e8",
+      "bytes": 12269
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/weather_forecast_store.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "607224ce6efe74b01647b8a23d695dd906689d3ed418e391db7d5440076d5253",
+      "bytes": 74448
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/weather_fusion_adapter.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "661d887af4e367aeb7228e3acca5d4793034a68b53466f04d3c4d914fafdc495",
+      "bytes": 182564
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/weather_intelligence.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "21562f9232a55bfd91e167602e82bf2c35198443df16901abd310a57abeae420",
+      "bytes": 221114
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/weather_station_adapter.py",
+      "scope": "solar_forecast_eai",
+      "sha256": "8f1dd8cbb004e4a548a092580c402547fea6b1d81d32ba58c62f205c142146ba",
+      "bytes": 181627
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/actual_tracker.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "0a6951ff3391d297ca185cfb1493484deeea33882cfea81ee21b15d23dcd14e8",
+      "bytes": 65355
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/ai/__init__.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "2d3da2ae031b0553a310b509277e2e27a74b0a1cf3fdff047395eee6907416c8",
+      "bytes": 15434
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/ai/forecast_corrector.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "069be64ab78069d04c333e23c86851a51c2bece55478ffceb077f190902697cf",
+      "bytes": 95828
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/ai/pattern_detector.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "b6fde9c3f8ea95a652768615184be32fad196d497cb0d9aa93665974ce4096ae",
+      "bytes": 92522
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/ai/precision_tracker.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "4215e68052f3db776cbb6ec721428d6e7a0df51218262e930656386174e0e124",
+      "bytes": 160279
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/ai/weather_learner.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "522175772b315b7ed9eeb75c72832959f9d51425f244ddb9d4240db06dc21770",
+      "bytes": 101900
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/config_flow.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "070cdfcbeed931b8fdb94591ec619b69237eb8767bd05d8d11c21adbda017e51",
+      "bytes": 50808
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/coordinator.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "feac91074b40ef149aa16ada3acf793b75f818091f9ee173a2a944f7b23bbb4e",
+      "bytes": 175097
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/sensor.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "0ac929b643d3bd4dddba7bf04e727787c4a04ee51684cfc237496954b96501c4",
+      "bytes": 73110
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/weather.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "6e0151aba9437a630a2fc7622998457caa1b4a8c9a41d906788e984d5dce8130",
+      "bytes": 51710
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/weather_experts.py",
+      "scope": "weather_fusion_ai",
+      "sha256": "ea66b9dd63f46952d74d43d49d3fdabf80697283b270a388e1e77e4e85ed71f7",
+      "bytes": 209379
+    },
+    {
+      "path": "forecast/forecast_orchestrator.py",
+      "scope": "main",
+      "sha256": "32b8a5cc3af8d304c0cc520523bf3b232079a01e35ae644b926667b5a54afd01",
+      "bytes": 163532
+    },
+    {
+      "path": "forecast/forecast_rule_based_strategy.py",
+      "scope": "main",
+      "sha256": "4532008d632f56333b302210f0389eacb6a5af251ef3ae74360b1078df506d05",
+      "bytes": 727046
+    },
+    {
+      "path": "forecast/forecast_sun_gate.py",
+      "scope": "main",
+      "sha256": "36877c118e74790b8307c9de74edc531e30cb6cdb7123f8434e7f0a8fcd6e314",
+      "bytes": 13699
+    },
+    {
+      "path": "forecast/forecast_tfs_client.py",
+      "scope": "main",
+      "sha256": "b57f42a29347f7b483b0d66aff186aee30866dff944c3c071ac5df226ce1c412",
+      "bytes": 22402
+    },
+    {
+      "path": "forecast/forecast_weather.py",
+      "scope": "main",
+      "sha256": "b0f057b73ec7508daec2a04ea9f322e7cf58efb31dd9e2d65d71646bacda8bfb",
+      "bytes": 79766
+    },
+    {
+      "path": "forecast/forecast_weather_calculator.py",
+      "scope": "main",
+      "sha256": "d756e31d9965d31ab10e672116b9908039396ae28390125345b12a9624b378e0",
+      "bytes": 55080
+    },
+    {
+      "path": "forecast/forecast_weather_data_processor.py",
+      "scope": "main",
+      "sha256": "b177b22af1d4382d291b86f18783775f1d70ced397dcb480c9bbf5320995cfd2",
+      "bytes": 39227
+    },
+    {
+      "path": "physics/panel_group_calculator.py",
+      "scope": "main",
+      "sha256": "f9135a2b2fdb3c5076274f498d5192e48c992d0569aa11e4f6ab36ca0f9400cd",
+      "bytes": 95963
+    },
+    {
+      "path": "physics/physics_calibration_telemetry.py",
+      "scope": "main",
+      "sha256": "922ebf7941ec86ca1d11d858ad3501a40e830110b6c18792a8998d3a9dd2bba6",
+      "bytes": 154624
+    },
+    {
+      "path": "physics/physics_calibrator.py",
+      "scope": "main",
+      "sha256": "c62e403f6f2ec789539efb174fca64591ff2355b643893f53e1f7adb2ed851d6",
+      "bytes": 446049
+    },
+    {
+      "path": "physics/physics_engine.py",
+      "scope": "main",
+      "sha256": "7b511578f11602df8a59707294996e7e4ecd3ca91c6a1ac3f808247a358bd15e",
+      "bytes": 89606
+    },
+    {
+      "path": "physics/physics_sun_shadow.py",
+      "scope": "main",
+      "sha256": "e545c107f9103171ec73c250c72add8df4643d132f0f83a10ea26408ac284b82",
+      "bytes": 92124
+    },
+    {
+      "path": "physics/poa_beam.py",
+      "scope": "main",
+      "sha256": "0cda75b78d6291d03197edf9d9b6146020fff6ab2c378bc00ec09695bc8b423b",
+      "bytes": 37764
+    },
+    {
+      "path": "production/production_actual_resolver.py",
+      "scope": "main",
+      "sha256": "7498a40ee8256b6cf4563d25661104ec62647d883d664b295662d5b8d2a7cd0f",
+      "bytes": 110438
+    },
+    {
+      "path": "production/production_adaptive_forecast.py",
+      "scope": "main",
+      "sha256": "62be8d420d3ad41885f66b2dc5920e70a54f9c1099c838c28d038a1273df7f12",
+      "bytes": 139729
+    },
+    {
+      "path": "production/production_forecast_regeneration.py",
+      "scope": "main",
+      "sha256": "cd0f2facf0893fb0ce7ccff801b31204f51dd75831a5c79710030db7af155b6c",
+      "bytes": 24765
+    },
+    {
+      "path": "production/production_history.py",
+      "scope": "main",
+      "sha256": "c03ff7a4e8364ae6b41372fbe84b39a8213820f8470a9b568804fe3348c791fa",
+      "bytes": 67750
+    },
+    {
+      "path": "production/production_morning_routine.py",
+      "scope": "main",
+      "sha256": "cd8f005b5087e945185baf67614fda51f7efce809d3a42e693914eb82b742363",
+      "bytes": 368805
+    },
+    {
+      "path": "production/production_operational_reforecast.py",
+      "scope": "main",
+      "sha256": "524eeedb7def9bbd2dba27d57b68c7290ed5361aebe1d543b1be479483e9aa05",
+      "bytes": 54460
+    },
+    {
+      "path": "production/production_rest_of_day_uplift.py",
+      "scope": "main",
+      "sha256": "6cf6ffa4425b2c5279c62a76061826fed4f321ee1578f6d535f8426cd2179f59",
+      "bytes": 10541
+    },
+    {
+      "path": "production/production_rule_based_strategy.py",
+      "scope": "main",
+      "sha256": "96108e83e3e322ebb74aceee77a967370e0f517073986f58395d6f588ff68fe7",
+      "bytes": 43681
+    },
+    {
+      "path": "production/production_scheduled_tasks.py",
+      "scope": "main",
+      "sha256": "123b6cdd31a24b9fc81ca91e6a38cf0ee5e21e02b826173d10ad02f509497b05",
+      "bytes": 1083211
+    },
+    {
+      "path": "production/production_tracker.py",
+      "scope": "main",
+      "sha256": "0025d55b8613944819cbfcc6b34c4c3f90612d469d5cc0be54cd761777ada016",
+      "bytes": 148486
+    },
+    {
+      "path": "sensors/conservative_planning.py",
+      "scope": "main",
+      "sha256": "92b21c792e436ec5ebb69d5a46e78003cfc949f9d417739bf54daa2f916155e2",
+      "bytes": 49299
+    },
+    {
+      "path": "sensors/sensor_actual_sot.py",
+      "scope": "main",
+      "sha256": "c51639a4c9a7304c2e408f9f8ece050176bbf907769e11a7ec730e2eb60cd030",
+      "bytes": 137740
+    },
+    {
+      "path": "sensors/sensor_base.py",
+      "scope": "main",
+      "sha256": "ecd4fe2a3e333f2afd03180319a8220024cfb93b84e80fa88ab16dc20b5d251e",
+      "bytes": 693856
+    },
+    {
+      "path": "sensors/sensor_data_collector.py",
+      "scope": "main",
+      "sha256": "027c8c6708be3dbf42b462286486753b914c6c1bd6ce7251a9d5cd2b9f871475",
+      "bytes": 51911
+    },
+    {
+      "path": "sensors/sensor_diagnostic.py",
+      "scope": "main",
+      "sha256": "efbbb2e9df4f8557153062f9d0bec1474645bc408d09d0fc4a47fffcad0659d3",
+      "bytes": 267617
+    },
+    {
+      "path": "sensors/sensor_drift_detection.py",
+      "scope": "main",
+      "sha256": "32ec39d75c62996eaf0461873555380d1a5aad8d9c272f2cf32f704b6f3c416d",
+      "bytes": 20414
+    },
+    {
+      "path": "sensors/sensor_mixins.py",
+      "scope": "main",
+      "sha256": "6481f6420c42392b2ac1b40ad627fddbd247de0ddc9a2e80b4ca80fd110c4e99",
+      "bytes": 75432
+    },
+    {
+      "path": "sensors/sensor_shadow_detection.py",
+      "scope": "main",
+      "sha256": "0debeed4a6da4883464b2897c9a1da7ff12c709da3a70a5af1a9974260c5371e",
+      "bytes": 141313
+    },
+    {
+      "path": "sensors/sensor_states.py",
+      "scope": "main",
+      "sha256": "09aed6809c63495a7030029fe1bf831188b2f748a6a496b31158ee1e43098a54",
+      "bytes": 64035
+    },
+    {
+      "path": "sensors/sensor_system_status.py",
+      "scope": "main",
+      "sha256": "a68fff413bff712c1e27b6687858e7a068c827849f64a687f5aac45f7b35f201",
+      "bytes": 74982
+    },
+    {
+      "path": "services/service_astronomy.py",
+      "scope": "main",
+      "sha256": "3e206297928c3be0d71d8981d38a0bf6f41998b6ee9d12477b52552ce89720d2",
+      "bytes": 75016
+    },
+    {
+      "path": "services/service_daily_briefing.py",
+      "scope": "main",
+      "sha256": "155663029eaab2b7f5db3b17b96f023d93746fa7ad15826cc8a9b6c917582461",
+      "bytes": 158436
+    },
+    {
+      "path": "services/service_emergency_outage.py",
+      "scope": "main",
+      "sha256": "a6ec849591b5ffbd452a7673d17ac55e6858b39b2d84dabd322e2bf4ccaf65a3",
+      "bytes": 99813
+    },
+    {
+      "path": "services/service_error_handler.py",
+      "scope": "main",
+      "sha256": "59e65ab8536e4066219a1c0c1b63c767762dfa57c8b1d34ff7962b4a9c79bb5e",
+      "bytes": 134039
+    },
+    {
+      "path": "services/service_extra_features.py",
+      "scope": "main",
+      "sha256": "6d0c235e944f0e110f97b06940ff71cee0f12ba16fda7c627911cbffc7c92b35",
+      "bytes": 51688
+    },
+    {
+      "path": "services/service_notification.py",
+      "scope": "main",
+      "sha256": "980508cc1e0db614e9ab6c4fa833d0120b977aae9b81723a07d9729f0401eb41",
+      "bytes": 129627
+    },
+    {
+      "path": "services/service_registry.py",
+      "scope": "main",
+      "sha256": "c46be85f06417277af86cc6b54331569fc466283074b36514a30ab96f988d791",
+      "bytes": 182208
+    },
+    {
+      "path": "services/service_repair_tool.py",
+      "scope": "main",
+      "sha256": "b1888cef5289e37da90999668ef058ce8dee18dd089ba1b04f5c40c79142605d",
+      "bytes": 93532
+    },
+    {
+      "path": "services/service_system_report.py",
+      "scope": "main",
+      "sha256": "cf410e492e5320dd7ab13934c13433588bae486a19659656c1a3087765c9a57c",
+      "bytes": 120500
+    }
+  ],
+  "runtimes": [
+    {
+      "path": "extra_features/grid_price_monitor/pyarmor_runtime_009810/linux_x86_64/pyarmor_runtime.so",
+      "sha256": "3e4cd886921b2d2ccf99b530f7867bfd6b5bf7e2d0ceaeb681e8fa8cb74526ae"
+    },
+    {
+      "path": "extra_features/sfml_stats/pyarmor_runtime_009810/linux_x86_64/pyarmor_runtime.so",
+      "sha256": "b5227c1bd3978507fafc72387f4e428938d26c6b3c0c83a375c2988653016df1"
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/pyarmor_runtime_009810/linux_x86_64/pyarmor_runtime.so",
+      "sha256": "622db9077709e3a829ec70c4b1d4abd6d81f59d870acdb2e8217b1b2da05143a"
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/pyarmor_runtime_009810/linux_x86_64/pyarmor_runtime.so",
+      "sha256": "6382064124c793a37535e0fd4934e0f22161b7527d5c8889dd12774ab450eea3"
+    },
+    {
+      "path": "pyarmor_runtime_009810/linux_x86_64/pyarmor_runtime.so",
+      "sha256": "96a255d22541c3dfc6a758a3b4849e99e3e6bcae86f9329a62892c7e9182b7b6"
+    }
+  ]
+}
