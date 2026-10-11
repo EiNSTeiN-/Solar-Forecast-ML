@@ -26,6 +26,8 @@ SFML_UNPACKER_DIR=/tools/unpacker \
 python3.14 -B -m unittest discover -s recovery/tests -v
 ```
 
-The test checks the complete reconstructed panel-group module statically before
-instantiating its three application functions with controlled globals. It does
-not import Home Assistant, the integration, or the native PyArmor runtime.
+The tests check complete reconstructed modules statically before instantiating
+the selected panel-group functions, coordinator helpers, and both Kalman filter
+classes with controlled globals. They do not import Home Assistant, an
+integration module, or the native PyArmor runtime. Existing merge mutation
+behavior is compared explicitly; cleanup must not silently change it.

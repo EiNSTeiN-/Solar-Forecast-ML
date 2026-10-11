@@ -1,25 +1,32 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "b64cba837cb0ef3dcd3b49ff05dfd7335f666e17",
-    "version": "0.4.3-einstein.1"
+    "commit": "f05bf1b0723ed9973976367eb5942c566cd28cbd",
+    "version": "0.4.4-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
-    "commit": "d75133e62146082ef1af2fc748e5f277e73d1173",
-    "version": "0.6.2-einstein.1"
+    "commit": "6fb29332f605964723a697058f78a504c6868838",
+    "version": "0.6.3-einstein.1"
   },
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 65,
-    "unpacker_passes": 64,
+    "unpacker_test_cases": 67,
+    "unpacker_passes": 66,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 26,
-    "backend_behavior_tests_passed": 8,
-    "selected_module_behavior_tests_passed": 4,
+    "backend_behavior_tests_passed": 12,
+    "selected_module_behavior_tests_passed": 8,
     "selected_module_input_cases": 409,
     "integration_modules_imported": 0,
-    "whole_goal_complete": false
+    "whole_goal_complete": false,
+    "additional_checks": {
+      "coordinator_boundaries_and_methods": 39,
+      "coordinator_keys_and_summaries": 9,
+      "merge_result_and_mutation": 1,
+      "kalman_update_state_comparisons": 810,
+      "kalman_initial_and_reset_state_comparisons": 126
+    }
   }
 }

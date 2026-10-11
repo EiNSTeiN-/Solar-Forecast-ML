@@ -70,6 +70,10 @@ borrowed versus ordinary local-load selection, and fused local instructions.
 It recognizes a pure jump to a shared return terminator left by PyArmor's
 return epilogue. Keyword parameter names remain significant because callers
 can use them; global and attribute names remain significant.
+CPython's compiler-generated class `__firstlineno__` header value is also
+location metadata. Only the exact class-header pattern is normalized. An
+explicit assignment to that attribute later in the class body remains
+significant; a negative regression checks that it cannot be hidden.
 
 These are **normalized bytecode matches**, not claims of raw byte-for-byte
 identity. Permitted differences must stay narrow and explicit. Do not normalize
@@ -139,6 +143,16 @@ marker expressions still require separate rules and remain failures.
   source compiles, but its cleanup-block order still differs from the reference
   bytecode and remains an explicit fidelity failure. Grammar repair alone is
   not semantic verification.
+- None-led OR guards can send several failures to one return/continue block,
+  while the final test jumps over that block on success. The old decoder
+  inverted these into nested positive guards, accepting absent/negative cloud
+  values and allowing incomplete geometry records to reach arithmetic. Small
+  fixtures reproduced both errors. The new parser reconstructs the shared
+  rejection condition and preserves copied middle operands in chained
+  comparisons. Tests cover missing data, negative values, NaN, single call
+  evaluation, and later constant returns that must not be absorbed.
+- Do not replace `not (a <= b)` with `a > b`: NaN and custom rich comparisons
+  make these expressions different. Recovery preserves the original negation.
 
 ## Reproducible commands
 
@@ -183,12 +197,23 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **10,320 matched units out of 14,291** and
-  **12 complete module matches**. Those 12 sources (140 code units) are published
+- The latest full audit reports **10,749 matched units out of 14,291** and
+  **18 complete module matches**. Those 18 sources (255 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. Eleven have not yet undergone
+  evidence in `recovery/verified-manifest.json`. Fourteen have not yet undergone
   the readability refactor; their manifests state that explicitly. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
+- Readability cleanup now also covers the coordinator helpers and both Kalman
+  filter copies: empty-string artifacts are removed and local names describe
+  update age, innovation, uncertainty, gain, and adaptive noise. All three full
+  module trees still match. Four additional behavior tests cover scheduling
+  boundaries, required keys, summaries, existing merge mutation behavior, and
+  filter updates/adaptation/resets across both copies. The full test suite has
+  eight test methods. Selected classes are instantiated only after full static
+  matches and with controlled globals; no integration module is imported.
+- This checkpoint adds 429 matching code units with **zero previously matching
+  units lost**, as recorded in `recovery/latest-transition.json`. The full
+  source-fidelity and readability goals remain incomplete.
 - The current full inventory exports all 274 payloads and validates all 14,291
   nested code objects. Source generation produces compilable candidates for
   all 274 modules. The Energy AI database module's nested `try`/`else`/`finally`
