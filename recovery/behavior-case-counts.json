@@ -1,0 +1,16 @@
+{
+  "new_paired_function_calls": 1248,
+  "new_tests": {
+    "test_feature_vectors_seasons_clamps_and_thermal_mass": 300,
+    "test_price_config_calibration_trends_and_forecast_entries": 144,
+    "test_record_aliases_invalid_values_and_hour_sequences": 13,
+    "test_conservative_planning_caps_and_freshness_boundaries": 134,
+    "test_consumer_config_dates_and_summary_mutation": 51,
+    "test_grid_overlap_cost_rounding_and_meter_policy": 223,
+    "test_panel_capacity_allocation_and_rounding": 64,
+    "test_solar_geometry_radiation_and_incidence_boundaries": 171,
+    "test_weather_contract_only_accepts_bounded_values": 44,
+    "test_weather_uplift_requires_confirmation": 104
+  },
+  "integration_modules_imported": 0
+}

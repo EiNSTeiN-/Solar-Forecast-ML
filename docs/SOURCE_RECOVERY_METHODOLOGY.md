@@ -74,6 +74,13 @@ CPython's compiler-generated class `__firstlineno__` header value is also
 location metadata. Only the exact class-header pattern is normalized. An
 explicit assignment to that attribute later in the class body remains
 significant; a negative regression checks that it cannot be hidden.
+Numbered local definition bindings may be restored from the nested code
+object's original function name. Only unambiguous, non-colliding local or
+locally owned cell bindings qualify; parameter names, public bindings and
+nonlocal cells are preserved. The transformation changes local metadata, not
+instruction bytes or exception tables, then resolves closure captures by
+position. Decorator applications and recursive self-captures have separate
+regressions. Nested code names, bodies and callers still undergo comparison.
 
 These are **normalized bytecode matches**, not claims of raw byte-for-byte
 identity. Permitted differences must stay narrow and explicit. Do not normalize
@@ -92,6 +99,24 @@ Swapping imported aliases fails comparison. Complex attribute and container
 marker expressions still require separate rules and remain failures.
 
 ## Discovered pitfalls
+
+- A decompiler may take a nested function's name from its renamed local
+  binding instead of its surviving `co_name`. This made otherwise present
+  helpers appear missing on both sides of the unit comparison. Restoring the
+  local binding before source generation recovers the original definition
+  name and updates its uses and closure captures together. This removed 220
+  incorrectly named source units from the current audit, leaving 12 genuinely
+  missing source units. It does not accept their unverified bodies: newly
+  aligned helpers may still fail instruction, signature or handler checks.
+- Do not assign the same readable name to distinct comprehension variables.
+  CPython 3.14 inlines comprehensions and allocates separate local slots; a
+  merged name can change saved/restored locals even when the output looks
+  similar. The full-module check caught this during panel-group cleanup.
+- Formatting can change the literal contents of multiline docstrings. Preserve
+  those strings with local formatter exclusions, rather than ignoring their
+  changed bytecode. Long escaped SQL literals can be rewritten as multiline
+  strings, but confirm their decoded string contents and module bytecode are
+  identical before accepting the readability edit.
 
 - Python 3.14 jump bases include inline caches. Ignoring them changes branch
   targets and can turn valid control flow into misplaced `else`/`return` code.
@@ -197,23 +222,44 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **10,749 matched units out of 14,291** and
-  **18 complete module matches**. Those 18 sources (255 code units) are published
+- The latest full audit reports **10,870 matched units out of 14,291** and
+  **19 complete module matches**. Those 19 sources (277 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. Fourteen have not yet undergone
-  the readability refactor; their manifests state that explicitly. Current
+  evidence in `recovery/verified-manifest.json`. All 19 have undergone the
+  readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
   filter copies: empty-string artifacts are removed and local names describe
   update age, innovation, uncertainty, gain, and adaptive noise. All three full
   module trees still match. Four additional behavior tests cover scheduling
   boundaries, required keys, summaries, existing merge mutation behavior, and
-  filter updates/adaptation/resets across both copies. The full test suite has
+  filter updates/adaptation/resets across both copies. That initial suite had
   eight test methods. Selected classes are instantiated only after full static
   matches and with controlled globals; no integration module is imported.
-- This checkpoint adds 429 matching code units with **zero previously matching
+- This checkpoint adds 121 matching code units with **zero previously matching
   units lost**, as recorded in `recovery/latest-transition.json`. The full
   source-fidelity and readability goals remain incomplete.
+- Fifteen more module sources now use readable variable names and formatting,
+  including the newly verified Energy AI feature engineer. Empty-string
+  artifacts are removed, original docstrings and literal values are preserved,
+  and the SQL schema's escaped text is readable SQL inside multiline literals.
+  The selected behavior suite now has **18 test methods**. Added checks cover
+  allocation and rounding, radiation geometry, billing and meter overlap,
+  consumer configuration and summaries, conservative forecast caps/freshness,
+  weather evidence/provenance, feature extraction aliases and sequences, and
+  electricity price calculations. The added methods perform **1,248 paired
+  function comparisons** in addition to the earlier checks. Tests compare
+  outputs, mutations and existing
+  exception behavior with the original code. Known default values are attached
+  explicitly to selected pure functions without executing their module bodies.
+- The unpacker is now **0.4.5-einstein.1** at commit
+  `f255e38072b2876387e3fb01ef613002d102ab7e`. Its 75 regression cases report
+  74 passes and one documented expected failure in the legacy native backend;
+  the optional modern context-manager path passes. The unchanged modern
+  backend remains at `6fb29332f605964723a697058f78a504c6868838`.
+  Its pinned backend and native build also pass the unpacker fork's
+  [GitHub source regressions](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38182350990)
+  and [native build](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38182351024).
 - The current full inventory exports all 274 payloads and validates all 14,291
   nested code objects. Source generation produces compilable candidates for
   all 274 modules. The Energy AI database module's nested `try`/`else`/`finally`

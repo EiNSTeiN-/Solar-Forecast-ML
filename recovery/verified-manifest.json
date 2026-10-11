@@ -13,11 +13,11 @@
     {
       "path": "core/core_panel_group_forecast.py",
       "original_payload_sha256": "3830d381dc9f2c7a6725bff476140c1d0cd0a32d3ef7f2872cda18ea315bd641",
-      "reconstructed_source_sha256": "a332799e4cf6baeeb53754c7cc757edc71ea182fa5bf76efe51521cb1dd9467e",
+      "reconstructed_source_sha256": "1075045197758a976da4208c8501ea36f08045def297e1e0fffae2d609e4afb2",
       "matched_units": 17,
       "all_units_match": true,
-      "readability_refactored": false,
-      "behavior_tests": 0
+      "readability_refactored": true,
+      "behavior_tests": 1
     },
     {
       "path": "data/data_shadow_group_math.py",
@@ -40,56 +40,65 @@
     {
       "path": "data/schema_sql.py",
       "original_payload_sha256": "d869f5b83237bcbad3fbc17bd9ae19cea207829c88febedbd1bf3f30dd984e7a",
-      "reconstructed_source_sha256": "ac2d0f82c2478b88ca3108c211321dbbdbd477d99d9e614fe09d7fdd5e6aa65a",
+      "reconstructed_source_sha256": "6be930eac101e0fe75ded8f3bfd8da76681fb1b8405fb5df7af8d76131043ab3",
       "matched_units": 1,
       "all_units_match": true,
-      "readability_refactored": false,
+      "readability_refactored": true,
       "behavior_tests": 0
     },
     {
       "path": "extra_features/grid_price_monitor/core/calculator.py",
       "original_payload_sha256": "c6b75fb7089efe7c9064e56072859ced76fb2052d1277aa67dd97c8edb30c537",
-      "reconstructed_source_sha256": "96420a8ee7f662ccdfaa31ce16e0f1eaa227895cd54d08d901e786569599bc0c",
+      "reconstructed_source_sha256": "fa7c5e3acbaa866e48283bdf3db8a2271fe82150a93553ca2586c926b795aa87",
       "matched_units": 42,
       "all_units_match": true,
-      "readability_refactored": false,
-      "behavior_tests": 0
+      "readability_refactored": true,
+      "behavior_tests": 1
     },
     {
       "path": "extra_features/grid_price_monitor/license/policy.py",
       "original_payload_sha256": "e43d486fbfe651e02e8ca84643faf823b7fd847eb7adc3138b452690c116c56c",
-      "reconstructed_source_sha256": "cdffcf50bb8911984a71b85e37a489545c722c499ca61c6256733edf3df7e9a6",
+      "reconstructed_source_sha256": "416c8fd333aeec17ae46fa6414df9579ab8d6292a083ef54a62c937d62030df5",
       "matched_units": 1,
       "all_units_match": true,
-      "readability_refactored": false,
+      "readability_refactored": true,
       "behavior_tests": 0
     },
     {
       "path": "extra_features/grid_price_monitor/tariffs/factory.py",
       "original_payload_sha256": "f1696fc6d12306c24b79551e8b9ce0146954f736830cfe00df3841b4a5fc6c67",
-      "reconstructed_source_sha256": "f9a90ffc70bfeb595458e3f98191aff8111141e6ae13cd09459c290d692d4443",
+      "reconstructed_source_sha256": "714e2d75df9bb0cf70bcbb38b7137bad20ef2993e6a9967e7e79585a7a709386",
       "matched_units": 17,
       "all_units_match": true,
-      "readability_refactored": false,
+      "readability_refactored": true,
       "behavior_tests": 0
     },
     {
       "path": "extra_features/sfml_stats/core/consumer_atlas.py",
       "original_payload_sha256": "e8389ca80b015ea5ed21c7da549c8bd78a5c5462a82f5862089146fe9f563949",
-      "reconstructed_source_sha256": "46e6a66cde52782b8830f79a0b75eb2f10328122aae312a3899db8f55a7257bc",
+      "reconstructed_source_sha256": "150ecc3cf98a203310f5415aea89ca5c7cafb4b6785d6acb639bae1cc5b6d301",
       "matched_units": 24,
       "all_units_match": true,
-      "readability_refactored": false,
-      "behavior_tests": 0
+      "readability_refactored": true,
+      "behavior_tests": 1
     },
     {
       "path": "extra_features/sfml_stats/core/grid_split.py",
       "original_payload_sha256": "e9df7bb22dd22f34388e42869b61f6caae64db0a15df0412dc605f6f3217785a",
-      "reconstructed_source_sha256": "00d4ff7bef6733e1f2bb08c9cae2087a6cfbc187472cc6c42725cdc75a0800d4",
+      "reconstructed_source_sha256": "77d80d00b7aa7d7baf595641d2c0bfa43ad68851daefe83d9d4aaa9be32d7e1e",
       "matched_units": 19,
       "all_units_match": true,
-      "readability_refactored": false,
-      "behavior_tests": 0
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_feature_engineering.py",
+      "original_payload_sha256": "174d7dfca141aa19ee4ce98738157dd9115eeea4266699926429a31bd6957775",
+      "reconstructed_source_sha256": "cc44d711ebd19f4552a678ed401c5f35f64fa424acae494a9508ff9f94ba39b0",
+      "matched_units": 22,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 2
     },
     {
       "path": "extra_features/solar_forecast_eai/data/data_weather_kalman.py",
@@ -103,66 +112,67 @@
     {
       "path": "extra_features/solar_forecast_eai/license/policy.py",
       "original_payload_sha256": "2471b9a97b730d6f552d3966e5963bdf2fee2216d1d815c4274a776108e5bdae",
-      "reconstructed_source_sha256": "cdffcf50bb8911984a71b85e37a489545c722c499ca61c6256733edf3df7e9a6",
+      "reconstructed_source_sha256": "416c8fd333aeec17ae46fa6414df9579ab8d6292a083ef54a62c937d62030df5",
       "matched_units": 1,
       "all_units_match": true,
-      "readability_refactored": false,
+      "readability_refactored": true,
       "behavior_tests": 0
     },
     {
       "path": "extra_features/solar_forecast_eai/weather_contract.py",
       "original_payload_sha256": "f72b52e443cb6def020041f4f1615f83d1bafc518802f0378ae804018a9038e8",
-      "reconstructed_source_sha256": "d85979f7a3046ec0c17e99c2885052f6b69b35b9a29890d62fb9779d0039a040",
+      "reconstructed_source_sha256": "69efac4a87deea8d3b563d5ec4959dea6bb5effe02e82bd2b99359722b63c1fe",
       "matched_units": 9,
       "all_units_match": true,
-      "readability_refactored": false,
-      "behavior_tests": 0
+      "readability_refactored": true,
+      "behavior_tests": 1
     },
     {
       "path": "extra_features/weather_fusion_ai/ai/__init__.py",
       "original_payload_sha256": "2d3da2ae031b0553a310b509277e2e27a74b0a1cf3fdff047395eee6907416c8",
-      "reconstructed_source_sha256": "e6f7476dd382787ea195b9627ec8b89bbecada79f68caba3221662c85c40f3e4",
+      "reconstructed_source_sha256": "b84b8e8bae8156049caafbba07658ddaab6a8583cc10a00a13333635a9cc6bd3",
       "matched_units": 1,
       "all_units_match": true,
-      "readability_refactored": false,
+      "readability_refactored": true,
       "behavior_tests": 0
     },
     {
       "path": "physics/poa_beam.py",
       "original_payload_sha256": "0cda75b78d6291d03197edf9d9b6146020fff6ab2c378bc00ec09695bc8b423b",
-      "reconstructed_source_sha256": "c998018cd0de4f223cbaf2a78fb8b6b079a1af22c248810d9fbcee04aa2bb3bd",
+      "reconstructed_source_sha256": "aa5fe034d21d6377b9a137724658e10cc2efe374eb3ca0633c90c93e8b4f93d7",
       "matched_units": 21,
       "all_units_match": true,
-      "readability_refactored": false,
-      "behavior_tests": 0
+      "readability_refactored": true,
+      "behavior_tests": 1
     },
     {
       "path": "production/production_rest_of_day_uplift.py",
       "original_payload_sha256": "6cf6ffa4425b2c5279c62a76061826fed4f321ee1578f6d535f8426cd2179f59",
-      "reconstructed_source_sha256": "c66fe37439fbbeae4bf9b8bc57c05940eee823b9c29d476356109a75f113e6cc",
+      "reconstructed_source_sha256": "4cbe69dd9967cfc4da8c8ba1f0e14b230e7bff546f940036e0971647d303298a",
       "matched_units": 5,
       "all_units_match": true,
-      "readability_refactored": false,
-      "behavior_tests": 0
+      "readability_refactored": true,
+      "behavior_tests": 1
     },
     {
       "path": "sensors/conservative_planning.py",
       "original_payload_sha256": "92b21c792e436ec5ebb69d5a46e78003cfc949f9d417739bf54daa2f916155e2",
-      "reconstructed_source_sha256": "3d737d2713cf0e7040342cfe0cdf8cf80dd181e77f7ce042f36a69733731275e",
+      "reconstructed_source_sha256": "55bd7190758c65b9e8a71a8f41a5f09767ae2ab06209ba8632dabbbe6f019fe5",
       "matched_units": 25,
       "all_units_match": true,
-      "readability_refactored": false,
-      "behavior_tests": 0
+      "readability_refactored": true,
+      "behavior_tests": 1
     },
     {
       "path": "sensors/sensor_drift_detection.py",
       "original_payload_sha256": "32ec39d75c62996eaf0461873555380d1a5aad8d9c272f2cf32f704b6f3c416d",
-      "reconstructed_source_sha256": "5eadea0ca87546a7c4690362fce66296b4a02b39df84535e75403fac39ef36a8",
+      "reconstructed_source_sha256": "78f40dbc61880cb6067f184b7f2f72f30256ca4509333111efe1af97f4c4cd54",
       "matched_units": 9,
       "all_units_match": true,
-      "readability_refactored": false,
+      "readability_refactored": true,
       "behavior_tests": 0
     }
   ],
-  "complete_goal": false
+  "complete_goal": false,
+  "total_matched_units": 277
 }

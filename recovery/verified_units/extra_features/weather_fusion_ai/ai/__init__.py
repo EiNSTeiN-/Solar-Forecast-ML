@@ -1,5 +1,6 @@
 # Powered by Solar Forecast ML by Zara-Toorox. Subject to the repository LICENSE.
 # Recovered statically; behavioral equivalence requires separate verification.
+# fmt: off
 """AI Module for Weather Fusion AI.
 
 This module contains the core AI/ML components for weather learning:
@@ -77,17 +78,10 @@ Data Storage Structure (/config/weather_fusion_ai/):
 
 @zara
 """
-''
-''
-''
-''
-''
-''
-''
-''
-''
+# fmt: on
 from .precision_tracker import PrecisionTracker
 from .weather_learner import WeatherLearner
 from .pattern_detector import PatternDetector
 from .forecast_corrector import ForecastCorrector
-__all__ = ['PrecisionTracker', 'WeatherLearner', 'PatternDetector', 'ForecastCorrector']
+
+__all__ = ["PrecisionTracker", "WeatherLearner", "PatternDetector", "ForecastCorrector"]

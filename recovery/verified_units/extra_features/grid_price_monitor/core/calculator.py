@@ -3,21 +3,21 @@
 from __future__ import annotations
 import logging
 from typing import Any
+
 _LOGGER = logging.getLogger(__name__)
+
 
 class PriceCalculator:
     """Handles price calculations for electricity @zara"""
-    ''
-    ''
-    ''
-    ''
-    ''
-    ''
-    ''
-    ''
-    ''
 
-    def __init__(self, vat_rate: int=19, grid_fee: float=0.0, taxes_fees: float=0.0, provider_markup: float=0.0) -> None:
+    def __init__(
+        self,
+        vat_rate: int = 19,
+        grid_fee: float = 0.0,
+        taxes_fees: float = 0.0,
+        provider_markup: float = 0.0,
+    ) -> None:
+        # fmt: off
         """Initialize the price calculator @zara
 
 Args:
@@ -26,6 +26,7 @@ Args:
     taxes_fees: Taxes and fees in ct/kWh (gross)
     provider_markup: Provider markup in ct/kWh (gross)
 """
+        # fmt: on
         self._vat_rate = vat_rate
         self._grid_fee = grid_fee
         self._taxes_fees = taxes_fees
@@ -82,6 +83,7 @@ Args:
         return self._grid_fee + self._taxes_fees + self._provider_markup
 
     def calculate_gross_spot(self, spot_price_net: float) -> float:
+        # fmt: off
         """Calculate gross spot price from net @zara
 
 Args:
@@ -90,9 +92,11 @@ Args:
 Returns:
     Gross spot price in ct/kWh
 """
+        # fmt: on
         return round(spot_price_net * self.vat_factor, 2)
 
     def calculate_total_price(self, spot_price_net: float) -> float:
+        # fmt: off
         """Calculate total price from net spot price @zara
 
 Formula: (Spot_net × VAT_factor) + Grid_fee + Taxes + Provider_markup
@@ -103,10 +107,12 @@ Args:
 Returns:
     Total gross price in ct/kWh
 """
-        _var_var_0 = spot_price_net * self.vat_factor
-        return round(_var_var_0 + self.total_markup, 2)
+        # fmt: on
+        spot_gross = spot_price_net * self.vat_factor
+        return round(spot_gross + self.total_markup, 2)
 
     def calculate_spot_from_total(self, total_price: float) -> float:
+        # fmt: off
         """Reverse calculate: get net spot price from total gross price @zara
 
 Used for calibration and threshold calculations.
@@ -117,10 +123,17 @@ Args:
 Returns:
     Net spot price in ct/kWh
 """
-        _var_var_0 = total_price - self.total_markup
-        return round(_var_var_0 / self.vat_factor, 2)
+        # fmt: on
+        spot_gross = total_price - self.total_markup
+        return round(spot_gross / self.vat_factor, 2)
 
-    def calculate_markup_from_calibration(self, current_total_price: float, current_spot_net: float, vat_rate: int | None=None) -> dict[str, float] | None:
+    def calculate_markup_from_calibration(
+        self,
+        current_total_price: float,
+        current_spot_net: float,
+        vat_rate: int | None = None,
+    ) -> dict[str, float] | None:
+        # fmt: off
         """Calculate markup components from calibration price @zara
 
 Args:
@@ -131,17 +144,27 @@ Args:
 Returns:
     Dictionary with grid_fee, taxes_fees, provider_markup or None if invalid
 """
+        # fmt: on
         if vat_rate is None:
             vat_rate = self._vat_rate
-        _var_var_1 = 1 + vat_rate / 100
-        _var_var_0 = current_spot_net * _var_var_1
-        _var_var_2 = current_total_price - _var_var_0
-        if _var_var_2 <= 0:
-            _LOGGER.warning('Calibration failed: negative markup (total=%.2f, spot_gross=%.2f)', current_total_price, _var_var_0)
+        vat_factor = 1 + vat_rate / 100
+        spot_gross = current_spot_net * vat_factor
+        markup = current_total_price - spot_gross
+        if markup <= 0:
+            _LOGGER.warning(
+                "Calibration failed: negative markup (total=%.2f, spot_gross=%.2f)",
+                current_total_price,
+                spot_gross,
+            )
             return
-        return {'grid_fee': round(_var_var_2 * 0.6, 2), 'taxes_fees': round(_var_var_2 * 0.3, 2), 'provider_markup': round(_var_var_2 * 0.1, 2)}
+        return {
+            "grid_fee": round(markup * 0.6, 2),
+            "taxes_fees": round(markup * 0.3, 2),
+            "provider_markup": round(markup * 0.1, 2),
+        }
 
     def is_cheap(self, total_price: float, max_price: float) -> bool:
+        # fmt: off
         """Check if the price is below the cheap threshold @zara
 
 Args:
@@ -151,9 +174,13 @@ Args:
 Returns:
     True if price is below threshold
 """
+        # fmt: on
         return total_price < max_price
 
-    def calculate_trend(self, current_price: float | None, next_price: float | None) -> str:
+    def calculate_trend(
+        self, current_price: float | None, next_price: float | None
+    ) -> str:
+        # fmt: off
         """Calculate price trend @zara
 
 Args:
@@ -163,16 +190,20 @@ Args:
 Returns:
     Trend string: "rising", "falling", "stable", or "unknown"
 """
+        # fmt: on
         if current_price is None or next_price is None:
-            return 'unknown'
-        _var_var_3 = next_price - current_price
-        if _var_var_3 > 1:
-            return 'rising'
-        if _var_var_3 < -1:
-            return 'falling'
-        return 'stable'
+            return "unknown"
+        difference = next_price - current_price
+        if difference > 1:
+            return "rising"
+        if difference < -1:
+            return "falling"
+        return "stable"
 
-    def build_forecast_entry(self, price_entry: dict[str, Any], max_price: float) -> dict[str, Any]:
+    def build_forecast_entry(
+        self, price_entry: dict[str, Any], max_price: float
+    ) -> dict[str, Any]:
+        # fmt: off
         """Build a forecast entry with calculated prices @zara
 
 Args:
@@ -182,12 +213,27 @@ Args:
 Returns:
     Enriched forecast entry
 """
-        _var_var_4 = price_entry.get('price', 0)
-        _var_var_0 = self.calculate_gross_spot(_var_var_4)
-        _var_var_5 = self.calculate_total_price(_var_var_4)
-        return {'hour': price_entry.get('hour'), 'timestamp': price_entry.get('timestamp'), 'spot_price_net': _var_var_4, 'spot_price': _var_var_0, 'total_price': _var_var_5, 'is_cheap': self.is_cheap(_var_var_5, max_price)}
+        # fmt: on
+        spot_net = price_entry.get("price", 0)
+        spot_gross = self.calculate_gross_spot(spot_net)
+        total_price = self.calculate_total_price(spot_net)
+        return {
+            "hour": price_entry.get("hour"),
+            "timestamp": price_entry.get("timestamp"),
+            "spot_price_net": spot_net,
+            "spot_price": spot_gross,
+            "total_price": total_price,
+            "is_cheap": self.is_cheap(total_price, max_price),
+        }
 
-    def update_config(self, vat_rate: int | None=None, grid_fee: float | None=None, taxes_fees: float | None=None, provider_markup: float | None=None) -> None:
+    def update_config(
+        self,
+        vat_rate: int | None = None,
+        grid_fee: float | None = None,
+        taxes_fees: float | None = None,
+        provider_markup: float | None = None,
+    ) -> None:
+        # fmt: off
         """Update calculator configuration @zara
 
 Args:
@@ -196,6 +242,7 @@ Args:
     taxes_fees: New taxes and fees
     provider_markup: New provider markup
 """
+        # fmt: on
         if vat_rate is not None:
             self._vat_rate = vat_rate
         if grid_fee is not None:
@@ -204,12 +251,25 @@ Args:
             self._taxes_fees = taxes_fees
         if provider_markup is not None:
             self._provider_markup = provider_markup
-        _LOGGER.debug('Calculator updated: VAT=%d%%, markup=%.2f ct/kWh', self._vat_rate, self.total_markup)
+        _LOGGER.debug(
+            "Calculator updated: VAT=%d%%, markup=%.2f ct/kWh",
+            self._vat_rate,
+            self.total_markup,
+        )
 
     def get_config(self) -> dict[str, Any]:
+        # fmt: off
         """Get current calculator configuration @zara
 
 Returns:
     Dictionary with current configuration
 """
-        return {'vat_rate': self._vat_rate, 'vat_factor': self.vat_factor, 'grid_fee': self._grid_fee, 'taxes_fees': self._taxes_fees, 'provider_markup': self._provider_markup, 'total_markup': self.total_markup}
+        # fmt: on
+        return {
+            "vat_rate": self._vat_rate,
+            "vat_factor": self.vat_factor,
+            "grid_fee": self._grid_fee,
+            "taxes_fees": self._taxes_fees,
+            "provider_markup": self._provider_markup,
+            "total_markup": self.total_markup,
+        }

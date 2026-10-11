@@ -14,7 +14,8 @@ import types
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def classes(relative, class_name, globals_):
+def verified_code(relative):
+    """Check the entire source tree before returning either code object."""
     unpacker = Path(os.environ['SFML_UNPACKER_DIR'])
     sys.path.insert(0, str(unpacker / 'oneshot'))
     from bytecode_fidelity import compare, compile_source, units
@@ -32,9 +33,39 @@ def classes(relative, class_name, globals_):
     report = compare(reference, candidate, MarkerNormalizer(metadata[1:17], metadata[18:30]))
     if not report['all_units_match']:
         raise AssertionError(f'{relative} did not match: {report}')
+    return normalize_code(reference), candidate
+
+
+def classes(relative, class_name, globals_, bases=()):
+    """Instantiate only one statically matched class with supplied dependencies."""
+    unpacker = Path(os.environ['SFML_UNPACKER_DIR'])
+    sys.path.insert(0, str(unpacker / 'oneshot'))
+    from bytecode_fidelity import units
     result = []
-    for module in (normalize_code(reference), candidate):
+    for module in verified_code(relative):
         code = next(unit for path, unit in units(module) if path == f'<module>/{class_name}#1')
         namespace = dict(globals_, __name__='pure_recovery_fixture', __builtins__=builtins.__dict__)
-        result.append(builtins.__build_class__(types.FunctionType(code, namespace), class_name))
+        result.append(builtins.__build_class__(types.FunctionType(code, namespace), class_name, *bases))
+    return tuple(result)
+
+
+def functions(relative, names, globals_, *, defaults=None, kwdefaults=None):
+    """Instantiate selected pure functions; share their controlled dependencies.
+
+    The containing module is never executed. Tests provide the known default
+    values normally attached by the module's MAKE_FUNCTION instructions.
+    """
+    result = []
+    for module in verified_code(relative):
+        namespace = dict(globals_, __name__='pure_recovery_fixture', __builtins__=builtins.__dict__)
+        selected = {}
+        for name in names:
+            matches = [value for value in module.co_consts
+                       if isinstance(value, types.CodeType) and value.co_name == name]
+            if len(matches) != 1:
+                raise AssertionError(f'{relative}: expected one top-level {name}')
+            function = types.FunctionType(matches[0], namespace, name, (defaults or {}).get(name))
+            function.__kwdefaults__ = dict((kwdefaults or {}).get(name, {}))
+            namespace[name] = selected[name] = function
+        result.append(selected)
     return tuple(result)
