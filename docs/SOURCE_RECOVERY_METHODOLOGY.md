@@ -91,6 +91,11 @@ unsupported until independently tested lowering rules are added. The initial
 coverage measure deliberately understates equivalence rather than accepting
 unverified constructs. Whole-integration completion requires every unit and
 every manifest entry to pass, followed by the readability cleanup audit.
+Adjacent exception-table intervals may be joined only when their normalized
+boundaries touch and their target, stack depth and lasti flag are identical.
+This preserves the exact effective dispatch map. An uncovered meaningful
+instruction, changed handler target or changed depth/lasti remains a failure;
+an owned negative fixture checks a missing covered CALL.
 
 Simple import and from-import markers also have independently tested lowering
 rules. Both the protected tuple importer and the ordinary interpreter import
@@ -100,6 +105,25 @@ marker expressions still require separate rules and remain failures.
 
 ## Discovered pitfalls
 
+- Removing PyArmor's runtime exit handler can also remove the route into the
+  compiler's coroutine/generator StopIteration handler. The error path is a
+  runtime exit call, RERAISE, COPY/POP_EXCEPT/RERAISE cleanup, then the compiler
+  intrinsic. Reconnect the body entries only after recognizing that entire
+  chain. Do not merely drop its table entries. An owned callable-marker fixture
+  demonstrates that the old normalization let StopIteration escape; the repair
+  preserves RuntimeError and its cause. Coroutine, generator, async-generator
+  and real nested-handler cases are compared against plain owned code.
+- Frame-wide StopIteration routes must not extend a source-level handler's
+  lexical extent. Following them made subsequent work become an erroneous
+  success-only `else` and dropped seven solar-summary generators. Excluding
+  these interpreter routes from lexical chain expansion restores every
+  generator and the common continuation after handled exceptions. A small
+  async fixture tests normal results and both handled error paths.
+- PyArmor's entry hook replaces the standard initial RESUME instruction.
+  After removing that hook, restore RESUME 0 at its known NOP slot after cell/
+  closure setup and an optional generator-entry pair. Otherwise zero-argument
+  super() can use the caller's frame. A new weather constructor comparison
+  exposed this defect; a plain owned inheritance fixture confirms the repair.
 - Extending an already merged comparison chain must share its last operand and
   keep its entire earlier prefix. Using the second operand as the shared value
   caused a three-link negated guard to evaluate its second call twice. An owned
@@ -228,10 +252,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **10,870 matched units out of 14,291** and
-  **19 complete module matches**. Those 19 sources (277 code units) are published
+- The latest full audit reports **11,929 matched units out of 14,291** and
+  **26 complete module matches**. Those 26 sources (354 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 19 have undergone the
+  evidence in `recovery/verified-manifest.json`. All 26 have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -242,14 +266,14 @@ process's zero exit code must never be interpreted as a fidelity pass.
   filter updates/adaptation/resets across both copies. That initial suite had
   eight test methods. Selected classes are instantiated only after full static
   matches and with controlled globals; no integration module is imported.
-- This checkpoint adds 121 matching code units with **zero previously matching
+- This checkpoint adds 1,059 matching code units with **zero previously matching
   units lost**, as recorded in `recovery/latest-transition.json`. The full
   source-fidelity and readability goals remain incomplete.
 - Fifteen more module sources now use readable variable names and formatting,
   including the newly verified Energy AI feature engineer. Empty-string
   artifacts are removed, original docstrings and literal values are preserved,
   and the SQL schema's escaped text is readable SQL inside multiline literals.
-  The selected behavior suite now has **18 test methods**. Added checks cover
+  That checkpoint's selected behavior suite had **18 test methods**. Added checks cover
   allocation and rounding, radiation geometry, billing and meter overlap,
   consumer configuration and summaries, conservative forecast caps/freshness,
   weather evidence/provenance, feature extraction aliases and sequences, and
@@ -258,19 +282,28 @@ process's zero exit code must never be interpreted as a fidelity pass.
   outputs, mutations and existing
   exception behavior with the original code. Known default values are attached
   explicitly to selected pure functions without executing their module bodies.
-- The unpacker is now **0.4.5-einstein.1** at commit
-  `269dbbbe2f4de0f0c92efedff75e119b45cb053c`. Its 75 regression cases report
-  74 passes and one documented expected failure in the legacy native backend;
+- Seven further sources are now complete and readable: demo persistence,
+  aWATTar, fixed/demo/time-of-use tariffs, SFML Stats view registration and the
+  Weather Fusion weather platform. All new imports keep their original modules
+  and bindings; only internal aliases are made readable. Five added application
+  test methods compare tariff windows/determinism, dependency calls, recorded
+  persistence calls, weather properties and forecasts using explicit controlled
+  dependencies. The application suite now has **23 methods**. No integration
+  module, actual database or HTTP service is loaded.
+- The unpacker is now **0.4.7-einstein.1** at commit
+  `6d3838b13ee907dd1466c5d089137d7666410b43`. Its 80 regression cases report
+  79 passes and one documented expected failure in the legacy native backend;
   the optional modern context-manager path passes. The modern backend is now
-  **0.6.4-einstein.1** at `eac23e08251c065536aa8422d2de5ac5cdbc45ca`, with
-  14 owned behavior regressions and 26 existing Rust tests passing. The latest
-  follow-up full-corpus audit has identical coverage and no lost matches; the
-  chain fix adds no further module-completion claims.
+  **0.6.5-einstein.1** at `f2b27217fc5c8a0f83abb3a7d889ea8318c433c1`, with
+  15 owned behavior regressions and 26 existing Rust tests passing. The latest
+  frame-entry follow-up audit retains the route-corrected corpus's coverage
+  and has no lost matches. These checks prove selected verified modules;
+  full source equivalence remains incomplete.
   Its pinned backend and native build also pass the unpacker fork's
-  [GitHub source regressions](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38183000706)
-  and [native build](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38183000714).
-  The backend's [behavior workflow](https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38182958576)
-  and [Linux/macOS/Windows builds, tests and clippy](https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38182958580)
+  [GitHub source regressions](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38186126751)
+  and [native build](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38186126864).
+  The backend's [behavior workflow](https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38185294293)
+  and [Linux/macOS/Windows builds, tests and clippy](https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38185294288)
   are also green.
 - The current full inventory exports all 274 payloads and validates all 14,291
   nested code objects. Source generation produces compilable candidates for

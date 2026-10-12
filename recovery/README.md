@@ -29,7 +29,8 @@ python3.14 -B -m unittest discover -s recovery/tests -v
 The tests check complete reconstructed modules statically before instantiating
 selected panel-group, radiation, billing, consumer, weather and planning
 functions, coordinator helpers, both Kalman filters, the price calculator,
-and the Energy AI feature engineer with controlled globals. Known defaults for
+the Energy AI feature engineer, tariff sources, demo persistence and weather
+platform with controlled globals and explicit dependency stand-ins. Known defaults for
 pure functions are supplied explicitly. They do not import Home Assistant, an
 integration module, or the native PyArmor runtime. Existing merge mutation
 behavior is compared explicitly; cleanup must not silently change it.

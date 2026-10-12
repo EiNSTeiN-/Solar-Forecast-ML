@@ -65,10 +65,64 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/grid_price_monitor/storage/demo_persist.py",
+      "original_payload_sha256": "aeeb37588e7cef37687e631ee145b709287ede076f9ddb889cf7293ef2b54c01",
+      "reconstructed_source_sha256": "043b582850a2d1bf96a11990150f06d1d8ff65fa42fe02bbb3db8e84fbc7b4cf",
+      "matched_units": 4,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/awattar.py",
+      "original_payload_sha256": "5ed5afb546db5355b6f0541cf92b763e21585121805dc8f90ee9df308efeb92e",
+      "reconstructed_source_sha256": "40a82dc1d7ed9df6c849699fb6680937322a8fde1adcb90042258bda37b29a65",
+      "matched_units": 10,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/demo.py",
+      "original_payload_sha256": "18c661d4cfe2cbf1f2c67479db13b1aabe1ac245d46195dd10e24aa7aca304bc",
+      "reconstructed_source_sha256": "a63d4ea44427d80f0d6e01714d57d1684799f5b5b0d653712b8314cf906592a8",
+      "matched_units": 6,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "extra_features/grid_price_monitor/tariffs/factory.py",
       "original_payload_sha256": "f1696fc6d12306c24b79551e8b9ce0146954f736830cfe00df3841b4a5fc6c67",
       "reconstructed_source_sha256": "714e2d75df9bb0cf70bcbb38b7137bad20ef2993e6a9967e7e79585a7a709386",
       "matched_units": 17,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/fixed.py",
+      "original_payload_sha256": "19ff1b5f4419dba3fbb250721fa171f0525f08ac47a2da0ac0d94e85dfb5d49e",
+      "reconstructed_source_sha256": "5d12a074a2348698d30c3c76c9adf8b8da5b366f1b793ade3b6b0646221f28cc",
+      "matched_units": 6,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/grid_price_monitor/tariffs/time_of_use.py",
+      "original_payload_sha256": "1dcf5a0f53d6483890ee876fb460a41e592e322ad4f0143c608d9e6f6a186668",
+      "reconstructed_source_sha256": "7c173e525b49cf284839b0c926ea92382b4ad660978cdfafa3aa63391dac3afb",
+      "matched_units": 14,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/api/views.py",
+      "original_payload_sha256": "b92800d4027075a258c16baa6d4e6eb193e0761e12111b1d4dc3dbab525202ec",
+      "reconstructed_source_sha256": "7f5b510701b18fae69c66ab85f4417b584ca3181f18f7bdfe5dc9ea9c2b3e2e5",
+      "matched_units": 3,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -137,6 +191,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/weather_fusion_ai/weather.py",
+      "original_payload_sha256": "6e0151aba9437a630a2fc7622998457caa1b4a8c9a41d906788e984d5dce8130",
+      "reconstructed_source_sha256": "77fbf8b7c1fe93c47e422447ef1fc7853b028edec7b0b0ee2cf0b2b5863226ab",
+      "matched_units": 34,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "physics/poa_beam.py",
       "original_payload_sha256": "0cda75b78d6291d03197edf9d9b6146020fff6ab2c378bc00ec09695bc8b423b",
       "reconstructed_source_sha256": "aa5fe034d21d6377b9a137724658e10cc2efe374eb3ca0633c90c93e8b4f93d7",
@@ -174,5 +237,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 277
+  "total_matched_units": 354
 }
