@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-72 readable whole modules and passes 142 selected application test methods.
+80 readable whole modules and passes 159 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -228,3 +228,13 @@ diagnostic formatter is now also present in its recovered whole module and
 receives no additional corpus credit. The remaining 768 instruction and
 74 exception-table failures leave 842 unverified units. The full objective
 remains active and incomplete.
+
+The 842-unit investigation and its assignments are documented in
+[the investigation report](../docs/INVESTIGATION_842_UNITS.md) and
+`investigation-842-units.json`. The corrected checkpoint gains 97 units with
+zero losses, reaching 13,546/14,291 and leaving 745. The first backend trial
+failed retention despite net gains and passing tests; its mixed-target iterator
+regression was repaired before recovered-source publication. Eight new readable
+modules add forecast quality, grid-charge gates, SMC context handling, forecast
+history, error handling, corrected statistics, and both offline license
+validators. Their validation/signature/error decisions remain intact.

@@ -1,23 +1,23 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "2f52c0ace8daa132980c8a776432315f65337488",
-    "version": "0.4.22-einstein.1"
+    "commit": "f778e8a3fd2bb8d307616b204f628ad46e675d6e",
+    "version": "0.4.24-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
-    "commit": "c5cef89401ef69f050a549858050742053bfacc3",
-    "version": "0.6.13-einstein.1"
+    "commit": "e9a71a071489324487f13fcf1c82719293d0d7ef",
+    "version": "0.6.15-einstein.1"
   },
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 150,
-    "unpacker_passes": 149,
+    "unpacker_test_cases": 158,
+    "unpacker_passes": 157,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 34,
-    "backend_behavior_tests_passed": 35,
-    "selected_module_behavior_tests_passed": 142,
+    "backend_behavior_tests_passed": 38,
+    "selected_module_behavior_tests_passed": 159,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -127,10 +127,14 @@
       "configuration_behavior_pairs": 25,
       "weather_contract_behavior_pairs": 68,
       "weather_sensor_behavior_contexts": 17,
-      "diagnostic_sensor_behavior_contexts": 24
+      "diagnostic_sensor_behavior_contexts": 24,
+      "investigated_new_application_test_methods": 17,
+      "investigated_new_readable_modules": 8,
+      "iterator_target_owned_cases": "list/set/dict, four/six targets, mixed simple/unpacked, saved locals, later loops and errors",
+      "signature_test_scope": "Owned dependency routing/input checks; no cryptographic implementation or real license used."
     },
-    "complete_readable_module_matches": 72,
-    "complete_readable_module_code_units": 1779,
+    "complete_readable_module_matches": 80,
+    "complete_readable_module_code_units": 2054,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -141,11 +145,11 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633588",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633564",
-      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633608",
-      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742682",
-      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742615"
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38296897949",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38296897785",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38296897762",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38296511313",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38296511316"
     },
     "retained_definition_count": 2,
     "independently_verified_source_files": 16,
@@ -195,12 +199,12 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627170"
     },
     "source_generation": {
-      "stage": "decorated-scopes-01",
+      "stage": "investigated-repairs-02",
       "method": "recover API over unchanged verified full-CLI exports in six batches",
       "private_worker_processes": 4,
       "exports_unchanged": true,
-      "summary_sha256": "b45927e047fd7c1497fc6e0a5fb090d67e990f8861e0cca3230140791223101a",
-      "modern_backend_source_sha256": "d899850e8d773b5833ba213c7b2eac0893801fea5ba252657d5ece28afddd58b"
+      "summary_sha256": "fd935f5847b017ce019ac9e0dba79f44819b014342731bc4cc73deb8c23aafdc",
+      "modern_backend_source_sha256": "84b92b4c98c74a5d4a2dcda3c22d1d39b94a413a0ade655136f65603d55f511a"
     },
     "previous_ci_before_branch_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38258152444",
@@ -223,19 +227,22 @@
     },
     "latest_readability_cleanup": {
       "modules": [
-        "core/core_coordinator_init_helpers.py",
-        "data/sfml_weather_provider.py",
-        "extra_features/weather_fusion_ai/sensor.py",
-        "sensors/sensor_diagnostic.py"
+        "extra_features/grid_price_monitor/license/validator.py",
+        "extra_features/sfml_stats/api/statistics_views.py",
+        "extra_features/sfml_stats/core/forecast_quality.py",
+        "extra_features/sfml_stats/core/grid_charge_gate.py",
+        "extra_features/sfml_stats/core/smc_enable.py",
+        "extra_features/solar_forecast_eai/data/data_forecast_handler.py",
+        "extra_features/solar_forecast_eai/license/validator.py",
+        "services/service_error_handler.py"
       ],
-      "new_readable_whole_module_units": 263,
-      "unneeded_artifacts_removed": 261,
-      "unneeded_fold_layers_removed": 8,
+      "new_readable_whole_module_units": 275,
+      "unneeded_artifacts_removed": 67,
+      "unneeded_fold_layers_removed": 9,
       "formatter": "black==25.1.0",
       "whole_module_proof_after_formatting": true,
       "original_documentation_and_validation_contracts_preserved": true,
-      "corpus_match_count_change_from_cleanup": 0,
-      "rename_pitfall": "Distinct inline-comprehension and branch-local binding slots must remain distinct even if human descriptions overlap."
+      "corpus_match_count_change_from_cleanup": 0
     },
     "previous_ci_before_inline_filters": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38267506927",
@@ -252,11 +259,11 @@
       "meaningful_call_cleanup_backward_jump_and_real_return_coverage_preserved": true
     },
     "comparison_variance": {
-      "rule": "Unchanged fail-closed rules from the joint callable/return checkpoint",
+      "rule": "Unchanged fail-closed rules from the decorated-scope checkpoint",
       "unchanged_source_composite_gains": 0,
       "unchanged_source_raw_gains": 0,
-      "new_source_composite_gains": 18,
-      "new_source_raw_gains": 18,
+      "new_source_composite_gains": 97,
+      "new_source_raw_gains": 97,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
     "inline_filter_readability": {
@@ -369,6 +376,35 @@
       "new_source_composite_gains": 3,
       "new_source_raw_gains": 3,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
+    },
+    "previous_ci_before_investigated_repairs": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633588",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633564",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633608",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742682",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742615"
+    },
+    "previous_comparison_variance_before_investigated_repairs": {
+      "rule": "Unchanged fail-closed rules from the joint callable/return checkpoint",
+      "unchanged_source_composite_gains": 0,
+      "unchanged_source_raw_gains": 0,
+      "new_source_composite_gains": 18,
+      "new_source_raw_gains": 18,
+      "instruction_branches_calls_and_exception_dispatch_remain_significant": true
+    },
+    "investigation": {
+      "baseline_failures": 842,
+      "shards": 5,
+      "simultaneous_children": 3,
+      "non_overlapping_whole_module_assignments": true,
+      "investigators_author_tracked_changes": false,
+      "source_only_trial_gains": 87,
+      "source_only_trial_losses": 0,
+      "rejected_intermediate_stage_lost_matches": 5,
+      "final_full_tool_gains": 97,
+      "final_full_tool_lost_matches": 0,
+      "remaining_failures": 745,
+      "ongoing_residual_investigation": true
     }
   }
 }

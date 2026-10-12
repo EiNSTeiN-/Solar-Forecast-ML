@@ -1602,3 +1602,73 @@ remain unchanged. Independently check all whole/isolated source hashes and
 code-tree proofs before commit. Remaining 768 instruction and 74 exception-table
 failures leave 842 unverified units. The full 274-module source and readability
 objective remains active and unachieved; sources stay on the recovery branch.
+
+## Disjoint investigation and coupled repairs (0.4.24 / 0.6.15)
+
+Five investigation shards partitioned the 842 failing units from the decorated
+scope checkpoint by whole-module ownership. Their 169/169/168/168/168 unit
+assignments are recorded in `recovery/investigation-842-units.json`; all files
+belonged to exactly one shard. The environment permits three children alongside
+the main thread, so the five initial investigators ran in two batches. Ongoing
+rounds use the maximum available parallel investigators, retaining disjoint
+ownership. Investigators inspect immutable tools and private scratch fixtures;
+only the main thread authors tracked repairs, tests, builds and commits.
+
+Several defects need coupled trials. Adjacent copied handler fragments can only
+be reunited if their existing final return is also restored inside the reunited
+try. Structural repair alone and return movement alone both fail. The accepted
+trial matches the complete lexical unit and retains every prior match after
+unaccepted neighbors are reverted. Genuine independent handlers, intervening
+work, else/finally, altered calls and cancellation remain significant. Empty
+try/finally return movement is separately proved; a ContextVar writer must see
+its origin throughout an await, with reset after success, failure or cancellation.
+
+Other source trials restore existing keyword-unpack boundaries, chained
+comprehension comparisons and loop continuation scope. `call(**{**a, **b})` can
+silently overwrite a duplicate that `call(**a, **b)` must reject. Restoring the
+original DICT_MERGE boundaries therefore changes real behavior; do not flatten
+all dictionaries indiscriminately. A comparison chain must evaluate its middle
+expression once; two source filters may call it twice. The loop trial restores
+an accepting body behind a rejected-continue guard without absorbing nested
+loop continuations. Every trial uses the same full instruction and exception
+comparator; no new business predicate is inferred.
+
+The backend also retains explicit unnamed-handler returns through NOP,
+NOT_TAKEN and CACHE padding following POP_EXCEPT. A dropped `return False` can
+turn a failed persistence/validation operation into apparent success. Owned
+async fixtures include three padding sizes, both error classes and cancellation.
+
+The first inline-comprehension repair, backend 0.6.14, was insufficient. Its
+owned four/six-target fixtures and CI passed, but full-corpus retention found
+97 gained units and five lost matches. Blanket suppression of an inner
+POP_ITER failed for simple targets whose iterator was still present. The
+corrected 0.6.15 model restores the iterator consumed while reconstructing an
+unpacked tuple target, so ordinary cleanup operates on the correct stack slot.
+Mixed simple/unpacked fixtures preserve exact co_code and exception tables,
+ordinary loops afterward, saved variables and errors. This demonstrates why
+positive tests and net match counts cannot replace set-wise retention.
+
+The corrected `investigated-repairs-02` run regenerated all 274 candidates from
+unchanged full CLI exports with a fixed tool source/binary hash. Raw evidence
+matches 13,540 units and 79 whole modules; the composite adds the same six units
+from existing proven bodies/readable modules, reaching 13,546 and 80. Both gain
+97 and lose zero against `decorated-scopes-01`. There are 745 failures remaining
+(672 instructions, 73 exception tables). The normalizer/comparison rules did
+not change. No vendor modules or native runtimes were imported and all payload
+hashes remain unchanged.
+
+Eight new readable modules contribute 275 nested units, bringing complete
+readable recovery to 80 modules/2,054 units. Cleanup removed 67 empty artifacts
+and nine unnecessary folded expression layers, each under complete-module proof;
+remaining folded edges are needed for the original compiler control flow.
+Private locals have descriptive names, while public signatures, original docs,
+SQL, units and decisions remain intact. Paired fixtures cover quality thresholds
+and model comparisons, grid-charge freshness/force priorities, context isolation,
+forecast/error-history conversion failures, circuit-breaker state transitions,
+corrected statistics/export, and both offline validators. The validator tests
+use owned dependency stand-ins to check call/error routing and signature input,
+not to claim cryptographic implementation testing or grant an actual license.
+
+Subsequent exact investigative findings remain queued for main-thread fixes.
+Matching only instructions with a different exception span is deliberately
+unaccepted, including the current hour-factor and loop-cleanup counterexamples.
