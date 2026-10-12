@@ -1,15 +1,15 @@
 {
-  "previous_stage": "comprehension-defaults-01",
-  "current_stage": "shared-guards-01",
-  "new_matching_units": 14,
+  "previous_stage": "shared-guards-01",
+  "current_stage": "nested-context-loops-01",
+  "new_matching_units": 10,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 14,
+  "raw_new_matching_units": 11,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 14,
+  "source_repair_gains": 10,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
-  "verified_shared_return_shapes": 646,
+  "verified_shared_return_shapes": 649,
   "verified_shared_branch_return_shapes": 69,
   "verified_try_return_scopes": 250,
   "verified_capture_name_order": 60,
@@ -18,66 +18,50 @@
   "verified_shared_try_fragments": 136,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13833,
-  "raw_all_units_match_modules": 122,
-  "manually_reconstructed_candidate_matched_units": 13839,
+  "raw_decompiler_matched_units": 13844,
+  "raw_all_units_match_modules": 125,
+  "manually_reconstructed_candidate_matched_units": 13849,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
-      "module_path": "data/data_model_candidate_shadow.py",
-      "unit_path": "<module>/ModelCandidateShadowHandler#1/_eligible_cycle_samples#1"
+      "module_path": "ai/ai_feature_engineering.py",
+      "unit_path": "<module>/FeatureEngineer#1/extract_base_features#1"
     },
     {
-      "module_path": "data/data_weather_actual_tracker.py",
-      "unit_path": "<module>/WeatherActualTracker#1/_calculate_melt_progress#1"
+      "module_path": "coordinator.py",
+      "unit_path": "<module>/SolarForecastMLCoordinator#1/update_shadow_detection_cache#1"
     },
     {
-      "module_path": "data/db_manager.py",
-      "unit_path": "<module>/DatabaseManager#1/get_ai_governance_diagnostic_snapshot#1"
+      "module_path": "data/data_hourly_predictions.py",
+      "unit_path": "<module>/HourlyPredictionsHandler#1/create_daily_predictions#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/api/common.py",
-      "unit_path": "<module>/_load_active_frontend_release#1"
+      "module_path": "data/data_weather_radiation_ensemble.py",
+      "unit_path": "<module>/align_provider_radiation_to_interval_start#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/api/gpm.py",
-      "unit_path": "<module>/_month_rows#1"
+      "module_path": "extra_features/sfml_stats/core/corrected_energy.py",
+      "unit_path": "<module>/import_period_cost#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/api/tomorrow.py",
-      "unit_path": "<module>/_phase_for_minute#1"
+      "module_path": "extra_features/sfml_stats/core/hourly_aggregator.py",
+      "unit_path": "<module>/HourlyBillingAggregator#1/_get_gpm_price#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/core/energy_context.py",
-      "unit_path": "<module>/StatsEnergyContextProvider#1/_price_hours#1"
+      "module_path": "extra_features/sfml_stats/readers/modern_analytics_reader.py",
+      "unit_path": "<module>/ModernAnalyticsReader#1/_fetch_all#1"
     },
     {
-      "module_path": "extra_features/solar_forecast_eai/ai/ai_dni_tracker.py",
-      "unit_path": "<module>/DniTracker#1/async_load#1"
+      "module_path": "extra_features/solar_forecast_eai/data/data_hourly_predictions.py",
+      "unit_path": "<module>/HourlyPredictionsHandler#1/create_daily_predictions#1"
     },
     {
-      "module_path": "extra_features/solar_forecast_eai/data/data_weather_actual_tracker.py",
-      "unit_path": "<module>/WeatherActualTracker#1/_calculate_melt_progress#1"
+      "module_path": "extra_features/solar_forecast_eai/weather_intelligence.py",
+      "unit_path": "<module>/official_warnings_from_payload#1"
     },
     {
-      "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
-      "unit_path": "<module>/_parse_wttr_payload#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py",
-      "unit_path": "<module>/ThermodynamicsCalibrator#1/load_from_database#1"
-    },
-    {
-      "module_path": "extra_features/weather_fusion_ai/ai/weather_learner.py",
-      "unit_path": "<module>/WeatherLearner#1/_load_weights#1"
-    },
-    {
-      "module_path": "forecast/forecast_rule_based_strategy.py",
-      "unit_path": "<module>/RuleBasedForecastStrategy#1/_calculate_physics_production#1"
-    },
-    {
-      "module_path": "production/production_tracker.py",
-      "unit_path": "<module>/ProductionTimeCalculator#1/_handle_power_change#1"
+      "module_path": "extra_features/solar_forecast_eai/weather_station_adapter.py",
+      "unit_path": "<module>/_precipitation_summary#1"
     }
   ],
   "rejected_intermediate_stage": {
@@ -90,15 +74,14 @@
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
   "new_complete_candidate_modules": [
-    "extra_features/sfml_stats/api/common.py",
-    "extra_features/solar_forecast_eai/ai/ai_dni_tracker.py",
-    "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py"
+    "ai/ai_feature_engineering.py",
+    "extra_features/sfml_stats/readers/modern_analytics_reader.py"
   ],
   "new_readable_modules": [],
-  "verified_coupled_statement_shapes": 82,
+  "verified_coupled_statement_shapes": 78,
   "verified_individual_return_edges": 29,
   "verified_context_boundaries": 40,
   "verified_residual_statement_shapes": 69,
-  "verified_substantive_value_shapes": 7,
-  "verified_shared_guard_shapes": 14
+  "verified_substantive_value_shapes": 6,
+  "verified_shared_guard_shapes": 13
 }

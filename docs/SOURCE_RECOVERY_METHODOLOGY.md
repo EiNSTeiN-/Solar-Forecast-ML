@@ -1998,3 +1998,42 @@ selected application suite passes **178 methods**. Published readable totals
 become **96 modules / 2,517 units**; corpus matches remain **13,839/14,291**,
 with **452 unresolved units**. No integration or native PyArmor runtime is
 imported, no comparison rule changes, and no Home Assistant operation occurs.
+
+
+## For-loop OR and nested computed context returns (0.4.28 / 0.6.22)
+
+The `nested-context-loops-01` checkpoint fixes two bounded native failures.
+A backedge to an enclosing For header must not be classified as a rotated
+While condition when joining OR predicates. Known While/backedge, Continue
+and Break/else controls retain their original handling. Eleven owned layouts
+cover eight accepting condition/else forms and three strict controls, with
+41 paired value/error checks.
+
+A computed value can remain on the stack across two or three context exits.
+The decoder now consumes the complete bounded exit sequence, places its
+return in the closed inner context, and keeps outer contexts open for their
+suppression paths. Closing every outer context at once is incorrect: it emits
+stray None protocol calls and loses scope. Owned synchronous/asynchronous
+scalar, tuple, mapping and awaited-result cases cover one/two/three contexts,
+entry/body/exit failures, suppression and cancellation in 168 paired checks.
+Return-after-inner controls retain their distinct outer scope.
+
+Immutable snapshots pin native `ffa3daee309298e1350e0c1dffcae7c6547deb1b`
+and source API `58f28e804e833a5920a2ff67fb26f22d46f6e2e5`. Every native
+output and diagnostic is compared; 200 identical sources are reused and 74
+changed sources regenerated. Generation takes 1,034.6 seconds with four
+workers. All 274 modules then receive independent raw and composite fidelity
+audits. Raw gains **11** to **13,844 / 125 complete candidates**; composite
+gains **10** to **13,849/14,291 / 125 complete candidates**. Both lose **zero**.
+One raw gain was already verified independently in the composite, so it is
+not counted twice. Newly complete candidates are the main feature engineer
+and STATS modern analytics reader.
+
+**442 units remain: 377 instruction and 65 exception mismatches**. All 274
+candidates compile; 217 are structurally complete, which is separate from
+fidelity. The readable subset remains **96 modules / 2,517 units**, and its
+178 application methods retain their separately checked proofs. Comparator
+rules, input payloads and retained definition overrides remain unchanged.
+Local verification passes 35 Rust tests, 54 native behavior methods and the
+192 released unpacker cases (one existing expected failure); no vendor module
+or native PyArmor runtime is imported.

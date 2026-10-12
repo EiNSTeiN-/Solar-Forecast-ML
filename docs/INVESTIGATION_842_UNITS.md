@@ -287,3 +287,14 @@ candidates bring that count to 123; readable sources remain 95 modules/2,503
 units. Five fresh full-recovery crosschecks validate the exact postpass reuse
 method. Earlier algorithms and all comparator rules remain unchanged. Further
 investigator oracles are queued separately and are not included in these gains.
+
+
+## Nested context and loop checkpoint
+
+`nested-context-loops-01` audits all 274 modules using frozen source API
+0.4.28 and native 0.6.22. Raw gains 11, composite gains 10, with zero losses:
+**13,849/14,291 composite matches, 442 remaining, 125 complete candidates**.
+The independently published readable subset is **96 modules / 2,517 units**.
+Three simultaneous investigators rotate through the five original disjoint
+inventories; authoring and publication remain in the main thread. Further
+source oracles are queued and excluded from the certified corpus count.
