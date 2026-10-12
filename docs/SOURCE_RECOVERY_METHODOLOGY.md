@@ -260,10 +260,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **12,755 matched units out of 14,291** and
-  **44 complete module matches**. Thirty-nine readable sources (745 code units) are published
+- The latest full audit reports **12,875 matched units out of 14,291** and
+  **49 complete module matches**. Forty-four readable sources (810 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 39 published sources have undergone the
+  evidence in `recovery/verified-manifest.json`. All 44 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -534,3 +534,60 @@ data collector and repair-tool service. Their raw source remains private.
 Remaining fidelity failures are **1,243 instruction mismatches and 293
 exception-table mismatches**. The complete source-fidelity and readability
 requirements remain unmet, and the goal remains active.
+
+## Module namespace and terminal-value checkpoint
+
+Unpacker **0.4.12-einstein.1**, commit
+`05dc198cfc6771c083f5efc357ee0bc0b88abeed`, keeps backend **0.6.7-einstein.1**.
+The unpacker suite reports **102 passes in 103 cases**, with the same legacy
+native expected failure. Current CI is recorded in `recovery/toolchain.json`.
+No new verifier normalization is introduced in this checkpoint.
+
+Python 3.14 may implicitly create a module's `__conditional_annotations__` set
+even with future-serialized annotations. The decompiler guesses an explicit
+empty dictionary for that setup. Source compilation then recreates the proper
+set and executes the guessed dictionary store afterward, overwriting a real
+observable namespace binding. This is different from the inaccessible unused
+class-cell allowance discussed earlier: module stores must remain significant.
+
+`restore_module_annotation_binding` tries removal of the guessed source map,
+accepts it only when the entire module unit then matches, and checks that every
+old unit match survives. The compiler's set setup remains in both code trees.
+Owned tests compare the set, annotation dictionary and other namespace values,
+retain genuine explicit dictionary assignments, reject unproven literal/store
+changes and check idempotency. This fixes **18 module units** and brings STATS
+API context, tariff thresholds and EAI heat-pump source resolution to full
+matches. All three are readable and published.
+
+Terminal return sharing also affects explicit final values, including boolean
+and numeric fallbacks through handled errors. The proven source pass now wraps
+an existing final return as `return value if True else None`, retaining its exact
+value expression. It still appends a None expression for an implicit return,
+reverts unproven edits, skips async generators and ambiguous definitions, and
+checks full signatures/instructions/dispatch and all previous matches. Owned
+tests cover handled comparison failures and boolean values, keep already
+matching call-valued conditional returns unchanged, compare returned object
+identity/call order/errors, and reject changed values or branch predicates.
+
+A probe of this extension adds **102** matching units with no regressions. A
+fresh full CLI generation confirms **630** accepted shared-return shapes and
+**18** accepted module binding repairs. All 274 sources compile, with the same
+206 structural-completeness reports. The composite audit confirms **120 new
+matches and zero previous matches lost** versus the preceding checkpoint:
+**12,875 / 14,291**, **49 whole modules**, and no missing source units. Raw
+generation has **12,870 matches** and still relies on the two proven body
+overrides for the three originally omitted source units.
+
+The astronomical sun gate and shared GPM forecast reader are also now complete,
+readable and published. Application checks cover thirty elevation/time cases,
+naive/aware comparison errors, the existing in-place yield mutation contract,
+twenty-four forecast-reader scenarios, query parameters and time boundaries,
+fifteen threshold validation cases, twelve day evaluations with 288 current-slot
+decisions, and seven heat-pump mapping/status scenarios including wrong-unit
+fallback and unknown/unavailable telemetry. The selected application suite now
+has **43 passing methods**; dependencies are controlled stand-ins.
+
+Forty-four whole readable modules (810 units) are published. Five other complete
+candidate modules still need readability cleanup, and full source fidelity
+still has **1,123 instruction and 293 exception-table mismatches**. The complete
+objective remains unachieved and active. No recovered source has been deployed.

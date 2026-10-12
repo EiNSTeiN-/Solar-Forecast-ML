@@ -31,8 +31,9 @@ selected panel-group, radiation, billing, consumer, weather and planning
 functions, coordinator helpers, both Kalman filters, the price calculator,
 the Energy AI feature engineer, tariff sources, demo persistence and weather
 platform with controlled globals and explicit dependency stand-ins. Further
-checks cover tariff windows, battery integration, invoice validation, forecast
-regeneration, capability gates and isolated dashboard/initialization trees.
+checks cover tariff windows/thresholds, battery integration, invoice validation,
+forecast regeneration/readers, astronomical gating, heat-pump source resolution,
+capability gates and isolated dashboard/initialization trees.
 Known defaults for
 pure functions are supplied explicitly. They do not import Home Assistant, an
 integration module, or the native PyArmor runtime. Existing merge mutation
