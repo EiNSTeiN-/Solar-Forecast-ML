@@ -1941,3 +1941,40 @@ verified separately from candidate completeness. Local verification passes
 35 Rust tests, 52 backend behavior methods, and 183 unpacker cases (182 passes
 and one existing expected failure). The 174 selected application methods
 remain supported by their unchanged source and independently rechecked proofs.
+
+
+## Coupled guards and protected regions (0.4.28 / 0.6.21)
+
+`shared-guards-01` adds bounded, proof-selected rejection chains and existing
+guard/context work. Up to four non-overlapping rejection sites can change
+together. Negation and inverse equality spellings are distinct trials because
+rich-comparison hooks need not agree. A validated inner guard can reclaim an
+existing suffix; an empty guard can reclaim an adjacent Try while its success
+suffix remains outside. Coupled trials can return an existing result to its
+outer protected region. Optional-query handlers can rejoin both their context
+and enclosing handler. No new business expression or exception is invented.
+
+Tool snapshots pin API `58f28e804e833a5920a2ff67fb26f22d46f6e2e5` and native
+backend `4487dbe65507cc594ca9bc104f52040de86a493a`. An AST comparison proves
+that the earlier API algorithms are unchanged and the only new operation is
+one final pass before source emission. That pass normalizes its input through
+AST unparse/parse, so the prior emitted source supplies exactly the same input
+with comments and locations erased. All 274 prior native captures and exports
+are hash-checked, then every new source is independently audited. Fresh full
+API recovery on three repaired modules and two unchanged controls produces
+byte-for-byte identical source and identical report fields. This is reuse of
+proved unchanged algorithms, with no omitted fidelity checks. New generation
+takes 29.2 seconds with four workers.
+
+Raw and composite views each gain **14 units and lose zero**. Raw source
+proves **13,833 units / 122 complete candidate modules**; the composite proves
+**13,839/14,291 units / 123 complete candidate modules**. **452 remain:
+387 instruction and 65 exception mismatches**. The newly complete candidates
+are the STATS common API, EAI DNI tracker and EAI thermodynamics calibrator.
+The readable subset remains separately proved at **95 modules / 2,503 units**.
+All 274 candidates compile; 216 are structurally complete. Inputs, comparator
+rules and the two retained definition overrides remain unchanged, with zero
+vendor-module imports. Nine owned methods cover 70 paired guard/date/query
+behaviors; all 192 unpacker cases pass with one existing expected failure.
+The stable backend retains 35 Rust and 52 behavior methods; the 174 selected
+application methods and their unchanged sources remain independently proved.

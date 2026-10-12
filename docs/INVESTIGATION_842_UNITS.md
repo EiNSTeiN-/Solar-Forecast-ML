@@ -276,3 +276,14 @@ changed outputs are regenerated, and every module is independently audited.
 Complete candidate counts are 120; readable counts
 remain 95 modules / 2,503 units. Investigator oracles are still queued and are
 not counted until main-thread implementation passes the full retention gate.
+
+
+## Coupled guard checkpoint
+
+`shared-guards-01` implements bounded guard/handler source trials in the main
+thread. All 274 candidates are audited; raw/composite each gain 14 and lose 0,
+reaching 13,839/14,291 composite matches with 452 remaining. Three more complete
+candidates bring that count to 123; readable sources remain 95 modules/2,503
+units. Five fresh full-recovery crosschecks validate the exact postpass reuse
+method. Earlier algorithms and all comparator rules remain unchanged. Further
+investigator oracles are queued separately and are not included in these gains.

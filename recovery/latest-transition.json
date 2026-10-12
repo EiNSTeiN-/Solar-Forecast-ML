@@ -1,12 +1,12 @@
 {
-  "previous_stage": "open-context-return-01",
-  "current_stage": "comprehension-defaults-01",
-  "new_matching_units": 1,
+  "previous_stage": "comprehension-defaults-01",
+  "current_stage": "shared-guards-01",
+  "new_matching_units": 14,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 1,
+  "raw_new_matching_units": 14,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 1,
+  "source_repair_gains": 14,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 646,
@@ -18,14 +18,66 @@
   "verified_shared_try_fragments": 136,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13819,
-  "raw_all_units_match_modules": 119,
-  "manually_reconstructed_candidate_matched_units": 13825,
+  "raw_decompiler_matched_units": 13833,
+  "raw_all_units_match_modules": 122,
+  "manually_reconstructed_candidate_matched_units": 13839,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
-      "module_path": "extra_features/solar_forecast_eai/weather_station_adapter.py",
-      "unit_path": "<module>/_monthly_rows#1"
+      "module_path": "data/data_model_candidate_shadow.py",
+      "unit_path": "<module>/ModelCandidateShadowHandler#1/_eligible_cycle_samples#1"
+    },
+    {
+      "module_path": "data/data_weather_actual_tracker.py",
+      "unit_path": "<module>/WeatherActualTracker#1/_calculate_melt_progress#1"
+    },
+    {
+      "module_path": "data/db_manager.py",
+      "unit_path": "<module>/DatabaseManager#1/get_ai_governance_diagnostic_snapshot#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/common.py",
+      "unit_path": "<module>/_load_active_frontend_release#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/gpm.py",
+      "unit_path": "<module>/_month_rows#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/tomorrow.py",
+      "unit_path": "<module>/_phase_for_minute#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/energy_context.py",
+      "unit_path": "<module>/StatsEnergyContextProvider#1/_price_hours#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/ai/ai_dni_tracker.py",
+      "unit_path": "<module>/DniTracker#1/async_load#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_actual_tracker.py",
+      "unit_path": "<module>/WeatherActualTracker#1/_calculate_melt_progress#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
+      "unit_path": "<module>/_parse_wttr_payload#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py",
+      "unit_path": "<module>/ThermodynamicsCalibrator#1/load_from_database#1"
+    },
+    {
+      "module_path": "extra_features/weather_fusion_ai/ai/weather_learner.py",
+      "unit_path": "<module>/WeatherLearner#1/_load_weights#1"
+    },
+    {
+      "module_path": "forecast/forecast_rule_based_strategy.py",
+      "unit_path": "<module>/RuleBasedForecastStrategy#1/_calculate_physics_production#1"
+    },
+    {
+      "module_path": "production/production_tracker.py",
+      "unit_path": "<module>/ProductionTimeCalculator#1/_handle_power_change#1"
     }
   ],
   "rejected_intermediate_stage": {
@@ -37,11 +89,16 @@
   "verified_chained_comprehension_filters": 7,
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
-  "new_complete_candidate_modules": [],
+  "new_complete_candidate_modules": [
+    "extra_features/sfml_stats/api/common.py",
+    "extra_features/solar_forecast_eai/ai/ai_dni_tracker.py",
+    "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py"
+  ],
   "new_readable_modules": [],
   "verified_coupled_statement_shapes": 82,
   "verified_individual_return_edges": 29,
   "verified_context_boundaries": 40,
   "verified_residual_statement_shapes": 69,
-  "verified_substantive_value_shapes": 7
+  "verified_substantive_value_shapes": 7,
+  "verified_shared_guard_shapes": 14
 }
