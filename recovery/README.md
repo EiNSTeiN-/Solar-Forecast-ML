@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-55 readable whole modules and passes 63 selected application test methods.
+58 readable whole modules and passes 72 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -89,3 +89,16 @@ truth conversion that must never run. The EMS class is compilation context
 only; the larger EMS and stats API modules remain incomplete. The generic
 parser recovers both functions directly, so they receive no body override or
 second corpus count.
+
+The current shared-return checkpoint adds readable complete shadow-forecast,
+shadow-observation and GPM-entitlement modules, plus two independently verified
+diagnostic/range functions. Internal locals have descriptive names. Thirty-five
+unnecessary folded-expression layers were removed with full-module proof after
+every change; the few retained edges preserve the compiler's shared blocks.
+Five tests compare 49 formatter, entitlement-constructor and range-guard
+scenarios. Four more cover shadow thresholds, seasonal blending, physics caps,
+geometry, weather/sensor gates, observation classes and sensorless residuals.
+The entitlement constructor is tested from its complete verified module rather
+than kept as a redundant isolated source. Neither isolated function receives an
+override or extra corpus count. The whole goal remains incomplete at
+13,260 of 14,291 matched units, with 58 complete module matches.

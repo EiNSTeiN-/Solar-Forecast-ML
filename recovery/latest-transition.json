@@ -1,31 +1,203 @@
 {
-  "new_matching_units": 2,
+  "previous_stage": "loop-guards-03",
+  "current_stage": "shared-blocks-01",
+  "new_matching_units": 45,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 2,
+  "raw_new_matching_units": 45,
   "raw_previous_matches_lost": 0,
   "remaining_goal_complete": false,
-  "previous_stage": "generator-filters-02",
-  "current_stage": "loop-guards-03",
-  "verified_module_annotation_bindings": 18,
   "verified_shared_return_shapes": 630,
+  "verified_shared_branch_return_shapes": 45,
   "verified_try_return_scopes": 249,
-  "verified_capture_name_order_units": 60,
+  "verified_capture_name_order": 60,
   "verified_compound_return_shapes": 11,
   "verified_attribute_callable_values": 2,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 8,
-  "raw_decompiler_matched_units": 13209,
-  "raw_all_units_match_modules": 54,
-  "manually_reconstructed_candidate_matched_units": 13215,
+  "raw_decompiler_matched_units": 13254,
+  "raw_all_units_match_modules": 57,
+  "manually_reconstructed_candidate_matched_units": 13260,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
+      "module_path": "ai/ai_drift_monitor.py",
+      "unit_path": "<module>/_current_metric_violations#1"
+    },
+    {
+      "module_path": "ai/ai_tiny_lstm.py",
+      "unit_path": "<module>/TinyLSTM#1/_train_in_process#1/_to_target_array#1"
+    },
+    {
+      "module_path": "core/core_shadow_forecast.py",
+      "unit_path": "<module>/build_shadow_forecast_context#1"
+    },
+    {
+      "module_path": "data/data_ensemble_shadow.py",
+      "unit_path": "<module>/EnsembleShadowHandler#1/capture_morning_batch#1"
+    },
+    {
+      "module_path": "data/data_shadow_detection.py",
+      "unit_path": "<module>/ShadowDetector#1/_detect_with_irradiance_correlation#1"
+    },
+    {
+      "module_path": "data/data_shadow_observation.py",
+      "unit_path": "<module>/ceiling_for_bin#1"
+    },
+    {
+      "module_path": "data/data_shadow_observation.py",
+      "unit_path": "<module>/classify_sensorless_hour#1"
+    },
+    {
+      "module_path": "data/data_shadow_observation.py",
+      "unit_path": "<module>/weather_is_clear_enough#1"
+    },
+    {
+      "module_path": "data/data_weather_corrector.py",
+      "unit_path": "<module>/WeatherForecastCorrector#1/_get_weather_for_hour_async#1"
+    },
+    {
+      "module_path": "data/data_weather_corrector.py",
+      "unit_path": "<module>/detect_fog_from_meteorology#1"
+    },
+    {
+      "module_path": "data/data_weather_radiation_ensemble.py",
+      "unit_path": "<module>/_source_row#1"
+    },
+    {
+      "module_path": "data/db_manager.py",
+      "unit_path": "<module>/DatabaseManager#1/commit#1"
+    },
+    {
+      "module_path": "data/db_manager.py",
+      "unit_path": "<module>/DatabaseManager#1/enable_foreign_keys#1"
+    },
+    {
+      "module_path": "extra_features/grid_price_monitor/license/entitlements.py",
+      "unit_path": "<module>/_problem_resolution#1"
+    },
+    {
+      "module_path": "extra_features/grid_price_monitor/license/entitlements.py",
+      "unit_path": "<module>/resolve_entitlements#1"
+    },
+    {
       "module_path": "extra_features/sfml_stats/api/common.py",
-      "unit_path": "<module>/_get_stats_gpm_coordinator#1"
+      "unit_path": "<module>/_build_forecast_error_metrics#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/common.py",
+      "unit_path": "<module>/_build_live_today_clean_eval#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/eai.py",
+      "unit_path": "<module>/_public_weather_data#1/project#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/gpm.py",
+      "unit_path": "<module>/_thresholds#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/tomorrow.py",
+      "unit_path": "<module>/_daily_forecast_record#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/tomorrow.py",
+      "unit_path": "<module>/_day_finance#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/tomorrow.py",
+      "unit_path": "<module>/_day_record#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/corrections.py",
+      "unit_path": "<module>/EnergyCorrectionStore#1/_limits_on#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/dev_mode.py",
+      "unit_path": "<module>/dev_state#1"
     },
     {
       "module_path": "extra_features/sfml_stats/core/ems.py",
-      "unit_path": "<module>/EMSManager#1/_gpm_coordinator#1"
+      "unit_path": "<module>/EMSManager#1/_surplus_state#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/ems.py",
+      "unit_path": "<module>/EMSManager#1/_today_brief#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/energy_efficiency.py",
+      "unit_path": "<module>/build_energy_chain_summary#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/forecast_quality.py",
+      "unit_path": "<module>/_longest_streak#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/heating.py",
+      "unit_path": "<module>/HeatingManager#1/_outdoor_status#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/heating.py",
+      "unit_path": "<module>/HeatingManager#1/_reading#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/heating.py",
+      "unit_path": "<module>/HeatingManager#1/_room_status#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/heating.py",
+      "unit_path": "<module>/_decide_thermostat#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/heating_model.py",
+      "unit_path": "<module>/season_with_forecast#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/ai/ai_tiny_lstm.py",
+      "unit_path": "<module>/TinyLSTM#1/train#1/_to_target_array#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
+      "unit_path": "<module>/WeatherForecastCorrector#1/_get_weather_for_hour_async#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
+      "unit_path": "<module>/detect_fog_from_meteorology#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/energy_context.py",
+      "unit_path": "<module>/_bounded_number#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/forecast/forecast_rule_based_strategy.py",
+      "unit_path": "<module>/RuleBasedForecastStrategy#1/_configured_indoor_temp#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_engine.py",
+      "unit_path": "<module>/ThermodynamicsEngine#1/resolve_sink_temperature#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/weather_fusion_adapter.py",
+      "unit_path": "<module>/_metric_number#1"
+    },
+    {
+      "module_path": "forecast/forecast_rule_based_strategy.py",
+      "unit_path": "<module>/RuleBasedForecastStrategy#1/_get_daily_forecast_cap#1"
+    },
+    {
+      "module_path": "physics/physics_calibration_telemetry.py",
+      "unit_path": "<module>/azimuth_sector#1"
+    },
+    {
+      "module_path": "production/production_scheduled_tasks.py",
+      "unit_path": "<module>/ScheduledTasksManager#1/_get_actual_radiation_for_hour#1"
+    },
+    {
+      "module_path": "production/production_tracker.py",
+      "unit_path": "<module>/ProductionTimeCalculator#1/_handle_power_value#1"
+    },
+    {
+      "module_path": "sensors/sensor_diagnostic.py",
+      "unit_path": "<module>/_gate_status_text#1"
     }
   ]
 }

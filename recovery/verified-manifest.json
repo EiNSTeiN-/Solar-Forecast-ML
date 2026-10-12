@@ -38,6 +38,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "core/core_shadow_forecast.py",
+      "original_payload_sha256": "60387f76829d7e3c33a5c8ecb9d25a7f2cd8ffbb27ed9e273134d6df3f396738",
+      "reconstructed_source_sha256": "19f93eb0f26c237809e47f1a9475c8a7ce2c2400bfb3768d8f0a301e5c171d93",
+      "matched_units": 16,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 2
+    },
+    {
       "path": "data/data_model_promotion_policy.py",
       "original_payload_sha256": "af8b958c4086471d9ffcf399d350e65fa5bd95429fe37ec8d9b231e1de800422",
       "reconstructed_source_sha256": "943594c339d1a63752ac64a1bbb045c33616c09f7cfe3687163b2f4cd625f485",
@@ -54,6 +63,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 4
+    },
+    {
+      "path": "data/data_shadow_observation.py",
+      "original_payload_sha256": "7a107234d1d08be31fbd24e1a2893cb57d34cc5d53abaf82070f0894d39c2dbe",
+      "reconstructed_source_sha256": "203687bcd0c27a0a615ff465404f6fcb49b514eaffecb22aa15f5462272c8f0c",
+      "matched_units": 27,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 2
     },
     {
       "path": "data/data_weather_kalman.py",
@@ -96,6 +114,15 @@
       "original_payload_sha256": "927c4f00a751b79bf2e82ccc39a9960e314220aa382ef258d51ca174da4c740a",
       "reconstructed_source_sha256": "65e5d2cd6c20d36879b138663ad39f11ea11ecfe8d3bc5dd2949bd4501ef0aac",
       "matched_units": 25,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/grid_price_monitor/license/entitlements.py",
+      "original_payload_sha256": "94dba93bd0975aa93438d7e7dc484d9c5d56ad2c3f6881897ae75daab686e57a",
+      "reconstructed_source_sha256": "44cbd7d083609b96f733a0fcb01400cf12a53e1cac4be7cc48b41094028b8843",
+      "matched_units": 38,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1

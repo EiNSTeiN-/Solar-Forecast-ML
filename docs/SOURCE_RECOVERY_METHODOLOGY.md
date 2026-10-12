@@ -260,10 +260,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **13,215 matched units out of 14,291** and
-  **55 complete module matches**. Fifty-five readable sources (1,161 code units) are published
+- The latest full audit reports **13,260 matched units out of 14,291** and
+  **58 complete module matches**. Fifty-eight readable sources (1,242 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 55 published sources have undergone the
+  evidence in `recovery/verified-manifest.json`. All 58 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -936,3 +936,77 @@ readable generator units and **55 readable whole modules / 1,161 units**.
 Remaining fidelity failures are **999 instruction** and **77 exception-table**
 units. The complete 274-module objective remains active and unachieved.
 No recovered source has been deployed to Home Assistant.
+
+## Shared branch-return blocks and readable shadow contracts
+
+Unpacker **0.4.18-einstein.1**, commit
+`fe922e093306f408c6066e1931fee4c78a77cb76`, adds a source-shape repair for
+shared return blocks. The backend remains **0.6.10-einstein.1** at
+`0b6f432707f7a7a5167e1876d23350cfed71d920`. Python and native version banners
+are now synchronized. All **126** unpacker cases run with the modern backend:
+**125 pass**, plus the unchanged documented legacy native expected failure.
+
+The [CPython 3.14.2 flow-graph optimizer](https://github.com/python/cpython/blob/v3.14.2/Python/flowgraph.c)
+can inline short exit blocks with a four-instruction copy limit. Removing
+runtime instrumentation can leave a shared call/return edge that ordinary
+source recompilation duplicates. A single folded edge was insufficient for
+some keyword-call and conditional-dictionary tails. The new pass tries one
+through four constant-folded layers around existing return expressions.
+It adds no runtime predicate and preserves all existing values and operations.
+Each attempted function must match its complete recovered unit, including
+signature, branches, nested units and exception dispatch. After failed
+neighboring trials are reverted, every old match and accepted new match must
+still survive. Nested definitions are collected independently and async
+generators are skipped. Accepted paths appear in
+`verified_shared_branch_return_shapes`. No verifier rule or handler-coverage
+allowance changed.
+
+Six new owned regression methods cover keyword-call descriptors and argument
+order, chained rich comparisons and identity, dictionary evaluation, nested
+closures, coroutine handlers and cancellation, idempotency and retained prior
+matches. Wrong constants, keyword arguments and parameter contracts stay
+failures. Separate application tests confirm the recovered formatter and
+range-guard functions against their original selected code, including errors
+and truth hooks that must not run.
+
+All **274** source candidates were regenerated over the unchanged validated
+exports from the preceding full native/CLI checkpoint. An interrupted first
+run produced 153 complete reports. Generation resumed in batches of 50, 50
+and 21 without changing the tools; this is recorded explicitly rather than
+presented as one new native export run. Every input payload and export hash
+remains unchanged. Raw and composite audits both add **45 matches**, with
+**zero prior matches lost**. Raw generation reaches **13,254 / 14,291** and
+**57** complete modules. The composite reaches **13,260 / 14,291** and
+**58** complete modules. Existing verified overrides remain unchanged.
+
+The three newly complete modules are published as readable whole sources:
+
+- `core/core_shadow_forecast.py`: 16 matched units.
+- `data/data_shadow_observation.py`: 27 matched units.
+- `extra_features/grid_price_monitor/license/entitlements.py`: 38 matched units.
+
+Internal locals are renamed descriptively while original public contracts,
+documentation and algorithms are retained. Thirty-five unnecessary folded
+layers are removed one at a time, accepting each removal only after the entire
+module still matches. The source is formatted with `black==25.1.0`, then the
+whole module trees are proved again. Remaining folded edges are compiler-shape
+requirements, documented in comments; no PyArmor runtime artifacts are needed.
+The entitlement constructor is tested in its complete module rather than
+retained as a redundant isolated copy.
+
+Two additional readable isolated functions cover `_gate_status_text` and
+`_bounded_number`. Their containing diagnostic and energy modules remain
+incomplete. They receive full unit proof, no body overrides and no duplicate
+corpus count. There are now **eight** isolated source files proving **thirteen**
+distinct units, plus the existing **seven** generator units.
+
+The selected application suite passes **72 methods**. Five methods compare
+**49** formatter, entitlement-constructor and range scenarios. Four additional
+methods make **485** paired function comparisons covering shadow rejection
+thresholds, seasonal blending, sensorless caps, calibrated physics, geometry
+and weather/sensor boundaries, observation/learning routes and residuals.
+These tests use controlled dependencies and known defaults; no integration
+module or native runtime is imported. Complete readable coverage is now
+**58 modules / 1,242 units**. Fidelity failures remain **954 instruction** and
+**77 exception-table** units, so the complete objective stays active and
+unachieved. The recovered source remains in the development branch.
