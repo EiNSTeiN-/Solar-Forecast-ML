@@ -1,12 +1,12 @@
 {
-  "previous_stage": "substantive-values-01",
-  "current_stage": "open-context-return-01",
-  "new_matching_units": 3,
+  "previous_stage": "open-context-return-01",
+  "current_stage": "comprehension-defaults-01",
+  "new_matching_units": 1,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 3,
+  "raw_new_matching_units": 1,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 3,
+  "source_repair_gains": 1,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 646,
@@ -18,22 +18,14 @@
   "verified_shared_try_fragments": 136,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13818,
+  "raw_decompiler_matched_units": 13819,
   "raw_all_units_match_modules": 119,
-  "manually_reconstructed_candidate_matched_units": 13824,
+  "manually_reconstructed_candidate_matched_units": 13825,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
-      "module_path": "data/db_manager.py",
-      "unit_path": "<module>/DatabaseManager#1/build_actual_live_state_from_hourly#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/db_manager.py",
-      "unit_path": "<module>/DatabaseManager#1/get_seasonal_factors#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/db_manager.py",
-      "unit_path": "<module>/DatabaseManager#1/get_weather_expert_weights#1"
+      "module_path": "extra_features/solar_forecast_eai/weather_station_adapter.py",
+      "unit_path": "<module>/_monthly_rows#1"
     }
   ],
   "rejected_intermediate_stage": {

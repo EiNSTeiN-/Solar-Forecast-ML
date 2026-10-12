@@ -1911,3 +1911,33 @@ remain unchanged. Verification passes 35 Rust tests, 51 backend behavior
 methods, and 183 unpacker cases (182 passes and one existing expected failure).
 The 174 selected application methods remain supported by their unchanged
 source and independently rechecked original-bytecode references.
+
+
+## Empty comprehension defaults and full retention (0.4.27 / 0.6.21)
+
+The `comprehension-defaults-01` checkpoint distinguishes real inline-comprehension accumulators
+from empty default arguments consumed by calls such as `row.get("values", {})`.
+For modern compiler setup the accumulator must be followed by `SWAP 2`;
+legacy setup retains its separate handling. The mistaken setup previously
+created a false nested comprehension level. Nine owned list/set/mapping and
+nested-comprehension fixtures verify exact instruction and exception bytes,
+plus 45 paired value/error cases and preserved outer locals. Genuine nested,
+default-free and empty-tuple controls keep their original behavior.
+
+All 274 native outputs and diagnostics are compared with the prior stage.
+218 identical source inputs are reused under the
+unchanged frozen 0.4.27 source API; 56 changed
+outputs are regenerated. Every resulting module still receives the complete
+instruction and exception audit. Generation takes 646.4
+seconds with four workers; no proof is skipped by this reuse.
+
+Raw source proves **13819 units / 119 complete
+candidate modules**; the composite proves **13825/14,291 units /
+120 complete candidate modules**. Both gain
+**1 and lose zero**. **466 units remain**.
+All inputs and comparison rules remain unchanged, with zero vendor-module
+imports. The published readable subset remains **95 modules / 2,503 units**,
+verified separately from candidate completeness. Local verification passes
+35 Rust tests, 52 backend behavior methods, and 183 unpacker cases (182 passes
+and one existing expected failure). The 174 selected application methods
+remain supported by their unchanged source and independently rechecked proofs.

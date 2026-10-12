@@ -5,13 +5,13 @@
     "source_compiles_modules": 274,
     "all_units_match_modules": 120,
     "reference_units": 14291,
-    "matched_units": 13824,
+    "matched_units": 13825,
     "input_files_unchanged": true,
     "vendor_modules_imported": 0,
     "behavioral_equivalence_verified": false,
     "unit_results": {
-      "normalized_bytecode_match": 13824,
-      "instructions": 402,
+      "normalized_bytecode_match": 13825,
+      "instructions": 401,
       "exception_table": 65
     },
     "scopes": {
@@ -2675,7 +2675,7 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 73,
+      "matched_units": 74,
       "reference_units": 77,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate",

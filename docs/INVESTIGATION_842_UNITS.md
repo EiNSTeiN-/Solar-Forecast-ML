@@ -263,3 +263,16 @@ Further investigator oracles remain queued and are not counted as these gains.
 The refreshed original inventories now contain 96, 104, 78, 89, and 100
 residual units across 31, 34, 31, 28, and 30 modules. Their union is 467 units
 with no overlap; three investigators rotate through the five groups.
+
+
+## Comprehension-default checkpoint
+
+`comprehension-defaults-01` audits all 274 modules with unchanged source API 0.4.27 and native
+backend 0.6.21. Raw and composite views each gain 1 units,
+losing zero, reaching **13825/14,291 composite matches** with
+**466 remaining**. Native output/diagnostic identity permits
+218 source reuses; 56
+changed outputs are regenerated, and every module is independently audited.
+Complete candidate counts are 120; readable counts
+remain 95 modules / 2,503 units. Investigator oracles are still queued and are
+not counted until main-thread implementation passes the full retention gate.
