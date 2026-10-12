@@ -222,6 +222,45 @@
       "behavior_input_cases": 35,
       "retain_in_candidate": false,
       "reason": "Independently verified readable padded-value return. Generic generation recovers this unit directly. Its containing module remains incomplete. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/forecast_collector.py",
+      "unit_path": "<module>/ForecastComparisonCollector#1/_get_db_manager#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/core/forecast_db_manager.py",
+      "matched_units": 1,
+      "original_payload_sha256": "d067c247e808fb72537b41d727bddc72d79500894120910571d093c49cf168a9",
+      "reconstructed_source_sha256": "f9a36a25d41ac783c128550e635daae693021de3715c35c8aea6bb63e2c7d218",
+      "all_units_match": true,
+      "readability_refactored": true,
+      "retain_in_candidate": false,
+      "behavior_input_cases": 30,
+      "reason": "Independently proved readable database getter. Joint callable-value and shared-return reconstruction recovers it directly. Its containing module remains incomplete; no retained override or extra corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/hourly_aggregator.py",
+      "unit_path": "<module>/HourlyBillingAggregator#1/_get_db_manager#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/core/hourly_db_manager.py",
+      "matched_units": 1,
+      "original_payload_sha256": "590785ec27ac7c221f59c8db0e5f01d5ecbef0b0a81d33087de231441f283b62",
+      "reconstructed_source_sha256": "0580c59007380c9869e221f92904b8b46835c635bc76476c0bb10d8cd97a24b5",
+      "all_units_match": true,
+      "readability_refactored": true,
+      "retain_in_candidate": false,
+      "behavior_input_cases": 30,
+      "reason": "Independently proved readable database getter. Joint callable-value and shared-return reconstruction recovers it directly. Its containing module remains incomplete; no retained override or extra corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/power_sources_collector.py",
+      "unit_path": "<module>/PowerSourcesCollector#1/_get_db_manager#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/power_sources_db_manager.py",
+      "matched_units": 1,
+      "original_payload_sha256": "c711495d7144a453e3abaf63428c251b45adafaf3749d53978fbc1d4a55ce809",
+      "reconstructed_source_sha256": "77a21f19db725eab6e665adb92a110b2ae1cc0d03cdf8e1263bd4dd52ee27efa",
+      "all_units_match": true,
+      "readability_refactored": true,
+      "retain_in_candidate": false,
+      "behavior_input_cases": 30,
+      "reason": "Independently proved readable database getter. Joint callable-value and shared-return reconstruction recovers it directly. Its containing module remains incomplete; no retained override or extra corpus count is used."
     }
   ]
 }

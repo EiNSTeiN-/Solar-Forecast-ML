@@ -1450,3 +1450,70 @@ coverage stays **15 files / 22 distinct units**, plus seven generators.
 Remaining **789 instruction** and **74 exception-table** failures leave **863**
 unverified units. The full 274-module source/readability objective remains
 active and unachieved. Sources remain on the development recovery branch.
+
+
+## Joint callable-value and shared-return checkpoint
+
+The three statistics database getters in forecast_collector.py,
+hourly_aggregator.py and power_sources_collector.py reuse an existing manager,
+create one if absent, and reconnect one if disconnected. Reference bytecode
+loads the factory attribute as a callable value (LOAD_ATTR flag 0 followed by
+PUSH_NULL) and retains one shared coroutine return block. Direct reconstructed
+calls use the method optimization, while the compiler duplicates the short
+return tail. Repairing either shape alone fails complete-unit comparison.
+
+Unpacker 0.4.21 extends its existing callable-value source pass with a bounded
+joint trial. After an attribute-only trial fails, keep that trial while testing
+one through four folded true-expression layers around the scope's existing
+returns. Reuse the original attribute, receiver, argument and return expressions;
+do not create runtime predicates or guess missing work. Collect returns only
+within their own scope. Preserve all instruction and exception-dispatch checks,
+revert unsuccessful neighbors, and require every previously matching unit to
+survive the final comparison. The report's existing
+verified_attribute_callable_values field includes the three proved paths.
+
+Two new owned test methods establish that the separate trials both fail and
+the joint trial matches. Twenty-one paired coroutine scenarios cover creation,
+reuse, reconnection, descriptor lookup, arguments, errors and cancellation.
+Nested class scopes and unaffected functions remain intact; changed literals,
+receivers and predicates are rejected with their source restored. All 145
+unpacker cases run: 144 pass with the one existing legacy native expected
+failure. Native/Python version identifiers both advance to 0.4.21; the native
+change is only its version identifier. Backend 0.6.13 remains unchanged.
+The source-recovery, native-build and security GitHub workflows all pass on
+unpacker commit 3667ff1eff4319bb9705f35306dd3a9fdf301e39.
+
+All 274 candidates regenerate in six fixed-tool batches from unchanged verified
+full-CLI exports. Raw and composite audits each gain three matching units and
+lose none. Raw recovery reaches 13,425 / 14,291 and 67 complete modules;
+composite recovery reaches 13,431 / 14,291 and 68. The comparison rules are
+unchanged, so all three gains come from reconstructed source. Generation
+records retain backend-source, backend-binary and modern_backend.py hashes.
+
+Publish the three getters as isolated, readable methods in class compilation
+contexts. Preserve signatures, relative-import names and levels, and master
+versus collector hass attributes. Rename private aliases and result locals to
+DatabaseConnectionManager, get_manager and manager; full subtree proof after
+black==25.1.0 confirms equivalence. Necessary folded callable/return expressions
+remain with an explanatory module comment. Containing modules still fail other
+units, and the isolated methods receive no retained-body override or additional
+corpus credit. No integration or original native runtime is imported.
+
+Three new application methods compare 90 paired scenarios using an owned
+relative importer, a factory descriptor and a manager stand-in. Check concrete
+returned-manager identity, connection state, import contract, lookup/argument
+order, creation versus reuse versus reconnect, import/getter/property/create/
+connect failures and coroutine cancellation. These preserve the original
+exception boundaries and do not model live database middleware. All 129
+selected application methods pass; the newly formatted getter checks also pass
+against the new stage's unchanged exports.
+
+Readable whole coverage stays at 68 modules / 1,516 units. Isolated coverage
+becomes 18 files / 25 distinct units (20 manifest entries, with one overlapping
+pipeline subtree), plus seven separately tallied generators. Metadata now
+derives non-retained function counts directly from the manifest: 18 such units
+in 16 files. Retained substitutions stay at two definitions / eight subtree
+units. This corrects a stale non-retained tally without creating corpus gains.
+Remaining 786 instruction and 74 exception-table failures leave 860 unverified
+units. The full 274-module source and readability objective remains active and
+unachieved; the recovered sources remain on the development branch.

@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-68 readable whole modules and passes 126 selected application test methods.
+68 readable whole modules and passes 129 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -101,7 +101,7 @@ geometry, weather/sensor gates, observation classes and sensorless residuals.
 The entitlement constructor is tested from its complete verified module rather
 than kept as a redundant isolated source. Neither isolated function receives an
 override or extra corpus count. The whole goal remains incomplete at
-13,428 of 14,291 matched units, with 68 complete module matches.
+13,431 of 14,291 matched units, with 68 complete module matches.
 
 The protected-return checkpoint restores existing return evaluations to their
 original handlers, including nested row-access fallbacks. It adds 22 matches
@@ -179,8 +179,29 @@ engine. Their 73-unit trees match after cleanup and formatting. Twelve new
 application methods compare owned database rows/errors/cancellation, cache
 reference/singleton behavior, DEV expiry/privacy/callback paths and future-only
 reforecast filtering, scaling, publication checks, listener errors and locks.
-All 126 selected application methods pass. Current whole-source coverage is
+At that checkpoint, all 126 selected application methods passed. Whole-source coverage was
 68 modules / 1,516 readable units, alongside the unchanged 15 isolated files /
 22 distinct units and seven generator units. Remaining 789 instruction and
 74 exception-table failures leave 863 unverified units. The full recovery goal
+remains active and incomplete.
+
+The joint callable/return checkpoint restores three database getter methods in
+the statistics forecast, hourly billing and power-source collectors. Their
+attribute lookup and shared coroutine exit must be repaired together: either
+isolated trial remains a verifier failure. The bounded source trial reuses
+only existing calls and return values, requires complete unit proof and retains
+every prior match. Comparison and exception-dispatch rules are unchanged.
+Raw and composite recovery add three matches with zero losses, reaching
+13,425 and 13,431 units respectively. There are still 68 complete composite
+modules and 860 unverified units: 786 instruction and 74 exception-table failures.
+
+The three getters have readable isolated class contexts with descriptive local
+names, original relative import levels, signatures and branch behavior. They
+receive no retained-body override or additional corpus count. Three application
+methods compare 90 paired creation, reuse, reconnection, import/property/lookup
+error and cancellation scenarios using owned dependencies. All 129 selected
+application methods pass. Current coverage is 68 readable whole modules / 1,516
+units, 18 isolated source files / 25 distinct units and seven separately counted
+generator units. The isolated manifest has 20 entries; its overlapping pipeline
+entry counts once in the distinct total. The full source/readability objective
 remains active and incomplete.

@@ -1,12 +1,12 @@
 {
-  "previous_stage": "padded-return-01",
-  "current_stage": "shared-tries-01",
-  "new_matching_units": 70,
+  "previous_stage": "shared-tries-01",
+  "current_stage": "callable-return-01",
+  "new_matching_units": 3,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 70,
+  "raw_new_matching_units": 3,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 70,
+  "source_repair_gains": 3,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 633,
@@ -14,294 +14,26 @@
   "verified_try_return_scopes": 276,
   "verified_capture_name_order": 60,
   "verified_compound_return_shapes": 12,
-  "verified_attribute_callable_values": 2,
+  "verified_attribute_callable_values": 5,
   "verified_shared_try_fragments": 70,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 8,
-  "raw_decompiler_matched_units": 13422,
+  "raw_decompiler_matched_units": 13425,
   "raw_all_units_match_modules": 67,
-  "manually_reconstructed_candidate_matched_units": 13428,
+  "manually_reconstructed_candidate_matched_units": 13431,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
-      "module_path": "ai/ai_drift_monitor.py",
-      "unit_path": "<module>/DriftMonitor#1/_check_and_respond_to_drift#1"
+      "module_path": "extra_features/sfml_stats/core/forecast_collector.py",
+      "unit_path": "<module>/ForecastComparisonCollector#1/_get_db_manager#1"
     },
     {
-      "module_path": "ai/ai_drift_monitor.py",
-      "unit_path": "<module>/DriftMonitor#1/_compute_bucket_metrics#1"
+      "module_path": "extra_features/sfml_stats/core/hourly_aggregator.py",
+      "unit_path": "<module>/HourlyBillingAggregator#1/_get_db_manager#1"
     },
     {
-      "module_path": "ai/ai_drift_monitor.py",
-      "unit_path": "<module>/DriftMonitor#1/_run_cusum_detection#1"
-    },
-    {
-      "module_path": "ai/ai_drift_monitor.py",
-      "unit_path": "<module>/DriftMonitor#1/_update_solar_clamp#1"
-    },
-    {
-      "module_path": "ai/ai_drift_monitor.py",
-      "unit_path": "<module>/DriftMonitor#1/get_active_physics_boost#1"
-    },
-    {
-      "module_path": "astronomy/astronomy_cache_manager.py",
-      "unit_path": "<module>/AstronomyCacheManager#1/initialize#1"
-    },
-    {
-      "module_path": "astronomy/max_peak_tracker.py",
-      "unit_path": "<module>/MaxPeakTracker#1/check_and_update_peak#1"
-    },
-    {
-      "module_path": "coordinator.py",
-      "unit_path": "<module>/SolarForecastMLCoordinator#1/async_setup#1"
-    },
-    {
-      "module_path": "core/core_dependency_handler.py",
-      "unit_path": "<module>/DependencyHandler#1/_check_package_sync#1"
-    },
-    {
-      "module_path": "data/data_forecast_handler.py",
-      "unit_path": "<module>/DataForecastHandler#1/save_forecast_day#1"
-    },
-    {
-      "module_path": "data/data_forecast_handler.py",
-      "unit_path": "<module>/DataForecastHandler#1/save_forecast_day_after#1"
-    },
-    {
-      "module_path": "data/data_forecast_handler.py",
-      "unit_path": "<module>/DataForecastHandler#1/save_forecast_tomorrow#1"
-    },
-    {
-      "module_path": "data/data_frost_detection.py",
-      "unit_path": "<module>/FrostDetector#1/save_frost_event#1"
-    },
-    {
-      "module_path": "data/data_manager.py",
-      "unit_path": "<module>/DataManager#1/save_forecast_day_after#1"
-    },
-    {
-      "module_path": "data/data_manager.py",
-      "unit_path": "<module>/DataManager#1/save_forecast_tomorrow#1"
-    },
-    {
-      "module_path": "data/data_manager.py",
-      "unit_path": "<module>/DataManager#1/update_hourly_prediction_actual#1"
-    },
-    {
-      "module_path": "data/data_operational_forecast_handler.py",
-      "unit_path": "<module>/DataOperationalForecastHandler#1/mirror_morning_snapshot#1"
-    },
-    {
-      "module_path": "data/data_schema_validator.py",
-      "unit_path": "<module>/DataSchemaValidator#1/_validate_table#1"
-    },
-    {
-      "module_path": "data/data_shadow_pattern_learning.py",
-      "unit_path": "<module>/ShadowPatternLearner#1/async_init#1"
-    },
-    {
-      "module_path": "data/data_weather_pipeline_manager.py",
-      "unit_path": "<module>/WeatherDataPipelineManager#1/async_setup#1"
-    },
-    {
-      "module_path": "data/data_weather_pipeline_manager.py",
-      "unit_path": "<module>/WeatherDataPipelineManager#1/start_pipeline#1"
-    },
-    {
-      "module_path": "data/data_weather_precision.py",
-      "unit_path": "<module>/WeatherPrecisionTracker#1/calculate_correction_factors_v2#1"
-    },
-    {
-      "module_path": "data/json_migration.py",
-      "unit_path": "<module>/JsonMigrator#1/dry_run#1"
-    },
-    {
-      "module_path": "extra_features/grid_price_monitor/core/price_service.py",
-      "unit_path": "<module>/ElectricityPriceService#1/_parse_awattar_response#1"
-    },
-    {
-      "module_path": "extra_features/grid_price_monitor/tariffs/corrections.py",
-      "unit_path": "<module>/apply_month_correction#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/core/dev_mode.py",
-      "unit_path": "<module>/forward_dev_token#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/ai/ai_drift_monitor.py",
-      "unit_path": "<module>/DriftMonitor#1/_check_and_respond_to_drift#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/ai/ai_drift_monitor.py",
-      "unit_path": "<module>/DriftMonitor#1/_compute_bucket_metrics#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/ai/ai_drift_monitor.py",
-      "unit_path": "<module>/DriftMonitor#1/get_active_physics_boost#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_morning_routine.py",
-      "unit_path": "<module>/MorningRoutineHandler#1/_validate_prerequisites#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_tracker.py",
-      "unit_path": "<module>/ProductionTimeCalculator#1/_save_persistent_state#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/coordinator.py",
-      "unit_path": "<module>/SolarForecastEAICoordinator#1/async_setup#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_forecast_handler.py",
-      "unit_path": "<module>/DataForecastHandler#1/save_forecast_day#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_forecast_handler.py",
-      "unit_path": "<module>/DataForecastHandler#1/save_forecast_day_after#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_forecast_handler.py",
-      "unit_path": "<module>/DataForecastHandler#1/save_forecast_tomorrow#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_frost_detection.py",
-      "unit_path": "<module>/FrostDetector#1/save_frost_event#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_manager.py",
-      "unit_path": "<module>/DataManager#1/save_forecast_day_after#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_manager.py",
-      "unit_path": "<module>/DataManager#1/save_forecast_tomorrow#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_manager.py",
-      "unit_path": "<module>/DataManager#1/update_hourly_prediction_actual#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_open_meteo_client.py",
-      "unit_path": "<module>/OpenMeteoClient#1/_load_from_database#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_schema_validator.py",
-      "unit_path": "<module>/DataSchemaValidator#1/_validate_table#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_shadow_pattern_learning.py",
-      "unit_path": "<module>/ShadowPatternLearner#1/async_init#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
-      "unit_path": "<module>/WeatherForecastCorrector#1/create_corrected_forecast#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_weather_pipeline_manager.py",
-      "unit_path": "<module>/WeatherDataPipelineManager#1/async_setup#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_weather_pipeline_manager.py",
-      "unit_path": "<module>/WeatherDataPipelineManager#1/start_pipeline#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_weather_precision.py",
-      "unit_path": "<module>/WeatherPrecisionTracker#1/calculate_correction_factors_v2#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/json_migration.py",
-      "unit_path": "<module>/JsonMigrator#1/dry_run#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/forecast/forecast_weather_calculator.py",
-      "unit_path": "<module>/WeatherCalculator#1/get_temperature_factor#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/runtime.py",
-      "unit_path": "<module>/EAIRuntime#1/async_setup#1"
-    },
-    {
-      "module_path": "extra_features/weather_fusion_ai/actual_tracker.py",
-      "unit_path": "<module>/ActualWeatherTracker#1/_save_history#1"
-    },
-    {
-      "module_path": "extra_features/weather_fusion_ai/weather_experts.py",
-      "unit_path": "<module>/BrightSkyExpert#1/fetch_forecast#1"
-    },
-    {
-      "module_path": "extra_features/weather_fusion_ai/weather_experts.py",
-      "unit_path": "<module>/OpenMeteoExpert#1/fetch_forecast#1"
-    },
-    {
-      "module_path": "extra_features/weather_fusion_ai/weather_experts.py",
-      "unit_path": "<module>/PirateWeatherExpert#1/fetch_forecast#1"
-    },
-    {
-      "module_path": "forecast/forecast_orchestrator.py",
-      "unit_path": "<module>/ForecastOrchestrator#1/calculate_next_hour_prediction#1"
-    },
-    {
-      "module_path": "forecast/forecast_weather_calculator.py",
-      "unit_path": "<module>/WeatherCalculator#1/get_temperature_factor#1"
-    },
-    {
-      "module_path": "production/production_morning_routine.py",
-      "unit_path": "<module>/MorningRoutineHandler#1/_validate_prerequisites#1"
-    },
-    {
-      "module_path": "production/production_operational_reforecast.py",
-      "unit_path": "<module>/OperationalReforecastEngine#1/_run_reforecast_locked#1"
-    },
-    {
-      "module_path": "production/production_scheduled_tasks.py",
-      "unit_path": "<module>/ScheduledTasksManager#1/_execute_astronomy_cache_refresh#1"
-    },
-    {
-      "module_path": "production/production_scheduled_tasks.py",
-      "unit_path": "<module>/ScheduledTasksManager#1/_has_available_local_solar_observation#1"
-    },
-    {
-      "module_path": "production/production_tracker.py",
-      "unit_path": "<module>/ProductionTimeCalculator#1/_save_persistent_state#1"
-    },
-    {
-      "module_path": "sensors/sensor_base.py",
-      "unit_path": "<module>/ConservativePlanningForecastSensor#1/_today_actual_total#1"
-    },
-    {
-      "module_path": "sensors/sensor_diagnostic.py",
-      "unit_path": "<module>/CloudinessTrend1hSensor#1/icon#1"
-    },
-    {
-      "module_path": "sensors/sensor_diagnostic.py",
-      "unit_path": "<module>/CloudinessTrend1hSensor#1/native_value#1"
-    },
-    {
-      "module_path": "sensors/sensor_diagnostic.py",
-      "unit_path": "<module>/CloudinessTrend3hSensor#1/icon#1"
-    },
-    {
-      "module_path": "sensors/sensor_diagnostic.py",
-      "unit_path": "<module>/CloudinessTrend3hSensor#1/native_value#1"
-    },
-    {
-      "module_path": "sensors/sensor_diagnostic.py",
-      "unit_path": "<module>/NextProductionStartSensor#1/icon#1"
-    },
-    {
-      "module_path": "sensors/sensor_mixins.py",
-      "unit_path": "<module>/CoordinatorCacheMixin#1/get_today_predictions#1"
-    },
-    {
-      "module_path": "sensors/sensor_shadow_detection.py",
-      "unit_path": "<module>/PerformanceLossTodaySensor#1/_get_performance_analysis#1"
-    },
-    {
-      "module_path": "sensors/sensor_shadow_detection.py",
-      "unit_path": "<module>/_get_today_predictions_from_cache#1"
-    },
-    {
-      "module_path": "services/service_extra_features.py",
-      "unit_path": "<module>/ExtraFeaturesInstaller#1/_compare_versions#1"
+      "module_path": "extra_features/sfml_stats/power_sources_collector.py",
+      "unit_path": "<module>/PowerSourcesCollector#1/_get_db_manager#1"
     }
   ]
 }
