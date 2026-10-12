@@ -37,7 +37,10 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-80 readable whole modules and passes 159 selected application test methods.
+90 readable whole modules (2,387 nested units) and passes 169 selected
+application test methods. The full corpus has 104 completely matched candidate
+modules and 13,715/14,291 matching units; 576 units remain. Candidate fidelity
+and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.

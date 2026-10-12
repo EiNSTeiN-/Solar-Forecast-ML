@@ -1672,3 +1672,74 @@ not to claim cryptographic implementation testing or grant an actual license.
 Subsequent exact investigative findings remain queued for main-thread fixes.
 Matching only instructions with a different exception span is deliberately
 unaccepted, including the current hour-factor and loop-cleanup counterexamples.
+
+
+## Statement scopes and evaluation identity (0.4.25 / 0.6.16)
+
+The `statement-scopes-01` checkpoint regenerates all 274 modules using frozen
+unpacker `3f2845a2a72fb192beefc88c9bad79a1f13d4ebc` and backend
+`6f49dd286e9918bc1fd171816ad596c9ec606a13`. Original bytecode exports are unchanged.
+Raw source proves **13,709/14,291 units and 103 complete modules**. The composite
+with the existing two verified definition overrides proves **13,715 units and
+104 complete modules**. Both views gain **169 and lose zero** against
+`investigated-repairs-02`; no comparison rules changed. **576 units remain**:
+512 instruction mismatches and 64 exception-table mismatches. All candidates
+compile, and no integration module or vendor runtime was imported.
+
+The investigators retain disjoint original whole-module assignments. The
+harness permits three simultaneous investigators alongside the main thread;
+five inventories are rotated through those slots. They provide read-only
+probes and owned reproducers. All tool fixes, readable source, tests, builds,
+commits, and publication are authored by the main thread. Subsequent probes
+remain separate evidence until they pass a combined corpus retention audit.
+
+Source repairs can require several coupled changes. The new bounded trial
+runner reuses existing statements and predicates, proves the owner and every
+nested code unit, and finally retains every previously matching module unit.
+It rolls back failed trials and skips accepted nested scopes whose old AST
+objects have been replaced. Async-context suffix trials restore the original
+boundary before swallowed work. Protected-tail and trailing-cleanup trials
+restore real try/finally scopes, including cancellation and suppressed errors.
+Individual return-value and constant-return-statement forms retain distinct
+compiler exit edges; neither form is accepted merely because its value looks
+right. Legal bare exits also restore async generators without adding returned
+values. Original callable access and shared return shapes are proved jointly
+where needed. Calls, branches, exception dispatch, and cleanup remain significant.
+
+The backend now distinguishes a COPY of one evaluated expression from two
+structurally identical expressions by stack-value identity. Thus independent
+`read(), read()` evaluations stay independent, while a real chained assignment
+can share its value. It preserves explicit runtime `slice()` calls, including
+global shadowing; only actual slice constants become colon syntax, including
+multi-axis constants. Walrus reconstruction retains COPY-derived assignment,
+truth order and captured cells. Generator declarations are tolerated only for
+actual free variables, with unrelated nonlocal/global declarations rejected.
+Modern loop-prefix normalization requires contiguous aligned EXTENDED_ARG
+bytes rather than guessing across caches or arbitrary gaps.
+
+Ten additional complete modules have readable source and descriptive private
+locals. This brings the published readable total to **90 modules / 2,387 units**;
+that count is deliberately smaller than the 104 fully matching raw/composite
+candidates. Cleanup removes **191 empty artifacts and nine unnecessary fold
+layers**, with complete module proof after each change and after formatting.
+The manifest's aggregate unit total is recomputed from its entries, correcting
+a stale summary field without adding corpus coverage.
+
+Similarly named main/Energy AI modules must not be copied blindly. Strict
+whole-tree proof rejected whole-file copies with different annotation imports,
+clock access, frost-event rules, and learning exclusions. Each reconstruction
+keeps its original AST and public contracts; only audited private-local labels
+are reused. A private rename that collided with a public parameter was also
+rejected before publication. Closure names preserve the compiler's capture
+ordering. The main weather MLP has a different input/validation contract from
+its Energy AI counterpart and is reconstructed from its own reference.
+
+Validation passes **167 unpacker cases (166 passes, one existing expected
+failure), 35 Rust tests, 43 Python 3.14 backend behavior tests, and 169 selected
+application test methods**. Ten new application methods compare context routing,
+logging, learning exclusions, frost physics, feature-importance permutations,
+callbacks, cancellation, ridge training/holdouts, MLP gradients and day-blocked
+quality contracts. Main and Energy AI numerical/frost modules are checked
+against their respective references using owned dependencies and fixed clocks.
+This selected behavior coverage does not establish full integration equivalence.
+The complete goal remains open.

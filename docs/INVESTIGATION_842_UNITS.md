@@ -150,3 +150,38 @@ The ongoing investigator rounds retain disjoint module ownership and focus on
 previously unproved residuals. Exact trial findings are evidence for main-thread
 implementation, not additional published coverage. In particular, a correct
 instruction stream with an incorrect exception cell remains rejected.
+
+
+## Frozen statement-scope checkpoint and continued residual investigation
+
+The original five whole-module shards are retained, with at most three
+investigators active alongside the main thread. Later investigations use pinned
+APIs and binaries; they do not edit tracked code or change Home Assistant.
+Their individual proofs and rejected trials are diagnostic evidence until the
+main thread implements and validates a combined checkpoint.
+
+`statement-scopes-01` uses unpacker 0.4.25 and backend 0.6.16. Across all 274
+modules it gains **169 units with zero losses** in both raw and composite views,
+using unchanged comparison rules. Composite fidelity is **13,715/14,291** with
+**104 fully matching candidate modules**; raw fidelity is 13,709 with 103.
+**576 units remain** (512 instructions, 64 exception tables). The published
+readable subset is **90 whole modules / 2,387 units**, after ten newly cleaned
+modules; selected application checks pass 169 test methods.
+
+The accepted implementation restores async-context boundaries, protected tails,
+finally cleanup, individual expression/statement return edges, legal generator
+exits, exact COPY evaluation identity, actual slice constants, walrus captures,
+and modern EXTENDED_ARG loop prefixes. Full owner/nested proofs and the corpus
+retention gate reject partial fixes even when their instruction lists match but
+exception coverage differs. The source-generation inputs and comparison rules
+are unchanged; no vendor module was imported.
+
+The subsequent investigator rounds identified further displaced guards and
+returns, loop types over awaited collections, missing comprehension bodies,
+and larger chained-assignment cases. These remain queued, separate from this
+checkpoint's coverage. New residual inventories preserve the original whole-
+module ownership rather than distributing individual functions across agents.
+
+The refreshed original-shard residual counts are 116, 120, 101, 117, and 122
+respectively (576 total), across 34, 36, 32, 34, and 34 module assignments. These
+are residuals in the original ownership inventories, not a redistribution.
