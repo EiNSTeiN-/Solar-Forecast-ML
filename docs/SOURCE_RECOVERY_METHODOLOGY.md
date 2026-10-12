@@ -260,8 +260,8 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **13,260 matched units out of 14,291** and
-  **58 complete module matches**. Fifty-eight readable sources (1,242 code units) are published
+- The latest full audit reports **13,283 matched units out of 14,291** and
+  **60 complete module matches**. Fifty-eight readable sources (1,242 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
   evidence in `recovery/verified-manifest.json`. All 58 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
@@ -1010,3 +1010,86 @@ module or native runtime is imported. Complete readable coverage is now
 **58 modules / 1,242 units**. Fidelity failures remain **954 instruction** and
 **77 exception-table** units, so the complete objective stays active and
 unachieved. The recovered source remains in the development branch.
+
+## Protected return evaluation and bounded dispatch variance
+
+Unpacker **0.4.19-einstein.1**, commit
+`9e637321d73afb77d7186245ae968d228b7bb828`, retains backend
+**0.6.10-einstein.1** at `0b6f432707f7a7a5167e1876d23350cfed71d920`.
+All **134** unpacker cases run with the modern backend: **133 pass**, with
+the same documented legacy native expected failure. Six additional owned
+bytecode-fixture tests cover the dispatch rule below, and two nested source
+fixtures extend the existing return-scope tests. The complete selected
+application suite passes **77 methods**.
+
+The verifier already compares a jump to a bare `RETURN_VALUE` as that return,
+provided its destination has no intervening work. A leftover difference was
+handler coverage over the original jump itself. The narrow added allowance
+removes only a forward alias jump's own non-`lasti` dispatch slot. It does not
+remove coverage over an actual return, a call, cleanup, or any other evaluated
+instruction. Backward jumps and all `lasti` routes retain their original
+coverage. Python's [opcode documentation](https://docs.python.org/3.14/library/dis.html#opcode-JUMP_FORWARD)
+distinguishes the forward counter adjustment from backward interrupt checks.
+The ordinary forward alias performs no fallible user operation. Existing
+scope, stack-depth and handler comparisons remain strict over evaluations.
+
+Owned fixtures replace one return with a forward jump to an existing bare
+return, without moving instruction addresses, and protect just that jump's
+slot in addition to the original body. Original and candidate outputs retain
+object identity, callback and truth order, handled/unhandled errors,
+generator return values and StopIteration routes, and coroutine cancellation.
+Negative tests reject real-return coverage changes, changed call coverage,
+handler types, remaining protected stack depths, constants, cleanup flags,
+backward aliases and jumps to intervening work. This is an explicit comparison
+variance; it must not be presented as a source-only repair or expanded to cover
+other gaps in meaningful exception dispatch.
+
+An initial private probe limited to jumps converted by the runtime normalizer
+did not repair these functions. Their remaining edges were jumps to an actual
+bare return and reached the separate canonical alias rule. The exported and
+normalized bytecode is unchanged by this comparison adjustment. Another
+private inspection found 20 capture-related failures; scoped capture-name
+constraints remain an investigation, with no new capture repair published.
+
+Source reconstruction also extends `restore_try_return_scope` from the outer
+function tail to statement-block tails inside conditionals, loops and handlers.
+It moves only an existing return immediately after a try with handlers and
+without `else` or `finally` into that try body. It never supplies a missing
+call, value or predicate. Nested definitions are handled independently. Every
+whole function must pass static proof before any move is kept, unsuccessful
+edits are reversed in order, and all earlier matches must survive. Owned row
+fixtures check key/index fallback order, getter failures, missing keys,
+unhandled errors and repeated repair idempotency; loop and nested-definition
+fixtures also reject different key expressions.
+
+All **274** source candidates are regenerated through the recovery API over
+unchanged verified full-CLI exports in six batches: 50, 50, 50, 50, 50 and 24.
+The tools stay fixed between batches and every input/export hash is retained.
+Before regeneration, unchanged old sources are audited in a separate private
+checkpoint under the new comparison rule. This adds **one** match with zero
+old matches lost. New source adds **22** more, also without losing a prior
+match. Raw and composite totals both therefore gain **23**. Raw generation
+reaches **13,277 / 14,291** with **59** complete modules; composite source
+reaches **13,283 / 14,291** with **60** complete modules. The two existing
+verified body overrides are unchanged. The new whole-module matches are
+`extra_features/sfml_stats/core/energy_efficiency.py` and
+`services/service_daily_briefing.py`; their complete readable publication
+remains to be done.
+
+Five more readable isolated functions are published in four compilation
+contexts: feature-engineer `_safe_float`, efficiency `_number`, both statistics
+`_cell` copies, and weather `_safe_zone`. The shared row source receives
+independent proof against each original module. The class shell provides only
+compilation context. All five units match directly in generic reconstruction,
+so none receives an override or duplicate count. Original public names,
+annotation flags and the feature method's documentation are retained. Five
+application methods make **82** paired comparisons, including None/false
+values, custom conversion hooks, nonfinite numbers, default identity, row
+access order, BaseException propagation, timezone truth/constructor errors
+and fallback getter boundaries. Actual unhandled error types are preserved.
+
+Readable whole coverage remains **58 modules / 1,242 units**. Isolated source
+coverage is now **12 files / 18 distinct units**, alongside seven generator
+units. Remaining failures are **934 instruction** and **74 exception-table**
+units. The 274-module goal stays active and unachieved; recovered source stays
+on the development branch.

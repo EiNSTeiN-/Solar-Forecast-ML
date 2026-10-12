@@ -105,6 +105,71 @@
       "behavior_input_cases": 15,
       "retain_in_candidate": false,
       "reason": "Independently verified readable function. Constant-folded return edges retain the original shared block. The generic source pass recovers this unit directly; its containing module remains incomplete. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "ai/ai_feature_engineering.py",
+      "unit_path": "<module>/FeatureEngineer#1/_safe_float#1",
+      "source_path": "verified_functions/ai/feature_safe_float.py",
+      "original_payload_sha256": "e24d6a9c5362c25e7fd6c3cc5a9e5884bd334af6197c5fd994e19c5976499f0d",
+      "reconstructed_source_sha256": "cd9ab81f723a9efe7d0b6e12dd31aedd726536fbce3d0c49d49482a365452c1c",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 16,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable return evaluation/fallback. The generic source scope repair recovers this unit directly under the documented narrow forward-return alias rule. Its containing module is not published as a complete readable module. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/energy_efficiency.py",
+      "unit_path": "<module>/_number#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/core/optional_number.py",
+      "original_payload_sha256": "9944e6dbe2bb0d9059343cfe31fb10ec39db7b2c381a01fae91a40919fe25e14",
+      "reconstructed_source_sha256": "68551205e1e2d31c529baf7bc0e4d48a9b7c745ad6bb9e571283e32f1a08d333",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 16,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable return evaluation/fallback. The generic source scope repair recovers this unit directly under the documented narrow forward-return alias rule. Its containing module is not published as a complete readable module. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/corrected_energy.py",
+      "unit_path": "<module>/_cell#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/core/row_cell.py",
+      "original_payload_sha256": "be57be3b1e8d79f033d4dda45e15175598f90b0dd38ab50d96b54fb6e0ba4efc",
+      "reconstructed_source_sha256": "9d98c8f34dd868fd20329ce01a5e4fcb0494124200ebf3bb597099ec1c140c0a",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 8,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable return evaluation/fallback. The generic source scope repair recovers this unit directly under the documented narrow forward-return alias rule. Its containing module is not published as a complete readable module. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/daily_costs.py",
+      "unit_path": "<module>/_cell#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/core/row_cell.py",
+      "original_payload_sha256": "9c190cb128edcb683bf747ed8fe942943c6adc7d41cad772f44fc1dd3eac70f2",
+      "reconstructed_source_sha256": "9d98c8f34dd868fd20329ce01a5e4fcb0494124200ebf3bb597099ec1c140c0a",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 8,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable return evaluation/fallback. The generic source scope repair recovers this unit directly under the documented narrow forward-return alias rule. Its containing module is not published as a complete readable module. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/weather_intelligence.py",
+      "unit_path": "<module>/_safe_zone#1",
+      "source_path": "verified_functions/extra_features/solar_forecast_eai/safe_zone.py",
+      "original_payload_sha256": "21562f9232a55bfd91e167602e82bf2c35198443df16901abd310a57abeae420",
+      "reconstructed_source_sha256": "d0223ec34903620b0bf4a36974e94874c0a7177cedb60f2ae793814af559e835",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 34,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable return evaluation/fallback. The generic source scope repair recovers this unit directly under the documented narrow forward-return alias rule. Its containing module is not published as a complete readable module. No override or duplicate corpus count is used."
     }
   ]
 }

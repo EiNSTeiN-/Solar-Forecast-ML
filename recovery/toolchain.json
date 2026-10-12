@@ -1,8 +1,8 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "fe922e093306f408c6066e1931fee4c78a77cb76",
-    "version": "0.4.18-einstein.1"
+    "commit": "9e637321d73afb77d7186245ae968d228b7bb828",
+    "version": "0.4.19-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
@@ -12,12 +12,12 @@
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 126,
-    "unpacker_passes": 125,
+    "unpacker_test_cases": 134,
+    "unpacker_passes": 133,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 34,
     "backend_behavior_tests_passed": 27,
-    "selected_module_behavior_tests_passed": 72,
+    "selected_module_behavior_tests_passed": 77,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -75,13 +75,14 @@
       "shadow_forecast_context_cases": 17,
       "shadow_calibrated_physics_cases": 18,
       "shadow_observation_numeric_geometry_calls": 79,
-      "shadow_observation_classification_residual_calls": 371
+      "shadow_observation_classification_residual_calls": 371,
+      "isolated_return_scope_function_cases": 82
     },
     "complete_readable_module_matches": 58,
     "complete_readable_module_code_units": 1242,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
-    "independently_verified_readable_function_units": 13,
+    "independently_verified_readable_function_units": 18,
     "previous_ci": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38187881244",
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38187881252",
@@ -89,13 +90,13 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38263173634",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38263173517",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38267506927",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38267506853",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38258149133",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38258148970"
     },
     "retained_definition_count": 2,
-    "independently_verified_source_files": 8,
+    "independently_verified_source_files": 12,
     "previous_ci_shared_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193009204",
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193008847",
@@ -142,11 +143,11 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627170"
     },
     "source_generation": {
-      "stage": "shared-blocks-01",
-      "method": "recover API over unchanged verified full-CLI exports; generation resumed without tool changes",
+      "stage": "return-coverage-01",
+      "method": "recover API over unchanged verified full-CLI exports in six batches",
       "private_worker_processes": 4,
       "exports_unchanged": true,
-      "summary_sha256": "615b80f2bf1798527a0b06742d17f717d09b355112eb04e906041d1b57935cce"
+      "summary_sha256": "eb288c779d08d27cd74509b49e79aad12bf2a2fdf4c8d432642c235176f2064e"
     },
     "previous_ci_before_branch_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38258152444",
@@ -160,6 +161,20 @@
       "unnecessary_fold_layers_removed": 35,
       "formatter": "black==25.1.0",
       "whole_module_proof_after_formatting": true
+    },
+    "previous_ci_before_return_coverage": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38263173634",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38263173517",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38258149133",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38258148970"
+    },
+    "comparison_variance": {
+      "rule": "Only the non-lasti dispatch slot of an existing forward jump-to-bare-return alias",
+      "unchanged_source_composite_gains": 1,
+      "unchanged_source_raw_gains": 1,
+      "new_source_composite_gains": 22,
+      "new_source_raw_gains": 22,
+      "meaningful_call_cleanup_backward_jump_and_real_return_coverage_preserved": true
     }
   }
 }

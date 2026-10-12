@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-58 readable whole modules and passes 72 selected application test methods.
+58 readable whole modules and passes 77 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -101,4 +101,18 @@ geometry, weather/sensor gates, observation classes and sensorless residuals.
 The entitlement constructor is tested from its complete verified module rather
 than kept as a redundant isolated source. Neither isolated function receives an
 override or extra corpus count. The whole goal remains incomplete at
-13,260 of 14,291 matched units, with 58 complete module matches.
+13,283 of 14,291 matched units, with 60 complete module matches.
+
+The protected-return checkpoint restores existing return evaluations to their
+original handlers, including nested row-access fallbacks. It adds 22 matches
+from repaired source and one from a documented extension to the existing
+forward-jump-to-bare-return comparison. The latter ignores only that jump's
+own non-lasti dispatch slot; coverage over calls, cleanup, backward jumps and
+real returns remains significant. Old sources are audited separately under
+the new rule so the counts cannot conflate those gains.
+Five additional readable functions have 82 paired conversion, timezone and
+row-access scenarios. The same readable row accessor is independently proved
+against both original statistics modules. There are now 12 isolated source
+files proving 18 distinct units, with no new overrides or duplicate coverage.
+The two newly complete generated modules, energy efficiency and daily
+briefing, still need whole-module readability cleanup and publication.
