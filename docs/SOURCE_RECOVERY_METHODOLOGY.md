@@ -1517,3 +1517,88 @@ units. This corrects a stale non-retained tally without creating corpus gains.
 Remaining 786 instruction and 74 exception-table failures leave 860 unverified
 units. The full 274-module source and readability objective remains active and
 unachieved; the recovered sources remain on the development branch.
+
+
+## Decorated scope mapping and complete diagnostic modules
+
+CPython assigns decorated functions the first decorator's source line in
+co_firstlineno. The callable-value and shared branch-return source passes
+indexed AST definitions by their def line. That silently skipped properties,
+static methods and class methods. Use the first decorator's line when present,
+otherwise the existing node line; preserve name/line ambiguity checks and all
+full-unit proof gates. This corrects which existing trial is eligible. It does
+not normalize additional instructions or exception-table differences away.
+
+Unpacker 0.4.22 includes four new owned methods covering property descriptor
+order and errors, stacked decorators, duplicate method names in distinct
+classes, coroutine cancellation, failed neighboring trials and idempotence.
+Their behavior loops have 22 paired scenarios. One full native-export/modern
+fixture adds 12 paired property and static-method dictionary-return cases and
+requires complete code-tree comparison. All 150 unpacker cases run: 149 pass
+with the existing legacy native expected failure. Native/Python identifiers
+advance to 0.4.22; native code changes only its identifier. The unchanged
+backend remains 0.6.13. GitHub source recovery, native build and security checks
+pass on unpacker commit 2f52c0ace8daa132980c8a776432315f65337488.
+
+Corpus probes find 18 branch-return gains and no losses; the corrected callable
+lookup has no additional gains on this snapshot. Regenerate all 274 candidates
+in six fixed-tool batches from the same verified full-CLI exports. Raw and
+composite audits confirm the same 18 gains, zero previously matching units lost
+and no comparison-rule change. Raw fidelity reaches 13,443 / 14,291 and 71
+complete modules; composite fidelity reaches 13,449 / 14,291 and 72.
+
+Publish four whole readable modules: core_coordinator_init_helpers.py (12
+units), sfml_weather_provider.py (55), Weather Fusion's sensor.py (50) and
+sensor_diagnostic.py (146). Preserve public APIs, documentation, import and
+registration names, class attributes, SQL strings and parameters, error
+handlers and mutation behavior. Rename private locals to describe configuration
+capacities and panel groups; raw, normalized and grouped weather rows; weighted
+temperatures, rain and time zones; calibration and sensor state; AI models,
+workflow progress, health timings and scheduling fields. Whole-module proof
+after each cleanup and black==25.1.0 formatting retains all matches. Remove
+261 empty statements and eight unnecessary folded-expression layers; keep
+required compiler-shape edges. This adds 263 readable whole-module units.
+
+A naming pitfall is exposed by the diagnostic module. Giving an inline
+comprehension's hour/minute/event and a subsequent loop's bindings identical
+names merges originally distinct local slots. Likewise a public-status branch
+and a later detailed-model branch have separate bindings even when both refer
+to model data. Full-unit proof rejected the naive rename in three methods.
+Use scheduled_hour/scheduled_minute/scheduled_event versus the loop's names,
+and model_for_status versus model. Recheck the entire module before writing or
+publishing it. Readable names must not collapse original bindings or alter
+closure ordering merely because their human descriptions overlap.
+
+Thirteen new application methods use owned dependencies. Two configuration
+methods cover 25 paired capacity precedence, legacy fallback, defaults, panel
+filtering, clipping, option, path and configuration-property scenarios. The
+returned configuration constructor and panel normalizer are stand-ins; dataclass
+annotation/registration instructions are verified statically. Five weather
+methods cover 68 paired UTC/DST/timestamp, row serialization, numeric filtering,
+weighted-summary, precipitation, record/month/year, leap-day, snapshot query and
+error/timeout/cancellation calls. Own the clock and database responses; verify
+query order, the 731-day lower bound, hourly-over-prediction override, empty
+availability and concrete output values. Invalid Kepler IDs still raise the
+original unhandled conversion error; no new fallback is invented.
+
+Two Weather Fusion methods compare 17 paired sensor contexts for learning
+phases, calibration gating, accuracy conversion/rounding, status/icons,
+source/blend fields, learning timestamp parsing and base device metadata.
+Four main diagnostic methods compare 24 contexts for workflow copy/duration/
+redaction, update timestamps and health thresholds, public versus DEV model
+fields, candidate age/deadlines, and strict future scheduling/Sunday boundaries.
+Provide controlled coordinator, base-sensor, clock and formatting dependencies;
+no Home Assistant module, forecast service, native runtime or real database
+executes. Whole-module bytecode proof covers the other code units; selected
+behavior checks do not claim live HA middleware equivalence. All 142 selected
+application methods pass after formatting.
+
+Whole readable coverage reaches 72 modules / 1,779 units. Isolated evidence
+stays at 18 files / 25 distinct units, plus seven generators. The isolated gate
+formatter is now covered by its complete diagnostic module too; update its
+fixture documentation/hash while retaining its tests, and count neither an
+override nor an additional corpus gain. The two retained body substitutions
+remain unchanged. Independently check all whole/isolated source hashes and
+code-tree proofs before commit. Remaining 768 instruction and 74 exception-table
+failures leave 842 unverified units. The full 274-module source and readability
+objective remains active and unachieved; sources stay on the recovery branch.

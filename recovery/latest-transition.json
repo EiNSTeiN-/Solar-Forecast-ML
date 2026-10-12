@@ -1,16 +1,16 @@
 {
-  "previous_stage": "shared-tries-01",
-  "current_stage": "callable-return-01",
-  "new_matching_units": 3,
+  "previous_stage": "callable-return-01",
+  "current_stage": "decorated-scopes-01",
+  "new_matching_units": 18,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 3,
+  "raw_new_matching_units": 18,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 3,
+  "source_repair_gains": 18,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 633,
-  "verified_shared_branch_return_shapes": 51,
+  "verified_shared_branch_return_shapes": 69,
   "verified_try_return_scopes": 276,
   "verified_capture_name_order": 60,
   "verified_compound_return_shapes": 12,
@@ -18,22 +18,82 @@
   "verified_shared_try_fragments": 70,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 8,
-  "raw_decompiler_matched_units": 13425,
-  "raw_all_units_match_modules": 67,
-  "manually_reconstructed_candidate_matched_units": 13431,
+  "raw_decompiler_matched_units": 13443,
+  "raw_all_units_match_modules": 71,
+  "manually_reconstructed_candidate_matched_units": 13449,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
-      "module_path": "extra_features/sfml_stats/core/forecast_collector.py",
-      "unit_path": "<module>/ForecastComparisonCollector#1/_get_db_manager#1"
+      "module_path": "core/core_coordinator_init_helpers.py",
+      "unit_path": "<module>/CoordinatorInitHelpers#1/extract_configuration#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/core/hourly_aggregator.py",
-      "unit_path": "<module>/HourlyBillingAggregator#1/_get_db_manager#1"
+      "module_path": "data/sfml_weather_provider.py",
+      "unit_path": "<module>/SFMLWeatherIntelligenceProvider#1/_summary#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/power_sources_collector.py",
-      "unit_path": "<module>/PowerSourcesCollector#1/_get_db_manager#1"
+      "module_path": "data/sfml_weather_provider.py",
+      "unit_path": "<module>/SFMLWeatherIntelligenceProvider#1/_year_comparison#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/heating.py",
+      "unit_path": "<module>/_entity_classes#1/HeatingTargetSensor#1/extra_state_attributes#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/insights.py",
+      "unit_path": "<module>/EAIInsightsEngine#1/_point_key#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/mobility.py",
+      "unit_path": "<module>/EAIMobilityPlanner#1/_recommendation#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/weather_intelligence.py",
+      "unit_path": "<module>/WeatherIntelligenceEngine#1/_actual_history#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/weather_intelligence.py",
+      "unit_path": "<module>/WeatherIntelligenceEngine#1/_precipitation_consistency#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/weather_intelligence.py",
+      "unit_path": "<module>/WeatherIntelligenceEngine#1/_trend#1"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/weather_intelligence.py",
+      "unit_path": "<module>/WeatherIntelligenceEngine#1/_warning_text#1"
+    },
+    {
+      "module_path": "extra_features/weather_fusion_ai/sensor.py",
+      "unit_path": "<module>/ForecastAccuracySensor#1/extra_state_attributes#1"
+    },
+    {
+      "module_path": "forecast/forecast_rule_based_strategy.py",
+      "unit_path": "<module>/StaticForecastBlendPolicy#1/adjust_tfs_weight#1"
+    },
+    {
+      "module_path": "sensors/sensor_diagnostic.py",
+      "unit_path": "<module>/AIGateStatusSensor#1/extra_state_attributes#1"
+    },
+    {
+      "module_path": "sensors/sensor_diagnostic.py",
+      "unit_path": "<module>/CoordinatorHealthSensor#1/extra_state_attributes#1"
+    },
+    {
+      "module_path": "sensors/sensor_diagnostic.py",
+      "unit_path": "<module>/LastCoordinatorUpdateSensor#1/extra_state_attributes#1"
+    },
+    {
+      "module_path": "sensors/sensor_diagnostic.py",
+      "unit_path": "<module>/LastMLTrainingSensor#1/extra_state_attributes#1"
+    },
+    {
+      "module_path": "sensors/sensor_diagnostic.py",
+      "unit_path": "<module>/NextProductionStartSensor#1/extra_state_attributes#1"
+    },
+    {
+      "module_path": "sensors/sensor_diagnostic.py",
+      "unit_path": "<module>/WorkflowStatusSensor#1/extra_state_attributes#1"
     }
   ]
 }

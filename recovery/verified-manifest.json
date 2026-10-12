@@ -47,6 +47,15 @@
       "behavior_tests": 3
     },
     {
+      "path": "core/core_coordinator_init_helpers.py",
+      "original_payload_sha256": "1c2c6d2cce65c1d6a392a875e056547ca9f6c8642b4549508824066e6bdb8d37",
+      "reconstructed_source_sha256": "2acc1affde8a00a4c3fd4fceb3acb662af8ac539c9c43e26f086db8d2fbd44e1",
+      "matched_units": 12,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 2
+    },
+    {
       "path": "core/core_helpers.py",
       "original_payload_sha256": "97a3c92509aa7c25da72321febbd0112cce45783d49800fefe5bd8498e110a15",
       "reconstructed_source_sha256": "15e9d8bdd6cc5696becea62a780c716f6bbb32f23753fa94d85cfeda935ec284",
@@ -117,6 +126,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
+    },
+    {
+      "path": "data/sfml_weather_provider.py",
+      "original_payload_sha256": "4cebb6344ab63f70e1fdf7c9fa803206dbc325568a00f41203bc000a70b7a62d",
+      "reconstructed_source_sha256": "10dc13873a2afc4047eb4d5e31ff5ab0baf05ce0d479faae3a348716cc0add46",
+      "matched_units": 55,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 5
     },
     {
       "path": "data/weather_types.py",
@@ -488,6 +506,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/weather_fusion_ai/sensor.py",
+      "original_payload_sha256": "0ac929b643d3bd4dddba7bf04e727787c4a04ee51684cfc237496954b96501c4",
+      "reconstructed_source_sha256": "bdb04a898573d99e92b959169f18dcfe959ab7adfac3efd498a18e832e00c59b",
+      "matched_units": 50,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 2
+    },
+    {
       "path": "extra_features/weather_fusion_ai/weather.py",
       "original_payload_sha256": "6e0151aba9437a630a2fc7622998457caa1b4a8c9a41d906788e984d5dce8130",
       "reconstructed_source_sha256": "77fbf8b7c1fe93c47e422447ef1fc7853b028edec7b0b0ee2cf0b2b5863226ab",
@@ -585,6 +612,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "sensors/sensor_diagnostic.py",
+      "original_payload_sha256": "efbbb2e9df4f8557153062f9d0bec1474645bc408d09d0fc4a47fffcad0659d3",
+      "reconstructed_source_sha256": "f8ec749dfbe841e2962c6c2f5e6383d1622cdd2eebf71d4e48250ae052e4093c",
+      "matched_units": 146,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 4
     },
     {
       "path": "sensors/sensor_drift_detection.py",

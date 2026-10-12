@@ -85,13 +85,13 @@
       "unit_path": "<module>/_gate_status_text#1",
       "source_path": "verified_functions/sensors/gate_status_text.py",
       "original_payload_sha256": "efbbb2e9df4f8557153062f9d0bec1474645bc408d09d0fc4a47fffcad0659d3",
-      "reconstructed_source_sha256": "0834126fd63fb2a07eeaddd074e43a593eb702b6bfe00529f55bb88afe0f332f",
+      "reconstructed_source_sha256": "617c74f80059a7ce8d66a0cdb218a193c888296a5f038b9e9b1477b436130606",
       "matched_units": 1,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_input_cases": 20,
       "retain_in_candidate": false,
-      "reason": "Independently verified readable function. Constant-folded return edges retain the original shared block. The generic source pass recovers this unit directly; its containing module remains incomplete. No override or duplicate corpus count is used."
+      "reason": "Independently verified readable text formatter. The containing diagnostic module is now fully recovered; this retained test fixture supplies neither an override nor extra corpus credit."
     },
     {
       "module_path": "extra_features/solar_forecast_eai/energy_context.py",

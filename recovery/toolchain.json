@@ -1,8 +1,8 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "3667ff1eff4319bb9705f35306dd3a9fdf301e39",
-    "version": "0.4.21-einstein.1"
+    "commit": "2f52c0ace8daa132980c8a776432315f65337488",
+    "version": "0.4.22-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
@@ -12,12 +12,12 @@
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 145,
-    "unpacker_passes": 144,
+    "unpacker_test_cases": 150,
+    "unpacker_passes": 149,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 34,
     "backend_behavior_tests_passed": 35,
-    "selected_module_behavior_tests_passed": 129,
+    "selected_module_behavior_tests_passed": 142,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -121,10 +121,16 @@
       "stats_dev_state_behavior_pairs": 207,
       "operational_reforecast_behavior_pairs": 31,
       "joint_callable_return_owned_behavior_pairs": 21,
-      "database_getter_behavior_pairs": 90
+      "database_getter_behavior_pairs": 90,
+      "decorated_property_owned_behavior_pairs": 22,
+      "decorated_end_to_end_behavior_pairs": 12,
+      "configuration_behavior_pairs": 25,
+      "weather_contract_behavior_pairs": 68,
+      "weather_sensor_behavior_contexts": 17,
+      "diagnostic_sensor_behavior_contexts": 24
     },
-    "complete_readable_module_matches": 68,
-    "complete_readable_module_code_units": 1516,
+    "complete_readable_module_matches": 72,
+    "complete_readable_module_code_units": 1779,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -135,9 +141,9 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38287818169",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38287818240",
-      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38287818165",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633588",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633564",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38289633608",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742682",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742615"
     },
@@ -189,12 +195,12 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627170"
     },
     "source_generation": {
-      "stage": "callable-return-01",
+      "stage": "decorated-scopes-01",
       "method": "recover API over unchanged verified full-CLI exports in six batches",
       "private_worker_processes": 4,
       "exports_unchanged": true,
-      "summary_sha256": "0c19e18bbdc5c86502e59725b45176e4018050e6365bb31fc8e28d8f4b1cf443",
-      "modern_backend_source_sha256": "5bbd685486c02a87c5ce4032178e0a318f7d40c5458ca2a7e2b77baa4b43ad09"
+      "summary_sha256": "b45927e047fd7c1497fc6e0a5fb090d67e990f8861e0cca3230140791223101a",
+      "modern_backend_source_sha256": "d899850e8d773b5833ba213c7b2eac0893801fea5ba252657d5ece28afddd58b"
     },
     "previous_ci_before_branch_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38258152444",
@@ -217,18 +223,19 @@
     },
     "latest_readability_cleanup": {
       "modules": [
-        "astronomy/astronomy_cache_manager.py",
-        "astronomy/max_peak_tracker.py",
-        "extra_features/sfml_stats/core/dev_mode.py",
-        "production/production_operational_reforecast.py"
+        "core/core_coordinator_init_helpers.py",
+        "data/sfml_weather_provider.py",
+        "extra_features/weather_fusion_ai/sensor.py",
+        "sensors/sensor_diagnostic.py"
       ],
-      "new_readable_whole_module_units": 73,
-      "unneeded_artifacts_removed": 54,
-      "unneeded_fold_layers_removed": 6,
+      "new_readable_whole_module_units": 263,
+      "unneeded_artifacts_removed": 261,
+      "unneeded_fold_layers_removed": 8,
       "formatter": "black==25.1.0",
       "whole_module_proof_after_formatting": true,
       "original_documentation_and_validation_contracts_preserved": true,
-      "corpus_match_count_change_from_cleanup": 0
+      "corpus_match_count_change_from_cleanup": 0,
+      "rename_pitfall": "Distinct inline-comprehension and branch-local binding slots must remain distinct even if human descriptions overlap."
     },
     "previous_ci_before_inline_filters": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38267506927",
@@ -245,11 +252,11 @@
       "meaningful_call_cleanup_backward_jump_and_real_return_coverage_preserved": true
     },
     "comparison_variance": {
-      "rule": "Unchanged fail-closed rules from the shared-handler checkpoint",
+      "rule": "Unchanged fail-closed rules from the joint callable/return checkpoint",
       "unchanged_source_composite_gains": 0,
       "unchanged_source_raw_gains": 0,
-      "new_source_composite_gains": 3,
-      "new_source_raw_gains": 3,
+      "new_source_composite_gains": 18,
+      "new_source_raw_gains": 18,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
     "inline_filter_readability": {
@@ -347,6 +354,21 @@
       "original_import_levels_and_method_contracts_preserved": true,
       "corpus_match_count_change_from_cleanup": 0,
       "counting": "Non-retained function counts derive from the manifest. Generator and retained subtree counts remain separate; the overlapping published pipeline unit is counted once in the distinct total."
+    },
+    "previous_ci_before_decorated_scopes": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38287818169",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38287818240",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38287818165",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742682",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742615"
+    },
+    "previous_comparison_variance_before_decorated_scopes": {
+      "rule": "Unchanged fail-closed rules from the shared-handler checkpoint",
+      "unchanged_source_composite_gains": 0,
+      "unchanged_source_raw_gains": 0,
+      "new_source_composite_gains": 3,
+      "new_source_raw_gains": 3,
+      "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     }
   }
 }

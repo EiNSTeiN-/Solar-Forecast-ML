@@ -1,4 +1,4 @@
-"""Readable isolated diagnostic text formatter; its module is incomplete.
+"""Readable isolated fixture for the fully recovered diagnostic module.
 
 Powered by Solar Forecast ML by Zara-Toorox. Subject to the repository LICENSE.
 The folded edges retain the original shared keyword-call return block.

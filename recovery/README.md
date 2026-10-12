@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-68 readable whole modules and passes 129 selected application test methods.
+72 readable whole modules and passes 142 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -101,7 +101,7 @@ geometry, weather/sensor gates, observation classes and sensorless residuals.
 The entitlement constructor is tested from its complete verified module rather
 than kept as a redundant isolated source. Neither isolated function receives an
 override or extra corpus count. The whole goal remains incomplete at
-13,431 of 14,291 matched units, with 68 complete module matches.
+13,449 of 14,291 matched units, with 72 complete module matches.
 
 The protected-return checkpoint restores existing return evaluations to their
 original handlers, including nested row-access fallbacks. It adds 22 matches
@@ -200,8 +200,31 @@ names, original relative import levels, signatures and branch behavior. They
 receive no retained-body override or additional corpus count. Three application
 methods compare 90 paired creation, reuse, reconnection, import/property/lookup
 error and cancellation scenarios using owned dependencies. All 129 selected
-application methods pass. Current coverage is 68 readable whole modules / 1,516
+application methods passed at that checkpoint. Coverage was 68 readable whole modules / 1,516
 units, 18 isolated source files / 25 distinct units and seven separately counted
 generator units. The isolated manifest has 20 entries; its overlapping pipeline
 entry counts once in the distinct total. The full source/readability objective
+remains active and incomplete.
+
+The decorated-scope checkpoint fixes source lookup for properties and decorated
+methods. CPython's code object begins at the first decorator, while two repair
+passes had looked up the function's def line. Correcting that mapping lets the
+existing callable and shared-return trials run; comparison rules stay unchanged.
+Raw and composite recovery add 18 matches with zero regressions, reaching
+13,443 and 13,449 units respectively. Four modules become fully matched and
+readable: coordinator configuration helpers, the weather database contract,
+Weather Fusion sensors and the main diagnostic sensors.
+
+Their 263-unit trees retain full matches after descriptive local naming,
+formatting, removal of 261 empty artifacts and eight unnecessary folded
+expressions. Distinct comprehension and branch-local bindings keep distinct
+names and slots. Thirteen new application methods cover configuration defaults
+and precedence, weather rows/queries/weighted summaries/time zones, sensor
+calibration, workflow privacy, AI candidate deadlines and scheduler boundaries.
+All 142 selected application methods pass. Current whole-source coverage is
+72 modules / 1,779 readable units; isolated fixture coverage remains 18 files /
+25 distinct units plus seven separately tallied generators. One isolated
+diagnostic formatter is now also present in its recovered whole module and
+receives no additional corpus credit. The remaining 768 instruction and
+74 exception-table failures leave 842 unverified units. The full objective
 remains active and incomplete.
