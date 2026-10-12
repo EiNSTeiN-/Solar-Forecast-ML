@@ -157,6 +157,32 @@
       "behavior_input_cases": 34,
       "retain_in_candidate": false,
       "reason": "Independently verified readable return evaluation/fallback. The generic source scope repair recovers this unit directly under the documented narrow forward-return alias rule. Its containing module is not published as a complete readable module. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/gpm.py",
+      "unit_path": "<module>/_csv_headers#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/api/csv_headers.py",
+      "original_payload_sha256": "c78b6c93835395699ec4c9167a7cc6280f090d9f1cd943641c56e32629bb0bac",
+      "reconstructed_source_sha256": "223f1cacda85afe3e46d6576e55f431049cfe827afd82fe736672396248a4c19",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 18,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable chained-filter accessor. The generic inline-comprehension fix recovers this unit directly. Its containing module remains incomplete. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/ems.py",
+      "unit_path": "<module>/EMSManager#1/_hour_points_from#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/core/ems_hours.py",
+      "original_payload_sha256": "a378dffb9fdb5d72cc7247e79e41c5eda6a6664e1b0c44bb1de089044acca4f1",
+      "reconstructed_source_sha256": "336b8c65dcd374979afc724c7d41770ae732c8a1d3b4759c4f996a73a2f4870c",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 32,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable chained-filter accessor. The generic inline-comprehension fix recovers this unit directly. Its containing module remains incomplete. No override or duplicate corpus count is used."
     }
   ]
 }

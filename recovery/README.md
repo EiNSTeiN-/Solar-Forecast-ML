@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-60 readable whole modules and passes 88 selected application test methods.
+60 readable whole modules and passes 92 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -90,7 +90,7 @@ only; the larger EMS and stats API modules remain incomplete. The generic
 parser recovers both functions directly, so they receive no body override or
 second corpus count.
 
-The current shared-return checkpoint adds readable complete shadow-forecast,
+The shared-return checkpoint added readable complete shadow-forecast,
 shadow-observation and GPM-entitlement modules, plus two independently verified
 diagnostic/range functions. Internal locals have descriptive names. Thirty-five
 unnecessary folded-expression layers were removed with full-module proof after
@@ -101,7 +101,7 @@ geometry, weather/sensor gates, observation classes and sensorless residuals.
 The entitlement constructor is tested from its complete verified module rather
 than kept as a redundant isolated source. Neither isolated function receives an
 override or extra corpus count. The whole goal remains incomplete at
-13,283 of 14,291 matched units, with 60 complete module matches.
+13,328 of 14,291 matched units, with 60 complete module matches.
 
 The protected-return checkpoint restores existing return evaluations to their
 original handlers, including nested row-access fallbacks. It adds 22 matches
@@ -122,7 +122,18 @@ Eleven more test methods cover real stdlib dataclass decoration, sample and
 window accounting, summary quality, readiness/clock and database paths,
 owned imports, localized rendering, service checks, payloads and cancellation.
 The standalone `_number` compilation context is retired; its existing tests
-now use the complete efficiency source. Current isolated coverage is 11
-source files proving 17 distinct units, plus the seven generator units.
-The full corpus remains at 13,283 matches; this pass adds readable evidence
-and behavioral coverage without adding duplicate matches.
+now use the complete efficiency source. That pass retained 13,283 matches
+while adding readable evidence and behavioral coverage.
+
+The chained-inline-filter checkpoint fixes an accepting jump that lands at
+another filter rather than directly at the append. Its fall-through contains
+only padding and one back edge to the active loop. Recognizing that exact
+shape preserves each guard's original polarity. Full raw and composite
+audits add 45 matches with zero previous matches lost, without changing
+comparison rules. Two additional readable isolated accessors cover CSV
+headers and EMS hour selection, with four tests over 50 paired scenarios.
+Their containing modules remain incomplete. Both match directly in generic
+generation; neither receives an override or duplicate corpus count.
+Current isolated coverage is 13 source files proving 19 distinct units,
+plus the seven generator units. The full corpus reaches 13,328 matches;
+889 instruction and 74 exception-table failures keep the full goal incomplete.

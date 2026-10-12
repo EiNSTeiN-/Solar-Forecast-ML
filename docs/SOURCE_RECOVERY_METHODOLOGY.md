@@ -245,9 +245,9 @@ process's zero exit code must never be interpreted as a fidelity pass.
 - First batch: all 99 main-integration modules exported, 5,984 nested code
   objects readable; all 99 generated sources compiled. There was no bytecode
   equivalence proof. Twenty-nine modules had structural warnings.
-- Current work: add full-scope inventory, correct exception cleanup, closure
-  captures and annotation reconstruction, introduce static unit comparison,
-  and rebuild the source candidates. Exact coverage is recorded in the audit
+- Full-scope work added the complete inventory, corrected exception cleanup,
+  closure captures and annotation reconstruction, introduced static unit
+  comparison, and rebuilt the source candidates. Exact coverage is recorded in the audit
   report from the current authoritative inputs rather than inferred from the
   first batch's successful syntax checks.
 - Bytecode export is validated for the complete 274-module scope. The composite
@@ -260,7 +260,7 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **13,283 matched units out of 14,291** and
+- The latest full audit reports **13,328 matched units out of 14,291** and
   **60 complete module matches**. Sixty readable sources (1,324 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
   evidence in `recovery/verified-manifest.json`. All 60 published sources have undergone the
@@ -274,11 +274,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   filter updates/adaptation/resets across both copies. That initial suite had
   eight test methods. Selected classes are instantiated only after full static
   matches and with controlled globals; no integration module is imported.
-- The preceding frame/handler checkpoint added 1,059 matching code units with
-  zero previously matching units lost. The latest annotation/exit checkpoint
-  added **233** matching code units while retaining the earlier verified API
-  method. The following guard checkpoint adds 60 further matches without any
-  retention, as recorded in `recovery/latest-transition.json`. The full
+- Earlier frame/handler work added 1,059 matching code units, followed by
+  **233** from the annotation/exit checkpoint and 60 from the guard checkpoint.
+  The current chained-inline-filter checkpoint adds **45** and preserves every
+  prior matching unit, as recorded in `recovery/latest-transition.json`. The full
   source-fidelity and readability goals remain incomplete.
 - Fifteen more module sources now use readable variable names and formatting,
   including the newly verified Energy AI feature engineer. Empty-string
@@ -1152,3 +1151,68 @@ generator units. Remaining **934 instruction** and **74 exception-table**
 failures keep the full goal active and unachieved. The next fidelity repairs
 must retain the complete scope rather than treating these readable modules
 as a smaller substitute objective.
+
+## Chained inline-comprehension accepting edges
+
+Modern backend **0.6.11-einstein.1**, commit
+`9f37929a486a26f317b787623ab2e5854d3dd66b`, repairs early filter polarity
+in chained inline comprehensions. Unpacker **0.4.19-einstein.1**, at commit
+`131c0b04c7f5f91a84d9d5cfe22a50002db4dd85`, now pins that backend and adds an
+end-to-end regression. Its normalization and comparison rules are unchanged.
+
+[PEP 709](https://peps.python.org/pep-0709/) describes inline list, set and
+dictionary comprehensions and their saved/restored locals. The
+[CPython conditional-jump documentation](https://docs.python.org/3.14/library/dis.html#opcode-POP_JUMP_IF_FALSE)
+defines the branch's target and fall-through behavior. In the owned 3.14
+fixtures, a successful early guard jumps forward into the next guard, while
+the fall-through skips the item. The old parser searched from the target for
+an append; encountering the next guard's skip first made it invert the early
+guard. This turned `isinstance(value, str)` into its negation and equality
+into inequality in source candidates.
+
+For inline comprehensions on Python 3.12+, the new recognition requires a
+forward target strictly inside the active comprehension, with only padding
+and exactly one unconditional backward jump between the guard and target.
+That jump must return to the current comprehension's innermost FOR_ITER.
+This exact skip path identifies the other edge as accepting the current guard,
+even when later guards remain. Classic skip layouts and general forward
+regions retain their previous handling. No test, value, rich-comparison
+operator, call, handler or verifier slot is invented or ignored.
+
+Two backend methods cover **14 owned fixture definitions / 52 input cases**.
+Twelve variants combine list/set/dictionary comprehensions, positive/negative
+guards and conjunctions versus successive filters. Two three-guard fixtures
+compare equality/inequality hooks, readiness/finalization calls, short-circuit
+order and errors. Exact function instruction and exception bytes are compared,
+along with returned values and call traces. Before the repair, the new tests
+fail on the first guard's polarity; afterward all **29** backend behavior
+methods and **34** existing Rust tests pass. The unpacker adds **12** matching
+complete fixture trees and value checks; all **135** cases run, with **134**
+passes and the unchanged single documented legacy native expected failure.
+
+All **274** candidates are regenerated from unchanged verified full-CLI
+exports in six batches of 50, 50, 50, 50, 50 and 24 with fixed tools. Raw
+and composite audits each gain **45 matching units** and lose **zero prior
+matches**. Raw generation reaches **13,322 / 14,291** with **59** complete
+modules; composite recovery reaches **13,328 / 14,291** with **60**. No new
+whole module becomes complete in this pass. Existing readable sources,
+isolated body overrides and exports remain unchanged. The transition records
+all gained unit paths and the absence of a new comparison allowance.
+
+Two newly matching functions have readable isolated source:
+`_csv_headers` and `EMSManager._hour_points_from`. Original names, signatures,
+annotations, duplicate values, repeated getter/strip calls and integer checks
+remain intact. Four application methods compare **50 paired scenarios**:
+18 CSV-header and 32 EMS-hour cases, including invalid input types, blank and
+duplicate headers, custom string/truth hooks, integer/bool/float boundaries,
+separate get/index reads, rich-comparison hooks and errors. Their complete
+units are proved after formatting; their containing API/EMS modules remain
+incomplete. Both are already recovered by generic generation, so neither
+receives an override or duplicate corpus count.
+
+All **92** selected application methods pass. Readable whole coverage remains
+**60 modules / 1,324 units**; isolated source now covers **13 files / 19 distinct
+units**, alongside seven generator units. Remaining **889 instruction** and
+**74 exception-table** failures leave **963** unverified units. The full
+274-module source and readability objective remains active and unachieved.
+Recovered source remains on the development branch without deployment.
