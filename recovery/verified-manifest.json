@@ -38,6 +38,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "data/data_model_promotion_policy.py",
+      "original_payload_sha256": "af8b958c4086471d9ffcf399d350e65fa5bd95429fe37ec8d9b231e1de800422",
+      "reconstructed_source_sha256": "943594c339d1a63752ac64a1bbb045c33616c09f7cfe3687163b2f4cd625f485",
+      "matched_units": 20,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "data/data_shadow_group_math.py",
       "original_payload_sha256": "f490124f9c96f622cc2a5b8467023ada4aba237396cefe06fe5882feb055245f",
       "reconstructed_source_sha256": "08c1c0d8a3a0bb0c503fa9f1f15edce178a6e5c02e60a05bfec52281c04f2178",
@@ -63,6 +72,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
+    },
+    {
+      "path": "data/weather_types.py",
+      "original_payload_sha256": "2ddf6e28e62d1b9b494ab8bfee8f1d468cb0ce317900581b37690ec6efd374b8",
+      "reconstructed_source_sha256": "f5154d57df4a0dae87ab10df576a90fb06ad5e3985af7b97934298b909886855",
+      "matched_units": 15,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
     },
     {
       "path": "extra_features/grid_price_monitor/core/calculator.py",
@@ -209,6 +227,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/api/modern_weather_energy.py",
+      "original_payload_sha256": "29a263a77ab64b7d33325673afb1830101f19e7b3ff9fcc0ccf1df439cd2c4d1",
+      "reconstructed_source_sha256": "03f731832e6d8fe6ac64da6473350a9a388159654604a7d2cf315e466265b0b5",
+      "matched_units": 22,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "extra_features/sfml_stats/api/views.py",
       "original_payload_sha256": "b92800d4027075a258c16baa6d4e6eb193e0761e12111b1d4dc3dbab525202ec",
       "reconstructed_source_sha256": "7f5b510701b18fae69c66ab85f4417b584ca3181f18f7bdfe5dc9ea9c2b3e2e5",
@@ -267,6 +294,15 @@
       "original_payload_sha256": "b7ab43d5eb2762e65a3595a6b3603e6310ecd91510d5f50a20fbb858dcb4e254",
       "reconstructed_source_sha256": "f860970fd988009e3287542196880814acc335562ad67277c1059116aae889e6",
       "matched_units": 13,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/readers/weather_energy_reader.py",
+      "original_payload_sha256": "14191caaadb7086818499b88bb6091d6131910f229ce9db4fa39ee09e77eb0e2",
+      "reconstructed_source_sha256": "a2b065bcf7b0829eaeb006ab83fb3b52550dbbe72dcd42439e968713d1bc34c4",
+      "matched_units": 30,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1

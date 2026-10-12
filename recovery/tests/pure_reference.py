@@ -49,7 +49,8 @@ def classes(relative, class_name, globals_, bases=()):
     return tuple(result)
 
 
-def functions(relative, names, globals_, *, defaults=None, kwdefaults=None):
+def functions(relative, names, globals_, *, defaults=None, kwdefaults=None,
+              builtins_overrides=None):
     """Instantiate selected pure functions; share their controlled dependencies.
 
     The containing module is never executed. Tests provide the known default
@@ -57,7 +58,9 @@ def functions(relative, names, globals_, *, defaults=None, kwdefaults=None):
     """
     result = []
     for module in verified_code(relative):
-        namespace = dict(globals_, __name__='pure_recovery_fixture', __builtins__=builtins.__dict__)
+        controlled_builtins = (dict(builtins.__dict__, **builtins_overrides)
+                               if builtins_overrides is not None else builtins.__dict__)
+        namespace = dict(globals_, __name__='pure_recovery_fixture', __builtins__=controlled_builtins)
         selected = {}
         for name in names:
             matches = [value for value in module.co_consts

@@ -260,10 +260,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **13,183 matched units out of 14,291** and
-  **54 complete module matches**. Fifty-one readable sources (1,074 code units) are published
+- The latest full audit reports **13,199 matched units out of 14,291** and
+  **55 complete module matches**. Fifty-five readable sources (1,161 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 51 published sources have undergone the
+  evidence in `recovery/verified-manifest.json`. All 55 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -740,3 +740,70 @@ sources total **51 modules / 1,074 units**. Three newly complete candidates—th
 promotion policy, weather-energy API and weather-energy reader—still need
 readability cleanup. Full source fidelity and readability remain incomplete.
 No recovered source has been deployed to Home Assistant.
+
+## Discarded unpack bindings and compound return values
+
+Backend **0.6.8-einstein.1**, commit
+`d219efafc8ef38c7d3910aa9f2c0ac62b8208a18`, restores surviving names for
+discarded repeated unpack targets. CPython can elide earlier stores to the same
+local as `POP_TOP`, keeping only the last store. PyArmor renames the remaining
+binding. Guessing `_` for each discarded slot introduces a separate stored local
+on recompilation and changes instruction/slot layout even when the unused value
+does not visibly affect the result.
+
+The parser reuses the next direct local store's spelling across only discarded
+slots and padding within the remaining unpack frame. It stops at nested
+unpacking, side effects and control flow. Actual underscore stores remain
+intact. Owned generator fixtures require identical instruction bytes,
+exception-table bytes and local metadata; behavior comparisons also cover
+surviving values, empty inputs and wrong-arity/type failures. All **34** Rust
+tests and **22** Python 3.14 backend behavior methods pass. A focused corpus
+probe proves three previously mismatching weather collector units.
+
+Unpacker **0.4.16-einstein.1**, commit
+`fd0433c425c7a8eab037509859d42e450358af6f`, pins that backend in CI and adds
+`restore_compound_return_shapes`. A structured candidate may split a conditional
+value into a guard return and a final return, or retain one short-circuit arm as
+empty nested if statements. The source pass tentatively reconstructs a single
+conditional return or an OR expression from those existing tests and values.
+It supplies no missing business literal or call, skips ambiguous definitions
+and async generators, and accepts only full-unit matches while preserving every
+earlier match. Unproven neighboring changes are reverted.
+
+Owned checks compare nested dictionary values, missing keys, await failures and
+cancellation. Rich comparisons return explicit truth objects so tests check
+returned values and truth/call order rather than coercing everything to bool.
+Changed values and legitimate empty branches remain rejected or unchanged.
+The unpacker suite has **115 passes in 116 cases**, with the same documented
+legacy native expected failure. Backend and unpacker GitHub checks pass; links
+are recorded in `recovery/toolchain.json`.
+
+The normal full CLI run records **11** proven compound-return shapes and **60**
+capture-order repairs, alongside **249** return-scope, **630** shared-return and
+**18** module-annotation repairs. All **274** exports validate and all **274**
+source candidates compile; **206** report structural completeness. A direct
+raw audit gives **13,193** matches and **54** complete module trees. The composite
+audit reaches **13,199 / 14,291** and **55** complete module trees. It adds **16**
+matches and loses **zero** previous matches. The existing two body overrides and
+published shadow-group reconstruction account for the six extra composite
+matches; neither evidence nor scope is counted twice.
+
+Four more complete modules are readable and published: promotion policy
+(20 units), modern weather-energy API (22), weather-energy reader (30), and main
+weather types (15). Descriptive captured names retain the proven lexical order;
+weather SQL is rendered in multiline literals whose values remain exact.
+The repaired visibility predicate now retains both fog/clear directions.
+Full static trees match after cleanup. Paired checks cover policy noise bands,
+regimes, champion age and controlled relative imports; date/dev gates and API
+callbacks; archive/snapshot queries, cache periods and database failures; and
+visibility validity, provider priority, contradiction edges and transmission.
+The application suite has **54 passing methods**. Relative imports use explicit
+owned stand-ins; no integration module or PyArmor runtime is loaded.
+
+Published readable source totals **55 whole modules / 1,161 code units**. Full
+fidelity still has **1,015 instruction** and **77 exception-table** failures.
+An owned filtered-generator fixture still demonstrates a separate value-merge
+error: `sum(row[1] or 0 for row in rows if row[1])` produces 5 on its test input,
+while the current candidate incorrectly produces 0. This is the next backend
+repair target and remains unverified. The complete 274-module objective remains
+active and unfinished. No recovered source has been deployed.
