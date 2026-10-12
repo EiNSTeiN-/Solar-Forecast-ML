@@ -260,10 +260,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **13,328 matched units out of 14,291** and
-  **60 complete module matches**. Sixty readable sources (1,324 code units) are published
+- The latest full audit reports **13,343 matched units out of 14,291** and
+  **63 complete module matches**. Sixty-three readable sources (1,415 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 60 published sources have undergone the
+  evidence in `recovery/verified-manifest.json`. All 63 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -276,7 +276,8 @@ process's zero exit code must never be interpreted as a fidelity pass.
   matches and with controlled globals; no integration module is imported.
 - Earlier frame/handler work added 1,059 matching code units, followed by
   **233** from the annotation/exit checkpoint and 60 from the guard checkpoint.
-  The current chained-inline-filter checkpoint adds **45** and preserves every
+  Chained-inline-filter work added **45**; the current shared-raise checkpoint
+  adds **15** and preserves every
   prior matching unit, as recorded in `recovery/latest-transition.json`. The full
   source-fidelity and readability goals remain incomplete.
 - Fifteen more module sources now use readable variable names and formatting,
@@ -1216,3 +1217,82 @@ units**, alongside seven generator units. Remaining **889 instruction** and
 **74 exception-table** failures leave **963** unverified units. The full
 274-module source and readability objective remains active and unachieved.
 Recovered source remains on the development branch without deployment.
+
+## Shared raises, comparison cleanup and formatted messages
+
+Modern backend **0.6.12-einstein.1**, commit
+`22c069c9f3a105d75b3f9ccbbb6b0877256e553b`, extends the existing shared
+rejection-block recognizer to raises. Unpacker **0.4.19-einstein.1**, commit
+`96783d9b732fd07f735a8e3c07e74cf58431482a`, pins that backend and adds a
+whole-tree end-to-end regression. No normalization or comparison rule changes.
+
+The [CPython raise-opcode contract](https://docs.python.org/3.14/library/dis.html#opcode-RAISE_VARARGS)
+uses one operand for an exception and two for an exception plus explicit cause.
+The parser now reconstructs that exact straight expression region and stack
+count, retaining evaluation order. Bare reraises, stores, cleanup and general
+branches remain unsupported by this recognizer. Existing literal and
+constructed returns retain their handling.
+
+A negated comparison chain followed by another predicate also has a success
+jump over its failed-link POP_TOP/JUMP_FORWARD cleanup. The recognizer skips
+only the complete trampoline back to this same rejection, after proving the
+comparison-chain merge and an empty carried stack. Walking the cleanup on the
+success path lost the later predicate or disturbed the copied middle operand.
+The original comparisons and the single evaluation of that operand remain.
+Many validation raises construct formatted messages. Their value simulator
+now uses the main parser's f-string conversion/specification model for the
+known 3.14 operations, with exact stack consumption. It rejects unexpected
+BUILD_STRING parts rather than supplying an invented conversion.
+
+Four new backend methods cover **seven owned fixture definitions / 312 paired
+input scenarios**. They compare exact instruction and exception bytes,
+predicate and constructor errors, NaN and rich-comparison hooks, conversion
+and dynamic-format hooks, explicit cause order and exception metadata.
+The unpacker adds a complete source-tree comparison and 12 end-to-end input
+scenarios. All **33** backend behavior methods and **34** existing Rust tests
+pass. All **136** unpacker cases run: **135** pass, alongside the unchanged
+single documented legacy native expected failure.
+
+All **274** source candidates are regenerated from unchanged verified
+full-CLI exports in fixed-tool batches of 50, 50, 50, 50, 50 and 24. Raw and
+composite audits each add **15 matches**, with **zero prior matches lost**.
+Raw generation reaches **13,337 / 14,291** and **62** complete modules;
+composite recovery reaches **13,343 / 14,291** and **63**. All original payload
+and export hashes remain unchanged. No comparison allowance or new retained
+body override contributes to these gains.
+
+Three newly complete modules are published with descriptive internal names:
+both `license/codec.py` copies (10 units each) and
+`extra_features/sfml_stats/api/heating.py` (71 units). Their complete trees
+match after `black==25.1.0` formatting. Original docs, validation strings,
+signatures, defaults, imports, routes, registration order, decorators,
+authorization and privacy behavior remain intact. This adds **91** readable
+whole-module units without duplicate corpus counts.
+
+Four codec methods compare owned payloads and policies: 22 canonical-JSON,
+146 encoding/decoding, 181 composition and 11 policy/format scenarios. The
+GPM codec has an optional prefix override and module-policy reads; EAI uses
+imported constants and a two-argument composition API. Preserve each original
+contract. A test harness that omits a controlled global can make both sides
+raise the same irrelevant error; concrete successful outputs and intended
+error assertions are needed in addition to paired results. Neither codec
+constructs or submits a real license in these checks.
+
+Five heating-API methods compare **382 paired scenarios**: 288 authorization
+and run paths, 11 body/UTF-8/size/error cases, seven room-permission cases,
+52 comfort-temperature validation/rounding/update cases and 24 status/privacy/
+registration cases. They include unhandled failures and cancellation, exact
+error statuses and logs, each thermostat's permission check, unchanged
+temperature short-circuits and untouched private source data. Selected verified
+classes/functions execute with owned HTTP-view, request, manager and policy
+stand-ins. No integration body, HTTP server, license service or actuator is
+used. Decorator registration is covered statically; stand-in execution is not
+a claim of full Home Assistant middleware behavior.
+
+The full selected application suite passes **101 methods**. A final composite
+audit after the refactors retains the same count and complete-module scope.
+Readable whole coverage is **63 modules / 1,415 units**; isolated coverage
+remains **13 files / 19 distinct units**, plus seven generator units. Remaining
+**874 instruction** and **74 exception-table** failures leave **948** unverified
+units. The complete 274-module source/readability goal remains active and
+unachieved. Recovered source stays on the development branch.

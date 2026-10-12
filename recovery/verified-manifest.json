@@ -119,6 +119,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/grid_price_monitor/license/codec.py",
+      "original_payload_sha256": "b5fc6ec1249a68085374f357c6721d99db88b1cb54fdd6674cab353656fd1c61",
+      "reconstructed_source_sha256": "b534a471819d09eb2f9bbf1136a2fe9e2218dc73eb59dc03ac0caca8507e1b6d",
+      "matched_units": 10,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 4
+    },
+    {
       "path": "extra_features/grid_price_monitor/license/entitlements.py",
       "original_payload_sha256": "94dba93bd0975aa93438d7e7dc484d9c5d56ad2c3f6881897ae75daab686e57a",
       "reconstructed_source_sha256": "44cbd7d083609b96f733a0fcb01400cf12a53e1cac4be7cc48b41094028b8843",
@@ -254,6 +263,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/api/heating.py",
+      "original_payload_sha256": "227e7264c1d497c546b32edb7b1f6ef1f83300dd8b454cff4b44d20e51ec3f18",
+      "reconstructed_source_sha256": "63a6f77922d29ba777a5c2f72701bf1a26f0fd47d54fefb1c0ce98456a5c81a3",
+      "matched_units": 71,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 5
+    },
+    {
       "path": "extra_features/sfml_stats/api/modern_weather_energy.py",
       "original_payload_sha256": "29a263a77ab64b7d33325673afb1830101f19e7b3ff9fcc0ccf1df439cd2c4d1",
       "reconstructed_source_sha256": "03f731832e6d8fe6ac64da6473350a9a388159654604a7d2cf315e466265b0b5",
@@ -387,6 +405,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/license/codec.py",
+      "original_payload_sha256": "6ad5ef259bd6c1df05c68d6615f91ab7a54249c037ce9696599e50d5c458ff0c",
+      "reconstructed_source_sha256": "bdff31d9d8adb2884e4be3bd74cbc64269702e95936b255f3b3d7c2ba14ee484",
+      "matched_units": 10,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 4
     },
     {
       "path": "extra_features/solar_forecast_eai/license/policy.py",

@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-60 readable whole modules and passes 92 selected application test methods.
+63 readable whole modules and passes 101 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -101,7 +101,7 @@ geometry, weather/sensor gates, observation classes and sensorless residuals.
 The entitlement constructor is tested from its complete verified module rather
 than kept as a redundant isolated source. Neither isolated function receives an
 override or extra corpus count. The whole goal remains incomplete at
-13,328 of 14,291 matched units, with 60 complete module matches.
+13,343 of 14,291 matched units, with 63 complete module matches.
 
 The protected-return checkpoint restores existing return evaluations to their
 original handlers, including nested row-access fallbacks. It adds 22 matches
@@ -135,5 +135,17 @@ headers and EMS hour selection, with four tests over 50 paired scenarios.
 Their containing modules remain incomplete. Both match directly in generic
 generation; neither receives an override or duplicate corpus count.
 Current isolated coverage is 13 source files proving 19 distinct units,
-plus the seven generator units. The full corpus reaches 13,328 matches;
-889 instruction and 74 exception-table failures keep the full goal incomplete.
+plus the seven generator units. That checkpoint reaches 13,328 matches.
+
+The shared-raise checkpoint preserves each validation predicate, exception
+expression and explicit cause, plus the exact comparison-cleanup trampoline
+and formatted-message conversions/specifications. It adds 15 matches in both
+raw and composite audits with zero previous matches lost and unchanged
+comparison rules. Three newly complete modules are published readably:
+both license codecs and the heating API, totaling 91 whole-module units.
+Their validation, public signatures, import contracts, routes, authorization,
+privacy and delegation behavior remain intact. Nine new application methods
+test owned encoding payloads/policies and HTTP-view stand-ins, including errors
+and cancellation. No real license, HTTP server or actuator is used.
+The complete corpus reaches 13,343 matches, with 874 instruction and 74
+exception-table failures. The full 274-module goal remains incomplete.
