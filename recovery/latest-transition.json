@@ -1,10 +1,9 @@
 {
-  "new_matching_units": 233,
+  "new_matching_units": 60,
   "previous_matches_lost": 0,
   "remaining_goal_complete": false,
-  "previous_stage": "frames-01",
-  "current_stage": "annotation-03",
-  "raw_decompiler_previous_matches_lost": 1,
-  "verified_source_units_retained": 1,
-  "retention_manifest": "verified-functions.json"
+  "previous_stage": "annotation-03",
+  "current_stage": "guards-02",
+  "raw_decompiler_previous_matches_lost": 0,
+  "verified_source_units_retained": 0
 }

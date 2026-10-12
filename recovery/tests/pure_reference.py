@@ -71,7 +71,7 @@ def functions(relative, names, globals_, *, defaults=None, kwdefaults=None):
     return tuple(result)
 
 
-def isolated_function(module_relative, source_relative, unit_path, globals_):
+def isolated_function(module_relative, source_relative, unit_path, globals_, *, closure_values=None):
     """Verify only a published isolated unit; do not imply its module is complete."""
     unpacker = Path(os.environ['SFML_UNPACKER_DIR'])
     sys.path.insert(0, str(unpacker / 'oneshot'))
@@ -90,5 +90,10 @@ def isolated_function(module_relative, source_relative, unit_path, globals_):
     report = compare(reference, candidate, MarkerNormalizer(metadata[1:17], metadata[18:30]))
     if not report['all_units_match']:
         raise AssertionError(f'{unit_path} did not match: {report}')
-    return tuple(types.FunctionType(code, dict(globals_, __builtins__=builtins.__dict__))
-                 for code in (reference, candidate))
+    closure_values = closure_values or {}
+    if set(closure_values) != set(reference.co_freevars) or candidate.co_freevars != reference.co_freevars:
+        raise ValueError('Supply exactly the verified closure names')
+    return tuple(types.FunctionType(
+        code, dict(globals_, __builtins__=builtins.__dict__),
+        closure=tuple(types.CellType(closure_values[name]) for name in code.co_freevars) or None)
+        for code in (reference, candidate))

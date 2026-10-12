@@ -102,7 +102,11 @@ def main():
             if len(metadata) != 34 or metadata[0] != 0xa1 or metadata[17] != 0xa2:
                 raise ValueError('Missing sequence metadata')
             decoder = MarkerNormalizer(metadata[1:17], metadata[18:30])
-            retained = [unit for unit in isolated if unit['module_path'] == relative]
+            # A verified nested function can be published independently while
+            # its caller is still missing. Never insert an unused definition
+            # merely to increase the corpus's matching-unit count.
+            retained = [unit for unit in isolated if unit['module_path'] == relative
+                        and unit.get('retain_in_candidate', True)]
             if retained and entry['source_origin'] == 'decompiler_candidate':
                 tree = ast.parse(source)
                 reference_units = dict(units(normalize_code(reference)))

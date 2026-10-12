@@ -97,6 +97,14 @@ This preserves the exact effective dispatch map. An uncovered meaningful
 instruction, changed handler target or changed depth/lasti remains a failure;
 an owned negative fixture checks a missing covered CALL.
 
+An identity test immediately consumed by a truth jump may invert both its
+`IS_OP` sense and the jump sense while retaining the same target and fallthrough.
+Identity produces a builtin bool without invoking user equality or truth hooks.
+The verifier canonicalizes only this coupled pair. Either inversion alone,
+different destinations or intervening meaningful work remain significant.
+Owned positive and negative cases include objects with raising truth/equality
+methods. No general branch or exception-control-flow relaxation is allowed.
+
 Simple import and from-import markers also have independently tested lowering
 rules. Both the protected tuple importer and the ordinary interpreter import
 sequence are compared as explicit module/relative-level/name/binding contracts.
@@ -252,10 +260,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **12,162 matched units out of 14,291** and
-  **33 complete module matches**. Those 33 sources (543 code units) are published
+- The latest full audit reports **12,222 matched units out of 14,291** and
+  **34 complete module matches**. Those 34 sources (623 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 33 have undergone the
+  evidence in `recovery/verified-manifest.json`. All 34 have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -268,8 +276,9 @@ process's zero exit code must never be interpreted as a fidelity pass.
   matches and with controlled globals; no integration module is imported.
 - The preceding frame/handler checkpoint added 1,059 matching code units with
   zero previously matching units lost. The latest annotation/exit checkpoint
-  adds **233** matching code units while retaining the earlier verified API
-  method, as recorded in `recovery/latest-transition.json`. The full
+  added **233** matching code units while retaining the earlier verified API
+  method. The following guard checkpoint adds 60 further matches without any
+  retention, as recorded in `recovery/latest-transition.json`. The full
   source-fidelity and readability goals remain incomplete.
 - Fifteen more module sources now use readable variable names and formatting,
   including the newly verified Energy AI feature engineer. Empty-string
@@ -316,7 +325,7 @@ process's zero exit code must never be interpreted as a fidelity pass.
 
 ## Annotation and exit-tail checkpoint
 
-The current unpacker is **0.4.8-einstein.1**, commit
+This preceding checkpoint used unpacker **0.4.8-einstein.1**, commit
 `6bdb2726dea52258f6ad9c517685339078472ba7`. It passes 86 of 87 owned regression
 cases; the legacy native context-manager case remains a documented expected
 failure. The optional modern path passes it. The backend is
@@ -363,7 +372,7 @@ are retained. Four additional application methods bring the selected behavior
 suite to **27**, checking tariff forwarding, seven model-reaction scenarios,
 authorization/error responses and thirteen retained API-method paths.
 
-One generic parser regression remains: removing a wide exit prefix makes
+One generic parser regression remained at that checkpoint: removing a wide exit prefix made
 `GPMRevertCorrectionView.post` swallow its success response into an exception
 region. Its previously verified body is retained as a readable isolated source
 unit in `recovery/verified_functions/`, with hashes and scope in
@@ -371,10 +380,65 @@ unit in `recovery/verified_functions/`, with hashes and scope in
 module. The audit first verifies this isolated unit against its original code,
 then inserts that definition into the incomplete candidate and runs the full
 module comparison. The corpus retains all previously matched units. Future
-generation must keep this retention step until the parser regression is fixed.
+generation had to keep this retention step until the parser regression was fixed.
 Do not classify the raw decompiler alone as having zero regressions.
 
-Remaining failures comprise **1,832 instruction mismatches, 290 exception-table
+Failures at that checkpoint comprised **1,832 instruction mismatches, 290 exception-table
 mismatches, one signature mismatch, and six missing source units**. The whole
 source-equivalence and readability goals remain incomplete; the live integration
 is unchanged by this recovery work.
+
+## Guard and meaningful-return checkpoint
+
+Unpacker **0.4.9-einstein.1** at
+`c59693869896ae438b2fafc4d2efaf9038ba5985` uses backend
+**0.6.7-einstein.1** at `4d9924e8e9ac229a08119594de5bdf29fd90328d`.
+Its 91 owned regression cases report 90 passes and the same documented legacy
+native expected failure; the optional modern path passes. Twenty owned backend
+behavior tests and the existing 34 Rust tests pass. The application suite has
+32 passing methods, including 39 new correction-API scenarios and five isolated
+pipeline scenarios. CI evidence and exact revisions are in `recovery/toolchain.json`.
+
+- A masked sequence of NOPs before an exception return is not a value-building
+  tail. The old tail matcher confused it with mainline padding and swallowed
+  the success response. Require a meaningful independent value head before
+  considering a repeated tail. Owned padded sequential-handler fixtures failed
+  before this fix; genuine sunk-return and `else` fixtures still pass.
+  `GPMRevertCorrectionView.post` now matches directly from the raw candidate.
+  Its published isolated source remains useful evidence but is no longer
+  retained by the corpus audit.
+- Shared rejection guards may begin with ordinary truth tests and may return
+  constructed objects, rather than only literals. The parser still checks the
+  complete shared rejection/continuation graph. Its expression simulator now
+  understands positional/keyword calls and closure-bearing generators by
+  reusing the main generator parser. Chained comparisons and NaN polarity
+  remain significant; fixtures compare call order and lazy consumption.
+- A selected builtin slow path can contain a synthetic jump over padding.
+  Remove that jump only when every intervening word was already masked as
+  unreachable. Retain offsets, real work and handlers. This prevents a false
+  `else` inside an enclosing boolean guard. Normalization remains idempotent;
+  shadowed-callable fixtures verify the ordinary call's exact consumption.
+- The identity/jump variance described above resolves a compiler spelling
+  difference without ignoring a predicate or target. This is the only new
+  comparison allowance in this checkpoint.
+
+The complete STATS corrections API is now readable and verified (80 units).
+Selected tests preserve capability/administrator gates, body limits, numeric
+strings, same-origin checks, rate-window boundaries, error routes and callback
+captures. No actual HTTP or database operation is run.
+
+The independently verified `_start_pipeline_background` coroutine retains its
+`self` capture, success/failure logs, handled errors and unhandled cancellation.
+A constant-folded `return None if True else None` forces the same shared return
+edge as the recovered bytecode; the condition emits no runtime test. A bare
+return duplicates terminal returns and fails strict comparison. The source
+comment explains this compiler-shape requirement. Its enclosing coordinator
+is still incomplete: `retain_in_candidate: false` prevents inserting an unused
+function merely to inflate matching-unit counts. Two isolated source units are
+published separately from the 34 whole modules.
+
+The full audit adds **60 matches and loses zero previous matches**, including
+without isolated overrides. Remaining failures are **1,773 instruction
+mismatches, 293 exception-table mismatches and three missing source units**.
+All 274 bytecode trees validate and all 274 source candidates compile. Full
+source equivalence and readability remain incomplete; the goal remains active.

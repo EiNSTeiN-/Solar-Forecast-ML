@@ -40,9 +40,13 @@ Their class shells provide compilation context and must not be treated as
 complete integration modules. `verified-functions.json` records exact scope,
 hashes and the reason for retaining a unit. The audit validates each retained
 unit against its original bytecode before inserting its definition into an
-incomplete source candidate and comparing the full candidate. With
+incomplete source candidate and comparing the full candidate. Units marked
+`retain_in_candidate: false` remain independent evidence and are not inserted
+or counted as corpus matches when their caller is missing. With
 `--verified-source recovery/verified_units`, the adjacent manifest is detected
-automatically; `--verified-functions` can select it explicitly. This retains
-the verified GPM correction-revert success/error responses while a generic
-parser regression remains open. Its 13 controlled test paths execute only the
-verified method body, including its authorization gates and dependency calls.
+automatically; `--verified-functions` can select it explicitly. The generic GPM
+correction-revert parser regression is now fixed; its 13 controlled paths still
+test the independently verified method body. A second isolated coroutine tests
+pipeline success/failure, handled exceptions and cancellation with an explicit
+`self` closure. Its enclosing coordinator remains incomplete. Neither isolated
+unit currently needs or receives an audit override.
