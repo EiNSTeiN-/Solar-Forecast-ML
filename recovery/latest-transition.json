@@ -1,6 +1,6 @@
 {
-  "previous_stage": "inline-filters-01",
-  "current_stage": "shared-raises-01",
+  "previous_stage": "shared-raises-01",
+  "current_stage": "padded-return-01",
   "new_matching_units": 15,
   "previous_matches_lost": 0,
   "raw_new_matching_units": 15,
@@ -9,78 +9,78 @@
   "source_repair_gains": 15,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
-  "verified_shared_return_shapes": 631,
+  "verified_shared_return_shapes": 633,
   "verified_shared_branch_return_shapes": 51,
-  "verified_try_return_scopes": 271,
+  "verified_try_return_scopes": 276,
   "verified_capture_name_order": 60,
   "verified_compound_return_shapes": 12,
   "verified_attribute_callable_values": 2,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 8,
-  "raw_decompiler_matched_units": 13337,
-  "raw_all_units_match_modules": 62,
-  "manually_reconstructed_candidate_matched_units": 13343,
+  "raw_decompiler_matched_units": 13352,
+  "raw_all_units_match_modules": 63,
+  "manually_reconstructed_candidate_matched_units": 13358,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
-      "module_path": "ai/ai_predictor.py",
-      "unit_path": "<module>/AIPredictor#1/create_shadow_candidate_predictor#1"
-    },
-    {
-      "module_path": "core/core_dev_mode.py",
-      "unit_path": "<module>/decode_segment#1"
-    },
-    {
-      "module_path": "data/data_model_candidate_shadow.py",
-      "unit_path": "<module>/ModelCandidateShadowHandler#1/_normalize_hour#1"
-    },
-    {
-      "module_path": "data/data_model_candidate_shadow.py",
-      "unit_path": "<module>/ModelCandidateShadowHandler#1/_sha256#1"
+      "module_path": "core/core_helpers.py",
+      "unit_path": "<module>/SafeDateTimeUtil#1/get_default_time_zone#1"
     },
     {
       "module_path": "data/db_manager.py",
-      "unit_path": "<module>/_normalize_frozen_evaluation_samples#1"
+      "unit_path": "<module>/json_ready#1"
     },
     {
-      "module_path": "data/db_manager.py",
-      "unit_path": "<module>/_validated_shadow_percentage#1"
+      "module_path": "extra_features/grid_price_monitor/tariffs/corrections.py",
+      "unit_path": "<module>/default_local_tz#1"
     },
     {
-      "module_path": "extra_features/grid_price_monitor/license/codec.py",
-      "unit_path": "<module>/decode_segment#1"
+      "module_path": "extra_features/grid_price_monitor/tariffs/csv_import.py",
+      "unit_path": "<module>/default_local_tz#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/api/heating.py",
-      "unit_path": "<module>/HeatingRoomComfortView#1/post#1/operation#1"
+      "module_path": "extra_features/sfml_stats/api/common.py",
+      "unit_path": "<module>/_get_fixed_total_price#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/core/heating.py",
-      "unit_path": "<module>/_schedule#1"
+      "module_path": "extra_features/sfml_stats/api/solar_views.py",
+      "unit_path": "<module>/_get_w_stability_status_chip_inner#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/core/heating.py",
-      "unit_path": "<module>/validate_boost#1"
+      "module_path": "extra_features/sfml_stats/core/billing.py",
+      "unit_path": "<module>/BillingCalculator#1/_fixed_price_ct#1"
     },
     {
-      "module_path": "extra_features/sfml_stats/core/heating.py",
-      "unit_path": "<module>/validate_settings#1"
+      "module_path": "extra_features/sfml_stats/core/grid_import_split.py",
+      "unit_path": "<module>/fixed_total_price_ct#1"
     },
     {
-      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_rule_based_strategy.py",
-      "unit_path": "<module>/RuleBasedForecastStrategy#1/__init__#1"
+      "module_path": "extra_features/sfml_stats/core/hourly_aggregator.py",
+      "unit_path": "<module>/HourlyBillingAggregator#1/_fixed_price_ct#1"
     },
     {
-      "module_path": "extra_features/solar_forecast_eai/forecast/forecast_rule_based_strategy.py",
-      "unit_path": "<module>/RuleBasedForecastStrategy#1/__init__#1"
+      "module_path": "extra_features/sfml_stats/core/price_mode.py",
+      "unit_path": "<module>/base_fee_eur_month#1"
     },
     {
-      "module_path": "extra_features/solar_forecast_eai/license/codec.py",
-      "unit_path": "<module>/decode_segment#1"
+      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_morning_routine.py",
+      "unit_path": "<module>/MorningRoutineHandler#1/_create_daily_predictions#1/_parse_ts#1"
     },
     {
-      "module_path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_engine.py",
-      "unit_path": "<module>/ThermodynamicsEngine#1/__init__#1"
+      "module_path": "extra_features/weather_fusion_ai/sensor.py",
+      "unit_path": "<module>/LastLearningSensor#1/native_value#1"
+    },
+    {
+      "module_path": "forecast/forecast_rule_based_strategy.py",
+      "unit_path": "<module>/RuleBasedForecastStrategy#1/_parse_time_to_datetime#1"
+    },
+    {
+      "module_path": "production/production_morning_routine.py",
+      "unit_path": "<module>/MorningRoutineHandler#1/_persist_daily_predictions#1/_parse_ts#1"
+    },
+    {
+      "module_path": "production/production_tracker.py",
+      "unit_path": "<module>/ProductionTimeCalculator#1/_current_power_w#1"
     }
   ]
 }

@@ -29,6 +29,15 @@
       "behavior_tests": 3
     },
     {
+      "path": "core/core_helpers.py",
+      "original_payload_sha256": "97a3c92509aa7c25da72321febbd0112cce45783d49800fefe5bd8498e110a15",
+      "reconstructed_source_sha256": "15e9d8bdd6cc5696becea62a780c716f6bbb32f23753fa94d85cfeda935ec284",
+      "matched_units": 28,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 7
+    },
+    {
       "path": "core/core_panel_group_forecast.py",
       "original_payload_sha256": "3830d381dc9f2c7a6725bff476140c1d0cd0a32d3ef7f2872cda18ea315bd641",
       "reconstructed_source_sha256": "1075045197758a976da4208c8501ea36f08045def297e1e0fffae2d609e4afb2",

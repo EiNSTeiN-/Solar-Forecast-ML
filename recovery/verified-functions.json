@@ -183,6 +183,45 @@
       "behavior_input_cases": 32,
       "retain_in_candidate": false,
       "reason": "Independently verified readable chained-filter accessor. The generic inline-comprehension fix recovers this unit directly. Its containing module remains incomplete. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/grid_price_monitor/tariffs/corrections.py",
+      "unit_path": "<module>/default_local_tz#1",
+      "source_path": "verified_functions/extra_features/grid_price_monitor/default_local_tz.py",
+      "original_payload_sha256": "72409d15fe330dbbd148c8288705f27a47385033adb08e3d00288939e2c239b9",
+      "reconstructed_source_sha256": "82f87387bfc93fa579d5a57f182fff14649febcf6c7304dd482d1e2f4c5b67e2",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 25,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable padded-value return. Generic generation recovers this unit directly. Its containing module remains incomplete. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "extra_features/grid_price_monitor/tariffs/csv_import.py",
+      "unit_path": "<module>/default_local_tz#1",
+      "source_path": "verified_functions/extra_features/grid_price_monitor/default_local_tz.py",
+      "original_payload_sha256": "2e5cc9dd2988a01f0fbcc0eb1896efff17e9875bec5d56356a42fbf67c9d7b43",
+      "reconstructed_source_sha256": "82f87387bfc93fa579d5a57f182fff14649febcf6c7304dd482d1e2f4c5b67e2",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 25,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable padded-value return. Generic generation recovers this unit directly. Its containing module remains incomplete. No override or duplicate corpus count is used."
+    },
+    {
+      "module_path": "data/db_manager.py",
+      "unit_path": "<module>/json_ready#1",
+      "source_path": "verified_functions/data/json_ready.py",
+      "original_payload_sha256": "88c8537bea71fce990fe0cd9577cd77d81b45da2fc5b0dba8614c84d46dabb8d",
+      "reconstructed_source_sha256": "e80a783d78debc418ddd275c6210bb4f2ef1916ac434d596f2f375d5ce4d2f17",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 35,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable padded-value return. Generic generation recovers this unit directly. Its containing module remains incomplete. No override or duplicate corpus count is used."
     }
   ]
 }

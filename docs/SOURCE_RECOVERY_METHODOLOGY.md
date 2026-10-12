@@ -1296,3 +1296,77 @@ remains **13 files / 19 distinct units**, plus seven generator units. Remaining
 **874 instruction** and **74 exception-table** failures leave **948** unverified
 units. The complete 274-module source/readability goal remains active and
 unachieved. Recovered source stays on the development branch.
+
+
+## Padded protected-value returns
+
+Backend **0.6.13-einstein.1**, commit
+`c5cef89401ef69f050a549858050742053bfacc3`, fixes a calculated value
+stranded on the parser stack at a shortened protected range. Unpacker
+**0.4.19-einstein.1**, commit
+`ab70795494120b8ff12826ea46e831e0a7c25cc0`, pins it and verifies native
+export through complete modern source comparison. No normalization or
+comparison rules change.
+
+The existing tail recognizer proves a span containing only padding and one
+unwalked return, with no with protocol. In CPython 3.14 a RETURN_VALUE in that
+span consumes the value already calculated by the protected body. The parser
+previously supplied a bare return because a new region walk lacked that
+value. The repair additionally requires **exactly one live expression** on
+the stack. It consumes that expression once, preserving call/getter order,
+return values and handler scope. Constant/bare returns and other stack or
+control-flow shapes retain their handling; this does not invent a new value.
+
+Two backend methods cover **five owned definitions / 435 paired scenarios**:
+call, attribute, tuple and dictionary expressions, three padding widths,
+false/None values, fallible truth conversion, handled calls/getters, fallback
+errors, base exceptions and an explicit bare return's side effect. The owned
+padding utility adjusts all jumps and precise exception boundaries and is
+also reused by the earlier sequential-handler fixture. The unpacker adds
+**two definitions / 72 end-to-end scenarios**, comparing complete units
+before execution. All **35** backend behavior methods and **34** Rust tests
+pass. All **137** unpacker cases run: **136** pass and the existing single
+legacy native expected failure remains documented.
+
+All **274** candidates regenerate from the unchanged full-CLI exports in six
+fixed-tool batches. The final source and binary hashes are recorded. Raw and
+composite audits each gain **15 units** with **zero previous matches lost**.
+Raw generation reaches **13,352 / 14,291** with **63** complete modules;
+composite recovery reaches **13,358 / 14,291** with **64**. This completes
+`core/core_helpers.py`. No new comparison variance, retained body override or
+isolated-source insertion contributes to the gain.
+
+The full 28-unit datetime module is published with descriptive internal
+names and its original public APIs and docs. Nineteen empty-string/pass
+artifacts are removed, each after whole-module proof; formatting retains the
+complete match. Seven new tests compare **159 paired scenarios** across
+local timezone lookup, controlled HA delegation, errors and warning logs,
+naive/aware conversion, DST, ISO parsing, day boundaries and the owned
+relative import of WINTER_MONTHS. Existing edge cases, including an HA default
+zone returning None, are preserved rather than silently corrected. These are
+selected utility tests with stand-ins, not live HA integration execution.
+
+Two isolated readable source files additionally prove three distinct units:
+both tariff default_local_tz copies and the recursive json_ready helper.
+Six application methods compare **85 paired scenarios** with real stdlib
+zones and owned clock/conversion/mapping hooks. They check fallible truth,
+constructor/call/getter order, exactly handled errors, UTC fallback, nested
+conversions, nonfinite scalars, array/item fallbacks, raw-byte rejection and
+iteration/key-conversion errors. Concrete successful values accompany paired
+outcomes. Their original signatures and JSON validation behavior remain;
+containing tariff/database modules are still incomplete. Each already matches
+in generic generation and receives no override or duplicate corpus count.
+
+The complete application suite passes **114 methods**. A composite audit after
+readability changes retains all **13,358** matches. Readable whole coverage is
+**64 modules / 1,443 units**; isolated coverage is **15 files / 22 distinct
+units**, alongside seven generator units. Remaining **859 instruction** and
+**74 exception-table** failures leave **933** units unverified. The full
+274-module source/readability objective remains active and unachieved.
+
+A separate diagnostic of coroutine conditional returns showed that moving a
+return into its apparent try suite can repair the value operations while
+still leaving a compiler-frame handler difference at a real return slot.
+That incomplete trial is not retained. Do not erase real-return or meaningful
+call/cleanup coverage to accept such cases; they require independent source
+or runtime-plumbing evidence before a further repair.

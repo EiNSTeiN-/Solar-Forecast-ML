@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-63 readable whole modules and passes 101 selected application test methods.
+64 readable whole modules and passes 114 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -101,7 +101,7 @@ geometry, weather/sensor gates, observation classes and sensorless residuals.
 The entitlement constructor is tested from its complete verified module rather
 than kept as a redundant isolated source. Neither isolated function receives an
 override or extra corpus count. The whole goal remains incomplete at
-13,343 of 14,291 matched units, with 63 complete module matches.
+13,358 of 14,291 matched units, with 64 complete module matches.
 
 The protected-return checkpoint restores existing return evaluations to their
 original handlers, including nested row-access fallbacks. It adds 22 matches
@@ -147,5 +147,24 @@ Their validation, public signatures, import contracts, routes, authorization,
 privacy and delegation behavior remain intact. Nine new application methods
 test owned encoding payloads/policies and HTTP-view stand-ins, including errors
 and cancellation. No real license, HTTP server or actuator is used.
-The complete corpus reaches 13,343 matches, with 874 instruction and 74
+That checkpoint reached 13,343 matches, with 874 instruction and 74
 exception-table failures. The full 274-module goal remains incomplete.
+
+The padded-value-return checkpoint preserves the one existing expression at a
+recognized return tail instead of replacing it with a bare return. Its
+bounded repair adds 15 raw and composite matches with zero prior matches lost;
+normalization and comparison rules stay unchanged. It completes the datetime
+utility module, whose 28-unit tree is published readably after removing 19
+empty artifacts and renaming internal bindings. Seven new methods compare
+stdlib timezone/DST and parsing behavior, controlled HA delegation, fallback
+errors/logs, day boundaries and the seasonal relative import.
+Two additional isolated source files prove both tariff timezone fallbacks and
+the recursive JSON conversion helper. Six methods compare 85 owned scenarios,
+including constructor/getter errors, false local values, nested conversions,
+array/item hooks, mapping iteration and rejected bytes. These three units
+match directly in generation, receive no overrides and are counted once.
+Current readable evidence covers 64 complete modules / 1,443 units and 15
+isolated files / 22 distinct units, plus the seven generator units.
+The corpus reaches 13,358 matches, leaving 859 instruction and 74
+exception-table failures (933 units). The full source/readability goal remains
+active and incomplete; these sources are not deployed to Home Assistant.
