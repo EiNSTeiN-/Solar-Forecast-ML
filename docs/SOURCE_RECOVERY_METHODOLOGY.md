@@ -2037,3 +2037,45 @@ rules, input payloads and retained definition overrides remain unchanged.
 Local verification passes 35 Rust tests, 54 native behavior methods and the
 192 released unpacker cases (one existing expected failure); no vendor module
 or native PyArmor runtime is imported.
+
+
+## Accepting loop payloads and handler aliases (0.4.29 / 0.6.22)
+
+`payload-handler-01` restores existing accepting loop payload scopes when an
+equivalent rejecting Continue form changes exception coverage. Short sets
+of guards can change together; larger sets receive bounded individual trials.
+Nested loops retain ownership of their own continuations. Logical negation,
+inverse equality/identity/membership spellings are distinct trials; ordering
+operators are never assumed complementary, preserving NaN and custom hooks.
+
+Bounded consecutive handler fragments may include a final pass-only alias.
+Reunion reuses the first handler and all existing work, while keeping owner
+headers and docstrings. Coupled trials can reclaim an existing timer handler
+under its empty guard and move its existing final result back into the outer
+handler. Genuine independent handlers and unchanged rejection forms remain
+protected by full owner/descendant proof and a final module retention gate.
+No missing business expression or fallback is invented by these trials.
+
+The frozen source API is `7eddc1a2e089b1cabf1fca1ed5799eeee99fff0b`;
+native remains `ffa3daee309298e1350e0c1dffcae7c6547deb1b`. AST comparison
+proves that every earlier algorithm is unchanged and only one final pass is
+added. Its unparse/parse normalization makes prior emitted source exactly
+the same input. All 274 native captures, exports and normalized inputs are
+hash-checked; every new source receives independent raw and composite audits.
+Fresh complete recovery for three repaired modules and two unchanged controls
+gives byte-for-byte identical source and identical report fields. Generation
+takes 66.6 seconds with four workers; no fidelity check is skipped.
+
+Raw and composite views each gain **39 and lose zero**. Raw proves **13,883
+units / 132 complete candidates**; composite proves **13,888/14,291 / 132
+complete candidates**. **403 remain: 364 instruction and 39 exception
+mismatches**. Seven newly complete candidates include both data validators,
+GPM price writer, STATS repricing, Weather Fusion precision/options, and sensor
+mixins. All 274 sources compile; 217 are structurally complete. Published
+readable source remains **96 modules / 2,517 units**, with 178 application
+methods separately proved. Eight new owned methods cover guarded payloads,
+coupled guards, NaN/custom comparisons, handler aliases, timer/error scope,
+independent/bare handlers and metadata/predicate negatives. All **200 unpacker
+cases** pass with one existing expected failure; native retains 35 Rust and
+54 behavior methods. Comparator rules, payload inputs and retained definition
+overrides are unchanged; no integration module or PyArmor runtime is imported.

@@ -298,3 +298,15 @@ The independently published readable subset is **96 modules / 2,517 units**.
 Three simultaneous investigators rotate through the five original disjoint
 inventories; authoring and publication remain in the main thread. Further
 source oracles are queued and excluded from the certified corpus count.
+
+
+## Accepting payload and handler-alias checkpoint
+
+`payload-handler-01` proves 39 additional original units with zero losses in
+both raw and composite views. All 274 modules are audited, reaching
+**13,888/14,291 composite matches, 403 remaining, 132 complete candidates**.
+Twenty-six exception mismatches and thirteen instruction mismatches resolve.
+The readable subset remains **96 modules / 2,517 units**. Five fresh recovery
+cross-checks prove the final-pass reuse method against full generation.
+Investigators' substantive source oracles remain queued and are counted only
+after main-thread authoring and full retention validation.
