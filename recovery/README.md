@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-64 readable whole modules and passes 114 selected application test methods.
+68 readable whole modules and passes 126 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -101,7 +101,7 @@ geometry, weather/sensor gates, observation classes and sensorless residuals.
 The entitlement constructor is tested from its complete verified module rather
 than kept as a redundant isolated source. Neither isolated function receives an
 override or extra corpus count. The whole goal remains incomplete at
-13,358 of 14,291 matched units, with 64 complete module matches.
+13,428 of 14,291 matched units, with 68 complete module matches.
 
 The protected-return checkpoint restores existing return evaluations to their
 original handlers, including nested row-access fallbacks. It adds 22 matches
@@ -134,7 +134,7 @@ comparison rules. Two additional readable isolated accessors cover CSV
 headers and EMS hour selection, with four tests over 50 paired scenarios.
 Their containing modules remain incomplete. Both match directly in generic
 generation; neither receives an override or duplicate corpus count.
-Current isolated coverage is 13 source files proving 19 distinct units,
+At that checkpoint, isolated coverage was 13 source files proving 19 distinct units,
 plus the seven generator units. That checkpoint reaches 13,328 matches.
 
 The shared-raise checkpoint preserves each validation predicate, exception
@@ -163,8 +163,24 @@ the recursive JSON conversion helper. Six methods compare 85 owned scenarios,
 including constructor/getter errors, false local values, nested conversions,
 array/item hooks, mapping iteration and rejected bytes. These three units
 match directly in generation, receive no overrides and are counted once.
-Current readable evidence covers 64 complete modules / 1,443 units and 15
+That checkpoint’s readable evidence covers 64 complete modules / 1,443 units and 15
 isolated files / 22 distinct units, plus the seven generator units.
 The corpus reaches 13,358 matches, leaving 859 instruction and 74
 exception-table failures (933 units). The full source/readability goal remains
 active and incomplete; these sources are not deployed to Home Assistant.
+
+The shared-handler-fragment checkpoint reunites duplicated consecutive tries
+only after complete code-unit proof, retaining every previously matched unit.
+It adds 70 matches across 46 modules with no regression or comparison change.
+The raw and composite counts reach 13,422 and 13,428 respectively. Four newly
+complete modules are published readably: the astronomy cache manager, peak
+tracker, published DEV-state/delegation helper and operational reforecast
+engine. Their 73-unit trees match after cleanup and formatting. Twelve new
+application methods compare owned database rows/errors/cancellation, cache
+reference/singleton behavior, DEV expiry/privacy/callback paths and future-only
+reforecast filtering, scaling, publication checks, listener errors and locks.
+All 126 selected application methods pass. Current whole-source coverage is
+68 modules / 1,516 readable units, alongside the unchanged 15 isolated files /
+22 distinct units and seven generator units. Remaining 789 instruction and
+74 exception-table failures leave 863 unverified units. The full recovery goal
+remains active and incomplete.

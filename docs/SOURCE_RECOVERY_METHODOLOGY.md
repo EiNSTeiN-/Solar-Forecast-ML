@@ -1370,3 +1370,83 @@ still leaving a compiler-frame handler difference at a real return slot.
 That incomplete trial is not retained. Do not erase real-return or meaningful
 call/cleanup coverage to accept such cases; they require independent source
 or runtime-plumbing evidence before a further repair.
+
+
+## Reuniting shared exception-handler fragments
+
+Unpacker **0.4.20-einstein.1**, commit
+`f36fe479cbf68cb27b064c8c2e4f54c3ca9ab85f`, adds a source reconstruction
+pass. Backend **0.6.13-einstein.1**, commit
+`c5cef89401ef69f050a549858050742053bfacc3`, stays unchanged and pinned.
+Normalization and comparison rules remain unchanged too.
+
+Early returns split an exception table into protected fragments sharing one
+lexical handler. The backend can emit those as consecutive try statements,
+copying the same handlers. A source trial concatenates only adjacent try
+bodies with exactly identical handler ASTs and no else/finally. Intervening
+work and differing suites are not guessed. Inner statement suites are handled
+before enclosing concatenations; nested definitions receive independent
+trials. Unambiguous function scopes are tested against the complete original
+instruction and exception-dispatch maps. The trial is kept only if the full
+unit matches and every previous matching unit survives. Failed neighboring
+trials are reverted before the final retention check. Existing matched
+functions are never rewritten merely because their handlers look alike.
+
+An unconstrained diagnostic found 70 potential gains but also five losses in
+already verified functions. The proof-gated implementation rejects those
+losses. This is evidence that identical handler text alone is insufficient:
+a real sequence of independent tries can continue to later work after its
+first handler, while one combined try would skip it. Do not merge based on
+syntax or a few successful inputs alone.
+
+Five new owned reconstruction tests compare sync return/call order, handled
+and unhandled exceptions, coroutines and cancellation, nested definitions,
+prior-match retention, wrong literals/calls, handler differences and
+else/finally/intervening work. The behavior loops include 30 sync, 20 async
+and four nested paired scenarios. A whole-tree native-export/modern property
+fixture adds 40 getter, comparison-boundary, NaN, handled-error and base-error
+scenarios. All **143** unpacker cases run: **142** pass with the one existing
+legacy native expected failure. Native/Python version identifiers both advance
+to 0.4.20; the native change itself is only the version identifier.
+
+All **274** candidates regenerate in fixed-tool batches from unchanged verified
+full-CLI exports. The generation record now also hashes modern_backend.py,
+as well as the unchanged Rust source and backend binary. Raw and composite
+audits each add **70 matching units across 46 modules**, with **zero previous
+matches lost**. Raw recovery reaches **13,422 / 14,291** and **67** complete
+modules; composite recovery reaches **13,428 / 14,291** and **68**.
+No additional retained body override or isolated-source insertion is used.
+
+Four complete readable modules are published with preserved APIs, docs,
+registration/import contracts, SQL values, error handlers and mutation behavior:
+astronomy_cache_manager.py (24 units), max_peak_tracker.py (12), the statistics
+dev_mode.py (14), and production_operational_reforecast.py (23). This adds
+**73 readable whole-module units**. Each of 54 empty artifacts and six
+unneeded folded-expression layers is removed only after whole-tree proof.
+Descriptive internal names and black==25.1.0 formatting retain the complete
+matches. Required shared-return expressions remain where removing them would
+change the verified code shape.
+
+Twelve new application methods check the four modules with owned stand-ins:
+five cache/peak methods cover 49 paired database/read/threshold/error/cancel
+scenarios, plus two original/recovered singleton contexts. They preserve
+underlying cache references, loaded flags, partial writes and the original
+swallowed daily-load failure behavior. Three DEV-state methods cover 207
+paired expiry, identity-vs-truth, published/privacy, callback validation/status,
+cancellation and owned HTTP-response scenarios. No real token or service is
+used; exception logging is checked to exclude the owned token text.
+Four operational methods cover 31 paired future-row, deduplication, shallow
+copy, sun-gate, scaling, generation/publish, row-count, listener and lock
+scenarios. No inverter, forecast service or live database runs. Logged
+exception objects are compared by type/message rather than distinct object
+identity; concrete success values accompany paired outcomes. These stand-in
+checks do not establish full HA middleware/service behavior.
+
+The full selected application suite passes **126 methods**. A final composite
+audit after readable refactoring retains **13,428** matches. Public source
+hashes and whole/isolated code-unit scope are checked independently before
+commit. Readable whole coverage reaches **68 modules / 1,516 units**; isolated
+coverage stays **15 files / 22 distinct units**, plus seven generators.
+Remaining **789 instruction** and **74 exception-table** failures leave **863**
+unverified units. The full 274-module source/readability objective remains
+active and unachieved. Sources remain on the development recovery branch.

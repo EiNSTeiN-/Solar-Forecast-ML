@@ -1,8 +1,8 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "ab70795494120b8ff12826ea46e831e0a7c25cc0",
-    "version": "0.4.19-einstein.1"
+    "commit": "f36fe479cbf68cb27b064c8c2e4f54c3ca9ab85f",
+    "version": "0.4.20-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
@@ -12,12 +12,12 @@
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 137,
-    "unpacker_passes": 136,
+    "unpacker_test_cases": 143,
+    "unpacker_passes": 142,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 34,
     "backend_behavior_tests_passed": 35,
-    "selected_module_behavior_tests_passed": 114,
+    "selected_module_behavior_tests_passed": 126,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -111,10 +111,18 @@
       "padded_return_end_to_end_input_cases": 72,
       "isolated_padded_timezone_pairs": 50,
       "isolated_json_conversion_pairs": 35,
-      "core_datetime_behavior_pairs": 159
+      "core_datetime_behavior_pairs": 159,
+      "shared_try_sync_behavior_pairs": 30,
+      "shared_try_async_behavior_pairs": 20,
+      "shared_try_nested_behavior_pairs": 4,
+      "shared_try_end_to_end_pairs": 40,
+      "cache_and_peak_behavior_pairs": 49,
+      "cache_singleton_verification_contexts": 2,
+      "stats_dev_state_behavior_pairs": 207,
+      "operational_reforecast_behavior_pairs": 31
     },
-    "complete_readable_module_matches": 64,
-    "complete_readable_module_code_units": 1443,
+    "complete_readable_module_matches": 68,
+    "complete_readable_module_code_units": 1516,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 19,
@@ -125,9 +133,9 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38281803233",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38281803273",
-      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38281803064",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38285336313",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38285336314",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38285336301",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742682",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742615"
     },
@@ -179,11 +187,12 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627170"
     },
     "source_generation": {
-      "stage": "padded-return-01",
+      "stage": "shared-tries-01",
       "method": "recover API over unchanged verified full-CLI exports in six batches",
       "private_worker_processes": 4,
       "exports_unchanged": true,
-      "summary_sha256": "2e7a42440b1838b239c9a44ffcacbbe6400e1d3a7c418ea7a2da883749373aa1"
+      "summary_sha256": "94767f3cecf30614740e18f78e5dbf797d1d6adc053a34994614a0ade0f8a4aa",
+      "modern_backend_source_sha256": "9fe0f1d8bfb4239eee7cef7e4d6cc0685a2d353b8dc64bd26b00198cd68e1f70"
     },
     "previous_ci_before_branch_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38258152444",
@@ -206,11 +215,15 @@
     },
     "latest_readability_cleanup": {
       "modules": [
-        "core/core_helpers.py"
+        "astronomy/astronomy_cache_manager.py",
+        "astronomy/max_peak_tracker.py",
+        "extra_features/sfml_stats/core/dev_mode.py",
+        "production/production_operational_reforecast.py"
       ],
-      "new_readable_whole_module_units": 28,
+      "new_readable_whole_module_units": 73,
+      "unneeded_artifacts_removed": 54,
+      "unneeded_fold_layers_removed": 6,
       "formatter": "black==25.1.0",
-      "unneeded_artifacts_removed": 19,
       "whole_module_proof_after_formatting": true,
       "original_documentation_and_validation_contracts_preserved": true,
       "corpus_match_count_change_from_cleanup": 0
@@ -230,11 +243,11 @@
       "meaningful_call_cleanup_backward_jump_and_real_return_coverage_preserved": true
     },
     "comparison_variance": {
-      "rule": "Unchanged fail-closed rules from the preceding shared-raise checkpoint",
+      "rule": "Unchanged fail-closed rules from the preceding padded-return checkpoint",
       "unchanged_source_composite_gains": 0,
       "unchanged_source_raw_gains": 0,
-      "new_source_composite_gains": 15,
-      "new_source_raw_gains": 15,
+      "new_source_composite_gains": 70,
+      "new_source_raw_gains": 70,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
     "inline_filter_readability": {
@@ -286,6 +299,21 @@
       "containing_modules_complete": false,
       "new_overrides": 0,
       "duplicate_corpus_counts": 0
+    },
+    "previous_ci_before_shared_tries": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38281803233",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38281803273",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38281803064",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742682",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742615"
+    },
+    "previous_comparison_variance_before_shared_tries": {
+      "rule": "Unchanged fail-closed rules from the preceding shared-raise checkpoint",
+      "unchanged_source_composite_gains": 0,
+      "unchanged_source_raw_gains": 0,
+      "new_source_composite_gains": 15,
+      "new_source_raw_gains": 15,
+      "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     }
   }
 }

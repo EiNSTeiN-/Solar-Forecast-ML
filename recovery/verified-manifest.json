@@ -20,6 +20,24 @@
       "behavior_tests": 1
     },
     {
+      "path": "astronomy/astronomy_cache_manager.py",
+      "original_payload_sha256": "a67e691e81ae51c5cd21050bfa6869e5be9062f683e5afa06c6756ee8491767a",
+      "reconstructed_source_sha256": "6136edd86aa8e92a3fe0a4b2b2d9546b8ec5b017e838431d37483a699e0ada75",
+      "matched_units": 24,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 3
+    },
+    {
+      "path": "astronomy/max_peak_tracker.py",
+      "original_payload_sha256": "dcec91e6e5fc0f151d11956a45cb62a614e50f22879ff2721f0f60c8aa48be45",
+      "reconstructed_source_sha256": "a98392abc004c222e8c968112ff99c7c064f66dfeb15e87f9a38cb55f30e822e",
+      "matched_units": 12,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 2
+    },
+    {
       "path": "core/core_coordinator_helpers.py",
       "original_payload_sha256": "426d6381107cdc95aa6e5f2f084672b97a999dc81f49028df1d8211b9c4c09fc",
       "reconstructed_source_sha256": "89782561ad0ea816a3172ee3f20f4500f0c74f4c4c41bdd8c59c6bae3de9ca84",
@@ -317,6 +335,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/core/dev_mode.py",
+      "original_payload_sha256": "72a4e357ffcb15ec1e8a4ed61df05247467d96806aec39c0cb91f40443b7a514",
+      "reconstructed_source_sha256": "dcabb7311799eb433d83aa7305066b2abc2d1ea8e962e21070038595b67de07c",
+      "matched_units": 14,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 3
+    },
+    {
       "path": "extra_features/sfml_stats/core/eai_wp_sources.py",
       "original_payload_sha256": "7f2d9debbb9c01b358d2f07bff68be3c9d456e10679a063795d69c1aed2a33cb",
       "reconstructed_source_sha256": "4b0542ba67a110f418ec454e747a208a6770f20857dae43d35cf48c730c34d36",
@@ -522,6 +549,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "production/production_operational_reforecast.py",
+      "original_payload_sha256": "524eeedb7def9bbd2dba27d57b68c7290ed5361aebe1d543b1be479483e9aa05",
+      "reconstructed_source_sha256": "d311af41286cde11ceaab6a6ec5badd8bccca24aa2d97c0b5bfbb4b79ae68251",
+      "matched_units": 23,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 4
     },
     {
       "path": "production/production_rest_of_day_uplift.py",
