@@ -1,13 +1,13 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "7a5673ccad4b527172a35af2b3ff8935f0993fd7",
+    "commit": "582d40d813ab18b32cf6c875b652c48286d1de72",
     "version": "0.4.27-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
-    "commit": "a1218b226b5d151e371e54272df74deadc4e886d",
-    "version": "0.6.19-einstein.1"
+    "commit": "97c14d709d8379944c4469df8038e12313e2deba",
+    "version": "0.6.20-einstein.1"
   },
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
@@ -16,7 +16,7 @@
     "unpacker_passes": 182,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
-    "backend_behavior_tests_passed": 50,
+    "backend_behavior_tests_passed": 51,
     "selected_module_behavior_tests_passed": 174,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
@@ -142,7 +142,8 @@
       "eai_consumption_store_behavior_scenarios": 5,
       "substantive_value_application_test_methods": 3,
       "substantive_value_new_readable_modules": 3,
-      "substantive_value_owned_cases": "inplace identity, tuple boundaries, returned container ownership, dotted imports and generator short-circuit guards; native ordered keyword merge errors, chained ternary values, async exits and cancellation"
+      "substantive_value_owned_cases": "inplace identity, tuple boundaries, returned container ownership, dotted imports and generator short-circuit guards; native ordered keyword merge errors, chained ternary values, async exits and cancellation",
+      "computed_context_return_paired_cases": 126
     },
     "complete_readable_module_matches": 95,
     "complete_readable_module_code_units": 2503,
@@ -156,11 +157,8 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38314470486",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38314470361",
-      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38314470329",
-      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38314468523",
-      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38314468448"
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38315947423",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38315949494"
     },
     "retained_definition_count": 2,
     "independently_verified_source_files": 16,
@@ -210,13 +208,20 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627170"
     },
     "source_generation": {
-      "stage": "substantive-values-01",
-      "method": "recover API over unchanged verified full-CLI exports in a single bounded worker pool",
+      "stage": "open-context-return-01",
+      "method": "all native outputs compared; identical inputs to frozen source API reused; changed outputs regenerated",
       "private_worker_processes_per_batch": 4,
       "maximum_simultaneous_private_workers": 4,
       "exports_unchanged": true,
-      "summary_sha256": "c9515add3a10d9bf7349244e82dda1d4b3b893e9d80cb5e05da81e465870b0f7",
-      "modern_backend_source_sha256": "38b9b63a2d8052da8a4be1848a72a37f2455cc7d7c9322350230aac7a1b0764f"
+      "modern_backend_source_sha256": "38b9b63a2d8052da8a4be1848a72a37f2455cc7d7c9322350230aac7a1b0764f",
+      "summary_sha256": "b0322a981da8e99457fe3904283fedf62fe4dbc27f87b14921176917afa7ff18",
+      "reuse_evidence_sha256": "abdb4bfa0d6f38a403bb68e34ef7e46f7f1232ff1fd90be8ff29686fc70877e9",
+      "native_outputs_compared": 274,
+      "identical_source_reused": 269,
+      "source_regenerated": 5,
+      "every_source_independently_compared_to_original_bytecode": true,
+      "frozen_source_algorithm_commit": "7a5673ccad4b527172a35af2b3ff8935f0993fd7",
+      "current_unpacker_change_only_updates_ci_and_docs": true
     },
     "previous_ci_before_branch_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38258152444",
@@ -269,8 +274,8 @@
       "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
       "unchanged_source_composite_gains": 0,
       "unchanged_source_raw_gains": 0,
-      "new_source_composite_gains": 14,
-      "new_source_raw_gains": 14,
+      "new_source_composite_gains": 3,
+      "new_source_raw_gains": 3,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
     "inline_filter_readability": {
@@ -408,19 +413,19 @@
       "source_only_trial_gains": 87,
       "source_only_trial_losses": 0,
       "rejected_intermediate_stage_lost_matches": 5,
-      "final_full_tool_gains": 14,
+      "final_full_tool_gains": 3,
       "final_full_tool_lost_matches": 0,
-      "remaining_failures": 470,
+      "remaining_failures": 467,
       "ongoing_residual_investigation": true,
       "previous_checkpoint": {
-        "final_full_tool_gains": 92,
+        "final_full_tool_gains": 14,
         "final_full_tool_lost_matches": 0,
-        "remaining_failures": 484
+        "remaining_failures": 470
       },
       "residual_shards": [
         {
           "shard": 1,
-          "units": 97,
+          "units": 96,
           "modules": 31
         },
         {
@@ -430,7 +435,7 @@
         },
         {
           "shard": 3,
-          "units": 80,
+          "units": 78,
           "modules": 31
         },
         {
@@ -461,8 +466,8 @@
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
     "feature_branch_ci_before_publication": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38312725999",
-      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38311219575"
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38315947423",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38315149829"
     },
     "previous_ci_before_residual_scopes": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38303974040",
@@ -492,6 +497,21 @@
       "unchanged_source_raw_gains": 0,
       "new_source_composite_gains": 92,
       "new_source_raw_gains": 92,
+      "instruction_branches_calls_and_exception_dispatch_remain_significant": true
+    },
+    "previous_ci_before_open_context_return": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38314470486",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38314470361",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38314470329",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38314468523",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38314468448"
+    },
+    "previous_comparison_variance_before_open_context_return": {
+      "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
+      "unchanged_source_composite_gains": 0,
+      "unchanged_source_raw_gains": 0,
+      "new_source_composite_gains": 14,
+      "new_source_raw_gains": 14,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     }
   }

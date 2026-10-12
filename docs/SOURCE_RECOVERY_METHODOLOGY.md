@@ -1875,3 +1875,39 @@ private whole-owner oracles identify further retry, transaction, handler,
 context and loop defects. Those oracles are excluded from this checkpoint's
 gains until authored and independently validated in the main thread. All
 tracked changes, tests, builds and commits remain root-authored.
+
+
+## Computed context returns and complete reuse audit (0.4.27 / 0.6.20)
+
+The `open-context-return-01` checkpoint uses native backend
+`97c14d709d8379944c4469df8038e12313e2deba`. The source API's code remains at
+0.4.27; unpacker commit `582d40d813ab18b32cf6c875b652c48286d1de72` updates
+its CI dependency and documentation only. Every native output is compared.
+Five changed modules are regenerated; 269 modules reuse source only after
+exact raw output and diagnostic equality and an unchanged frozen API hash.
+The normalized input hashes and reused source hashes are checked separately.
+All 274 modules still receive the complete original-bytecode audit, so source
+reuse omits no fidelity or retention checks. Generation takes 233.8 seconds
+with four workers, versus the preceding full generation's 934.7 seconds.
+
+Out-of-line loop handlers can extend an open context's region beyond the
+normal computed-return tail. The decoder then simulated protocol slots as a
+call to None, losing the returned list, scalar or mapping. The existing pure
+exit-tail matcher now closes a topmost open With while carrying its existing
+value. Conditional arms and already closed With statements retain their
+separate handling; genuine user calls remain governed by the protocol bound.
+Owned synchronous/asynchronous fixtures make 126 paired comparisons across
+normal returns, rejected rows, body failures, entry and exit errors,
+suppression and cancellation, with exact instructions and exception tables.
+
+Raw generation now proves **13,818 units / 119 complete candidate modules**;
+the composite proves **13,824/14,291 units / 120 complete candidate modules**.
+Both gain **three units and lose zero**, preserving every previous complete
+module. **467 units remain: 402 instruction and 65 exception mismatches**.
+All 274 source candidates compile; 216 are structurally complete, which is
+separate from fidelity. Inputs, normalization/comparison rules, the two
+definition overrides, and the readable subset of **95 modules / 2,503 units**
+remain unchanged. Verification passes 35 Rust tests, 51 backend behavior
+methods, and 183 unpacker cases (182 passes and one existing expected failure).
+The 174 selected application methods remain supported by their unchanged
+source and independently rechecked original-bytecode references.

@@ -245,3 +245,21 @@ tracked authoring, builds and commits remain in the main thread.
 The refreshed residual inventories contain 97, 104, 80, 89, and 100 units across
 31, 34, 31, 28, and 30 modules, respectively. Their union is exactly 470 units,
 with the original assignments retained and no overlapping module ownership.
+
+
+## Open-context return checkpoint
+
+`open-context-return-01` audits all 274 modules with unchanged source API 0.4.27
+and native backend 0.6.20. Exact native output and diagnostic equality permits
+269 source reuses; five changed modules are regenerated. Every resulting
+source still passes through the full bytecode audit. Raw and composite views
+each gain three units with zero losses, reaching **13,824/14,291 composite
+matches**, with **467 remaining** (402 instructions, 65 exceptions). Complete
+candidate counts stay at 120; the readable subset stays at 95 modules/2,503
+units. The new native fix has 126 paired cleanup/failure cases, 51 passing backend
+methods, 35 Rust tests and 183 unpacker cases with one existing expected failure.
+Further investigator oracles remain queued and are not counted as these gains.
+
+The refreshed original inventories now contain 96, 104, 78, 89, and 100
+residual units across 31, 34, 31, 28, and 30 modules. Their union is 467 units
+with no overlap; three investigators rotate through the five groups.

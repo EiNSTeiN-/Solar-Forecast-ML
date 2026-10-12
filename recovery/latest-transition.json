@@ -1,15 +1,15 @@
 {
-  "previous_stage": "residual-scopes-01",
-  "current_stage": "substantive-values-01",
-  "new_matching_units": 14,
+  "previous_stage": "substantive-values-01",
+  "current_stage": "open-context-return-01",
+  "new_matching_units": 3,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 14,
+  "raw_new_matching_units": 3,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 14,
+  "source_repair_gains": 3,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
-  "verified_shared_return_shapes": 643,
+  "verified_shared_return_shapes": 646,
   "verified_shared_branch_return_shapes": 69,
   "verified_try_return_scopes": 250,
   "verified_capture_name_order": 60,
@@ -18,66 +18,22 @@
   "verified_shared_try_fragments": 136,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13815,
+  "raw_decompiler_matched_units": 13818,
   "raw_all_units_match_modules": 119,
-  "manually_reconstructed_candidate_matched_units": 13821,
+  "manually_reconstructed_candidate_matched_units": 13824,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
-      "module_path": "ai/ai_tiny_lstm.py",
-      "unit_path": "<module>/TinyLSTM#1/_multi_head_attention_backward#1"
-    },
-    {
       "module_path": "data/db_manager.py",
-      "unit_path": "<module>/DatabaseManager#1/_migrate_weather_ghi_local_prior_v20260824#1"
-    },
-    {
-      "module_path": "data/db_manager.py",
-      "unit_path": "<module>/DatabaseManager#1/_run_migrations_for_build#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/api/premium_dashboard.py",
-      "unit_path": "<module>/_forecast_timeline#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/api/solar_views.py",
-      "unit_path": "<module>/_get_summary_outdoor_temperature#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/api/tomorrow.py",
-      "unit_path": "<module>/_local_astronomy_profile#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/core/ems.py",
-      "unit_path": "<module>/EMSManager#1/async_shutdown#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/core/energy_balance.py",
-      "unit_path": "<module>/build_daily_supply_balance#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/ai/ai_tiny_lstm.py",
-      "unit_path": "<module>/TinyLSTM#1/_multi_head_attention_backward#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_scheduled_tasks.py",
-      "unit_path": "<module>/ScheduledTasksManager#1/_record_daily_consumption_ratio#1"
+      "unit_path": "<module>/DatabaseManager#1/build_actual_live_state_from_hourly#1"
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/db_manager.py",
-      "unit_path": "<module>/DatabaseManager#1/get_group_calibration#1"
+      "unit_path": "<module>/DatabaseManager#1/get_seasonal_factors#1"
     },
     {
-      "module_path": "extra_features/solar_forecast_eai/forecast/forecast_orchestrator.py",
-      "unit_path": "<module>/ForecastOrchestrator#1/_get_hourly_consumption_base#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/insights.py",
-      "unit_path": "<module>/EAIInsightsEngine#1/_heat_loss_estimate#1/<genexpr>#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_engine.py",
-      "unit_path": "<module>/learn_consumption_hour#1"
+      "module_path": "extra_features/solar_forecast_eai/data/db_manager.py",
+      "unit_path": "<module>/DatabaseManager#1/get_weather_expert_weights#1"
     }
   ],
   "rejected_intermediate_stage": {
@@ -89,17 +45,8 @@
   "verified_chained_comprehension_filters": 7,
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
-  "new_complete_candidate_modules": [
-    "extra_features/sfml_stats/core/energy_balance.py",
-    "extra_features/solar_forecast_eai/ai/ai_tiny_lstm.py",
-    "extra_features/solar_forecast_eai/forecast/forecast_orchestrator.py",
-    "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_engine.py"
-  ],
-  "new_readable_modules": [
-    "extra_features/solar_forecast_eai/ai/ai_best_hour.py",
-    "extra_features/solar_forecast_eai/forecast/forecast_weather_calculator.py",
-    "forecast/forecast_weather_calculator.py"
-  ],
+  "new_complete_candidate_modules": [],
+  "new_readable_modules": [],
   "verified_coupled_statement_shapes": 82,
   "verified_individual_return_edges": 29,
   "verified_context_boundaries": 40,
