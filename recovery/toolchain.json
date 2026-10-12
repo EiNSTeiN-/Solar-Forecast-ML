@@ -17,7 +17,7 @@
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 52,
-    "selected_module_behavior_tests_passed": 174,
+    "selected_module_behavior_tests_passed": 178,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -147,10 +147,11 @@
       "empty_comprehension_default_paired_cases": 45,
       "shared_guard_owned_methods": 9,
       "shared_guard_paired_cases": 70,
-      "fresh_postpass_full_generation_crosschecks": 5
+      "fresh_postpass_full_generation_crosschecks": 5,
+      "dni_tracker_behavior_methods": 4
     },
-    "complete_readable_module_matches": 95,
-    "complete_readable_module_code_units": 2503,
+    "complete_readable_module_matches": 96,
+    "complete_readable_module_code_units": 2517,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,

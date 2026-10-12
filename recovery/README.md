@@ -37,8 +37,8 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-95 readable whole modules (2,503 nested units) and passes 174 selected
-application test methods. The full corpus has 120 completely matched candidate
+96 readable whole modules (2,517 nested units) and passes 178 selected
+application test methods. The full corpus has 123 completely matched candidate
 modules and 13,839/14,291 matching units; 452 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
@@ -241,3 +241,11 @@ regression was repaired before recovered-source publication. Eight new readable
 modules add forecast quality, grid-charge gates, SMC context handling, forecast
 history, error handling, corrected statistics, and both offline license
 validators. Their validation/signature/error decisions remain intact.
+
+
+The EAI DNI tracker is now readable source with the original rolling seven-day
+state, database queries, self-healing bounds and error ownership intact. Four
+paired methods cover dates, rollover, snapshot keys, failed saves and
+cancellation. All 14 module units match before either class is executed with
+owned clock/database stand-ins. Its addition increases the readable subset;
+the already matched corpus count is unchanged.

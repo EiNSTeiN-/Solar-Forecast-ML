@@ -1978,3 +1978,23 @@ vendor-module imports. Nine owned methods cover 70 paired guard/date/query
 behaviors; all 192 unpacker cases pass with one existing expected failure.
 The stable backend retains 35 Rust and 52 behavior methods; the 174 selected
 application methods and their unchanged sources remain independently proved.
+
+
+## Readable DNI tracker without a second coverage count
+
+The EAI DNI tracker already matches in `shared-guards-01`. Its source now names
+local rows, hours, history values, bounds, dates and snapshots, removes empty
+string/pass artifacts, and retains the original docstrings and attribution.
+Black 25.1.0 formats the source. The entire 14-unit module still matches both
+instructions and exception dispatch. Constant-folded final None expressions
+remain because they retain an original compiler edge; deleting them would
+change fidelity. Existing end-of-day zero-placeholder behavior is preserved.
+
+Four paired test methods instantiate only the proved class with owned clocks
+and database dependencies. They cover invalid/old dates, history maxima,
+self-healing, load idempotence, recording bounds, seven-day rollover, statistics
+copy isolation, snapshot keys, save/load failure and cancellation. The full
+selected application suite passes **178 methods**. Published readable totals
+become **96 modules / 2,517 units**; corpus matches remain **13,839/14,291**,
+with **452 unresolved units**. No integration or native PyArmor runtime is
+imported, no comparison rule changes, and no Home Assistant operation occurs.
