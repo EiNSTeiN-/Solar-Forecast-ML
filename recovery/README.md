@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-55 readable whole modules and passes 54 selected application test methods.
+55 readable whole modules and passes 59 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -45,6 +45,15 @@ The latest checks also cover policy noise bands and champion age, weather-energy
 date/dev gates and callback/query paths, visibility provider priority and both
 fog/clear contradiction directions. Controlled relative imports use explicit
 owned dependency stand-ins.
+Seven additional generator code units have readable compilation contexts in
+`verified_generators.py` and `verified_annotated_generators.py`. Their wrappers
+are not replacement integration APIs or verified containing methods.
+`verified-generators.json` identifies the exact original/candidate unit paths
+and source hashes. Five test methods make 37 paired comparisons of filters,
+getter/truth order, coverage gates, captured finite checks, laziness, errors,
+and the original generator StopIteration conversion. The original future flag
+is retained explicitly in the contexts that require it. These units already
+match in raw generation and receive no overrides or second coverage count.
 Known defaults for
 pure functions are supplied explicitly. They do not import Home Assistant, an
 integration module, or the native PyArmor runtime. Existing merge mutation

@@ -260,7 +260,7 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **13,199 matched units out of 14,291** and
+- The latest full audit reports **13,213 matched units out of 14,291** and
   **55 complete module matches**. Fifty-five readable sources (1,161 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
   evidence in `recovery/verified-manifest.json`. All 55 published sources have undergone the
@@ -802,8 +802,72 @@ owned stand-ins; no integration module or PyArmor runtime is loaded.
 
 Published readable source totals **55 whole modules / 1,161 code units**. Full
 fidelity still has **1,015 instruction** and **77 exception-table** failures.
-An owned filtered-generator fixture still demonstrates a separate value-merge
-error: `sum(row[1] or 0 for row in rows if row[1])` produces 5 on its test input,
-while the current candidate incorrectly produces 0. This is the next backend
-repair target and remains unverified. The complete 274-module objective remains
-active and unfinished. No recovered source has been deployed.
+That checkpoint left a filtered-generator value-merge error unresolved:
+`sum(row[1] or 0 for row in rows if row[1])` produced 5 on its test input,
+while the candidate incorrectly produced 0. The following checkpoint repairs
+that bug. The complete 274-module objective remains active and unfinished.
+No recovered source has been deployed.
+
+## Filtered generator values and attribute callable checkpoint
+
+Backend **0.6.9-einstein.1**, commit
+`e64d28965ae62b7421670f672fdb6d6c0f4ddb2c`, fixes two cooperating parser defects.
+Python 3.14 places `NOT_TAKEN` between a value-preserving conditional jump and
+the copied operand's discard. Checking only the immediately preceding opcode
+mistakes that discard for an expression statement, preventing the `and`/`or`
+merge. The bounded arm check now looks through padding. Separately, iteration
+rejection is parsed as an inverted `if: continue` guard with the yield after it.
+The generator rebuilder now records that guard as a filter and keeps the main
+parser's yielded expression, rather than falling back to the legacy simulator.
+
+Owned fixtures require identical generator instruction and exception bytes.
+They cover false/None/true values, AND/OR chains, an identity-to-None filter,
+descriptor getters and truth-test order. All **24** Python 3.14 backend behavior
+methods and **34** Rust tests pass. A full CLI regeneration and audit gains
+**12** units with **zero** earlier matches lost, reaching **13,211** composite
+matches. The changes fix real value loss; no verifier allowance is added.
+
+Unpacker **0.4.17-einstein.1**, commit
+`cf7a9bae8555978552095aadfbaeb9a56cfaaf7f`, adds a separately proven source shape
+for attribute callable values. The recovered code can contain `LOAD_ATTR` with
+its method-call bit clear, followed by `PUSH_NULL`, while a direct source call
+recompiles with the method optimization. `(target.method if True else None)(...)`
+retains the original value load with no runtime condition. The pass reuses
+existing attributes and arguments, checks complete unit fidelity, reverts
+unproven attempts and requires every old match to survive. It skips ambiguous
+scope mappings. Mixed call shapes and changed arguments/attributes are rejected;
+the verifier keeps the optimization bit significant.
+
+Four owned tests cover property lookup and argument/call ordering, bound method
+capture and lazy iteration, coroutine handlers and cancellation, idempotency,
+and negative cases. The unpacker has **119 passes in 120 cases**, with the same
+documented legacy native expected failure. Backend and unpacker source/build
+CI checks pass, with exact revisions and links in `recovery/toolchain.json`.
+
+The final normal CLI checkpoint proves two attribute callable units and reaches
+**13,213 / 14,291** composite matches and **55** complete module trees. Raw source
+has **13,207** matches and **54** complete trees. The transition gains **14**
+units in total and loses **zero** old matches. All **274** exports validate and
+all **274** generated sources compile. The existing body overrides and the
+shadow-group source account for the six composite-only matches, as before.
+`recovery/latest-transition.json` identifies every new unit path.
+
+Seven new units have separately published readable generator contexts: four
+daily-total terms from production/consumption, actual-energy terms, coverage
+milestone terms, and a captured numeric finite check. Only the nested generators
+are verified; their wrapper definitions and containing application methods are
+not claimed complete. `recovery/verified-generators.json` records exact scope,
+candidate paths and hashes. They need no candidate override and are not counted
+twice. Generator code also inherits `from __future__ import annotations` even
+when it has no annotations itself; two contexts retain that flag explicitly
+instead of weakening signature comparison.
+
+Five selected application tests add **37** paired scenarios and bring the full
+selected suite to **59 passing methods**. They check errors and getter/truth
+order, separate coverage predicates, lazy captured calls, finite/NaN/infinite
+inputs, and conversion of a getter's StopIteration into RuntimeError with its
+cause intact. No integration module or vendor native runtime is loaded.
+The previous **55 readable whole modules / 1,161 units** remain verified.
+Full source fidelity still has **1,001 instruction** and **77 exception-table**
+failures. The full 274-module goal remains active and unfinished; no recovered
+source has been deployed to Home Assistant.
