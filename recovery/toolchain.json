@@ -161,7 +161,9 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38318825602",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38319361741",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38319361710",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38319361716",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38318104448",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38318104453"
     },
