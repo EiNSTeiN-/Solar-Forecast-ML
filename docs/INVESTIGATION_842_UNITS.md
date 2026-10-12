@@ -241,3 +241,7 @@ for retries, transaction ownership, missing alerts, computed context returns,
 weather validation and loop suffixes remain separate from these coverage
 figures. The same original inventories run with three concurrent investigators;
 tracked authoring, builds and commits remain in the main thread.
+
+The refreshed residual inventories contain 97, 104, 80, 89, and 100 units across
+31, 34, 31, 28, and 30 modules, respectively. Their union is exactly 470 units,
+with the original assignments retained and no overlapping module ownership.
