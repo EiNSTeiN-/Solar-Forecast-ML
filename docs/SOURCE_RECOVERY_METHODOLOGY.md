@@ -1743,3 +1743,71 @@ quality contracts. Main and Energy AI numerical/frost modules are checked
 against their respective references using owned dependencies and fixed clocks.
 This selected behavior coverage does not establish full integration equivalence.
 The complete goal remains open.
+
+## Residual statement scopes and preserved evaluations (0.4.26 / 0.6.17)
+
+The `residual-scopes-01` checkpoint freezes unpacker
+`1eee295fde99642fa747b6dfa1d21e62e2509717` and backend
+`7f9cfd7902668601b8ca4ad0d413cd29e16bb11d`. All 274 candidates compile and all
+original bytecode exports are unchanged. Raw generation proves **13,801/14,291
+units and 115 complete modules**; the composite proves **13,807 units and 116
+complete modules**. Each view gains **92 units and loses zero** against
+`statement-scopes-01`, using unchanged comparison rules. **484 units remain**:
+419 instruction mismatches and 65 exception-table mismatches. Every previously
+matched unit and previously complete module is retained. No vendor module is
+imported. Generation uses disjoint batches of four worker processes, with at
+most two batches active; investigators occupy three harness slots separately.
+
+Several repairs require joint structural trials. Adjacent fragments with
+identical handlers can represent one original try, but genuine independent
+tries must remain independent. Handler-prefix trials reuse an existing terminal
+return only when full proof establishes its original location. Loop handler
+continuations are tried only in loop-owned handlers, with bounded combinations.
+Shared implicit exits, protected returns, and predicate shape changes are tested
+together because either change alone may reproduce instructions while missing
+exception coverage. Failed candidates are rolled back, including syntactically
+illegal continues. The trials reuse existing expressions, work, and exception
+types; they do not invent business calculations. Existing full owner/child and
+module-retention checks decide acceptance.
+
+Compiling the candidate AST directly avoids unparsing and reparsing a large
+module for every trial. This optimization changes no comparison rules. The
+initial source round trip, final emitted source audit, and separate whole-corpus
+raw/composite checks remain necessary: a successful intermediate AST compilation
+does not prove the published source text.
+
+Four native discoveries have owned reproductions:
+
+- `FOR_ITER` is synchronous even when its collection is an awaited expression.
+  Genuine async iteration uses its separate `GET_AITER`/`GET_ANEXT` protocol.
+- Long COPY-derived assignments can terminate in `STORE_FAST_STORE_FAST`.
+  Missing that store caused false walrus reconstruction, repeated factory calls,
+  and different object identities. Three-to-six-target tests preserve one call,
+  identity, None values, and raised errors.
+- Nested conditional expressions can occupy a comprehension's then arm as well
+  as its else arm. Pure-value scanning must retain the complete conditional
+  value rather than discard the comprehension body.
+- Padding before a protected return requires both meaningful-tail recognition
+  and consuming the carried return value inside its original try. Tests include
+  NaN/infinity conversion, parsing failures, and errors in later unprotected
+  calls. They reject widening the handler to unrelated work.
+
+Two more complete readable modules retain original documentation, APIs and
+validation rules: Energy AI's ridge model and central consumption-learning
+store. Cleanup removes **28 empty artifacts** with full proof after each edit
+and after formatting. The published readable total is **92 modules / 2,453
+nested units**, distinct from the 116 complete candidate modules. The Energy AI
+ridge model deliberately retains its own older training contract: it fits all
+samples before the final await, and cancellation can therefore leave trained
+state. Copying the main model's holdout implementation or strict restore API
+would fail equivalence. Consumption-store tests cover source-boundary changes,
+bounded transient retries, permanent failures, cancellation, and atomic interval
+writes without executing integration imports or connecting to Home Assistant.
+
+Validation passes **176 unpacker cases (175 passes, one existing expected
+failure), 35 Rust tests, 47 Python 3.14 backend behavior tests, and 171 selected
+application test methods**. The two new application methods cover eight paired
+scenarios across the model and store. All published whole modules and isolated
+units receive separate source-hash and static-proof checks. These checks remain
+selected behavioral evidence; full integration equivalence and the complete
+source-recovery goal remain open.

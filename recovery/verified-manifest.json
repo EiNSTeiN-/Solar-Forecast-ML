@@ -551,6 +551,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/solar_forecast_eai/ai/ai_tiny_ridge.py",
+      "original_payload_sha256": "28b29ffb6194a19706e122f266591b85d7459ae7bfd85d06c05ea50c0c961c08",
+      "reconstructed_source_sha256": "f397921243c60c25de0386e13bf14a3d2b692e6f656d9c970df87ddf98fb090c",
+      "matched_units": 37,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "extra_features/solar_forecast_eai/ai/ai_weather_mlp.py",
       "original_payload_sha256": "1cc7e661c0ddd6bdae79d745b21e27c3a1419ed77b9759a3091424f94a414741",
       "reconstructed_source_sha256": "b5411265fa2ae2b52bf6e942fb253cb8921babcbf7d32ec14315f85b80a2cb60",
@@ -591,6 +600,15 @@
       "original_payload_sha256": "4b4ac872f820e4c462695ca9f329ab646a4a0384214f0f731654b32f317926fb",
       "reconstructed_source_sha256": "7b52dcc6c9eda4239e9678a0802e6156b8bc4bfc95289a796ee422ee0a014022",
       "matched_units": 20,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/eai_consumption_sample_store.py",
+      "original_payload_sha256": "51e7883a348f73447b99469737168fb81dace35b1568e1888efd62c0e10e80b2",
+      "reconstructed_source_sha256": "efd07280dc5e9def2c5095db971b6245eed12b515b45f8bfb6f657a2f3626b3d",
+      "matched_units": 29,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
@@ -813,5 +831,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 2387
+  "total_matched_units": 2453
 }

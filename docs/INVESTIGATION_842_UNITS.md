@@ -185,3 +185,36 @@ module ownership rather than distributing individual functions across agents.
 The refreshed original-shard residual counts are 116, 120, 101, 117, and 122
 respectively (576 total), across 34, 36, 32, 34, and 34 module assignments. These
 are residuals in the original ownership inventories, not a redistribution.
+
+## Residual scopes checkpoint
+
+`residual-scopes-01` freezes unpacker 0.4.26 and backend 0.6.17 and regenerates
+all 274 modules. Both raw and composite views gain **92 units with zero losses**
+against `statement-scopes-01`, retaining every previously complete candidate
+module. The composite now proves **13,807/14,291 units and 116 complete candidate
+modules**. Raw generation proves 13,801 units and 115 complete modules. The
+remaining **484 units** comprise 419 instruction and 65 exception-table
+mismatches. Inputs, comparison rules, and the two definition overrides remain
+unchanged; no vendor integration module is imported.
+
+The main thread implements bounded predicate, handler-fragment, protected
+return, handler continuation, and shared-tail trials with complete owner/child
+proof. Native changes retain synchronous iteration of an awaited collection,
+one evaluation for long chained assignments ending in a fused store, nested
+conditional comprehension bodies, and padded return values inside their
+original handlers. Owned negative cases reject changed exception scope,
+duplicated calls, independent tries merged incorrectly, and lost continuation
+semantics. Investigator-only oracle results remain separate from corpus gains.
+
+Two further readable modules preserve Energy AI's own ridge-training and
+durable consumption-store contracts. The published readable subset now has
+**92 complete modules / 2,453 nested units**, after removing 28 empty decoder
+artifacts and checking complete equivalence after formatting. Validation passes
+176 unpacker cases (175 passes and one existing expected failure), 35 Rust
+tests, 47 backend behavior tests, and 171 selected application test methods.
+Three simultaneous investigators continue with the same original whole-module
+ownership; all authored changes, builds and commits remain in the main thread.
+The refreshed residual inventories contain 100, 105, 84, 94, and 101 units
+across 31, 34, 32, 31, and 30 modules respectively. Their union is exactly 484
+units with no overlapping assignments; completed oracles are excluded from
+future coverage claims unless the current full-stage proof still fails.
