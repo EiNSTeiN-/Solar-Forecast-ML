@@ -533,6 +533,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/solar_forecast_eai/ai/ai_best_hour.py",
+      "original_payload_sha256": "7992d373a3b97d775cdb2521b4e4610a4bfbce56cbb08e30c93ccb29f70b44c6",
+      "reconstructed_source_sha256": "0715dc0486c9327ed996a0c1db64937fa0ede1611ecdf6e3e76719eff05e55f5",
+      "matched_units": 8,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "extra_features/solar_forecast_eai/ai/ai_feature_engineering.py",
       "original_payload_sha256": "174d7dfca141aa19ee4ce98738157dd9115eeea4266699926429a31bd6957775",
       "reconstructed_source_sha256": "cc44d711ebd19f4552a678ed401c5f35f64fa424acae494a9508ff9f94ba39b0",
@@ -623,6 +632,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/solar_forecast_eai/forecast/forecast_weather_calculator.py",
+      "original_payload_sha256": "2d4b8c099ce592e05e6b7bc4002d07cec589cba68794654bca7ade92c3ad3bb4",
+      "reconstructed_source_sha256": "11a88f9685184341d6394be2af0a81eaa587f60393ee593a189552921cf360ab",
+      "matched_units": 21,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 2
+    },
+    {
       "path": "extra_features/solar_forecast_eai/license/codec.py",
       "original_payload_sha256": "6ad5ef259bd6c1df05c68d6615f91ab7a54249c037ce9696599e50d5c458ff0c",
       "reconstructed_source_sha256": "bdff31d9d8adb2884e4be3bd74cbc64269702e95936b255f3b3d7c2ba14ee484",
@@ -702,6 +720,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "forecast/forecast_weather_calculator.py",
+      "original_payload_sha256": "d756e31d9965d31ab10e672116b9908039396ae28390125345b12a9624b378e0",
+      "reconstructed_source_sha256": "ee5d1925d0183de280cbf25a97d4407df5617c0640e82b0976d9ea180ca08dfd",
+      "matched_units": 21,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 2
     },
     {
       "path": "physics/panel_group_calculator.py",
@@ -831,5 +858,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 2453
+  "total_matched_units": 2503
 }

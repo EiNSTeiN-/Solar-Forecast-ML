@@ -1811,3 +1811,67 @@ scenarios across the model and store. All published whole modules and isolated
 units receive separate source-hash and static-proof checks. These checks remain
 selected behavioral evidence; full integration equivalence and the complete
 source-recovery goal remain open.
+
+
+## Existing values, bindings and nested comparisons (0.4.27 / 0.6.19)
+
+`substantive-values-01` freezes unpacker
+`7a5673ccad4b527172a35af2b3ff8935f0993fd7` and native backend
+`a1218b226b5d151e371e54272df74deadc4e886d`. It regenerates every protected
+module from the same complete exports, using four workers in one bounded
+pool. Both raw and composite comparisons gain **14 units with zero losses**
+against `residual-scopes-01`, retaining every earlier complete module. The
+composite proves **13,821/14,291 units and 120 complete candidate
+modules**; raw generation proves **13,815 units and 119 modules**.
+**470 units remain**. All 274 source candidates compile, original inputs
+and decrypted PYC exports are unchanged, no vendor module is imported, and the
+comparison rules and two existing definition overrides are unchanged.
+
+The source repair trials restore only existing expressions and their ownership:
+
+- Inplace operators retain one evaluation of an indexed or attributed target
+  and preserve mutable identity. Genuine binary assignments fail the trial.
+- Optional expanded rows retain their singleton tuple boundary; flattening a
+  `(label, value)` pair changes the collection's elements.
+- Container expressions followed by a bare return can carry the original
+  result. A genuine discarded container is retained.
+- An unaliased dotted import binds its top package. Restoring that binding
+  differs observably from importing the submodule as an alias.
+- Conditional values and incorrectly paired generator filters recover their
+  compound guards and short-circuit order only with complete subtree proof.
+  The containing function may already match while its generator child fails;
+  trial eligibility therefore considers all descendants. Nested captures and
+  already matching neighbors remain protected by the final module proof.
+
+The native backend also preserves ordered keyword expansions, including named
+keywords between `**` arguments. It keeps constructed-dictionary boundaries:
+internal DICT_UPDATE overwrites differ from call-level DICT_MERGE duplicate
+rejection. Tests retain evaluation order, reject duplicate/nonstring keys and
+nonmapping expansions, and ensure an early failure prevents later factories.
+
+Chained comparisons in comprehension value ternaries retain prefix arithmetic,
+mapping keys, and other existing element work. The retained copied middle
+operand belongs to the chain rather than the element expression. Async-context
+constant early returns are recognized by their bounded exit protocol; genuine
+calls with three None arguments remain calls. Tests cover errors, suppression,
+cancellation and exit failures. These fixes do not claim to solve negated-chain
+ternaries or the separate computed-return/open-context investigation.
+
+Three additional readable modules preserve each module's own imports and
+documentation: the main and Energy AI weather calculators, and Energy AI's
+best-hour calculator. They add **50 readable nested units**, remove **54 empty
+decoder artifacts**, and pass complete proof after local renaming and
+formatting. No shared-return fold was removed. The readable subset is now
+**95 whole modules / 2,503 units**, separate from candidate coverage. Their
+three paired test methods cover numeric limits, invalid inputs, weather
+fallbacks, local clocks, season conversion, blended factors, database results
+and cancellation. All **174 selected application test methods**, **183
+unpacker cases (182 passes and one existing expected failure)**, **35 Rust
+tests**, and **50 Python 3.14 backend behavior tests** pass.
+
+Three investigators run concurrently under the four-agent harness limit, with
+five original non-overlapping inventories rotated through those slots. Their
+private whole-owner oracles identify further retry, transaction, handler,
+context and loop defects. Those oracles are excluded from this checkpoint's
+gains until authored and independently validated in the main thread. All
+tracked changes, tests, builds and commits remain root-authored.

@@ -218,3 +218,26 @@ The refreshed residual inventories contain 100, 105, 84, 94, and 101 units
 across 31, 34, 32, 31, and 30 modules respectively. Their union is exactly 484
 units with no overlapping assignments; completed oracles are excluded from
 future coverage claims unless the current full-stage proof still fails.
+
+
+## Existing-value checkpoint
+
+`substantive-values-01` uses unpacker 0.4.27 and backend 0.6.19 over all 274
+unchanged protected modules. Raw and composite views each gain **14 units
+and lose zero** against `residual-scopes-01`. Composite fidelity is
+**13,821/14,291 units with 120 complete candidate modules**; raw fidelity
+is **13,815 units with 119 modules**. **470 units remain**.
+The readable subset is **95 whole modules / 2,503 units**, with 174 passing
+application methods. Unpacker tests pass 182 of 183 cases, with one unchanged
+expected failure; Rust tests pass 35 and backend behavior tests pass 50.
+
+The main thread implements reference-proved existing values, inplace operators,
+tuple boundaries, import bindings, generator conjunctions, ordered keyword
+merges, inline comparison values and async constant-exit cleanup. Function
+eligibility includes failed generator children of already matching owners.
+All prior owner, child and module matches are retained; comparison rules,
+inputs and definition overrides remain unchanged. Fresh investigator oracles
+for retries, transaction ownership, missing alerts, computed context returns,
+weather validation and loop suffixes remain separate from these coverage
+figures. The same original inventories run with three concurrent investigators;
+tracked authoring, builds and commits remain in the main thread.
