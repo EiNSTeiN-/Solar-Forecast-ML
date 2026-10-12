@@ -110,4 +110,3 @@ class StatsCoordinatorTests(unittest.TestCase):
                 except ValueError as error: result = type(error).__name__, str(error)
                 results.append((result, calls))
             self.assertEqual(results[1], results[0])
-
