@@ -1,8 +1,8 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "6828251470e9a495c2d909c1350fabc1b91cfb2d",
-    "version": "0.4.13-einstein.1"
+    "commit": "88c5d610297f031eaf7b49bdf6d88843ebded841",
+    "version": "0.4.15-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
@@ -12,12 +12,12 @@
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 107,
-    "unpacker_passes": 106,
+    "unpacker_test_cases": 112,
+    "unpacker_passes": 111,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 34,
     "backend_behavior_tests_passed": 20,
-    "selected_module_behavior_tests_passed": 47,
+    "selected_module_behavior_tests_passed": 50,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -53,10 +53,15 @@
       "astronomy_geometry_cases": 12,
       "astronomy_cache_hour_rows": 24,
       "astronomy_production_window_cases": 4,
-      "statistics_database_scenarios": 5
+      "statistics_database_scenarios": 5,
+      "physics_twilight_temperature_cases": 42,
+      "physics_weather_forecast_cases": 3,
+      "physics_geometry_inference_cases": 4,
+      "mlp_training_and_cancellation_scenarios": 2,
+      "repair_service_scenarios": 7
     },
-    "complete_readable_module_matches": 48,
-    "complete_readable_module_code_units": 960,
+    "complete_readable_module_matches": 51,
+    "complete_readable_module_code_units": 1074,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 9,
@@ -67,8 +72,8 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38199696932",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38199696926",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38201290978",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38201290946",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975829",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975770"
     },
@@ -87,10 +92,17 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975770"
     },
     "previous_ci_result_scopes": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38197842164",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38197842149",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38199696932",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38199696926",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975829",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975770"
+    },
+    "previous_ci_empty_try": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38200784597",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38200784588"
+    },
+    "test_dependencies": {
+      "numpy": "2.5.4"
     }
   }
 }

@@ -1,14 +1,16 @@
 {
-  "new_matching_units": 219,
+  "new_matching_units": 89,
   "previous_matches_lost": 0,
   "remaining_goal_complete": false,
-  "previous_stage": "terminal-returns-02",
-  "current_stage": "try-scopes-02",
+  "previous_stage": "try-scopes-02",
+  "current_stage": "capture-names-03",
   "verified_module_annotation_bindings": 18,
   "verified_shared_return_shapes": 630,
-  "verified_try_return_scopes": 219,
+  "verified_try_return_scopes": 249,
+  "verified_capture_name_order_units": 59,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 8,
-  "raw_decompiler_matched_units": 13089,
-  "manually_reconstructed_candidate_matched_units": 13094
+  "raw_decompiler_matched_units": 13177,
+  "raw_all_units_match_modules": 53,
+  "manually_reconstructed_candidate_matched_units": 13183
 }

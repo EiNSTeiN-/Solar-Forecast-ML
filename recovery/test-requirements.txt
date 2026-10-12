@@ -1,0 +1,2 @@
+# Reproduce the numeric behavior checkpoint; no integration module is imported.
+numpy==2.5.4

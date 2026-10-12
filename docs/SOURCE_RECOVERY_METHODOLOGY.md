@@ -260,10 +260,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **13,094 matched units out of 14,291** and
-  **51 complete module matches**. Forty-eight readable sources (960 code units) are published
+- The latest full audit reports **13,183 matched units out of 14,291** and
+  **54 complete module matches**. Fifty-one readable sources (1,074 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 48 published sources have undergone the
+  evidence in `recovery/verified-manifest.json`. All 51 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -514,7 +514,7 @@ in raw generated source. Combined with the two proven body overrides, the
 full audit gains **527 matches and loses zero**, for **12,755 / 14,291** and
 **44 whole-module matches**. One raw callback improvement overlaps the earlier
 manual reconstruction, so these are not counted twice. Raw generation alone
-has **12,750** matching units and still lacks the three manually reconstructed
+has **12,749** matching units and still lacks the three manually reconstructed
 source units. The composite audit has none missing.
 
 Five newly complete modules are now readable and published: named tariff
@@ -575,7 +575,7 @@ fresh full CLI generation confirms **630** accepted shared-return shapes and
 206 structural-completeness reports. The composite audit confirms **120 new
 matches and zero previous matches lost** versus the preceding checkpoint:
 **12,875 / 14,291**, **49 whole modules**, and no missing source units. Raw
-generation has **12,870 matches** and still relies on the two proven body
+generation has **12,869 matches** and still relies on the two proven body
 overrides for the three originally omitted source units.
 
 The astronomical sun gate and shared GPM forecast reader are also now complete,
@@ -631,7 +631,7 @@ bytecode trees validate and all **274** source candidates compile. The same
 **206** candidates report structural completeness, which is not semantic proof.
 The composite audit reaches **13,094 / 14,291** matching units and **51** complete
 module trees, with **219 new matches and zero prior matches lost** against the
-terminal-return checkpoint. Raw generation has **13,089** matches. The existing
+terminal-return checkpoint. Raw generation has **13,088** matches. The existing
 two proven body overrides still recover three otherwise omitted source units;
 they are validated before insertion and preserve their callers' headers.
 
@@ -655,3 +655,88 @@ Published readable sources now total **48 whole modules / 960 code units**.
 Three complete candidates still need readability cleanup. Full fidelity still
 has **1,123 instruction and 74 exception-table mismatches**. The full scope and
 goal remain unchanged and active; no recovered code has been deployed.
+
+## Empty protected expressions and lexical capture ordering
+
+The empty-try extension is unpacker **0.4.14-einstein.1**, commit
+`8b7321a06df4fde15a8aa599695ab3cb8af033e1`. Its **108** regression cases have
+**107** passes and the same legacy native expected failure. A hoisted return
+can leave only `pass` in its original try body. CPython may then optimize the
+handler away, so the initial mismatch is reported as instructions rather than
+only exception coverage. The same tentative return-scope repair now considers
+that category too, while retaining full-unit proof and all earlier matches.
+Owned attribute fixtures verify normal values, handled missing telemetry,
+unhandled property errors and idempotency. A fresh CLI run adds **30** matches
+and reaches **13,124** composite matches without regression.
+
+Lexical capture repair is unpacker **0.4.15-einstein.1**, commit
+`88c5d610297f031eaf7b49bdf6d88843ebded841`, with backend **0.6.7-einstein.1**
+unchanged. The unpacker has **111 passes in 112 cases**, plus the same documented
+legacy expected failure. GitHub source regressions, the native build and
+workflow-security analysis pass. Current links are in `recovery/toolchain.json`.
+
+CPython sorts free-variable names and nonparameter cell names lexically. PyArmor
+can replace their names while retaining their original tuple positions. Merely
+compiling those replacements can reorder a child's free slots and its parent's
+capture tuple. Both parts matter: a child with matching numeric loads may still
+receive the wrong values from a mismatching parent.
+
+`restore_capture_name_order` derives lexical constraints from normalized
+reference capture tuples and nonparameter cells. It changes only numbered
+private bindings, excluding all public parameters and global names. Source
+identifiers and reference metadata reserve names to prevent collisions. Fixed
+names retain their order; incompatible constraints or unsafe name intervals
+cause the trial to be skipped. A separate source tree receives deterministic
+private spellings that make the compiler reproduce the required order.
+
+The trial is accepted only when it adds fully matching units and keeps every
+old unit match. Parent capture tuples, child slot operands, signatures, literal
+values, control flow and exception tables remain significant. This is a source
+repair, not a verifier permutation allowance. Owned fixtures compare captured
+values, generators, nonlocal mutation and late bound attributes; they keep
+public keyword parameters and globals unchanged. A swapped-capture negative
+fixture still fails full-tree proof even when its child alone appears to match.
+Repeated repair is idempotent.
+
+A targeted probe adds **51** matches across twenty modules. The normal full CLI
+pass additionally proves related cell-order cases outside that initial subset:
+its report contains **59** newly matching capture-order units. It also records
+**249** accepted return-scope repairs, **630** shared-return shapes and **18**
+module annotation repairs. All **274** exported bytecode trees validate and
+all **274** source candidates compile; **206** are structurally complete.
+The composite audit reaches **13,183 / 14,291** and **54** complete module trees.
+Against the preceding published result-scope checkpoint, it adds **89** matches
+and loses **zero** previous matches. The two isolated body overrides remain
+separate, statically proven evidence and preserve enclosing registrations.
+
+A direct audit of unmodified CLI sources confirms **13,177** raw matches and
+**53** complete raw module trees. Five additional composite matches come from
+the two proven body overrides, and one from the already published complete
+shadow-group source. Earlier raw-count labels inadvertently included that
+shadow-group function: the shared-return, terminal-return and first result-scope
+raw totals are corrected to **12,749**, **12,869** and **13,088**. Their composite totals and all
+reported zero-loss transitions are unchanged.
+
+The remaining buckets are **1,031 instruction** and **77 exception-table**
+failures. Three units that previously failed instructions now reach exception
+comparison and expose existing dispatch differences; no previous match was lost.
+The full goal remains active and its 274-module scope is unchanged.
+
+Three more complete modules are readable: the physics engine (49 units), the
+Energy AI weather MLP (29), and the repair service (36). They preserve original
+docstrings, public names, constants, gates and bytecode-significant shared
+returns, remove inert markers and use descriptive numeric/storage variables.
+Their complete trees still match. Paired physics checks cover 42 twilight,
+validity and temperature combinations, weather fallbacks and geometry inference.
+MLP checks use NumPy **2.5.4** with reset random seeds, compare weights and
+gradients, train and restore persisted biases, check quality gates and propagate
+cancellation. Repair checks cover seven dry/live/failure scenarios, positive
+number guards, acknowledgments, quarantine, transaction ordering, audit writes
+and hourly allocation. All database and Home Assistant dependencies are owned
+stand-ins; no live data is accessed.
+
+The application suite has **50 passing methods**. Published whole readable
+sources total **51 modules / 1,074 units**. Three newly complete candidates—the
+promotion policy, weather-energy API and weather-energy reader—still need
+readability cleanup. Full source fidelity and readability remain incomplete.
+No recovered source has been deployed to Home Assistant.
