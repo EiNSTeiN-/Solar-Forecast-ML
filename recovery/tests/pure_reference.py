@@ -69,3 +69,26 @@ def functions(relative, names, globals_, *, defaults=None, kwdefaults=None):
             namespace[name] = selected[name] = function
         result.append(selected)
     return tuple(result)
+
+
+def isolated_function(module_relative, source_relative, unit_path, globals_):
+    """Verify only a published isolated unit; do not imply its module is complete."""
+    unpacker = Path(os.environ['SFML_UNPACKER_DIR'])
+    sys.path.insert(0, str(unpacker / 'oneshot'))
+    from bytecode_fidelity import compare, compile_source, units
+    from modern_backend import MarkerNormalizer, normalize_code
+    prefix = Path(os.environ['SFML_RECOVERED_DIR']) / (module_relative + '.1shot')
+    data = Path(str(prefix) + '.recovered.pyc').read_bytes()
+    if data[:4] != importlib.util.MAGIC_NUMBER:
+        raise ValueError('Reference interpreter magic does not match')
+    reference = dict(units(normalize_code(marshal.loads(data[16:]))))[unit_path]
+    candidate = dict(units(compile_source((ROOT / 'verified_functions' / source_relative).read_text(),
+                                         source_relative)))[unit_path]
+    metadata = Path(str(prefix) + '.seq').read_bytes()[:34]
+    if len(metadata) != 34 or metadata[0] != 0xa1 or metadata[17] != 0xa2:
+        raise ValueError('Missing reference metadata')
+    report = compare(reference, candidate, MarkerNormalizer(metadata[1:17], metadata[18:30]))
+    if not report['all_units_match']:
+        raise AssertionError(f'{unit_path} did not match: {report}')
+    return tuple(types.FunctionType(code, dict(globals_, __builtins__=builtins.__dict__))
+                 for code in (reference, candidate))

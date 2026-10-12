@@ -252,10 +252,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **11,929 matched units out of 14,291** and
-  **26 complete module matches**. Those 26 sources (354 code units) are published
+- The latest full audit reports **12,162 matched units out of 14,291** and
+  **33 complete module matches**. Those 33 sources (543 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 26 have undergone the
+  evidence in `recovery/verified-manifest.json`. All 33 have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -266,8 +266,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   filter updates/adaptation/resets across both copies. That initial suite had
   eight test methods. Selected classes are instantiated only after full static
   matches and with controlled globals; no integration module is imported.
-- This checkpoint adds 1,059 matching code units with **zero previously matching
-  units lost**, as recorded in `recovery/latest-transition.json`. The full
+- The preceding frame/handler checkpoint added 1,059 matching code units with
+  zero previously matching units lost. The latest annotation/exit checkpoint
+  adds **233** matching code units while retaining the earlier verified API
+  method, as recorded in `recovery/latest-transition.json`. The full
   source-fidelity and readability goals remain incomplete.
 - Fifteen more module sources now use readable variable names and formatting,
   including the newly verified Energy AI feature engineer. Empty-string
@@ -290,7 +292,7 @@ process's zero exit code must never be interpreted as a fidelity pass.
   persistence calls, weather properties and forecasts using explicit controlled
   dependencies. The application suite now has **23 methods**. No integration
   module, actual database or HTTP service is loaded.
-- The unpacker is now **0.4.7-einstein.1** at commit
+- The frame-entry checkpoint used unpacker **0.4.7-einstein.1** at commit
   `6d3838b13ee907dd1466c5d089137d7666410b43`. Its 80 regression cases report
   79 passes and one documented expected failure in the legacy native backend;
   the optional modern context-manager path passes. The modern backend is now
@@ -311,3 +313,68 @@ process's zero exit code must never be interpreted as a fidelity pass.
   structure now compiles, but structural warnings and a transaction cleanup
   instruction-order mismatch remain. It has not passed fidelity verification.
   Compilable candidates still require full unit verification.
+
+## Annotation and exit-tail checkpoint
+
+The current unpacker is **0.4.8-einstein.1**, commit
+`6bdb2726dea52258f6ad9c517685339078472ba7`. It passes 86 of 87 owned regression
+cases; the legacy native context-manager case remains a documented expected
+failure. The optional modern path passes it. The backend is
+**0.6.6-einstein.1**, commit `ed8c5d407e148ae160632f0363a05f2399836dd7`.
+Its 17 owned Python 3.14 behavior cases and 15 library, 8 CLI and 11 integration
+tests pass. The corresponding unpacker
+[source regressions](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38187881244),
+[native build](https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38187881252),
+backend [behavior regressions](https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749880)
+and [build/test/clippy jobs](https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800)
+are green.
+
+- A wide jump to an exit marker must lose its `EXTENDED_ARG` prefixes when it
+  becomes an operandless return. Leaving an orphan prefix misled the source
+  parser and hid six nested units. The correction preserves every instruction
+  address and handler boundary. A fixture executes the normalized return.
+- Future-annotated classes sometimes retain a compiler set cell whose only
+  uses are `MAKE_CELL` and the recognized empty-set `STORE_DEREF` initializer.
+  It is not a class attribute. The new source pass uses the original class's
+  unique qualified name and metadata to remove that generated initializer,
+  restoring the docstring's position. Comparison excludes exactly these three
+  private setup instructions and this sole unused cell. Any read, capture,
+  public binding, additional cell or different initializer prevents this
+  allowance. Dataclass namespace tests and negative cases cover that boundary.
+- Deferred class annotations use a real registration set and guarded entries
+  in `__annotate__`. Preserve those by emitting a constant-folded `if True`
+  field block. It emits registration operations with no runtime condition.
+  Actual enclosing conditions and loops remain, and tests check annotation
+  lookup and default-value call order. Removing that block would change the
+  compiler's cells and annotation function and fail strict comparison.
+- The backend can join a runtime initializer with a user assignment. Strip
+  only its paired marker literal from the tuple; preserve all other values and
+  stores. If multiple targets remain, their RHS expressions still all run
+  before their target stores. Tests cover attribute write ordering and the
+  constructor's full bytecode tree. All 72 unresolved marker cases are now
+  resolved; three still have ordinary instruction differences and remain
+  failures.
+
+Seven additional complete modules are readable and verified: model reaction,
+CSV-community tariff forwarding, STATS DEV-mode views, STATS EMS API, Energy AI
+weather types, Weather Fusion forecast correction, and sun-position shadow
+learning. Original literals, docstrings, external names and public interfaces
+are retained. Four additional application methods bring the selected behavior
+suite to **27**, checking tariff forwarding, seven model-reaction scenarios,
+authorization/error responses and thirteen retained API-method paths.
+
+One generic parser regression remains: removing a wide exit prefix makes
+`GPMRevertCorrectionView.post` swallow its success response into an exception
+region. Its previously verified body is retained as a readable isolated source
+unit in `recovery/verified_functions/`, with hashes and scope in
+`recovery/verified-functions.json`. This proves the method, not the containing
+module. The audit first verifies this isolated unit against its original code,
+then inserts that definition into the incomplete candidate and runs the full
+module comparison. The corpus retains all previously matched units. Future
+generation must keep this retention step until the parser regression is fixed.
+Do not classify the raw decompiler alone as having zero regressions.
+
+Remaining failures comprise **1,832 instruction mismatches, 290 exception-table
+mismatches, one signature mismatch, and six missing source units**. The whole
+source-equivalence and readability goals remain incomplete; the live integration
+is unchanged by this recovery work.

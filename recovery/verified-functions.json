@@ -1,0 +1,18 @@
+{
+  "scope": "isolated functions only; containing integration modules remain incomplete",
+  "whole_goal_complete": false,
+  "units": [
+    {
+      "module_path": "extra_features/sfml_stats/api/gpm.py",
+      "unit_path": "<module>/GPMRevertCorrectionView#1/post#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/api/gpm_revert_post.py",
+      "original_payload_sha256": "c78b6c93835395699ec4c9167a7cc6280f090d9f1cd943641c56e32629bb0bac",
+      "reconstructed_source_sha256": "49c01b5d9a27e7c3431f9d1021f0876cd9791dc68963bf37698ca7ee8af1a2f6",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 13,
+      "reason": "Retain the previously matching success/error response body while the generic wide-exit parser regression remains open."
+    }
+  ]
+}

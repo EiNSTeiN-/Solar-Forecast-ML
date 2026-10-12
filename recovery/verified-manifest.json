@@ -2,6 +2,15 @@
   "comparison": "normalized bytecode under the documented whitelist",
   "modules": [
     {
+      "path": "ai/ai_model_reaction.py",
+      "original_payload_sha256": "b14f15014a19c70e743f232a35cb58f1c661d5df29055d08e237b09456050ace",
+      "reconstructed_source_sha256": "c933a0bd46f2da81252b67958bc0ed1d8267586d001a7aa15f9df82028604270",
+      "matched_units": 9,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "core/core_coordinator_helpers.py",
       "original_payload_sha256": "426d6381107cdc95aa6e5f2f084672b97a999dc81f49028df1d8211b9c4c09fc",
       "reconstructed_source_sha256": "89782561ad0ea816a3172ee3f20f4500f0c74f4c4c41bdd8c59c6bae3de9ca84",
@@ -83,6 +92,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/grid_price_monitor/tariffs/csv_community.py",
+      "original_payload_sha256": "08f8d80a4278f204db780192e71dbfd58270d50af6d48b4fe48cd4a41ca6b2ed",
+      "reconstructed_source_sha256": "9ad52358b3074177387cba552df055c7bccd4cf54c93b5ff0795602e51453ab4",
+      "matched_units": 6,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "extra_features/grid_price_monitor/tariffs/demo.py",
       "original_payload_sha256": "18c661d4cfe2cbf1f2c67479db13b1aabe1ac245d46195dd10e24aa7aca304bc",
       "reconstructed_source_sha256": "a63d4ea44427d80f0d6e01714d57d1684799f5b5b0d653712b8314cf906592a8",
@@ -114,6 +132,24 @@
       "original_payload_sha256": "1dcf5a0f53d6483890ee876fb460a41e592e322ad4f0143c608d9e6f6a186668",
       "reconstructed_source_sha256": "7c173e525b49cf284839b0c926ea92382b4ad660978cdfafa3aa63391dac3afb",
       "matched_units": 14,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/api/dev_mode_views.py",
+      "original_payload_sha256": "7b3834239b505a4f7f619484d284db6cba893ef01f6e0e85a37f9d2944a665f2",
+      "reconstructed_source_sha256": "2f9c8711fffa1fd68a132cf2580cb1754d6e6ec2a407b2587ca938d0e61657f2",
+      "matched_units": 23,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/api/ems.py",
+      "original_payload_sha256": "d5bd97d3b44e290026dc15e36c3b802a245e4e0dbc8ece72360548c377a11390",
+      "reconstructed_source_sha256": "bba3fd0bbd0fbc0eaa4d4751a4dad831b6846668f81179f7024ef45d0ad19454",
+      "matched_units": 40,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
@@ -164,6 +200,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/solar_forecast_eai/data/weather_types.py",
+      "original_payload_sha256": "9781a6f3e9d6e33ebeb97b24a4b264ab4f34f36eaece35a6aff724f1d6ca1d68",
+      "reconstructed_source_sha256": "7f449d98f07501e341b9dc20980fa1d1ba8bb5c2554142ff7694847759460ce4",
+      "matched_units": 9,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/license/policy.py",
       "original_payload_sha256": "2471b9a97b730d6f552d3966e5963bdf2fee2216d1d815c4274a776108e5bdae",
       "reconstructed_source_sha256": "416c8fd333aeec17ae46fa6414df9579ab8d6292a083ef54a62c937d62030df5",
@@ -191,6 +236,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/weather_fusion_ai/ai/forecast_corrector.py",
+      "original_payload_sha256": "069be64ab78069d04c333e23c86851a51c2bece55478ffceb077f190902697cf",
+      "reconstructed_source_sha256": "687df46d5ae380e355aaf2ee728dbba4ba132df77b8b2a9932f75c44d9dd321e",
+      "matched_units": 47,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/weather_fusion_ai/weather.py",
       "original_payload_sha256": "6e0151aba9437a630a2fc7622998457caa1b4a8c9a41d906788e984d5dce8130",
       "reconstructed_source_sha256": "77fbf8b7c1fe93c47e422447ef1fc7853b028edec7b0b0ee2cf0b2b5863226ab",
@@ -198,6 +252,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "physics/physics_sun_shadow.py",
+      "original_payload_sha256": "e545c107f9103171ec73c250c72add8df4643d132f0f83a10ea26408ac284b82",
+      "reconstructed_source_sha256": "4f3d26e333fff397231e850362cfb667117823dcb88db8bdaee1c830d1e78ac1",
+      "matched_units": 55,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "physics/poa_beam.py",
@@ -237,5 +300,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 354
+  "total_matched_units": 543
 }

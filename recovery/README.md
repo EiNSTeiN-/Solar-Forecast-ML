@@ -34,3 +34,15 @@ platform with controlled globals and explicit dependency stand-ins. Known defaul
 pure functions are supplied explicitly. They do not import Home Assistant, an
 integration module, or the native PyArmor runtime. Existing merge mutation
 behavior is compared explicitly; cleanup must not silently change it.
+
+Isolated source units are published separately under `verified_functions/`.
+Their class shells provide compilation context and must not be treated as
+complete integration modules. `verified-functions.json` records exact scope,
+hashes and the reason for retaining a unit. The audit validates each retained
+unit against its original bytecode before inserting its definition into an
+incomplete source candidate and comparing the full candidate. With
+`--verified-source recovery/verified_units`, the adjacent manifest is detected
+automatically; `--verified-functions` can select it explicitly. This retains
+the verified GPM correction-revert success/error responses while a generic
+parser regression remains open. Its 13 controlled test paths execute only the
+verified method body, including its authorization gates and dependency calls.

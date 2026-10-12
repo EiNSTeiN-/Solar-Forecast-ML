@@ -1,9 +1,10 @@
 {
-  "new_matching_units": 1059,
+  "new_matching_units": 233,
   "previous_matches_lost": 0,
   "remaining_goal_complete": false,
-  "frame_followup": {
-    "new_matching_units": 0,
-    "previous_matches_lost": 0
-  }
+  "previous_stage": "frames-01",
+  "current_stage": "annotation-03",
+  "raw_decompiler_previous_matches_lost": 1,
+  "verified_source_units_retained": 1,
+  "retention_manifest": "verified-functions.json"
 }

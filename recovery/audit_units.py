@@ -5,6 +5,7 @@ Powered by Solar Forecast ML by Zara-Toorox. Subject to the repository LICENSE.
 from __future__ import annotations
 
 import argparse
+import ast
 from collections import Counter
 import dis
 import hashlib
@@ -18,6 +19,27 @@ import types
 import warnings
 
 
+def named_source_unit(tree, path):
+    """Find a named definition by the verifier's explicit occurrence path."""
+    parts = path.split('/')
+    if parts.pop(0) != '<module>' or not parts:
+        raise ValueError('An isolated override needs a named source-unit path')
+    owner = tree
+    for part in parts:
+        name, count = part.rsplit('#', 1)
+        occurrence = int(count)
+        if occurrence < 1:
+            raise ValueError('Source-unit occurrences start at one')
+        matches = [(index, value) for index, value in enumerate(owner.body)
+                   if isinstance(value, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef))
+                   and value.name == name]
+        index, unit = matches[occurrence - 1]
+        parent, owner = owner, unit
+    if not isinstance(owner, (ast.FunctionDef, ast.AsyncFunctionDef)):
+        raise ValueError('Only function-body overrides are supported')
+    return parent, index, owner
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--work-dir', type=Path, required=True)
@@ -26,16 +48,24 @@ def main():
     parser.add_argument('--source', type=Path, required=True)
     parser.add_argument('--verified-source', type=Path,
                         help='Prefer manually reconstructed modules at their original relative paths')
+    parser.add_argument('--verified-functions', type=Path,
+                        help='Manifest of separately verified source units to retain in incomplete candidates')
     args = parser.parse_args()
     if sys.version_info[:2] != (3, 14):
         parser.error('Requires CPython 3.14')
     os.umask(0o077)
     sys.path.insert(0, str(args.unpacker.resolve() / 'oneshot'))
     from bytecode_fidelity import compare, compile_source, units
-    from modern_backend import MarkerNormalizer
+    from modern_backend import MarkerNormalizer, normalize_code
     work = args.work_dir.resolve()
     manifest = json.loads((work / 'input-manifest.json').read_text())
     directory = work / args.stage
+    isolated_manifest = args.verified_functions
+    if isolated_manifest is None and args.verified_source:
+        proposed = args.verified_source.parent / 'verified-functions.json'
+        if proposed.is_file():
+            isolated_manifest = proposed
+    isolated = json.loads(isolated_manifest.read_text())['units'] if isolated_manifest else []
     entries, reasons = [], Counter()
     for item in manifest['files']:
         relative = item['path']
@@ -68,19 +98,42 @@ def main():
                 entry['source_origin'] = 'decompiler_candidate'
             if not source.strip():
                 raise ValueError('An empty native placeholder is not recovered source')
+            metadata = Path(str(prefix) + '.seq').read_bytes()[:34]
+            if len(metadata) != 34 or metadata[0] != 0xa1 or metadata[17] != 0xa2:
+                raise ValueError('Missing sequence metadata')
+            decoder = MarkerNormalizer(metadata[1:17], metadata[18:30])
+            retained = [unit for unit in isolated if unit['module_path'] == relative]
+            if retained and entry['source_origin'] == 'decompiler_candidate':
+                tree = ast.parse(source)
+                reference_units = dict(units(normalize_code(reference)))
+                for unit in retained:
+                    path = isolated_manifest.parent / unit['source_path']
+                    data = path.read_bytes()
+                    if (hashlib.sha256(data).hexdigest() != unit['reconstructed_source_sha256']
+                            or item['sha256'] != unit['original_payload_sha256']):
+                        raise ValueError('Isolated source/input hash does not match its manifest')
+                    isolated_tree = ast.parse(data.decode('utf-8'))
+                    isolated_code = compile_source(data.decode('utf-8'), str(path))
+                    candidate_unit = dict(units(isolated_code))[unit['unit_path']]
+                    proof = compare(reference_units[unit['unit_path']], candidate_unit, decoder)
+                    if not proof['all_units_match']:
+                        raise ValueError('Retained unit no longer matches recovered bytecode')
+                    _, _, replacement = named_source_unit(isolated_tree, unit['unit_path'])
+                    parent, index, _ = named_source_unit(tree, unit['unit_path'])
+                    parent.body[index] = replacement
+                source = ast.unparse(ast.fix_missing_locations(tree)) + '\n'
+                entry['source_origin'] = 'decompiler_candidate_with_verified_units'
+                entry['retained_source_units'] = [unit['unit_path'] for unit in retained]
             with warnings.catch_warnings():
                 warnings.simplefilter('ignore', SyntaxWarning)
                 candidate = compile_source(source, relative)
             entry['source_compiles'] = True
-            metadata = Path(str(prefix) + '.seq').read_bytes()[:34]
-            if len(metadata) != 34 or metadata[0] != 0xa1 or metadata[17] != 0xa2:
-                raise ValueError('Missing sequence metadata')
-            report = compare(reference, candidate, MarkerNormalizer(metadata[1:17], metadata[18:30]))
+            report = compare(reference, candidate, decoder)
             Path(str(prefix) + '.fidelity.json').write_text(json.dumps(report, indent=2) + '\n')
             for unit in report['entries']:
                 reasons[unit['reason']] += 1
             entry.update({key: value for key, value in report.items() if key not in ('entries', 'behavioral_equivalence_verified')})
-        except (OSError, ValueError, TypeError, IndexError, SyntaxError, EOFError) as error:
+        except (OSError, ValueError, TypeError, IndexError, KeyError, SyntaxError, EOFError) as error:
             entry['error'] = f'{type(error).__name__}: {error}'
         entries.append(entry)
     summary = {'protected_modules': len(entries), 'bytecode_verified_modules': sum(entry['bytecode_verified'] for entry in entries),
