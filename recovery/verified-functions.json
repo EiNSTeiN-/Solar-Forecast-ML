@@ -27,6 +27,32 @@
       "behavior_input_cases": 5,
       "retain_in_candidate": false,
       "reason": "Independently verified coroutine with its self closure. Its parent remains incomplete; the unit is not inserted into a candidate or counted as a corpus match."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/websocket.py",
+      "unit_path": "<module>/websocket_get_dashboard_data#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/api/websocket_dashboard.py",
+      "original_payload_sha256": "8a2371ace1e434c408c0d4a6ffabf9c88d517952cb2f3dd2f2460bb7a76e02fd",
+      "reconstructed_source_sha256": "49e37a20891afd3fa16f9c543666e6f730f027fb980df74bc34118ac4b07fb9a",
+      "matched_units": 3,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "retain_in_candidate": true,
+      "reason": "Reconstructed complete function tree from disassembly, including its original handlers and nested functions. Its containing module remains incomplete.",
+      "behavior_input_cases": 8
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/coordinator.py",
+      "unit_path": "<module>/SolarForecastEAICoordinator#1/_background_initialization#1",
+      "source_path": "verified_functions/extra_features/solar_forecast_eai/background_initialization.py",
+      "original_payload_sha256": "becad700f25b4d6308b52f9d48026e141ee407f86a40aabab99c6450e802f426",
+      "reconstructed_source_sha256": "b2533ebae050d1968c1bcc14c805c691fc45a90156156103771e5ccace8a3cdd",
+      "matched_units": 5,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "retain_in_candidate": true,
+      "reason": "Reconstructed complete function tree from disassembly, including its original handlers and nested functions. Its containing module remains incomplete.",
+      "behavior_input_cases": 14
     }
   ]
 }

@@ -260,7 +260,7 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **12,222 matched units out of 14,291** and
+- The latest full audit reports **12,227 matched units out of 14,291** and
   **34 complete module matches**. Those 34 sources (623 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
   evidence in `recovery/verified-manifest.json`. All 34 have undergone the
@@ -442,3 +442,43 @@ without isolated overrides. Remaining failures are **1,773 instruction
 mismatches, 293 exception-table mismatches and three missing source units**.
 All 274 bytecode trees validate and all 274 source candidates compile. Full
 source equivalence and readability remain incomplete; the goal remains active.
+
+## Reconstructed dashboard and initialization trees
+
+Two further isolated definitions now pass full subtree comparisons:
+`websocket_get_dashboard_data` (three units, including its two generators) and
+`SolarForecastEAICoordinator._background_initialization` (five units, including
+the pipeline coroutine, weekly callback, lambda and annotation function).
+Both are readable and recorded in `recovery/verified-functions.json`. Four
+isolated source files prove nine unique code units; the standalone pipeline
+coroutine is also contained in its reconstructed parent, so it is counted once.
+
+The generic decompiler misplaced shared work in exception suites and omitted
+the setup-success branch. Reconstructing the original nested handlers restores
+pipeline setup after a handled service error, conditional weather setup, queued
+pipeline start, the common initialization continuation, prediction-cache fallback
+and weekly retraining. Dashboard reconstruction restores both KPI generators,
+accuracy/coverage filtering, truth-filtered price values and the enclosing error
+handler. The original conditions and error behavior are preserved, including
+the existing exclusion of zero price values; recovery is not a behavior fix.
+
+Two callable loads also need the original compiler shape: a constant-folded
+selection around `json.loads` or `dt_util.now` preserves ordinary attribute
+loading followed by `PUSH_NULL`, rather than method-style `LOAD_ATTR`. Source
+comments explain these expressions. No new verifier allowance was introduced.
+The shared-return spelling likewise keeps the weekly callback's common return.
+
+Eight dashboard scenarios and fourteen initialization scenarios compare outputs,
+logs, import/read/lock/service call order, callbacks, cache values and queued
+tasks. Only known owned imports are supplied to these selected code objects.
+Failures exercise inner continuations, outer error reporting and cancellation.
+The selected application suite now has **34 passing methods**.
+
+The corpus audit verifies the two definition hashes and full subtrees before
+inserting them into incomplete candidate modules. It gains **five matches with
+zero previous matches lost**, for **12,227 / 14,291**, and has **no missing source
+units**. The unchanged raw decompiler still has three missing units and 12,222
+matches; the increase requires these explicitly recorded reconstructions.
+The audit still reports **1,771 instruction and 293 exception-table mismatches**.
+All 274 candidates compile and the same 34 whole modules match. Full source
+fidelity and readability remain incomplete; no recovered code is deployed.

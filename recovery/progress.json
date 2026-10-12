@@ -5,15 +5,14 @@
     "source_compiles_modules": 274,
     "all_units_match_modules": 34,
     "reference_units": 14291,
-    "matched_units": 12222,
+    "matched_units": 12227,
     "input_files_unchanged": true,
     "vendor_modules_imported": 0,
     "behavioral_equivalence_verified": false,
     "unit_results": {
-      "normalized_bytecode_match": 12222,
-      "instructions": 1773,
-      "exception_table": 293,
-      "missing_source_unit": 3
+      "normalized_bytecode_match": 12227,
+      "instructions": 1771,
+      "exception_table": 293
     },
     "scopes": {
       "main": 99,
@@ -1314,11 +1313,14 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 12,
+      "matched_units": 14,
       "reference_units": 18,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
-      "source_units": 16
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/websocket_get_dashboard_data#1"
+      ],
+      "source_units": 18
     },
     {
       "path": "extra_features/sfml_stats/core/amortization.py",
@@ -2142,11 +2144,14 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 48,
+      "matched_units": 51,
       "reference_units": 69,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
-      "source_units": 68
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/SolarForecastEAICoordinator#1/_background_initialization#1"
+      ],
+      "source_units": 69
     },
     {
       "path": "extra_features/solar_forecast_eai/core/core_coordinator_update_helpers.py",

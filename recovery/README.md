@@ -49,4 +49,9 @@ correction-revert parser regression is now fixed; its 13 controlled paths still
 test the independently verified method body. A second isolated coroutine tests
 pipeline success/failure, handled exceptions and cancellation with an explicit
 `self` closure. Its enclosing coordinator remains incomplete. Neither isolated
-unit currently needs or receives an audit override.
+unit currently needs or receives an audit override. Two additional complete
+definition trees reconstruct dashboard KPIs and background initialization.
+Their verified overrides restore the three source units still missing from raw
+generation, and they receive full static subtree checks before insertion. Eight
+dashboard and fourteen initialization scenarios compare error routes, logs,
+dependency calls, cache values and queued tasks using only owned stand-ins.

@@ -71,7 +71,8 @@ def functions(relative, names, globals_, *, defaults=None, kwdefaults=None):
     return tuple(result)
 
 
-def isolated_function(module_relative, source_relative, unit_path, globals_, *, closure_values=None):
+def isolated_function(module_relative, source_relative, unit_path, globals_, *, closure_values=None,
+                      builtins_overrides=None):
     """Verify only a published isolated unit; do not imply its module is complete."""
     unpacker = Path(os.environ['SFML_UNPACKER_DIR'])
     sys.path.insert(0, str(unpacker / 'oneshot'))
@@ -94,6 +95,6 @@ def isolated_function(module_relative, source_relative, unit_path, globals_, *, 
     if set(closure_values) != set(reference.co_freevars) or candidate.co_freevars != reference.co_freevars:
         raise ValueError('Supply exactly the verified closure names')
     return tuple(types.FunctionType(
-        code, dict(globals_, __builtins__=builtins.__dict__),
+        code, dict(globals_, __builtins__=dict(builtins.__dict__, **(builtins_overrides or {}))),
         closure=tuple(types.CellType(closure_values[name]) for name in code.co_freevars) or None)
         for code in (reference, candidate))
