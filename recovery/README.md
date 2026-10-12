@@ -30,7 +30,10 @@ The tests check complete reconstructed modules statically before instantiating
 selected panel-group, radiation, billing, consumer, weather and planning
 functions, coordinator helpers, both Kalman filters, the price calculator,
 the Energy AI feature engineer, tariff sources, demo persistence and weather
-platform with controlled globals and explicit dependency stand-ins. Known defaults for
+platform with controlled globals and explicit dependency stand-ins. Further
+checks cover tariff windows, battery integration, invoice validation, forecast
+regeneration, capability gates and isolated dashboard/initialization trees.
+Known defaults for
 pure functions are supplied explicitly. They do not import Home Assistant, an
 integration module, or the native PyArmor runtime. Existing merge mutation
 behavior is compared explicitly; cleanup must not silently change it.
@@ -51,7 +54,8 @@ pipeline success/failure, handled exceptions and cancellation with an explicit
 `self` closure. Its enclosing coordinator remains incomplete. Neither isolated
 unit currently needs or receives an audit override. Two additional complete
 definition trees reconstruct dashboard KPIs and background initialization.
-Their verified overrides restore the three source units still missing from raw
+Their verified body overrides preserve existing headers and registration
+decorators and restore the three source units still missing from raw
 generation, and they receive full static subtree checks before insertion. Eight
 dashboard and fourteen initialization scenarios compare error routes, logs,
 dependency calls, cache values and queued tasks using only owned stand-ins.

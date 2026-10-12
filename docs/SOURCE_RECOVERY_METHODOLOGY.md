@@ -260,10 +260,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **12,227 matched units out of 14,291** and
-  **34 complete module matches**. Those 34 sources (623 code units) are published
+- The latest full audit reports **12,755 matched units out of 14,291** and
+  **44 complete module matches**. Thirty-nine readable sources (745 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 34 have undergone the
+  evidence in `recovery/verified-manifest.json`. All 39 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -475,10 +475,62 @@ Failures exercise inner continuations, outer error reporting and cancellation.
 The selected application suite now has **34 passing methods**.
 
 The corpus audit verifies the two definition hashes and full subtrees before
-inserting them into incomplete candidate modules. It gains **five matches with
-zero previous matches lost**, for **12,227 / 14,291**, and has **no missing source
+inserting their bodies into incomplete candidate modules. It gains **six matches with
+zero previous matches lost**, for **12,228 / 14,291**, and has **no missing source
 units**. The unchanged raw decompiler still has three missing units and 12,222
 matches; the increase requires these explicitly recorded reconstructions.
-The audit still reports **1,771 instruction and 293 exception-table mismatches**.
+The audit still reports **1,770 instruction and 293 exception-table mismatches**.
 All 274 candidates compile and the same 34 whole modules match. Full source
 fidelity and readability remain incomplete; no recovered code is deployed.
+
+Replacing an entire isolated definition initially dropped the dashboard's
+registration decorators and lost its previously matching module body. The
+audit now retains the enclosing definition's arguments, annotations, defaults,
+decorators and type parameters and replaces only its verified body. The full
+module body matches again. A subtree proof cannot authorize a changed caller
+or registration contract; check the entire module after insertion.
+
+## Proven shared-return source normalization
+
+The latest unpacker is **0.4.10-einstein.1**; exact current commits and CI
+evidence are recorded in `recovery/toolchain.json`. It keeps backend
+**0.6.7-einstein.1** and passes 95 of 96 regression cases, with the same legacy
+native expected failure. Five new owned tests cover shared returns, user truth
+hooks and exceptions, nested closures, generators, coroutines, idempotency,
+ambiguous definitions and negative constants/signatures/handler cases.
+
+`preserve_shared_returns` tries an explicit constant-folded None return at the
+end of an unmatched named function. It then recompiles and compares every
+unit, accepts only directly matching function units, reverts unproven trials,
+and verifies that no existing unit match is lost. It skips ambiguous names and
+async generators. It cannot supply missing work or ignore a handler mismatch.
+No new comparison allowance is introduced. Source comments and the recovery
+report's `verified_shared_return_shapes` explain the resulting expressions.
+
+A fresh normal CLI run processes all 274 inputs using this path. All bytecode
+trees validate, all candidate sources compile, and the 206 structural-completeness
+reports remain distinct from fidelity. It accepts **528** shared-return shapes
+in raw generated source. Combined with the two proven body overrides, the
+full audit gains **527 matches and loses zero**, for **12,755 / 14,291** and
+**44 whole-module matches**. One raw callback improvement overlaps the earlier
+manual reconstruction, so these are not counted twice. Raw generation alone
+has **12,750** matching units and still lacks the three manually reconstructed
+source units. The composite audit has none missing.
+
+Five newly complete modules are now readable and published: named tariff
+windows, battery statistics tracking, invoice archive, Energy AI capability
+provider, and forecast regeneration. Empty-string artifacts are removed;
+locals describe their roles; original strings, imports, public names,
+annotations and license gates are preserved. Full code trees still match.
+The selected application suite has **39 passing methods**, adding tariff
+boundaries/overlaps/prices, capped battery integration and unavailable states,
+invoice validation codes, forecast dependency/fallback paths and invalid/expired
+capability gates. All operate with controlled owned dependencies.
+
+Thirty-nine complete readable modules (745 units) and four isolated source
+files are published. Five other newly verified candidate modules still need
+readability cleanup: the Energy AI weather MLP, both physics calculators, sensor
+data collector and repair-tool service. Their raw source remains private.
+Remaining fidelity failures are **1,243 instruction mismatches and 293
+exception-table mismatches**. The complete source-fidelity and readability
+requirements remain unmet, and the goal remains active.

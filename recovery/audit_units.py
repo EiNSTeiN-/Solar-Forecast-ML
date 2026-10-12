@@ -123,8 +123,12 @@ def main():
                     if not proof['all_units_match']:
                         raise ValueError('Retained unit no longer matches recovered bytecode')
                     _, _, replacement = named_source_unit(isolated_tree, unit['unit_path'])
-                    parent, index, _ = named_source_unit(tree, unit['unit_path'])
-                    parent.body[index] = replacement
+                    _, _, target = named_source_unit(tree, unit['unit_path'])
+                    # The isolated shell proves this function's code tree, not
+                    # its caller's registration contract. Retain decorators,
+                    # arguments, defaults, annotations and type parameters from
+                    # the enclosing candidate; replace only the proven body.
+                    target.body = replacement.body
                 source = ast.unparse(ast.fix_missing_locations(tree)) + '\n'
                 entry['source_origin'] = 'decompiler_candidate_with_verified_units'
                 entry['retained_source_units'] = [unit['unit_path'] for unit in retained]

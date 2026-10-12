@@ -1,11 +1,12 @@
 {
-  "new_matching_units": 6,
-  "previous_matches_lost": 1,
+  "new_matching_units": 527,
+  "previous_matches_lost": 0,
   "remaining_goal_complete": false,
-  "previous_stage": "guards-02",
-  "current_stage": "manual-guards-03",
+  "previous_stage": "manual-guards-03",
+  "current_stage": "returns-02",
+  "verified_shared_return_shapes": 528,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 8,
-  "raw_decompiler_matched_units": 12222,
-  "manually_reconstructed_candidate_matched_units": 12227
+  "raw_decompiler_matched_units": 12750,
+  "manually_reconstructed_candidate_matched_units": 12755
 }
