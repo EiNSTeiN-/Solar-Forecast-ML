@@ -2079,3 +2079,27 @@ independent/bare handlers and metadata/predicate negatives. All **200 unpacker
 cases** pass with one existing expected failure; native retains 35 Rust and
 54 behavior methods. Comparator rules, payload inputs and retained definition
 overrides are unchanged; no integration module or PyArmor runtime is imported.
+
+
+## Readable main and EAI data validators
+
+Both validators are complete candidates in `payload-handler-01`. Naming
+required/recommended fields, quality totals, weather readings, model arrays
+and report sections makes their original logic reviewable without changing
+guards, field accesses, thresholds, logs, error results or mutation behavior.
+Empty string artifacts are removed; original imports, class inheritance,
+docstrings and attribution remain. Black 25.1.0 formats the modules. Full
+24-unit proofs independently retain instructions and exception dispatch.
+The main validator uses SafeDateTimeUtil and EAI uses datetime; this original
+difference is preserved. Optional absent data and failed validation reports
+retain their original treatment rather than silently imposing new policy.
+
+Five paired methods build only the proved classes with owned base/database
+and clock dependencies. They cover required-field/type/range behavior,
+warning-only fields, quality/training thresholds, weather/learning/summary
+boundaries, missing or malformed rows, LSTM and attention fields, empty arrays,
+query failures, cancellation, report clock/order and optional checks. The
+complete selected application suite passes **183 methods**. Published readable
+totals become **98 modules / 2,565 units**; corpus remains **13,888/14,291**,
+with **403 unresolved units**. No extra corpus match is claimed, comparison
+rules remain unchanged, and no live integration or PyArmor runtime is imported.

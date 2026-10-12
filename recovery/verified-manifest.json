@@ -182,6 +182,15 @@
       "behavior_tests": 2
     },
     {
+      "path": "data/data_validator.py",
+      "original_payload_sha256": "d4c66118c6b7634461594fd834ac70684b7778c5a3a97b68d59f47958a403086",
+      "reconstructed_source_sha256": "21d4ae11c7b9d2943e50651ee4172e86a573052ba9f1707475d1f99b0f3ec17b",
+      "matched_units": 24,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 5
+    },
+    {
       "path": "data/data_weather_kalman.py",
       "original_payload_sha256": "09f02ca65ed6a0541751f72168659d548538a38bfd7d6d77e25c96921437c902",
       "reconstructed_source_sha256": "4f52d1b104a9536c7f8478955ae53e2c5de389312264b3502fdd24cb0b3dfa6e",
@@ -614,6 +623,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/solar_forecast_eai/data/data_validator.py",
+      "original_payload_sha256": "350cec973bb4f3c5295b17b47a9629955fbdeb57bab525dffc71ef1240fc2ae4",
+      "reconstructed_source_sha256": "a262ab7a7a8613835218038d735c29b50a638a7f6374dc4e346f93b31f1b56c3",
+      "matched_units": 24,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 5
+    },
+    {
       "path": "extra_features/solar_forecast_eai/data/data_weather_kalman.py",
       "original_payload_sha256": "4b4ac872f820e4c462695ca9f329ab646a4a0384214f0f731654b32f317926fb",
       "reconstructed_source_sha256": "7b52dcc6c9eda4239e9678a0802e6156b8bc4bfc95289a796ee422ee0a014022",
@@ -867,5 +885,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 2517
+  "total_matched_units": 2565
 }

@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-96 readable whole modules (2,517 nested units) and passes 178 selected
+98 readable whole modules (2,565 nested units) and passes 183 selected
 application test methods. The full corpus has 132 completely matched candidate
 modules and 13,888/14,291 matching units; 403 units remain. Candidate fidelity
 and published readable source are counted separately.
@@ -249,3 +249,12 @@ paired methods cover dates, rollover, snapshot keys, failed saves and
 cancellation. All 14 module units match before either class is executed with
 owned clock/database stand-ins. Its addition increases the readable subset;
 the already matched corpus count is unchanged.
+
+
+The main and EAI data validators now have readable local names, with both
+complete 24-unit modules still proved independently. Five paired methods
+cover dictionary bounds and warnings, data-quality thresholds, weather/config
+and daily-summary rows, LSTM/attention field checks, report ordering and
+database failure/cancellation. The original optional-data behavior and the
+different main/EAI clocks are preserved. This adds readable source for already
+matched modules; corpus coverage is not counted again.
