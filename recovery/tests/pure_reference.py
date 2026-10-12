@@ -36,7 +36,7 @@ def verified_code(relative):
     return normalize_code(reference), candidate
 
 
-def classes(relative, class_name, globals_, bases=()):
+def classes(relative, class_name, globals_, bases=(), *, builtins_overrides=None):
     """Instantiate only one statically matched class with supplied dependencies."""
     unpacker = Path(os.environ['SFML_UNPACKER_DIR'])
     sys.path.insert(0, str(unpacker / 'oneshot'))
@@ -44,7 +44,9 @@ def classes(relative, class_name, globals_, bases=()):
     result = []
     for module in verified_code(relative):
         code = next(unit for path, unit in units(module) if path == f'<module>/{class_name}#1')
-        namespace = dict(globals_, __name__='pure_recovery_fixture', __builtins__=builtins.__dict__)
+        controlled_builtins = (dict(builtins.__dict__, **builtins_overrides)
+                               if builtins_overrides is not None else builtins.__dict__)
+        namespace = dict(globals_, __name__='pure_recovery_fixture', __builtins__=controlled_builtins)
         result.append(builtins.__build_class__(types.FunctionType(code, namespace), class_name, *bases))
     return tuple(result)
 

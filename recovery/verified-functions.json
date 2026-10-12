@@ -120,19 +120,6 @@
       "reason": "Independently verified readable return evaluation/fallback. The generic source scope repair recovers this unit directly under the documented narrow forward-return alias rule. Its containing module is not published as a complete readable module. No override or duplicate corpus count is used."
     },
     {
-      "module_path": "extra_features/sfml_stats/core/energy_efficiency.py",
-      "unit_path": "<module>/_number#1",
-      "source_path": "verified_functions/extra_features/sfml_stats/core/optional_number.py",
-      "original_payload_sha256": "9944e6dbe2bb0d9059343cfe31fb10ec39db7b2c381a01fae91a40919fe25e14",
-      "reconstructed_source_sha256": "68551205e1e2d31c529baf7bc0e4d48a9b7c745ad6bb9e571283e32f1a08d333",
-      "matched_units": 1,
-      "all_units_match": true,
-      "readability_refactored": true,
-      "behavior_input_cases": 16,
-      "retain_in_candidate": false,
-      "reason": "Independently verified readable return evaluation/fallback. The generic source scope repair recovers this unit directly under the documented narrow forward-return alias rule. Its containing module is not published as a complete readable module. No override or duplicate corpus count is used."
-    },
-    {
       "module_path": "extra_features/sfml_stats/core/corrected_energy.py",
       "unit_path": "<module>/_cell#1",
       "source_path": "verified_functions/extra_features/sfml_stats/core/row_cell.py",

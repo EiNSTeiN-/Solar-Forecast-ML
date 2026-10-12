@@ -261,9 +261,9 @@ process's zero exit code must never be interpreted as a fidelity pass.
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
 - The latest full audit reports **13,283 matched units out of 14,291** and
-  **60 complete module matches**. Fifty-eight readable sources (1,242 code units) are published
+  **60 complete module matches**. Sixty readable sources (1,324 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 58 published sources have undergone the
+  evidence in `recovery/verified-manifest.json`. All 60 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -1093,3 +1093,62 @@ coverage is now **12 files / 18 distinct units**, alongside seven generator
 units. Remaining failures are **934 instruction** and **74 exception-table**
 units. The 274-module goal stays active and unachieved; recovered source stays
 on the development branch.
+
+## Complete readable efficiency and daily-briefing modules
+
+The two complete matches from the preceding checkpoint are now published as
+readable whole modules: `extra_features/sfml_stats/core/energy_efficiency.py`
+has **31** matched units, and `services/service_daily_briefing.py` has **51**.
+This adds **82** readable whole-module units. Internal locals, exception
+bindings and the imported cache-manager binding have descriptive names.
+Public names, metadata, documentation, thresholds, query values, message
+strings and calculation/notification order remain intact.
+
+Twelve empty-string or pass artifacts are removed only after whole-module
+proof. Three unnecessary folded-return layers are pruned one at a time with
+the same gate. Required folded compiler edges and the legitimate ignored
+astronomy-formatting exception remain. The schema SQL is rendered as readable
+triple-quoted text with exactly the original values, and the redundant
+cache-manager import alias is removed. The files are formatted with the
+existing `black==25.1.0` tool, then their complete trees are proved again.
+No comparison allowance, backend revision or export changes in this pass.
+
+Four efficiency methods compare direct sample accumulation, conversion
+plausibility, PV/battery/mixed classification, charge and unknown states,
+sample-gap bounds, hourly segmentation, coverage rejection, grace-period
+finalization, sorting/duplicate timestamps and display-summary availability
+and quality. They cover 20 sample trajectories, 12 window/splitting scenarios,
+eight aggregate sequences and 65 summary/error combinations. These tests
+decorate the statically verified classes using the real stdlib
+`dataclasses.dataclass(slots=True)` with an owned temporary module context;
+they do not replace the dataclass constructor or slots behavior with a fake.
+Selected helper globals are linked explicitly, with no integration module
+body executed.
+
+Seven briefing methods compare localized weather/quote/closing text over
+2,016 paired function calls, 14 clock/lock/sunrise scenarios, eight database
+reader scenarios, four astronomy import/cache scenarios, six exclusion/shadow
+scenarios, 12 complete renderer scenarios and 16 notification scenarios.
+Exact query parameters and order, dictionary payloads, logs, false/missing
+values, lookup errors, handled failures and cancellation are compared.
+An optional builtins override on the existing class test helper supplies
+only an owned relative-import implementation. Default class-test behavior
+is unchanged. No actual database, astronomy integration or notification
+service is contacted, and the selected astronomy success case is asserted
+explicitly so a swallowed import failure cannot masquerade as a pass.
+
+The existing `_number` tests now take their function from the complete
+efficiency module. Its redundant isolated source and manifest entry are
+retired. This is a change of publication scope, not a lost unit or a new corpus
+match: the full source tree proves the function along with its caller and
+module declarations. Other isolated source contexts remain necessary.
+
+The complete selected application suite passes **88 methods**. A new full
+274-module composite audit retains **13,283 / 14,291** and **60** complete
+module matches, with every original input unchanged and zero vendor module
+imports. Readable whole publication now covers **60 modules / 1,324 units**;
+isolated publication covers **11 files / 17 distinct units**, plus seven
+generator units. Remaining **934 instruction** and **74 exception-table**
+failures keep the full goal active and unachieved. The next fidelity repairs
+must retain the complete scope rather than treating these readable modules
+as a smaller substitute objective.

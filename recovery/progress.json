@@ -1499,7 +1499,7 @@
       "matched_units": 31,
       "reference_units": 31,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 31
     },
     {
@@ -3230,7 +3230,7 @@
       "matched_units": 51,
       "reference_units": 51,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 51
     },
     {

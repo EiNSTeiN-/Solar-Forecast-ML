@@ -3,7 +3,7 @@ from datetime import timezone
 import math
 import unittest
 
-from pure_reference import isolated_function
+from pure_reference import functions,isolated_function
 
 
 NUMBERS=(None,0,False,True,-1,1.5,'2.3','unknown','NaN','inf',object(),
@@ -45,9 +45,8 @@ class ReturnScopeFunctionTests(unittest.TestCase):
             self.assertEqual(outcomes[1],outcomes[0])
 
     def test_optional_number_preserves_none_hooks_nonfinite_and_unhandled_errors(self):
-        pair=isolated_function('extra_features/sfml_stats/core/energy_efficiency.py',
-                               'extra_features/sfml_stats/core/optional_number.py',
-                               '<module>/_number#1',{})
+        pair=[selected['_number'] for selected in functions(
+            'extra_features/sfml_stats/core/energy_efficiency.py',['_number'],{})]
         for sample in NUMBERS:
             outcomes=[]
             for function in pair:

@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-58 readable whole modules and passes 77 selected application test methods.
+60 readable whole modules and passes 88 selected application test methods.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
 was tested with `numpy==2.5.4` in the CPython 3.14 recovery environment.
@@ -112,7 +112,17 @@ real returns remains significant. Old sources are audited separately under
 the new rule so the counts cannot conflate those gains.
 Five additional readable functions have 82 paired conversion, timezone and
 row-access scenarios. The same readable row accessor is independently proved
-against both original statistics modules. There are now 12 isolated source
-files proving 18 distinct units, with no new overrides or duplicate coverage.
-The two newly complete generated modules, energy efficiency and daily
-briefing, still need whole-module readability cleanup and publication.
+against both original statistics modules, with no new overrides or duplicate
+coverage. The subsequent readability pass publishes the complete energy
+efficiency and daily briefing modules, adding 82 readable whole-module units.
+Twelve empty-string/pass artifacts and three unnecessary folded layers are
+removed with whole-tree proof. Exact thresholds, SQL values, original
+documentation and localized text remain intact.
+Eleven more test methods cover real stdlib dataclass decoration, sample and
+window accounting, summary quality, readiness/clock and database paths,
+owned imports, localized rendering, service checks, payloads and cancellation.
+The standalone `_number` compilation context is retired; its existing tests
+now use the complete efficiency source. Current isolated coverage is 11
+source files proving 17 distinct units, plus the seven generator units.
+The full corpus remains at 13,283 matches; this pass adds readable evidence
+and behavioral coverage without adding duplicate matches.
