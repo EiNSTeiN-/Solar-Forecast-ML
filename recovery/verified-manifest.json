@@ -11,6 +11,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "astronomy/astronomy_cache.py",
+      "original_payload_sha256": "288df6f2e4a94773de19f7979eca341566a373c67360c3a52b8ffa95d2450679",
+      "reconstructed_source_sha256": "8f24aa9eb5d831e1f5f67ad7849771bf790ee10ff1e939ef5f9111faf3f1e852",
+      "matched_units": 38,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "core/core_coordinator_helpers.py",
       "original_payload_sha256": "426d6381107cdc95aa6e5f2f084672b97a999dc81f49028df1d8211b9c4c09fc",
       "reconstructed_source_sha256": "89782561ad0ea816a3172ee3f20f4500f0c74f4c4c41bdd8c59c6bae3de9ca84",
@@ -87,6 +96,15 @@
       "original_payload_sha256": "aeeb37588e7cef37687e631ee145b709287ede076f9ddb889cf7293ef2b54c01",
       "reconstructed_source_sha256": "043b582850a2d1bf96a11990150f06d1d8ff65fa42fe02bbb3db8e84fbc7b4cf",
       "matched_units": 4,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/grid_price_monitor/storage/statistics_store.py",
+      "original_payload_sha256": "abcaac9b6da947641b59551ca6e9ba37b04949e812fdcfe5caba6985a5779449",
+      "reconstructed_source_sha256": "32b41d5590aefb13fdf6f6c95ded9ecb8309a9c0d1a9e418e0b701b401dfbc0f",
+      "matched_units": 34,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
@@ -344,6 +362,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "physics/panel_group_calculator.py",
+      "original_payload_sha256": "f9135a2b2fdb3c5076274f498d5192e48c992d0569aa11e4f6ab36ca0f9400cd",
+      "reconstructed_source_sha256": "03cce7706d2f637f326b59d370a97a59f21dd35e2475b6ed55c6ec13259853e5",
+      "matched_units": 52,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
       "path": "physics/physics_sun_shadow.py",
       "original_payload_sha256": "e545c107f9103171ec73c250c72add8df4643d132f0f83a10ea26408ac284b82",
       "reconstructed_source_sha256": "4f3d26e333fff397231e850362cfb667117823dcb88db8bdaee1c830d1e78ac1",
@@ -384,6 +411,15 @@
       "original_payload_sha256": "92b21c792e436ec5ebb69d5a46e78003cfc949f9d417739bf54daa2f916155e2",
       "reconstructed_source_sha256": "55bd7190758c65b9e8a71a8f41a5f09767ae2ab06209ba8632dabbbe6f019fe5",
       "matched_units": 25,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 1
+    },
+    {
+      "path": "sensors/sensor_data_collector.py",
+      "original_payload_sha256": "027c8c6708be3dbf42b462286486753b914c6c1bd6ce7251a9d5cd2b9f871475",
+      "reconstructed_source_sha256": "82d59a8f40324b346c6dbb2e5abd1c2a10d49e634fd162811b3b79eb058344e0",
+      "matched_units": 26,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1

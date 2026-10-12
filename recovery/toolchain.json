@@ -1,8 +1,8 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "05dc198cfc6771c083f5efc357ee0bc0b88abeed",
-    "version": "0.4.12-einstein.1"
+    "commit": "6828251470e9a495c2d909c1350fabc1b91cfb2d",
+    "version": "0.4.13-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
@@ -12,12 +12,12 @@
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 103,
-    "unpacker_passes": 102,
+    "unpacker_test_cases": 107,
+    "unpacker_passes": 106,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 34,
     "backend_behavior_tests_passed": 20,
-    "selected_module_behavior_tests_passed": 43,
+    "selected_module_behavior_tests_passed": 47,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -47,10 +47,16 @@
       "threshold_current_slot_decisions": 288,
       "heatpump_mapping_scenarios": 7,
       "sun_gate_cases": 30,
-      "forecast_reader_scenarios": 24
+      "forecast_reader_scenarios": 24,
+      "sensor_state_and_startup_scenarios": 11,
+      "panel_calibration_and_empty_scenarios": 4,
+      "astronomy_geometry_cases": 12,
+      "astronomy_cache_hour_rows": 24,
+      "astronomy_production_window_cases": 4,
+      "statistics_database_scenarios": 5
     },
-    "complete_readable_module_matches": 44,
-    "complete_readable_module_code_units": 810,
+    "complete_readable_module_matches": 48,
+    "complete_readable_module_code_units": 960,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 9,
@@ -61,8 +67,8 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38197842164",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38197842149",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38199696932",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38199696926",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975829",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975770"
     },
@@ -77,6 +83,12 @@
     "previous_ci_terminal_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38195323418",
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38195323420",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975829",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975770"
+    },
+    "previous_ci_result_scopes": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38197842164",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38197842149",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975829",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38192975770"
     }

@@ -260,10 +260,10 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **12,875 matched units out of 14,291** and
-  **49 complete module matches**. Forty-four readable sources (810 code units) are published
+- The latest full audit reports **13,094 matched units out of 14,291** and
+  **51 complete module matches**. Forty-eight readable sources (960 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
-  evidence in `recovery/verified-manifest.json`. All 44 published sources have undergone the
+  evidence in `recovery/verified-manifest.json`. All 48 published sources have undergone the
   readability refactor and pass complete module-tree comparisons. Current
   full-scope coverage and remaining failures are in `recovery/progress.json`.
 - Readability cleanup now also covers the coordinator helpers and both Kalman
@@ -591,3 +591,67 @@ Forty-four whole readable modules (810 units) are published. Five other complete
 candidate modules still need readability cleanup, and full source fidelity
 still has **1,123 instruction and 293 exception-table mismatches**. The complete
 objective remains unachieved and active. No recovered source has been deployed.
+
+## Proven result-return exception scopes
+
+Unpacker **0.4.13-einstein.1**, commit
+`6828251470e9a495c2d909c1350fabc1b91cfb2d`, retains backend
+**0.6.7-einstein.1** and the existing verification rules. Its regression suite
+has **106 passes in 107 cases**, with the documented legacy native expected
+failure. The modern recovery path covers that legacy case. The source-recovery,
+native build and workflow-security checks pass on GitHub; links are recorded in
+`recovery/toolchain.json`.
+
+An otherwise matching decompiled function can put result construction after its
+`try`/`except`, although the original exception handler also covers that work.
+That changes observable behavior: conversion, indexing and formatting errors
+escape the candidate instead of reaching the original fallback. A matching
+instruction list alone cannot prove this code equivalent.
+
+`restore_try_return_scope` considers only uniquely identified named functions
+whose instructions and signatures already match and whose remaining failure is
+the exception table. When a final return immediately follows a try statement
+with handlers and without `else` or `finally`, it tentatively moves the return
+into the try body. It accepts the edit only after the full function comparison
+proves matching instructions, signatures and exception coverage, including
+handler targets, depth and `lasti`. Unproven changes are reverted. A final
+comparison ensures every previously matching unit remains a match. The pass
+is idempotent and does not broaden the verifier's whitelist.
+
+Owned fixtures compare normal and missing-key results, handled access and
+conversion errors, unhandled errors, coroutine failure paths and cancellation.
+Negative cases retain already correct outside returns and finally blocks, and
+reject changed literals, calls and handler types. Some conditional returns
+still fail because their precise protected return layout differs. Moving them
+inside is insufficient; those failures remain visible rather than being counted
+as recovered.
+
+A fresh full CLI run accepts **219** return-scope repairs. All **274** exported
+bytecode trees validate and all **274** source candidates compile. The same
+**206** candidates report structural completeness, which is not semantic proof.
+The composite audit reaches **13,094 / 14,291** matching units and **51** complete
+module trees, with **219 new matches and zero prior matches lost** against the
+terminal-return checkpoint. Raw generation has **13,089** matches. The existing
+two proven body overrides still recover three otherwise omitted source units;
+they are validated before insertion and preserve their callers' headers.
+
+Four additional whole modules are now readable and published: the sensor data
+collector (26 units), panel-group calculator (52), astronomy cache (38) and GPM
+statistics store (34). Cleanup removes inert marker expressions and gives
+intermediate quantities descriptive names while preserving public names,
+docstrings, constants and verified control flow. The astronomy and statistics
+modules became complete through the scope repair; the other two were complete
+candidates from the preceding checkpoint.
+
+Paired checks cover sensor parsing and availability, startup polling and
+timeouts, panel calibration/snow/shares, astronomical geometry, cached hourly
+and panel-group rows, production windows, statistics queries and retention
+parameters, read/write failures, fallback values and cancellation. Every source
+module receives its complete static proof before a selected class is built with
+owned dependency stand-ins. The application suite has **47 passing methods**;
+no integration module or native PyArmor runtime is imported.
+
+Published readable sources now total **48 whole modules / 960 code units**.
+Three complete candidates still need readability cleanup. Full fidelity still
+has **1,123 instruction and 74 exception-table mismatches**. The full scope and
+goal remain unchanged and active; no recovered code has been deployed.

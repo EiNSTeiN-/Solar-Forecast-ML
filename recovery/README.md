@@ -34,6 +34,10 @@ platform with controlled globals and explicit dependency stand-ins. Further
 checks cover tariff windows/thresholds, battery integration, invoice validation,
 forecast regeneration/readers, astronomical gating, heat-pump source resolution,
 capability gates and isolated dashboard/initialization trees.
+Sensor collection/startup, panel calibration and snow, astronomy cache rows and
+production windows, and price-statistics storage are also compared, including
+handled database failures and cancellation. The current checkpoint publishes
+48 readable whole modules and passes 47 selected application test methods.
 Known defaults for
 pure functions are supplied explicitly. They do not import Home Assistant, an
 integration module, or the native PyArmor runtime. Existing merge mutation
