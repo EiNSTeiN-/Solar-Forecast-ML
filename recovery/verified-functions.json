@@ -53,6 +53,32 @@
       "retain_in_candidate": true,
       "reason": "Reconstructed complete function tree from disassembly, including its original handlers and nested functions. Its containing module remains incomplete.",
       "behavior_input_cases": 14
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/ems.py",
+      "unit_path": "<module>/EMSManager#1/_gpm_coordinator#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/core/ems_coordinator.py",
+      "original_payload_sha256": "a378dffb9fdb5d72cc7247e79e41c5eda6a6664e1b0c44bb1de089044acca4f1",
+      "reconstructed_source_sha256": "9cfb44544dc0b3b20286c5571694df23289aa08b30ac98005f7aa0d1e495da02",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 11,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable coordinator lookup; the generic loop-guard parser now recovers it directly. Its containing EMS module remains incomplete. No override or extra corpus count is used."
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/common.py",
+      "unit_path": "<module>/_get_stats_gpm_coordinator#1",
+      "source_path": "verified_functions/extra_features/sfml_stats/api/stats_gpm_coordinator.py",
+      "original_payload_sha256": "454f6baf4ee1003a7f057d449c2721b028e87356d04214ca9a79e0db2b65c59c",
+      "reconstructed_source_sha256": "1274dc1038011d4f3ddcc6d2b0b4a42ab366f87e8555371a599489eaf684eb86",
+      "matched_units": 1,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_input_cases": 12,
+      "retain_in_candidate": false,
+      "reason": "Independently verified readable stats coordinator lookup, including the missing-HASS guard. The generic parser recovers it directly; its API module remains incomplete. No override or duplicate corpus count is used."
     }
   ]
 }

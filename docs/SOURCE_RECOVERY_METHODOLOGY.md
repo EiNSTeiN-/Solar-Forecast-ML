@@ -260,7 +260,7 @@ process's zero exit code must never be interpreted as a fidelity pass.
   pass four test methods covering 409 bounded synthetic input cases against
   the original code. The test instantiates only these matched pure functions
   with controlled globals; it does not import an integration or native runtime.
-- The latest full audit reports **13,213 matched units out of 14,291** and
+- The latest full audit reports **13,215 matched units out of 14,291** and
   **55 complete module matches**. Fifty-five readable sources (1,161 code units) are published
   under `recovery/verified_units/`, with original and reconstructed SHA-256
   evidence in `recovery/verified-manifest.json`. All 55 published sources have undergone the
@@ -871,3 +871,68 @@ The previous **55 readable whole modules / 1,161 units** remain verified.
 Full source fidelity still has **1,001 instruction** and **77 exception-table**
 failures. The full 274-module goal remains active and unfinished; no recovered
 source has been deployed to Home Assistant.
+
+## Independent lookup guards and corpus-retention checkpoint
+
+Backend **0.6.10-einstein.1**, commit
+`0b6f432707f7a7a5167e1876d23350cfed71d920`, repairs a lookup method with two
+independent rejection guards. The old parser bounded the first guard's success
+suite by the second guard's back edge. It then emitted the return outside that
+suite, so a rejected non-dictionary row could return an unbound local. An owned
+ordinary fixture reproduces UnboundLocalError without PyArmor involvement.
+
+The accepted rule requires one rejection back edge to the current for-loop
+head, an unprotected code unit, assignment of a local in the success span, a
+later independent None check of that same local, and a return of that local.
+Inline comprehensions, nested while loops and other suites retain their existing
+handling. The parser emits an explicit continue guard rather than inferring an
+overlong success suite. Negation preserves the original comparison operator;
+folding `<` into `>=` would change NaN and user comparison hooks. None-identity
+guards retain their dedicated spelling. Owned checks cover invalid and missing
+rows, false-valued coordinators, getter order, exact instruction/exception bytes,
+NaN, custom comparison operators and truth conversion that must not run.
+All **27** backend behavior methods and **34** Rust tests pass.
+
+The broader initial trial is rejected evidence, not a published recovery
+checkpoint. Applying this conversion to general guards lost **112** raw matches
+while gaining 26, with protected-region failures especially visible. The small
+owned fixture and green CI were insufficient to justify that change. The bounded
+rule retains every baseline raw and composite match. The verifier's handler-map
+rules are unchanged. Separate trials that move conversion/timezone returns into
+empty try bodies still fail exact exception coverage; they remain unaccepted.
+
+Unpacker **0.4.17-einstein.1**, commit
+`5270c12f06938de52fd4970d5e2b9056fa19d2d7`, pins the accepted backend. Its source
+normalization and native exporter are unchanged from the attribute-callable
+checkpoint. **119 of 120** unpacker cases pass, with the same documented legacy
+native expected failure. Current CI evidence is recorded in `recovery/toolchain.json`.
+
+Source regeneration reuses the unchanged **274** verified full-CLI exports and
+sequence headers, invoking the normal recover API for every module. Four private
+processes complete this CPU-heavy pass in **117.1 seconds**; each worker checks
+that its export SHA-256 still equals the original. This avoids repeated native
+decryption while retaining full scope. Both source and input audits still run
+for every module; copied source candidates are never counted as a regeneration.
+The prior full native/CLI export checkpoint remains the bytecode evidence.
+
+The final audit reaches **13,215 / 14,291** composite matches and **55** complete
+module trees. Raw output has **13,209** matches and **54** complete trees. The
+transition adds **two** lookup units, with **zero** lost matches in both reports:
+the EMS coordinator lookup and the stats API's coordinator lookup. All **274**
+exports validate and all **274** generated sources compile; structural
+completeness remains 206 and must not be equated with source fidelity.
+
+Both lookup units are also published as readable isolated functions. The EMS
+class shell and both containing modules are not claimed complete. Each receives
+full unit proof. Four application test methods cover **23** input/error scenarios,
+including missing HASS, repeated context reads, false results, getter order and
+unhandled errors. The generic parser now recovers both, so neither receives an
+override or duplicate corpus count. There are now **six** isolated function
+source files proving **eleven** distinct units; the earlier two retained body
+overrides remain unchanged.
+The full selected application suite passes **63 methods**, alongside the seven
+readable generator units and **55 readable whole modules / 1,161 units**.
+
+Remaining fidelity failures are **999 instruction** and **77 exception-table**
+units. The complete 274-module objective remains active and unachieved.
+No recovered source has been deployed to Home Assistant.

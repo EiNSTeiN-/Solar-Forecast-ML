@@ -1,13 +1,13 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "cf7a9bae8555978552095aadfbaeb9a56cfaaf7f",
+    "commit": "5270c12f06938de52fd4970d5e2b9056fa19d2d7",
     "version": "0.4.17-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
-    "commit": "e64d28965ae62b7421670f672fdb6d6c0f4ddb2c",
-    "version": "0.6.9-einstein.1"
+    "commit": "0b6f432707f7a7a5167e1876d23350cfed71d920",
+    "version": "0.6.10-einstein.1"
   },
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
@@ -16,8 +16,8 @@
     "unpacker_passes": 119,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 34,
-    "backend_behavior_tests_passed": 24,
-    "selected_module_behavior_tests_passed": 59,
+    "backend_behavior_tests_passed": 27,
+    "selected_module_behavior_tests_passed": 63,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -67,13 +67,16 @@
       "visibility_source_priority_cases": 7,
       "cloud_transmission_cases": 54,
       "isolated_generator_behavior_pairs": 37,
-      "generator_getter_stopiteration_error_paths": 1
+      "generator_getter_stopiteration_error_paths": 1,
+      "isolated_ems_coordinator_cases": 11,
+      "negated_loop_comparison_nan_cases": 5,
+      "isolated_stats_coordinator_cases": 12
     },
     "complete_readable_module_matches": 55,
     "complete_readable_module_code_units": 1161,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
-    "independently_verified_readable_function_units": 9,
+    "independently_verified_readable_function_units": 11,
     "previous_ci": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38187881244",
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38187881252",
@@ -81,13 +84,13 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38252499002",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38252498977",
-      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627554",
-      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627170"
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38258152444",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38258152597",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38258149133",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38258148970"
     },
     "retained_definition_count": 2,
-    "independently_verified_source_files": 4,
+    "independently_verified_source_files": 6,
     "previous_ci_shared_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193009204",
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193008847",
@@ -126,6 +129,19 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38242601601"
     },
     "independently_verified_generator_units": 7,
-    "independently_verified_generator_source_files": 2
+    "independently_verified_generator_source_files": 2,
+    "previous_ci_before_loop_guards": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38252499002",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38252498977",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627554",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627170"
+    },
+    "source_generation": {
+      "stage": "loop-guards-03",
+      "method": "recover API for all unchanged verified full-CLI exports",
+      "private_worker_processes": 4,
+      "exports_unchanged": true,
+      "summary_sha256": "c6b0d49543abd9fbacd52efdcb15fd383a89ef53cfac234890f00677660b0431"
+    }
   }
 }
