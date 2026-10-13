@@ -470,7 +470,7 @@
       "matched_units": 79,
       "reference_units": 79,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ModelCandidateShadowHandler#1/capture_morning_run#1"
       ],
@@ -586,7 +586,7 @@
       "matched_units": 80,
       "reference_units": 80,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ShadowPatternLearner#1/_get_shadow_data_for_date#1",
         "<module>/ShadowPatternLearner#1/_recalculate_repaired_group_patterns#1",
@@ -733,7 +733,7 @@
       "matched_units": 80,
       "reference_units": 80,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_exact_rounded_partition#1"
       ],
@@ -3835,7 +3835,7 @@
       "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/NotificationService#1/initialize#1",
         "<module>/NotificationService#1/show_startup_success#1"

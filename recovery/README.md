@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-139 readable whole modules (8,276 nested units) and passes 206 selected
+143 readable whole modules (8,573 nested units) and passes 206 selected
 test methods (196 application checks and ten source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -798,6 +798,36 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 Telemetry names keep the original stamp-learning and pruning boundaries, quantile parameters and capture routes. Consumer views preserve config/read/entity resolver ordering and actual Recorder and heating imports. Energy AI observation names distinguish rain counters/rates, fog confidence, per-group state and radiation versus production ratios; cancellation, notifications and SQL remain unchanged. Root-authored DEV-mode names expose canonical payloads, signatures, install hashes, expiry listeners and admin services; all original authorization and validation branches remain intact. A separate nonexecuting naming audit of the first 135 published modules finds no remaining opaque non-parameter bindings.
+
+The previously passed206-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable shadow learning, radiation ensemble, candidate shadowing and notifications
+
+Root-authored source names **526 bindings across
+116 actual scopes**, exposing **297
+already-proved units**. It removes90 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**143 modules /8,573 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `data/data_shadow_pattern_learning.py` | 80 | 181 | 32 |
+| `data/data_weather_radiation_ensemble.py` | 80 | 125 | 31 |
+| `data/data_model_candidate_shadow.py` | 79 | 164 | 37 |
+| `services/service_notification.py` | 58 | 56 | 16 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Shadow-pattern learning preserves the singleton declaration and independently owned generators. Radiation ensemble names expose confidence residuals, provider alignment, source renormalization, radiation partition and Kalman bias without changing original calculations or gates. Candidate-shadow names distinguish serving and trial models and retained evaluation records. Root-authored notification names distinguish message sections, percentage values, weather measurements and snow-depth estimates while keeping original options, notification IDs, texts, dispatch order and exception behavior. Full proofs run after every formatting pass; zero additional corpus match credit is claimed.
 
 The previously passed206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or

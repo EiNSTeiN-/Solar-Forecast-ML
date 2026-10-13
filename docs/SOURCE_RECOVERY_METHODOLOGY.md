@@ -2973,3 +2973,33 @@ Telemetry names keep the original stamp-learning and pruning boundaries, quantil
 The previously passed206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable shadow learning, radiation ensemble, candidate shadowing and notifications
+
+Root-authored source names **526 bindings across
+116 actual scopes**, exposing **297
+already-proved units**. It removes90 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**143 modules /8,573 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `data/data_shadow_pattern_learning.py` | 80 | 181 | 32 |
+| `data/data_weather_radiation_ensemble.py` | 80 | 125 | 31 |
+| `data/data_model_candidate_shadow.py` | 79 | 164 | 37 |
+| `services/service_notification.py` | 58 | 56 | 16 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Shadow-pattern learning preserves the singleton declaration and independently owned generators. Radiation ensemble names expose confidence residuals, provider alignment, source renormalization, radiation partition and Kalman bias without changing original calculations or gates. Candidate-shadow names distinguish serving and trial models and retained evaluation records. Root-authored notification names distinguish message sections, percentage values, weather measurements and snow-depth estimates while keeping original options, notification IDs, texts, dispatch order and exception behavior. Full proofs run after every formatting pass; zero additional corpus match credit is claimed.
+
+The previously passed206-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

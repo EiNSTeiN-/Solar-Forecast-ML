@@ -200,6 +200,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "data/data_model_candidate_shadow.py",
+      "original_payload_sha256": "6ecd812f4bdf4528cc6b6f919a32fa2c5eacb4a7196b7a6c7f52f82f5dcecb0a",
+      "reconstructed_source_sha256": "c09bb1b3866b7f4b9000f2e876a9b10703a6907220ac78010e9028d4587438f1",
+      "matched_units": 79,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "data/data_model_promotion_policy.py",
       "original_payload_sha256": "af8b958c4086471d9ffcf399d350e65fa5bd95429fe37ec8d9b231e1de800422",
       "reconstructed_source_sha256": "943594c339d1a63752ac64a1bbb045c33616c09f7cfe3687163b2f4cd625f485",
@@ -234,6 +243,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 2
+    },
+    {
+      "path": "data/data_shadow_pattern_learning.py",
+      "original_payload_sha256": "bdf00195228949dd7e27f2c19632f9493e580882df555ba16d675c1831cc6fdf",
+      "reconstructed_source_sha256": "411a58f114acc899e40044f3ee1ee5f13b5d6454541126145b445f2b39d777cd",
+      "matched_units": 80,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "data/data_validator.py",
@@ -276,6 +294,15 @@
       "original_payload_sha256": "357bb24551d8d947646f35cd384c737a22ef0218ee5c93e74aadddc21826ffab",
       "reconstructed_source_sha256": "7f47df94b2ec52e99f49e344aef8dcd21a4a9356c1157ff9fed69445f2ae7709",
       "matched_units": 43,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "data/data_weather_radiation_ensemble.py",
+      "original_payload_sha256": "31401d9e63215a8f4ed707ab39e5a2ad210a81fa301b1fb0ba4a3e67e31a7fd3",
+      "reconstructed_source_sha256": "4781524fa6b59130f40d22de3b99e8e3858170ed6b95932afdf98826c8ad631e",
+      "matched_units": 80,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -1244,6 +1271,15 @@
       "behavior_tests": 2
     },
     {
+      "path": "services/service_notification.py",
+      "original_payload_sha256": "980508cc1e0db614e9ab6c4fa833d0120b977aae9b81723a07d9729f0401eb41",
+      "reconstructed_source_sha256": "829c927f13a065b2f9bb43ee0107406af2e0c2433c6d1927429e604e547c20ef",
+      "matched_units": 58,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "services/service_repair_tool.py",
       "original_payload_sha256": "b1888cef5289e37da90999668ef058ce8dee18dd089ba1b04f5c40c79142605d",
       "reconstructed_source_sha256": "60b183a6bcd74eef5df5472dce7d52706d87690ee692ae3719fd8438f727a6db",
@@ -1254,5 +1290,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 8276
+  "total_matched_units": 8573
 }
