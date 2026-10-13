@@ -1,9 +1,9 @@
 {
-  "previous_stage": "owner-recipes-07",
-  "current_stage": "promoted-line-layout-tools-01",
-  "new_matching_units": 1,
+  "previous_stage": "promoted-line-layout-tools-01",
+  "current_stage": "promoted-asymmetric-tools-01",
+  "new_matching_units": 3,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 1,
+  "raw_new_matching_units": 3,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
   "source_repair_gains": 0,
@@ -18,12 +18,14 @@
   "verified_shared_try_fragments": 140,
   "verified_definition_overrides": 352,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13926,
+  "raw_decompiler_matched_units": 13929,
   "raw_all_units_match_modules": 138,
   "manually_reconstructed_candidate_matched_units": 14269,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
-    "extra_features/sfml_stats/api/smart_charging.py::<module>/_forecast_price_for_hour#1"
+    "data/json_migration.py::<module>/JsonMigrator#1/_count_entries#1",
+    "extra_features/solar_forecast_eai/data/json_migration.py::<module>/JsonMigrator#1/_count_entries#1",
+    "extra_features/solar_forecast_eai/weather_station_adapter.py::<module>/_state_timestamp#1"
   ],
   "rejected_intermediate_stage": {
     "stage": "investigated-repairs-01",
@@ -35,7 +37,9 @@
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
   "new_complete_candidate_modules": [
-    "extra_features/sfml_stats/api/smart_charging.py"
+    "data/json_migration.py",
+    "extra_features/solar_forecast_eai/data/json_migration.py",
+    "extra_features/solar_forecast_eai/weather_station_adapter.py"
   ],
   "new_readable_modules": [],
   "verified_coupled_statement_shapes": 79,
@@ -51,7 +55,7 @@
   "source_compilation_context_files": 0,
   "newly_proved_owner_tree_units": 0,
   "isolated_distinct_proved_units": 661,
-  "generic_decompiler_gains": 1,
+  "generic_decompiler_gains": 3,
   "rejected_async_normal_exit_checkpoint": {
     "stage": "async-normal-exits-01",
     "raw_gained": 18,

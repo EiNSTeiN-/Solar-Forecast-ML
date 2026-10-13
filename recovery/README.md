@@ -37,10 +37,10 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-127 readable whole modules (7,149 nested units) and passes 203 selected
-test methods (196 application checks and seven source/coverage checks). The full
-corpus has 260 completely matched candidate modules and 14,270/14,291 matching
-units; 21 units remain. Candidate fidelity
+127 readable whole modules (7,149 nested units) and passes 206 selected
+test methods (196 application checks and ten source/coverage checks). The full
+corpus has 263 completely matched candidate modules and 14,273/14,291 matching
+units; 18 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -660,3 +660,29 @@ The shared API names clarify release integrity paths, client addresses and netwo
 The previously passed203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Promoted asymmetric return joins
+
+Unpacker **0.4.36** is promoted after fresh complete source generation for all274
+unchanged payloads in1899.8seconds, with zero API-generation reuse. Its directed
+false-arm/whole-expression folds and multiline layout recover both JSON count
+readers and the timestamp adapter without changing their work. Raw coverage is
+**13,929/14,291 /138 complete raw modules**. Frozen106-module and current124-module
+overlays independently reach **14,273/14,291 /263 complete candidates**. Every
+previous matching unit and complete module is retained: three gains, zero losses.
+All274 sources compile. Comparison rules and native0.6.30 stay unchanged.
+
+Black preserves every old and new match in the three targeted raw modules;
+their other incomplete raw neighbors remain unclaimed. Main-branch CI passes219
+unpacker cases (218passes, one existing expected failure), C++ builds and Actions
+security. The separately named Regression Test workflow is skipped. The full
+selected component suite passes206 methods in137.636seconds against .36 and the
+121-module readable snapshot; later naming-only publications have complete
+static proofs and separate owned controls.
+
+**Eighteen units remain strict failures**: seventeen real coroutine-return
+coverage gaps and the WeatherExpert duplicated terminal rethrow. Research views
+and owned tests document them; no new comparator variance is applied or credited.
+See the coroutine and terminal-layout reports. These failures and unfinished
+readability work keep the overall recovery goal active.

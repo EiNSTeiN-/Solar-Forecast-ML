@@ -452,3 +452,29 @@ cases (215passes and one existing expected failure), C++ builds and Actions
 security checks. The workflow named Regression Test is skipped and is not
 counted as passed. The three newly proved .36 return joins are a separate
 development checkpoint until their fresh274-module gate finishes.
+
+
+## Promoted asymmetric return joins
+
+Unpacker **0.4.36** is promoted after fresh complete source generation for all274
+unchanged payloads in1899.8seconds, with zero API-generation reuse. Its directed
+false-arm/whole-expression folds and multiline layout recover both JSON count
+readers and the timestamp adapter without changing their work. Raw coverage is
+**13,929/14,291 /138 complete raw modules**. Frozen106-module and current124-module
+overlays independently reach **14,273/14,291 /263 complete candidates**. Every
+previous matching unit and complete module is retained: three gains, zero losses.
+All274 sources compile. Comparison rules and native0.6.30 stay unchanged.
+
+Black preserves every old and new match in the three targeted raw modules;
+their other incomplete raw neighbors remain unclaimed. Main-branch CI passes219
+unpacker cases (218passes, one existing expected failure), C++ builds and Actions
+security. The separately named Regression Test workflow is skipped. The full
+selected component suite passes206 methods in137.636seconds against .36 and the
+121-module readable snapshot; later naming-only publications have complete
+static proofs and separate owned controls.
+
+**Eighteen units remain strict failures**: seventeen real coroutine-return
+coverage gaps and the WeatherExpert duplicated terminal rethrow. Research views
+and owned tests document them; no new comparator variance is applied or credited.
+See the coroutine and terminal-layout reports. These failures and unfinished
+readability work keep the overall recovery goal active.

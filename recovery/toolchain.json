@@ -1,9 +1,9 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "4d02856d9fe6f687b40e16031da036fd2f6ad91e",
-    "version": "0.4.35-einstein.1",
-    "tested_code_commit": "c5d257f2d2eb5e541a3d0c30aaa8d7441965282b"
+    "commit": "7f7267c05fbfa5d6c1c512451ee9ad6821fb1ee8",
+    "version": "0.4.36-einstein.1",
+    "tested_code_commit": "a6925356ae56606d83afdf265c9a3d67842135c7"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
@@ -13,12 +13,12 @@
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 216,
-    "unpacker_passes": 215,
+    "unpacker_test_cases": 219,
+    "unpacker_passes": 218,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 73,
-    "selected_module_behavior_tests_passed": 203,
+    "selected_module_behavior_tests_passed": 206,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -195,9 +195,9 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558116",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558191",
-      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558186",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38350738447",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38350738436",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38350738481",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
     },
@@ -734,7 +734,7 @@
       }
     },
     "stable_toolchain_unchanged": false,
-    "selected_suite_reuse": "The full selected suite passes203 methods in160.934seconds against the frozen .35 generation and106-module readable source snapshot:196application methods and7source/coverage methods. The subsequent six naming-only publications retain complete compiled trees under unchanged instruction/exception rules; every public source/hash/subtree proof passes. Their owned investigatory controls are separately reported, not counted as selected methods.",
+    "selected_suite_reuse": "The full selected suite passes206 methods in137.636seconds using the immutable .36 generation and121-module readable snapshot:196application methods and10source/coverage methods. Subsequent naming publications retain exact complete compiled trees. All current public source/hash/subtree proofs pass; no whole integration or armor runtime imports.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",
       "stage": "promoted-exit-tools-01",
@@ -828,8 +828,8 @@
       },
       "retention_passes": true
     },
-    "current_output_stage": "promoted-line-layout-tools-01",
-    "generic_source_api_sha256": "8a21b6e327872b73654d3fa407a688c612fe708dcf9ec5a261a615dc67c1e25b",
+    "current_output_stage": "promoted-asymmetric-tools-01",
+    "generic_source_api_sha256": "eb692c9a3de04c645b82e7be4e179b8740f736013eda8f4949cb9157d84b3730",
     "comparator_sha256": "cb3a4b32d5297125793926e8900e33093184706587006f7ecbf3ceb403d2e833",
     "previous_ci_before_promoted_exits": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000520",
@@ -1332,6 +1332,203 @@
       "removed_empty_artifacts": 27,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
+    },
+    "full_asymmetric_retention": {
+      "baseline": "promoted-line-layout-tools-01",
+      "stage": "promoted-asymmetric-tools-01",
+      "comparator_unchanged": true,
+      "raw": {
+        "previous": 13926,
+        "matched": 13929,
+        "gained": 3,
+        "lost": 0,
+        "whole_modules": 138,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [
+          [
+            "data/json_migration.py",
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/data/json_migration.py",
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/weather_station_adapter.py",
+            "<module>/_state_timestamp#1"
+          ]
+        ],
+        "new_complete_modules": []
+      },
+      "composite": {
+        "previous": 14270,
+        "matched": 14273,
+        "gained": 3,
+        "lost": 0,
+        "whole_modules": 263,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [
+          [
+            "data/json_migration.py",
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/data/json_migration.py",
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/weather_station_adapter.py",
+            "<module>/_state_timestamp#1"
+          ]
+        ],
+        "new_complete_modules": [
+          "data/json_migration.py",
+          "extra_features/solar_forecast_eai/data/json_migration.py",
+          "extra_features/solar_forecast_eai/weather_station_adapter.py"
+        ]
+      },
+      "retention_passes": true
+    },
+    "asymmetric_generation": {
+      "unpacker_commit": "a6925356ae56606d83afdf265c9a3d67842135c7",
+      "unpacker_version": "0.4.36-einstein.1",
+      "backend_version": "0.6.30-einstein.1",
+      "modern_backend_source_sha256": "eb692c9a3de04c645b82e7be4e179b8740f736013eda8f4949cb9157d84b3730",
+      "comparator_sha256": "cb3a4b32d5297125793926e8900e33093184706587006f7ecbf3ceb403d2e833",
+      "tool_source_sha256": "4b16664928dad2b160acc4cd8285c6c69fbe719bc8c4601e4cdbb738ff6e25ff",
+      "backend_binary_sha256": "5a996a886c06346a4e7a940d984ce527b773c00088c3ed2399b02672c661addc",
+      "source_overlay_baseline": "promoted-line-layout-tools-01",
+      "source_overlay_manifest_sha256": "99d97dbf7e2478003273abdb5e32aaf25d7c3285732f99e3fdf88733c1a935f5",
+      "source_overlay_functions_sha256": "db2726112d592d74de1d24ffe68e858a16fa5b4c089ce2007a30e30e8bedc070",
+      "original_exports_and_comparison_rules_unchanged": true,
+      "modules": 274,
+      "syntax_valid": 274,
+      "structurally_complete": 225,
+      "exports_unchanged": true,
+      "generation": "fresh complete source pipeline for all 274 modules; no API-generation reuse",
+      "reused_sources": 0,
+      "regenerated_sources": 274,
+      "selected_multiline_owners": 4,
+      "final_batch_seconds": 1899.8
+    },
+    "frozen_asymmetric_retention": {
+      "baseline": "promoted-line-layout-tools-01",
+      "stage": "asymmetric-return-joins-01",
+      "comparator_unchanged": true,
+      "raw": {
+        "previous": 13926,
+        "matched": 13929,
+        "gained": 3,
+        "lost": 0,
+        "whole_modules": 138,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [
+          [
+            "data/json_migration.py",
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/data/json_migration.py",
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/weather_station_adapter.py",
+            "<module>/_state_timestamp#1"
+          ]
+        ],
+        "new_complete_modules": []
+      },
+      "composite": {
+        "previous": 14270,
+        "matched": 14273,
+        "gained": 3,
+        "lost": 0,
+        "whole_modules": 263,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [
+          [
+            "data/json_migration.py",
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/data/json_migration.py",
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/weather_station_adapter.py",
+            "<module>/_state_timestamp#1"
+          ]
+        ],
+        "new_complete_modules": [
+          "data/json_migration.py",
+          "extra_features/solar_forecast_eai/data/json_migration.py",
+          "extra_features/solar_forecast_eai/weather_station_adapter.py"
+        ]
+      },
+      "retention_passes": true
+    },
+    "current_asymmetric_capture": {
+      "baseline": "promoted-line-layout-tools-01",
+      "raw_source_stage": "asymmetric-return-joins-01",
+      "full_pipeline_generation_reused_without_changes": true,
+      "source_api_sha256": "eb692c9a3de04c645b82e7be4e179b8740f736013eda8f4949cb9157d84b3730",
+      "comparator_sha256": "cb3a4b32d5297125793926e8900e33093184706587006f7ecbf3ceb403d2e833",
+      "source_manifest_sha256": "5a53868a52d12487a4ad845d7ac4df7a238fc99f294fe350cf6667a294f48486",
+      "source_functions_sha256": "db2726112d592d74de1d24ffe68e858a16fa5b4c089ce2007a30e30e8bedc070",
+      "current_readable_modules": 124,
+      "current_readable_units": 6853,
+      "raw_source_unchanged": true,
+      "full_current_composite_gate_required": true
+    },
+    "asymmetric_black_proof": {
+      "modules": [
+        {
+          "module_path": "data/json_migration.py",
+          "raw_matching_units": 131,
+          "all_prior_and_new_unit_paths_retained": true,
+          "new_generic_unit_paths": [
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          "formatted_source_sha256": "7ff337c982835b8c505da5efb332a5f08746dd9472b8a6e1fbfca98bffcde6ed",
+          "module_is_still_partial": true,
+          "vendor_modules_imported": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/data/json_migration.py",
+          "raw_matching_units": 133,
+          "all_prior_and_new_unit_paths_retained": true,
+          "new_generic_unit_paths": [
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          "formatted_source_sha256": "0706fdd240bd97ef4027fd22a78b5577fa6d1ae69f8d62cd025cc00de2d4fcce",
+          "module_is_still_partial": true,
+          "vendor_modules_imported": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/weather_station_adapter.py",
+          "raw_matching_units": 76,
+          "all_prior_and_new_unit_paths_retained": true,
+          "new_generic_unit_paths": [
+            "<module>/_state_timestamp#1"
+          ],
+          "formatted_source_sha256": "8f3b561de4bdba044ea6005010850d4be998640e2c1ef19c688b4df17e9032b0",
+          "module_is_still_partial": true,
+          "vendor_modules_imported": 0
+        }
+      ],
+      "comparison_rules_unchanged": true,
+      "full_274_module_gate_still_required": true
+    },
+    "previous_ci_before_asymmetric": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38350738447",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38350738436",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38350738481",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
     }
   }
 }
