@@ -2748,7 +2748,7 @@
       "matched_units": 20,
       "reference_units": 20,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 20
     },
     {
@@ -2784,7 +2784,7 @@
       "matched_units": 18,
       "reference_units": 18,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 18
     },
     {
@@ -3185,7 +3185,7 @@
       "matched_units": 18,
       "reference_units": 18,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 18
     },
     {
@@ -3357,7 +3357,7 @@
       "matched_units": 18,
       "reference_units": 18,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/RuleBasedForecastStrategy#1/_get_hour_factor#1",
         "<module>/RuleBasedForecastStrategy#1/calculate_forecast#1"

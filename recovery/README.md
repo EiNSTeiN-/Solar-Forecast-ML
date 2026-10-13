@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-248 readable whole modules (13,142 nested units) and passes 212 selected
+252 readable whole modules (13,216 nested units) and passes 212 selected
 test methods (196 application checks and sixteen source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -1340,6 +1340,36 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 Local names expose power integration and quality filtering, load/solar allocation, amortization projections and STATS repricing; frontend and shadow access/readiness gates; WebSocket subscription, polling and task lifetime; smart-charging energy, percent, cent-price and euro-cost quantities; main weather retrieval, row defaults, provenance and cache health; and EAI forecast-store persistence and sun-position contracts. Ordered captures, literal parameters, imports, schema keys and historical main/EAI differences are retained. The WebSocket proposal also removes opaque _recovered_ local names. Each root-authored whole module must pass complete instruction and exception-tree comparison after formatting, and all public source hashes/subtrees are checked again. Owned controls use inert HA, SQL, clock, task and network facades; no recovered module body or real integration I/O is executed.
+
+The previously passed 212-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable weather preparation, heating forecast and production fallback
+
+Root-authored source names **144 bindings across
+22 actual scopes**, exposing **74
+already-proved units**. It removes 72 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**252 modules / 13,216 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `forecast/forecast_weather_data_processor.py` | 18 | 23 | 5 |
+| `extra_features/solar_forecast_eai/forecast/forecast_weather_data_processor.py` | 18 | 21 | 5 |
+| `extra_features/solar_forecast_eai/forecast/forecast_orchestrator.py` | 20 | 56 | 8 |
+| `production/production_rule_based_strategy.py` | 18 | 44 | 4 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+The two weather processors retain their original distinct direct-radiation conventions, feature aliases, schema defaults and clipping behavior. Descriptive names expose EAI heating COP and temperature guards, lagged consumption, lock-aware three-day writes, source precedence and next-hour ceilings, while retaining the external solar_capacity keyword. Production names expose date partitions, solar-curve energy and cap/confidence calculation, including the existing current-yield-after-cap behavior and emergency fallback. Ordered captures, physical locals, literal parameters, imports, units and docstrings are preserved. Every module and descendant is compared under the same .37 instruction and exception rules after root formatting; all current public hashes and subtree proofs are then rechecked. Investigative behavior controls use owned clocks, calculators, locks and sensor facades, never real integration I/O.
 
 The previously passed 212-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
