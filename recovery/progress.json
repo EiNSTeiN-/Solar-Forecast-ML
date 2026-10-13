@@ -1114,7 +1114,7 @@
       "matched_units": 62,
       "reference_units": 62,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/GPMPricesView#1/get#1",
         "<module>/MonthlyTariffsView#1/get#1"
@@ -2539,7 +2539,7 @@
       "matched_units": 67,
       "reference_units": 67,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DailySummariesHandler#1/create_daily_summary#1"
       ],
@@ -3524,7 +3524,7 @@
       "matched_units": 75,
       "reference_units": 75,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/MorningRoutineHandler#1/_persist_daily_predictions#1",
         "<module>/MorningRoutineHandler#1/_verify_integrity#1",

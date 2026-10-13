@@ -3119,3 +3119,32 @@ The drift and Tiny LSTM modules expose training partitions, source intervals, mo
 The previously passed 208-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable morning forecasts, Energy AI daily summaries and billing views
+
+Root-authored source names **564 bindings across
+89 actual scopes**, exposing **204
+already-proved units**. It removes 117 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**159 modules / 9,668 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `production/production_morning_routine.py` | 75 | 272 | 30 |
+| `extra_features/solar_forecast_eai/data/data_daily_summaries.py` | 67 | 144 | 32 |
+| `extra_features/sfml_stats/api/billing_views.py` | 62 | 148 | 27 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Morning forecasting names retain ordered datetime/hour-midpoint captures, original lock/sunrise precedence, deduplication and hour-zero decisions, current-day candidate filtering, retry/cancellation and quarantine gates. Energy AI daily summaries keep residual energy distinct from exceptions and preserve mean-actual capture order, missing/zero observations, retained forecast/weather metrics and SQL payloads. Billing view names retain allocated fee, tariff, own-supply, export and import capture routing and original pricing/JSON/month validation. All complete root-formatted modules keep exact instruction and exception coverage; source-only naming earns zero new corpus matches.
+
+The previously passed 208-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

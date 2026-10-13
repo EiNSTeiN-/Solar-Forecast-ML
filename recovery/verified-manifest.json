@@ -524,6 +524,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/api/billing_views.py",
+      "original_payload_sha256": "8a25500c7ef8ab78d315b831b4c1692f227e83c74e0f9ff17c61c241dc3e477a",
+      "reconstructed_source_sha256": "2660535aeb9cec933cd922a118a0020e9607d638e385f400f21c8312e06e1cf0",
+      "matched_units": 62,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/api/common.py",
       "original_payload_sha256": "454f6baf4ee1003a7f057d449c2721b028e87356d04214ca9a79e0db2b65c59c",
       "reconstructed_source_sha256": "46156954e0584c3f10829afde839422c59797b92c8b0aba5221fcd962288251c",
@@ -911,6 +920,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/solar_forecast_eai/data/data_daily_summaries.py",
+      "original_payload_sha256": "eb4f95889e758b995b02844755d998149700ca97794e58a7f310b61e49be43ab",
+      "reconstructed_source_sha256": "2507c054089ec04aebf17f3201cddcadf3bd662b7c4cd407f005b83ffd3d227c",
+      "matched_units": 67,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/data/data_forecast_handler.py",
       "original_payload_sha256": "9b21ae0869f758b385d51691a229b7a1a6fa8ccee3b9fcafd2e7f19677f0b4d3",
       "reconstructed_source_sha256": "f9a4b5d8985dba0d2ab787bab1415d49d15d2aecdcdbdd416184265542e18780",
@@ -1280,6 +1298,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "production/production_morning_routine.py",
+      "original_payload_sha256": "cd8f005b5087e945185baf67614fda51f7efce809d3a42e693914eb82b742363",
+      "reconstructed_source_sha256": "bd328fabc26ebd7091683204f09682c081a22fdaf87e09574893a3ad49cd38cb",
+      "matched_units": 75,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "production/production_operational_reforecast.py",
       "original_payload_sha256": "524eeedb7def9bbd2dba27d57b68c7290ed5361aebe1d543b1be479483e9aa05",
       "reconstructed_source_sha256": "d311af41286cde11ceaab6a6ec5badd8bccca24aa2d97c0b5bfbb4b79ae68251",
@@ -1407,5 +1434,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 9464
+  "total_matched_units": 9668
 }

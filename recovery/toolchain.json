@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 156,
-    "complete_readable_module_code_units": 9464,
+    "complete_readable_module_matches": 159,
+    "complete_readable_module_code_units": 9668,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -2051,6 +2051,62 @@
       "renamed_bindings": 1009,
       "scoped_maps": 164,
       "removed_empty_artifacts": 126,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-22": {
+      "modules": [
+        {
+          "module_path": "production/production_morning_routine.py",
+          "matched_units": 75,
+          "scoped_maps": 30,
+          "renamed_bindings": 272,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "bd328fabc26ebd7091683204f09682c081a22fdaf87e09574893a3ad49cd38cb",
+          "docstring_values_restored_after_formatting": 1,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/data/data_daily_summaries.py",
+          "matched_units": 67,
+          "scoped_maps": 32,
+          "renamed_bindings": 144,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "2507c054089ec04aebf17f3201cddcadf3bd662b7c4cd407f005b83ffd3d227c",
+          "docstring_values_restored_after_formatting": 9,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/api/billing_views.py",
+          "matched_units": 62,
+          "scoped_maps": 27,
+          "renamed_bindings": 148,
+          "removed_empty_artifacts": 81,
+          "source_sha256": "2660535aeb9cec933cd922a118a0020e9607d638e385f400f21c8312e06e1cf0",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 159,
+      "readable_units": 9668,
+      "new_readable_modules": 3,
+      "new_readable_units": 204,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 564,
+      "scoped_maps": 89,
+      "removed_empty_artifacts": 117,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }
