@@ -3,15 +3,14 @@
     "protected_modules": 274,
     "bytecode_verified_modules": 274,
     "source_compiles_modules": 274,
-    "all_units_match_modules": 273,
+    "all_units_match_modules": 274,
     "reference_units": 14291,
-    "matched_units": 14290,
+    "matched_units": 14291,
     "input_files_unchanged": true,
     "vendor_modules_imported": 0,
     "behavioral_equivalence_verified": false,
     "unit_results": {
-      "normalized_bytecode_match": 14290,
-      "instructions": 1
+      "normalized_bytecode_match": 14291
     },
     "scopes": {
       "main": 99,
@@ -2799,8 +2798,8 @@
       "scope": "weather_fusion_ai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 108,
+      "all_units_match": true,
+      "matched_units": 109,
       "reference_units": 109,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
@@ -3311,12 +3310,15 @@
       "source_units": 37
     }
   ],
+  "complete_goal": true,
+  "public_complete_modules": 273,
+  "public_complete_units": 14261,
+  "private_complete_modules": 1,
+  "private_complete_units": 30,
   "partial_readability": {
-    "partial_contexts": 1,
-    "flat_matched_units": 108,
-    "strictly_unmatched_units": 1,
-    "fully_verified_subtree_units": 106,
-    "complete_module_accepted": false,
-    "new_corpus_matches": 0
+    "partial_contexts": 0,
+    "flat_matched_units": 0,
+    "strictly_unmatched_units": 0,
+    "fully_verified_subtree_units": 0
   }
 }

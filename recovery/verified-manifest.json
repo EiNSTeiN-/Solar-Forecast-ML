@@ -2097,6 +2097,17 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/weather_fusion_ai/weather_experts.py",
+      "original_payload_sha256": "ea66b9dd63f46952d74d43d49d3fdabf80697283b270a388e1e77e4e85ed71f7",
+      "reconstructed_source_sha256": "2a6d1bd7889ed21cab95a3af95e619bd0ec52aa9c33532021769d7a5226616e6",
+      "matched_units": 109,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0,
+      "verified_comparison_api": "0.4.39-einstein.1",
+      "terminal_rethrow_sharing_projections": 1
+    },
+    {
       "path": "forecast/forecast_orchestrator.py",
       "original_payload_sha256": "32b8a5cc3af8d304c0cc520523bf3b232079a01e35ae644b926667b5a54afd01",
       "reconstructed_source_sha256": "97fe943dc77378b44ae5a083dc4fdd60c58157f4c57b6a50dfaebc190b6785bf",
@@ -2479,8 +2490,10 @@
       "behavior_tests": 0
     }
   ],
-  "complete_goal": false,
-  "total_matched_units": 14152,
-  "current_comparison_api": "0.4.38-einstein.1",
-  "current_comparer_sha256": "193f0b91fd4cf2ca66fd203bdbb72f72910294a56dc974f4f378511d7a61d5b2"
+  "complete_goal": true,
+  "total_matched_units": 14261,
+  "current_comparison_api": "0.4.39-einstein.1",
+  "current_comparer_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f",
+  "separately_verified_private_modules": 1,
+  "separately_verified_private_units": 30
 }

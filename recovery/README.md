@@ -18,6 +18,14 @@ Private working directories contain the bytecode and sequence data needed to
 repeat static verification. Sequence headers contain cryptographic material;
 keep them, logs and vendor runtime binaries outside this repository.
 
+The full source recovery is complete: **274 modules / 14,291 nested units**
+compile and match under the documented normalization rules. Public readable
+source contains **273 modules / 14,261 units**; the remaining crypto module's
+30 units are verified privately. No nonparameter recovery identifiers or
+PyArmor markers remain in the accepted public source. The final ledger is
+[terminal-sharing-completion.json](terminal-sharing-completion.json).
+Earlier checkpoint sections below are retained as historical methodology.
+
 Run the selected pure-function behavior checks with a CPython 3.14 interpreter:
 
 ```bash
@@ -37,10 +45,10 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-272 readable whole modules (14,152 nested units). The full corpus has
-273 completely matched candidate modules and 14,290/14,291 matching units;
-only WeatherExpert._get_json remains. The latest selected-suite run is
-recorded in selected-suite-latest.json (214 methods). Candidate fidelity
+273 readable whole modules (14,261 nested units). The full corpus has
+274 completely matched candidate modules and 14,291/14,291 matching units.
+All 273 public modules contain 14,261 readable units. The latest selected-suite run is
+recorded in selected-suite-latest.json (216 methods). Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -1562,3 +1570,25 @@ is not ordinary source and receives no recovery credit. Tested structured
 exits and frame-stack variants do not supply an exact source recipe. See
 `recovery/wfa-astra-investigation.json`; the current result is not an
 impossibility claim or an approval to share terminals.
+
+
+## Final verification and completion
+
+All274 protected modules now have readable source compiling to the verified
+14,291-unit corpus under the documented whitelist. The final selected suite
+passes216 methods in192.761 seconds against a frozen273-module public snapshot;
+the separately retained private crypto module adds30 complete units. All239
+unpacker methods run successfully (238passes and one existing expected failure).
+Main and feature CI pass the Python3.14 recovery suite; main also passes build
+and security analysis. The legacy regression job is skipped, not counted as
+a pass. The unpacker version is0.4.39-einstein.1.
+
+The original exports and protected component files are unchanged. All existing
+source matches and complete modules are retained. Accepted public source has
+zero opaque nonparameter local scopes and zero PyArmor marker files. The
+complete274-module source set is assembled privately in the final checkpoint;
+273 modules are published under `recovery/verified_units`, and the crypto source
+is retained locally with its hash-only public ledger. Earlier incomplete
+compilation contexts are historical evidence and receive no additional count.
+This completes the bytecode, equivalent-source, and readability goals; it is
+not a whole Home Assistant runtime test or an integration deployment.

@@ -1,0 +1,128 @@
+{
+  "explicit_user_authorization": "Allow narrowly checked terminal sharing",
+  "comparison_api": "0.4.39-einstein.1",
+  "comparer_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f",
+  "adjacent_reraise_zero_only": true,
+  "identical_exact_dispatch_required": true,
+  "physical_ordered_disjoint_handler_tables_required": true,
+  "branch_and_handler_targets_relocated": true,
+  "per_instruction_dispatch_rebuilt": true,
+  "half_open_exception_boundaries_preserved": true,
+  "original_provenance_recorded": true,
+  "changed_operands_operations_coverage_and_handlers_rejected": true,
+  "owned_unpacker_regression_methods": 6,
+  "unpacker_test_methods": 239,
+  "unpacker_passes": 238,
+  "unpacker_existing_expected_failures": 1,
+  "owned_async_paired_cases": 13,
+  "owned_async_negative_controls": 2,
+  "protected_code_or_vendor_module_body_executed": false,
+  "complete_goal_achieved": true,
+  "public_complete_modules": 273,
+  "public_complete_units": 14261,
+  "private_complete_modules": 1,
+  "private_complete_units": 30,
+  "complete_corpus_units": 14291,
+  "complete_corpus_modules": 274,
+  "remaining_unmatched_units": 0,
+  "freeze": {
+    "stage": "terminal-sharing-01",
+    "comparison_api": "0.4.39-einstein.1",
+    "comparer_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f",
+    "source_generation_sha256": "eb692c9a3de04c645b82e7be4e179b8740f736013eda8f4949cb9157d84b3730",
+    "source_generation_changed": false,
+    "all_274_raw_generated_sources_and_exports_byte_identical": true,
+    "original_inputs_unchanged": true,
+    "all_prior_unit_paths_retained": true,
+    "normalizer_return_operation_dispatch_repaired": true,
+    "blanket_exception_coverage_relaxation": false,
+    "new_composite_gains": 1,
+    "remaining_strict_failures": 0,
+    "same_dispatch_terminal_sharing_explicitly_authorized": true,
+    "private_crypto_source_in_public_fork": false,
+    "vendor_modules_imported": 0,
+    "summary": {
+      "protected_modules": 274,
+      "bytecode_verified_modules": 274,
+      "source_compiles_modules": 274,
+      "all_units_match_modules": 274,
+      "reference_units": 14291,
+      "matched_units": 14291,
+      "input_files_unchanged": true,
+      "vendor_modules_imported": 0,
+      "behavioral_equivalence_verified": false,
+      "unit_results": {
+        "normalized_bytecode_match": 14291
+      },
+      "scopes": {
+        "main": 99,
+        "grid_price_monitor": 23,
+        "sfml_stats": 77,
+        "solar_forecast_eai": 64,
+        "weather_fusion_ai": 11
+      }
+    },
+    "raw_summary": {
+      "matched_units": 13930,
+      "all_units_match_modules": 138,
+      "reference_units": 14291
+    }
+  },
+  "retention": {
+    "baseline": "return-alias-cleanup-02",
+    "stage": "terminal-sharing-01",
+    "comparator_unchanged": false,
+    "comparator_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f",
+    "raw": {
+      "previous": 13930,
+      "matched": 13930,
+      "gained": 0,
+      "lost": 0,
+      "whole_modules": 138,
+      "lost_complete_modules": [],
+      "loss_paths": [],
+      "gained_paths": [],
+      "new_complete_modules": []
+    },
+    "composite": {
+      "previous": 14290,
+      "matched": 14291,
+      "gained": 1,
+      "lost": 0,
+      "whole_modules": 274,
+      "lost_complete_modules": [],
+      "loss_paths": [],
+      "gained_paths": [
+        [
+          "extra_features/weather_fusion_ai/weather_experts.py",
+          "<module>/WeatherExpert#1/_get_json#1"
+        ]
+      ],
+      "new_complete_modules": [
+        "extra_features/weather_fusion_ai/weather_experts.py"
+      ]
+    },
+    "retention_passes": true
+  },
+  "selected_suite": {
+    "tests_run": 216,
+    "failures": 0,
+    "errors": 0,
+    "expected_failures": 0,
+    "success": true,
+    "seconds": 192.761,
+    "readable_snapshot_modules": 273,
+    "readable_snapshot_units": 14261,
+    "source_api": "0.4.39-einstein.1",
+    "backend": "0.6.30-einstein.1",
+    "original_exports_unchanged": true,
+    "instruction_and_exception_criteria_changed": true,
+    "authorized_same_dispatch_terminal_sharing": true,
+    "comparer_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f",
+    "comparison_normalizer_return_dispatch_repaired": true,
+    "manifest_sha256": "d64202c4ce084b69bed9f1db22e34d195cb0d4f5f475ddf9fd42487af8363295",
+    "vendor_modules_imported": 0
+  },
+  "unpacker_main_commit": "ca8ded52dc40f6ddc1d62871638ea24d65669a5d",
+  "source_recovery_review_model": "gpt-6-astra"
+}

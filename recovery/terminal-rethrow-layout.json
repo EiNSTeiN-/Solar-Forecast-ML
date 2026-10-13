@@ -17,5 +17,8 @@
   "module_path": "extra_features/weather_fusion_ai/weather_experts.py",
   "unit_path": "<module>/WeatherExpert#1/_get_json#1",
   "owned_test_methods": 3,
-  "owned_behavior_pairs": 12
+  "owned_behavior_pairs": 12,
+  "historical_frozen_comparison_api": "0.4.38-einstein.1",
+  "current_candidate_accepted": true,
+  "superseded_by": "terminal-sharing-completion.json"
 }

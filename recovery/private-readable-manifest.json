@@ -21,8 +21,8 @@
     }
   ],
   "current_static_verification": {
-    "comparison_api": "0.4.38-einstein.1",
-    "comparer_sha256": "193f0b91fd4cf2ca66fd203bdbb72f72910294a56dc974f4f378511d7a61d5b2",
+    "comparison_api": "0.4.39-einstein.1",
+    "comparer_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f",
     "complete_units_verified": 30,
     "source_hash_unchanged": true,
     "public_key_material": false

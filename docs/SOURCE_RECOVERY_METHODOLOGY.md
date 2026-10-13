@@ -5,6 +5,14 @@ repository's noncommercial LICENSE and attribution requirements.
 
 ## Completion criteria
 
+The source recovery is complete: all **274 protected modules / 14,291 nested
+units** compile and match under the documented whitelist. Public readable
+source contains **273 modules / 14,261 units**; one crypto module with 30 units
+is retained privately and represented by a hash-only ledger. All original
+payloads remain unchanged. The final evidence is
+[terminal-sharing-completion.json](../recovery/terminal-sharing-completion.json).
+Later sections retain the earlier checkpoints as a record of the method.
+
 This project has three separate requirements: recover the bytecode, produce
 source whose compiled units match that bytecode under documented permitted
 differences, and refactor that source for readability without changing its
@@ -70,6 +78,18 @@ borrowed versus ordinary local-load selection, and fused local instructions.
 It recognizes a pure jump to a shared return terminator left by PyArmor's
 return epilogue. Keyword parameter names remain significant because callers
 can use them; global and attribute names remain significant.
+The .38 correction associates a projected coroutine return with its actual
+target's exact intrinsic cleanup route. It retains transfer provenance and
+rejects missing real-return cleanup and ambiguous handler priority.
+
+The user explicitly approved the .39 compiler-layout variance: adjacent
+`RERAISE 0` copies may share one terminal only with identical exact dispatch.
+Branch and handler destinations are relocated; exception coverage is rebuilt
+per retained instruction, preserving half-open boundaries. Changed operands,
+operations, coverage, handlers, and overlapping priority remain significant.
+Six unpacker regressions plus owned synchronous and asynchronous behavior
+controls validate this narrow rule. This allowance does not include arbitrary
+terminal removal or raw bytecode identity.
 CPython's compiler-generated class `__firstlineno__` header value is also
 location metadata. Only the exact class-header pattern is normalized. An
 explicit assignment to that attribute later in the class body remains
@@ -3733,3 +3753,25 @@ is not ordinary source and receives no recovery credit. Tested structured
 exits and frame-stack variants do not supply an exact source recipe. See
 `recovery/wfa-astra-investigation.json`; the current result is not an
 impossibility claim or an approval to share terminals.
+
+
+## Final verification and completion
+
+All274 protected modules now have readable source compiling to the verified
+14,291-unit corpus under the documented whitelist. The final selected suite
+passes216 methods in192.761 seconds against a frozen273-module public snapshot;
+the separately retained private crypto module adds30 complete units. All239
+unpacker methods run successfully (238passes and one existing expected failure).
+Main and feature CI pass the Python3.14 recovery suite; main also passes build
+and security analysis. The legacy regression job is skipped, not counted as
+a pass. The unpacker version is0.4.39-einstein.1.
+
+The original exports and protected component files are unchanged. All existing
+source matches and complete modules are retained. Accepted public source has
+zero opaque nonparameter local scopes and zero PyArmor marker files. The
+complete274-module source set is assembled privately in the final checkpoint;
+273 modules are published under `recovery/verified_units`, and the crypto source
+is retained locally with its hash-only public ledger. Earlier incomplete
+compilation contexts are historical evidence and receive no additional count.
+This completes the bytecode, equivalent-source, and readability goals; it is
+not a whole Home Assistant runtime test or an integration deployment.

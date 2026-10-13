@@ -1,158 +1,16 @@
 {
-  "scope": "Incomplete contexts: only listed maximal owner trees pass full instruction and exception proofs",
+  "scope": "No current incomplete contexts; older compilation contexts are historical evidence only",
   "complete_module_accepted": false,
-  "full_goal_complete": false,
-  "comparator_sha256": "193f0b91fd4cf2ca66fd203bdbb72f72910294a56dc974f4f378511d7a61d5b2",
-  "source_api": "0.4.38-einstein.1",
+  "full_goal_complete": true,
+  "comparator_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f",
+  "source_api": "0.4.39-einstein.1",
   "original_inputs_unchanged": true,
   "new_corpus_matches": 0,
-  "partial_contexts": 1,
-  "flat_matched_units": 108,
-  "strictly_unmatched_units": 1,
-  "fully_verified_subtree_units": 106,
-  "modules": [
-    {
-      "module_path": "extra_features/weather_fusion_ai/weather_experts.py",
-      "source_path": "verified_partial_units/extra_features/weather_fusion_ai/weather_experts.py",
-      "original_payload_sha256": "ea66b9dd63f46952d74d43d49d3fdabf80697283b270a388e1e77e4e85ed71f7",
-      "reconstructed_source_sha256": "664ea154c4af24ab8ec1c40c4358a17abf19d941023061e076909e14a58814c1",
-      "reference_units": 109,
-      "matched_units": 108,
-      "complete_module_accepted": false,
-      "full_module_runtime_ready": false,
-      "exact_baseline_matched_set_preserved": true,
-      "unmatched_shapes_and_names_unchanged": true,
-      "unmatched_units": [
-        {
-          "unit_path": "<module>/WeatherExpert#1/_get_json#1",
-          "reason": "instructions"
-        }
-      ],
-      "fully_verified_subtree_owners": [
-        {
-          "unit_path": "<module>/CloudType#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__init__#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#2",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/set_http_session#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#3",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/set_time_zone#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#4",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/_utc_now#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#5",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/_stored_timestamp#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#6",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/fetch_forecast#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#7",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/get_weather#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#8",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/is_enabled#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#9",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/_is_in_failure_cooldown#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#10",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/_mark_failure#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpert#1/__annotate__#11",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/OpenMeteoExpert#1",
-          "matched_units": 14
-        },
-        {
-          "unit_path": "<module>/BrightSkyExpert#1",
-          "matched_units": 14
-        },
-        {
-          "unit_path": "<module>/WttrInExpert#1",
-          "matched_units": 17
-        },
-        {
-          "unit_path": "<module>/PirateWeatherExpert#1",
-          "matched_units": 14
-        },
-        {
-          "unit_path": "<module>/__annotate__#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/classify_cloud_type#1",
-          "matched_units": 1
-        },
-        {
-          "unit_path": "<module>/WeatherExpertBlender#1",
-          "matched_units": 23
-        }
-      ],
-      "fully_verified_subtree_units": 106,
-      "neutral_unused_slot_owners": [],
-      "readability_refactored_matched_scopes_only": true,
-      "remaining_matched_opaque_name_scopes": 0,
-      "new_corpus_matches": 0
-    }
-  ],
+  "partial_contexts": 0,
+  "flat_matched_units": 0,
+  "strictly_unmatched_units": 0,
+  "fully_verified_subtree_units": 0,
+  "modules": [],
   "promoted_complete_modules": [
     "data/data_hourly_predictions.py",
     "data/data_ml_handler.py",
@@ -165,6 +23,6 @@
     "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
     "production/production_scheduled_tasks.py"
   ],
-  "current_comparison_api": "0.4.38-einstein.1",
-  "current_comparer_sha256": "193f0b91fd4cf2ca66fd203bdbb72f72910294a56dc974f4f378511d7a61d5b2"
+  "current_comparison_api": "0.4.39-einstein.1",
+  "current_comparer_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f"
 }

@@ -46,21 +46,22 @@
     "selected_suite_212_includes_both_generator_tests": true
   },
   "latest_selected_suite": {
-    "tests_run": 214,
+    "tests_run": 216,
     "failures": 0,
     "errors": 0,
     "expected_failures": 0,
     "success": true,
-    "seconds": 191.64,
-    "readable_snapshot_modules": 272,
-    "readable_snapshot_units": 14152,
-    "source_api": "0.4.38-einstein.1",
+    "seconds": 192.761,
+    "readable_snapshot_modules": 273,
+    "readable_snapshot_units": 14261,
+    "source_api": "0.4.39-einstein.1",
     "backend": "0.6.30-einstein.1",
     "original_exports_unchanged": true,
-    "instruction_and_exception_criteria_changed": false,
-    "comparer_sha256": "193f0b91fd4cf2ca66fd203bdbb72f72910294a56dc974f4f378511d7a61d5b2",
+    "instruction_and_exception_criteria_changed": true,
+    "authorized_same_dispatch_terminal_sharing": true,
+    "comparer_sha256": "90cebc36357e1932082ae0895a110a9c3352698a0fe69a595939d8615130ae0f",
     "comparison_normalizer_return_dispatch_repaired": true,
-    "manifest_sha256": "4397705e80a0c5349dc94575dbe10de059d0202d62c9b892be7fc6be988a720b",
+    "manifest_sha256": "d64202c4ce084b69bed9f1db22e34d195cb0d4f5f475ddf9fd42487af8363295",
     "vendor_modules_imported": 0
   }
 }

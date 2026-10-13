@@ -1,4 +1,4 @@
-"""Owned research controls; the production comparator remains strict."""
+"""Owned controls for the explicitly approved terminal-sharing variance."""
 from dataclasses import replace
 import os
 from pathlib import Path
@@ -63,19 +63,18 @@ class TerminalRethrowLayoutTests(unittest.TestCase):
         return next(value for value in compile_source(source, "owned-rethrow").co_consts
                     if isinstance(value, types.CodeType))
 
-    def test_strict_rejection_and_research_graph_equality(self):
+    def test_authorized_sharing_and_instruction_dispatch_graph_equality(self):
         split, shared = self.code(self.SPLIT), self.code(self.SHARED)
         strict = compare(split, shared)
-        self.assertFalse(strict["all_units_match"])
-        self.assertEqual(strict["entries"][0]["reason"], "instructions")
+        self.assertTrue(strict["all_units_match"])
+        self.assertEqual(len(canonical(split).terminal_rethrow_provenance), 1)
         self.assertEqual(terminal_view(canonical(split)), terminal_view(canonical(shared)))
 
     def test_work_operand_and_dispatch_changes_are_not_hidden(self):
         split, shared = canonical(self.code(self.SPLIT)), canonical(self.code(self.SHARED))
         extra_work = canonical(self.code(self.SPLIT.replace("            pass", "            flag")))
         self.assertNotEqual(terminal_view(extra_work), terminal_view(shared))
-        duplicate = next(i for i in range(1, len(split.instructions))
-                         if split.instructions[i] == split.instructions[i - 1] == ("RERAISE", 0))
+        duplicate = split.terminal_rethrow_provenance[0][1]
         changed = list(split.instructions)
         changed[duplicate] = ("RERAISE", 1)
         self.assertNotEqual(terminal_view(replace(split, instructions=tuple(changed))),

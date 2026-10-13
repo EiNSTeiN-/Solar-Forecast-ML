@@ -52,5 +52,9 @@
   "candidate_accepted": false,
   "new_corpus_gains": 0,
   "source_impossibility_claimed": false,
-  "protected_code_executed": false
+  "protected_code_executed": false,
+  "historical_static_investigation": true,
+  "current_candidate_accepted": true,
+  "accepted_by_explicit_terminal_sharing": true,
+  "completion_ledger": "terminal-sharing-completion.json"
 }
