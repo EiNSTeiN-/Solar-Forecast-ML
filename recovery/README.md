@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-132 readable whole modules (7,597 nested units) and passes 206 selected
+135 readable whole modules (7,962 nested units) and passes 206 selected
 test methods (196 application checks and ten source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -739,6 +739,35 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 Energy AI data-manager names distinguish power in kW from legacy database column names; the original hour-zero truthiness fallback and stored schemas remain intact. The weather precision tracker retains cloud, combined, expert, hourly and seasonal capture ordering, including cutoff before self, and preserves optional imported symbols while naming their local bindings. Both complete modules retain docstring values, parameters, instructions and exception coverage after formatting.
+
+The previously passed206-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable JSON migration twins and Energy AI weather station adapter
+
+Root-authored source names **1,089 bindings across
+143 actual scopes**, exposing **365
+already-proved units**. It removes9 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**135 modules /7,962 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/solar_forecast_eai/data/json_migration.py` | 145 | 449 | 53 |
+| `extra_features/solar_forecast_eai/weather_station_adapter.py` | 77 | 195 | 37 |
+| `data/json_migration.py` | 143 | 445 | 53 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Both JSON migration modules now distinguish persisted record types, sparse model indices, pending statements and transaction accounting, including generic _localN bindings restored by earlier reconstruction. Public lambda parameters and separately owned generator targets remain intact. The station adapter keeps Recorder imported symbols and eleven ordered captures intact. Root AST renaming is followed by the already-verified API .36 multiline-return layout pass before Black; full-module proof confirms both _count_entries owners and _state_timestamp retain exact instructions and exception coverage. Plain AST collapse remains a failing negative control. No comparator rule or original bytecode changed.
 
 The previously passed206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or

@@ -281,6 +281,15 @@
       "behavior_tests": 3
     },
     {
+      "path": "data/json_migration.py",
+      "original_payload_sha256": "1acfb273a215e2c3a37d8908ea2b4cfbc5ec22312596f2a61888b71ef09cb7a8",
+      "reconstructed_source_sha256": "d36526a3532747632479dd6a9d0914b1b717f011ed468cc902594f0c54b320e7",
+      "matched_units": 143,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "data/schema_sql.py",
       "original_payload_sha256": "d869f5b83237bcbad3fbc17bd9ae19cea207829c88febedbd1bf3f30dd984e7a",
       "reconstructed_source_sha256": "6be930eac101e0fe75ded8f3bfd8da76681fb1b8405fb5df7af8d76131043ab3",
@@ -866,6 +875,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/solar_forecast_eai/data/json_migration.py",
+      "original_payload_sha256": "96fe8fcaef7fd758eed482ed9799e824da8180eeb55b31db15c5e3aa9b87f1aa",
+      "reconstructed_source_sha256": "be165a8ce80821db0fbffb8754f639b6da80dfa335cd3c7f657214bd2ac92ee8",
+      "matched_units": 145,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/data/weather_types.py",
       "original_payload_sha256": "9781a6f3e9d6e33ebeb97b24a4b264ab4f34f36eaece35a6aff724f1d6ca1d68",
       "reconstructed_source_sha256": "7f449d98f07501e341b9dc20980fa1d1ba8bb5c2554142ff7694847759460ce4",
@@ -942,6 +960,15 @@
       "original_payload_sha256": "21562f9232a55bfd91e167602e82bf2c35198443df16901abd310a57abeae420",
       "reconstructed_source_sha256": "afcd369430f593f1a35570831d74d532cb78e0e594ed8a6d417b982d00fade20",
       "matched_units": 95,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/weather_station_adapter.py",
+      "original_payload_sha256": "8f1dd8cbb004e4a548a092580c402547fea6b1d81d32ba58c62f205c142146ba",
+      "reconstructed_source_sha256": "e0c773d9775135abc18656f4750e69d5393f9d83c07bf4a16f93e93b9fc191df",
+      "matched_units": 77,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -1191,5 +1218,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 7597
+  "total_matched_units": 7962
 }

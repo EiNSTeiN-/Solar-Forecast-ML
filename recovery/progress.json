@@ -761,7 +761,7 @@
       "matched_units": 143,
       "reference_units": 143,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/JsonMigrator#1/_migrate_astronomy_cache#1",
         "<module>/JsonMigrator#1/_migrate_coordinator_state#1",
@@ -2852,7 +2852,7 @@
       "matched_units": 145,
       "reference_units": 145,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/JsonMigrator#1/_migrate_coordinator_state#1",
         "<module>/JsonMigrator#1/_migrate_daily_forecasts#1",
@@ -3140,7 +3140,7 @@
       "matched_units": 77,
       "reference_units": 77,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_year_comparison#1"
       ],

@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 132,
-    "complete_readable_module_code_units": 7597,
+    "complete_readable_module_matches": 135,
+    "complete_readable_module_code_units": 7962,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1620,6 +1620,65 @@
       "renamed_bindings": 199,
       "scoped_maps": 46,
       "removed_empty_artifacts": 72,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-16": {
+      "modules": [
+        {
+          "module_path": "extra_features/solar_forecast_eai/data/json_migration.py",
+          "matched_units": 145,
+          "scoped_maps": 53,
+          "renamed_bindings": 449,
+          "removed_empty_artifacts": 0,
+          "source_sha256": "be165a8ce80821db0fbffb8754f639b6da80dfa335cd3c7f657214bd2ac92ee8",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/weather_station_adapter.py",
+          "matched_units": 77,
+          "scoped_maps": 37,
+          "renamed_bindings": 195,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "e0c773d9775135abc18656f4750e69d5393f9d83c07bf4a16f93e93b9fc191df",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [
+            "<module>/_state_timestamp#1"
+          ],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "data/json_migration.py",
+          "matched_units": 143,
+          "scoped_maps": 53,
+          "renamed_bindings": 445,
+          "removed_empty_artifacts": 0,
+          "source_sha256": "d36526a3532747632479dd6a9d0914b1b717f011ed468cc902594f0c54b320e7",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [
+            "<module>/JsonMigrator#1/_count_entries#1"
+          ],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 135,
+      "readable_units": 7962,
+      "new_readable_modules": 3,
+      "new_readable_units": 365,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 1089,
+      "scoped_maps": 143,
+      "removed_empty_artifacts": 9,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }
