@@ -37,8 +37,8 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-99 readable whole modules (2,587 nested units) and passes 192 selected
-test methods (189 application checks and three source-path checks). The full
+100 readable whole modules (2,637 nested units) and passes 196 selected
+test methods (193 application checks and three source-path checks). The full
 corpus has 233 completely matched candidate modules and 14,214/14,291 matching
 units; 77 units remain. Candidate fidelity
 and published readable source are counted separately.
@@ -299,3 +299,14 @@ files, covering515 distinct units;300 definitions are retained in candidates.
 The192 selected methods and their executed source inputs remain unchanged.
 Full static source/subtree/hash checks cover every new and existing entry.
 The raw decompiler and readable-whole-module totals remain unchanged.
+
+
+The CSV tariff importer is now readable, with its complete50-unit proof.
+Four application methods make130 paired comparisons covering CSV profiles,
+header detection, numeric formats, units, BOM/encoding, timezones, grouped
+hour prices, community weighting, malformed/old/future/empty rows, mappings,
+resource limits, restoration, correction writes, original price/source
+retention, daily statistics, revision increments, failures and cancellation.
+Only controlled dependencies and owned data/database fixtures execute after
+the full module proof. The selected suite now passes196 methods. This adds
+readability for an already matched module, with no additional corpus gain.

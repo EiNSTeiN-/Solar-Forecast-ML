@@ -2377,3 +2377,25 @@ All public source/input hashes and every listed owner/descendant proof pass.
 The192 passing selected methods and their executed source inputs are unchanged;
 new source units receive full static proofs rather than another behavior claim.
 The equivalent-source and readable-source goals remain incomplete.
+
+
+## Readable CSV tariff import
+
+The complete CSV module retains all50 instruction/exception proofs after
+naming headers, dialects, timestamps, prices, grouped rows, correction records,
+raw sources and revision fields. Each original local gets a distinct name;
+merging a comprehension temporary with a later local changes slots and is
+rejected by the proof. Existing function signatures, constants, defaults,
+annotations, error semantics and control-flow guards remain. Redundant-looking
+Continues retain the reference compiler's exception coverage where required.
+Black25.1.0 formats the result; no integration-module import is needed.
+
+Four paired methods cover130 scenarios: profile/header/encoding detection,
+localized numbers and units, UTC/local/invalid timezone resolution, empty,
+invalid, old and future rows, hour averaging and community weighting, custom
+mapping and limits, undo sources, correction ordering, daily statistics and
+revision updates, query/write/commit failures and cancellation. Complete source
+proof precedes controlled function execution. The full selected suite passes
+196 methods inCPython3.14.2. Published readable coverage becomes100 modules /
+2,637 units; corpus coverage stays14,214/14,291 with77 unresolved. No gain is
+counted twice. Equivalent-source and readable-source goals remain unfinished.

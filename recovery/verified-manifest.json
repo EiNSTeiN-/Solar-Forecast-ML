@@ -317,6 +317,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/grid_price_monitor/tariffs/csv_import.py",
+      "original_payload_sha256": "2e5cc9dd2988a01f0fbcc0eb1896efff17e9875bec5d56356a42fbf67c9d7b43",
+      "reconstructed_source_sha256": "7eab9f20c8e82b2ec4c1010ecc8ae5560f7c2db2b4fc47d66139e7193b9e57b4",
+      "matched_units": 50,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 4
+    },
+    {
       "path": "extra_features/grid_price_monitor/tariffs/demo.py",
       "original_payload_sha256": "18c661d4cfe2cbf1f2c67479db13b1aabe1ac245d46195dd10e24aa7aca304bc",
       "reconstructed_source_sha256": "a63d4ea44427d80f0d6e01714d57d1684799f5b5b0d653712b8314cf906592a8",
@@ -894,5 +903,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 2587
+  "total_matched_units": 2637
 }

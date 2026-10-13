@@ -1073,7 +1073,7 @@
       "matched_units": 50,
       "reference_units": 50,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_sniff#1",
         "<module>/parse_csv_bytes#1"
