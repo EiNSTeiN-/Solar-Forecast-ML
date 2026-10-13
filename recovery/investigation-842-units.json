@@ -7,7 +7,7 @@
   "baseline_backend_version": "0.6.13-einstein.1",
   "assignment_rule": "Whole modules greedily balanced by failing-unit count; no module is shared between shards.",
   "authorship": "Investigators read and probe only; all tracked edits, tests, builds, commits and publication are authored by the main thread.",
-  "execution": "Five investigative agents in two batches; concurrency limit permits three children with the main thread.",
+  "execution": "Three investigative agents run alongside the main thread; completed original shards are handed off without overlap.",
   "summary": [
     {
       "shard": 1,
@@ -5950,5 +5950,19 @@
       "reason": "instructions",
       "meaningful_instruction_count": 196
     }
-  ]
+  ],
+  "current_checkpoint": {
+    "stage": "owner-recipes-01",
+    "matched_units": 14198,
+    "remaining_units": 93,
+    "complete_candidate_modules": 225,
+    "source_reconstruction_gains": 283,
+    "previous_matches_lost": 0,
+    "owner_entries_added": 282,
+    "complete_owner_tree_units": 464,
+    "source_context_files": 121,
+    "comparison_rules_changed": false,
+    "stable_native_version": "0.6.25-einstein.1",
+    "stable_unpacker_version": "0.4.31-einstein.1"
+  }
 }

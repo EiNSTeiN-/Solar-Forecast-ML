@@ -2304,3 +2304,50 @@ The full 187-method run completed in 154.830 seconds. Published readable totals
 become **99 modules / 2,587 units**. Corpus remains
 **13,915/14,291**, with **376 unresolved**, and no gain is counted again.
 No original integration module or armor runtime is imported.
+
+
+## Source reconstruction of complete owner trees
+
+`owner-recipes-01` adopts 282 reconstructed function bodies from the investigator
+evidence after root-authored compilation and whole-module retention checks.
+463 submitted owners are reviewed; 181 already have complete matching subtrees
+and receive no insertion or second count. The 282 inserted bodies preserve the
+current signature, arguments/defaults, annotations, decorators, docstrings and
+enclosing compilation context. A parent is adopted before its descendants;
+every adopted owner and every descendant must independently match the original
+normalized instruction stream and complete exception table. The comparison
+rules and frozen native 0.6.25/unpacker 0.4.31 remain unchanged.
+
+121 public compilation contexts retain 464 distinct proved owner-tree units.
+This is a proof-scope total, not 464 new corpus gains: many descendants already
+matched. The global transition proves **283 gains / zero losses**, retaining
+all previously complete modules. Composite coverage becomes **14,198/14,291**
+and **225 complete candidates**; **93 remain (61 instruction / 32 exception
+table mismatches)**. Raw generic coverage remains **13,910/14,291 / 134**.
+Published readable whole source remains **99 modules / 2,587 units**. Newly
+published contexts are explicitly marked non-readable and must not be imported
+as complete integration modules; only their manifest-listed trees are proved.
+All isolated evidence now has 302 entries,139 source files and489 distinct
+units, with284 retained owner definitions. Input and public-source hashes are
+checked independently before publication. No cryptographic headers, bytecode
+payloads, vendor logs or runtime binaries are published.
+
+Definition resolution traverses compound suites (Try, handlers, Else, Finally,
+If and loops) while respecting code-scope boundaries and same-name occurrence
+counts. Three owned path tests exercise those semantics. Two new application
+methods compare42 candidate-reconciliation scenarios: invalid/duplicate IDs,
+complete pending verification, reused incompatible dispositions, deterministic
+writes, candidate choice, enter/query/write/exit faults, cancellation and
+suppression. When suppression leaves a renamed local unbound, only that
+UnboundLocalError local-name diagnostic is omitted; exception types, all other
+messages, query text, parameters, returned values and event order remain exact.
+The full selected suite passes **192 methods** in CPython3.14.2 with controlled
+dependencies and no original integration-module or armor-runtime imports.
+
+A widened native async-normal-exit recognizer passes its ordinary owned cases
+but fails the full-corpus retention gate (18 raw gains,10 prior losses). That
+feature branch is held out of stable main; its failed evidence is preserved.
+Passing owned fixtures does not override a global retention failure. Source
+reconstruction publication proceeds independently on the known stable tools.
+Three investigators continue disjoint residual scopes alongside the authoring
+main thread. Full equivalence and readable-source goals remain incomplete.

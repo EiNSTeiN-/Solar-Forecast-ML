@@ -37,9 +37,10 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-99 readable whole modules (2,587 nested units) and passes 187 selected
-application test methods. The full corpus has 134 completely matched candidate
-modules and 13,915/14,291 matching units; 376 units remain. Candidate fidelity
+99 readable whole modules (2,587 nested units) and passes 192 selected
+test methods (189 application checks and three source-path checks). The full
+corpus has 225 completely matched candidate modules and 14,198/14,291 matching
+units; 93 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -267,3 +268,22 @@ storage, query/construction/exit faults, cancellation, context suppression,
 manager reconnect and direct fallback. Only known renamed local names inside
 UnboundLocalError diagnostics are normalized in behavioral logs. This is
 readable source for an already matched candidate; corpus coverage is unchanged.
+
+
+The `owner-recipes-01` checkpoint adds 282 fully proved owner definitions in
+121 compilation contexts under `verified_functions/owner_recipes/`. Each owner
+and all its descendants match original instructions and exception tables.
+Their 464 distinct tree units include already matched descendants; the actual
+corpus gain is 283 units, with no previous matches or complete modules lost.
+The contexts retain source metadata and are deliberately not classified as
+readable modules. Only manifest-listed trees are proved; other surrounding
+definitions provide compilation context and must not be imported. Including
+older isolated evidence, there are 302 entries in 139 source files, covering
+489 distinct units, of which 284 owner definitions are retained in candidates.
+Raw generic coverage remains 13,910 units and 134 modules on native 0.6.25
+and unpacker 0.4.31. These are source reconstructions, not generic tool gains.
+The full selected suite passes 192 methods. Two new application methods make
+42 paired candidate-reconciliation comparisons covering validation, selection,
+disposition writes, transaction lifecycle, query failures, cancellation and
+suppression. Three source-path methods check compound-suite ownership and
+definition occurrence lookup. No integration module or armor runtime executes.

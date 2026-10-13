@@ -21,6 +21,18 @@ import warnings
 
 def named_source_unit(tree, path):
     """Find a named definition by the verifier's explicit occurrence path."""
+    def definitions(scope):
+        # Compound statement suites share their enclosing code scope.
+        # A nested definition establishes the next scope; do not descend
+        # through it while resolving a sibling occurrence.
+        for field, value in ast.iter_fields(scope):
+            children = enumerate(value) if isinstance(value, list) else [(None, value)]
+            for index, child in children:
+                if isinstance(child, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)):
+                    yield scope, index, child
+                elif isinstance(child, ast.AST) and not isinstance(child, (ast.Lambda, ast.GeneratorExp)):
+                    yield from definitions(child)
+
     parts = path.split('/')
     if parts.pop(0) != '<module>' or not parts:
         raise ValueError('An isolated override needs a named source-unit path')
@@ -30,11 +42,9 @@ def named_source_unit(tree, path):
         occurrence = int(count)
         if occurrence < 1:
             raise ValueError('Source-unit occurrences start at one')
-        matches = [(index, value) for index, value in enumerate(owner.body)
-                   if isinstance(value, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef))
-                   and value.name == name]
-        index, unit = matches[occurrence - 1]
-        parent, owner = owner, unit
+        matches = [(parent, index, value) for parent, index, value in definitions(owner)
+                   if value.name == name]
+        parent, index, owner = matches[occurrence - 1]
     if not isinstance(owner, (ast.FunctionDef, ast.AsyncFunctionDef)):
         raise ValueError('Only function-body overrides are supported')
     return parent, index, owner

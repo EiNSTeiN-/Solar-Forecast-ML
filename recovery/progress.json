@@ -3,16 +3,16 @@
     "protected_modules": 274,
     "bytecode_verified_modules": 274,
     "source_compiles_modules": 274,
-    "all_units_match_modules": 134,
+    "all_units_match_modules": 225,
     "reference_units": 14291,
-    "matched_units": 13915,
+    "matched_units": 14198,
     "input_files_unchanged": true,
     "vendor_modules_imported": 0,
     "behavioral_equivalence_verified": false,
     "unit_results": {
-      "normalized_bytecode_match": 13915,
-      "instructions": 336,
-      "exception_table": 40
+      "normalized_bytecode_match": 14198,
+      "instructions": 61,
+      "exception_table": 32
     },
     "scopes": {
       "main": 99,
@@ -64,11 +64,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 31,
+      "all_units_match": true,
+      "matched_units": 32,
       "reference_units": 32,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_detect_virtual_machine#1"
+      ],
       "source_units": 32
     },
     {
@@ -76,11 +79,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 135,
+      "all_units_match": true,
+      "matched_units": 136,
       "reference_units": 136,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_validate_and_normalize#1"
+      ],
       "source_units": 136
     },
     {
@@ -100,11 +106,22 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 170,
+      "all_units_match": true,
+      "matched_units": 179,
       "reference_units": 179,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/AIPredictor#1/_load_dual_model_weights#1",
+        "<module>/AIPredictor#1/_start_training_lease_heartbeat#1/heartbeat#1",
+        "<module>/AIPredictor#1/_train_model_candidate#1",
+        "<module>/AIPredictor#1/initialize#1",
+        "<module>/AIPredictor#1/reconcile_pending_model_candidates#1",
+        "<module>/AIPredictor#1/run_grid_search_candidate#1",
+        "<module>/AIPredictor#1/train_model#1",
+        "<module>/AIPredictor#1/train_model_for_reaction#1",
+        "<module>/_find_training_donor#1"
+      ],
       "source_units": 179
     },
     {
@@ -112,11 +129,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 63,
+      "all_units_match": true,
+      "matched_units": 64,
       "reference_units": 64,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/TinyLSTM#1/_chronological_split_indices#1"
+      ],
       "source_units": 64
     },
     {
@@ -185,10 +205,17 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 77,
+      "matched_units": 82,
       "reference_units": 83,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/SolarForecastMLCoordinator#1/_async_update_data#1",
+        "<module>/SolarForecastMLCoordinator#1/_background_initialization#1",
+        "<module>/SolarForecastMLCoordinator#1/_initialize_services#1",
+        "<module>/SolarForecastMLCoordinator#1/_update_sensor_properties#1",
+        "<module>/SolarForecastMLCoordinator#1/async_shutdown#1"
+      ],
       "source_units": 83
     },
     {
@@ -244,11 +271,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 15,
+      "all_units_match": true,
+      "matched_units": 16,
       "reference_units": 16,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DependencyHandler#1/_get_package_version_sync#1"
+      ],
       "source_units": 16
     },
     {
@@ -316,11 +346,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 35,
+      "all_units_match": true,
+      "matched_units": 36,
       "reference_units": 36,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/StartupDataResolver#1/_sensor_retry_loop#1"
+      ],
       "source_units": 36
     },
     {
@@ -328,11 +361,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 72,
+      "all_units_match": true,
+      "matched_units": 73,
       "reference_units": 73,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DailySummariesHandler#1/create_daily_summary#1"
+      ],
       "source_units": 73
     },
     {
@@ -340,11 +376,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 42,
+      "all_units_match": true,
+      "matched_units": 43,
       "reference_units": 43,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EnsembleShadowHandler#1/select_canonical_batch_rows#1"
+      ],
       "source_units": 43
     },
     {
@@ -377,10 +416,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 69,
+      "matched_units": 70,
       "reference_units": 71,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/HourlyPredictionsHandler#1/update_hourly_actual#1"
+      ],
       "source_units": 71
     },
     {
@@ -400,11 +442,16 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 87,
+      "all_units_match": true,
+      "matched_units": 90,
       "reference_units": 90,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DataManager#1/_load_shadow_detection_for_date#1",
+        "<module>/DataManager#1/initialize#1",
+        "<module>/DataManager#1/save_forecast_day#1"
+      ],
       "source_units": 90
     },
     {
@@ -413,10 +460,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 24,
+      "matched_units": 25,
       "reference_units": 26,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DataMLHandler#1/get_training_data_stats#1"
+      ],
       "source_units": 26
     },
     {
@@ -424,11 +474,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 78,
+      "all_units_match": true,
+      "matched_units": 79,
       "reference_units": 79,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ModelCandidateShadowHandler#1/capture_morning_run#1"
+      ],
       "source_units": 79
     },
     {
@@ -449,10 +502,14 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 87,
+      "matched_units": 89,
       "reference_units": 90,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/OpenMeteoClient#1/_load_from_database#1",
+        "<module>/OpenMeteoClient#1/_save_to_database#1"
+      ],
       "source_units": 90
     },
     {
@@ -473,10 +530,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 24,
+      "matched_units": 25,
       "reference_units": 26,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DataSchemaValidator#1/validate_table_integrity#1"
+      ],
       "source_units": 26
     },
     {
@@ -485,10 +545,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 65,
+      "matched_units": 66,
       "reference_units": 67,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ShadowDetector#1/_first_numeric#1"
+      ],
       "source_units": 67
     },
     {
@@ -521,10 +584,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 76,
+      "matched_units": 77,
       "reference_units": 80,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ShadowPatternLearner#1/_recalculate_repaired_group_patterns#1"
+      ],
       "source_units": 80
     },
     {
@@ -568,11 +634,16 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 89,
+      "all_units_match": true,
+      "matched_units": 92,
       "reference_units": 92,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherActualTracker#1/_detect_sensor_freeze#1",
+        "<module>/WeatherActualTracker#1/_is_snow_plausible#1",
+        "<module>/WeatherActualTracker#1/_read_sensors#1"
+      ],
       "source_units": 92
     },
     {
@@ -580,11 +651,15 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 56,
+      "all_units_match": true,
+      "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherForecastCorrector#1/_load_correction_factors#1",
+        "<module>/WeatherForecastCorrector#1/_load_raw_forecasts#1"
+      ],
       "source_units": 58
     },
     {
@@ -593,10 +668,14 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 116,
+      "matched_units": 118,
       "reference_units": 122,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherExpertBlender#1/_load_weights_from_db#1",
+        "<module>/expert_cache_is_fresh#1"
+      ],
       "source_units": 122
     },
     {
@@ -616,11 +695,15 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 42,
+      "all_units_match": true,
+      "matched_units": 44,
       "reference_units": 44,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherDataPipelineManager#1/_refresh_all_weather_sources#1",
+        "<module>/WeatherDataPipelineManager#1/stop_pipeline#1"
+      ],
       "source_units": 44
     },
     {
@@ -628,11 +711,17 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 39,
+      "all_units_match": true,
+      "matched_units": 43,
       "reference_units": 43,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherPrecisionTracker#1/_calculate_daily_factors#1",
+        "<module>/WeatherPrecisionTracker#1/_save_hourly_factors#1",
+        "<module>/WeatherPrecisionTracker#1/_update_rolling_averages#1",
+        "<module>/WeatherPrecisionTracker#1/get_hourly_correction_factors#1"
+      ],
       "source_units": 43
     },
     {
@@ -640,11 +729,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 79,
+      "all_units_match": true,
+      "matched_units": 80,
       "reference_units": 80,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_exact_rounded_partition#1"
+      ],
       "source_units": 80
     },
     {
@@ -653,10 +745,39 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 687,
+      "matched_units": 714,
       "reference_units": 717,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DatabaseManager#1/_backfill_astronomy_enrichment_v1640#1",
+        "<module>/DatabaseManager#1/_migrate_ai_model_cycle_evaluation_v42#1",
+        "<module>/DatabaseManager#1/_migrate_model_candidate_shadow_compression_v20260813#1",
+        "<module>/DatabaseManager#1/_migrate_raw_physics_kwh_v20260826#1",
+        "<module>/DatabaseManager#1/_migrate_snow_tracking_table_v161#1",
+        "<module>/DatabaseManager#1/_migrate_visibility_learning_table_v161#1",
+        "<module>/DatabaseManager#1/_migrate_weather_visibility_source_v20260827#1",
+        "<module>/DatabaseManager#1/_parse_astronomy_ts#1",
+        "<module>/DatabaseManager#1/_probe_database_connection#1",
+        "<module>/DatabaseManager#1/_rebuild_shadow_run_table#1",
+        "<module>/DatabaseManager#1/_record_model_candidate_terminal_event#1",
+        "<module>/DatabaseManager#1/_restore_schema_indexes#1",
+        "<module>/DatabaseManager#1/_retry_on_locked#1",
+        "<module>/DatabaseManager#1/_seal_json_column#1",
+        "<module>/DatabaseManager#1/_seal_model_weight_rows#1",
+        "<module>/DatabaseManager#1/_seal_shadow_runs_in_place#1",
+        "<module>/DatabaseManager#1/compact_terminal_model_candidate_evidence#1",
+        "<module>/DatabaseManager#1/get_model_weights#1",
+        "<module>/DatabaseManager#1/get_or_create_confirmed_model_retrain_request#1",
+        "<module>/DatabaseManager#1/model_candidate_covers_retrain_request#1",
+        "<module>/DatabaseManager#1/reconcile_pending_model_candidates#1",
+        "<module>/DatabaseManager#1/reconsider_migration_superseded_model_candidate#1",
+        "<module>/DatabaseManager#1/record_model_candidate_evaluation#1",
+        "<module>/DatabaseManager#1/record_model_candidate_evaluation_v2#1",
+        "<module>/DatabaseManager#1/transaction#1/_enter_transaction#1",
+        "<module>/DatabaseManager#1/transaction#1/_run_outer_transaction#1",
+        "<module>/daily_summary_evaluation_unchanged#1"
+      ],
       "source_units": 717
     },
     {
@@ -665,10 +786,24 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 130,
+      "matched_units": 142,
       "reference_units": 143,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/JsonMigrator#1/_migrate_astronomy_cache#1",
+        "<module>/JsonMigrator#1/_migrate_coordinator_state#1",
+        "<module>/JsonMigrator#1/_migrate_daily_forecasts#1",
+        "<module>/JsonMigrator#1/_migrate_daily_summaries#1",
+        "<module>/JsonMigrator#1/_migrate_group_calibration#1",
+        "<module>/JsonMigrator#1/_migrate_hourly_predictions#1",
+        "<module>/JsonMigrator#1/_migrate_learned_weights#1",
+        "<module>/JsonMigrator#1/_migrate_learning_config#1",
+        "<module>/JsonMigrator#1/_migrate_production_time_state#1",
+        "<module>/JsonMigrator#1/_migrate_retrospective_forecast#1",
+        "<module>/JsonMigrator#1/_migrate_visibility_learning#1",
+        "<module>/JsonMigrator#1/_migrate_weather_expert_weights#1"
+      ],
       "source_units": 143
     },
     {
@@ -712,11 +847,14 @@
       "scope": "grid_price_monitor",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 116,
+      "all_units_match": true,
+      "matched_units": 117,
       "reference_units": 117,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/GridPriceMonitorCoordinator#1/_async_monitor_license#1"
+      ],
       "source_units": 117
     },
     {
@@ -724,11 +862,14 @@
       "scope": "grid_price_monitor",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 29,
+      "all_units_match": true,
+      "matched_units": 30,
       "reference_units": 30,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/BatteryTracker#1/_async_save_data#1"
+      ],
       "source_units": 30
     },
     {
@@ -748,11 +889,14 @@
       "scope": "grid_price_monitor",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 39,
+      "all_units_match": true,
+      "matched_units": 40,
       "reference_units": 40,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ElectricityPriceService#1/fetch_day_ahead_prices#1"
+      ],
       "source_units": 40
     },
     {
@@ -832,11 +976,14 @@
       "scope": "grid_price_monitor",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 29,
+      "all_units_match": true,
+      "matched_units": 30,
       "reference_units": 30,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/HistoryManager#1/async_load#1"
+      ],
       "source_units": 30
     },
     {
@@ -917,10 +1064,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 48,
+      "matched_units": 49,
       "reference_units": 50,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_sniff#1"
+      ],
       "source_units": 50
     },
     {
@@ -988,11 +1138,15 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 60,
+      "all_units_match": true,
+      "matched_units": 62,
       "reference_units": 62,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/GPMPricesView#1/get#1",
+        "<module>/MonthlyTariffsView#1/get#1"
+      ],
       "source_units": 62
     },
     {
@@ -1013,10 +1167,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 78,
+      "matched_units": 79,
       "reference_units": 81,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ConsumerAtlasBackfillView#1/_recorder_states#1"
+      ],
       "source_units": 81
     },
     {
@@ -1060,11 +1217,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 37,
+      "all_units_match": true,
+      "matched_units": 38,
       "reference_units": 38,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_public_mobility_data#1"
+      ],
       "source_units": 38
     },
     {
@@ -1096,11 +1256,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 20,
+      "all_units_match": true,
+      "matched_units": 21,
       "reference_units": 21,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/NewStaticFilesView#1/get#1"
+      ],
       "source_units": 21
     },
     {
@@ -1109,10 +1272,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 162,
+      "matched_units": 163,
       "reference_units": 164,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_read_csv_upload#1"
+      ],
       "source_units": 164
     },
     {
@@ -1120,11 +1286,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 54,
+      "all_units_match": true,
+      "matched_units": 55,
       "reference_units": 55,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_demo_hourly_rows#1"
+      ],
       "source_units": 55
     },
     {
@@ -1145,10 +1314,14 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 36,
+      "matched_units": 38,
       "reference_units": 39,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_hubble_best_window#1",
+        "<module>/_hubble_read_workflow_status_inner#1"
+      ],
       "source_units": 39
     },
     {
@@ -1156,11 +1329,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 43,
+      "all_units_match": true,
+      "matched_units": 44,
       "reference_units": 44,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ModernAnalyticsView#1/_days#1"
+      ],
       "source_units": 44
     },
     {
@@ -1180,11 +1356,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 41,
+      "all_units_match": true,
+      "matched_units": 42,
       "reference_units": 42,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_live_payload#1"
+      ],
       "source_units": 42
     },
     {
@@ -1228,11 +1407,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 9,
+      "all_units_match": true,
+      "matched_units": 10,
       "reference_units": 10,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/SmartChargingDashboardView#1/get#1"
+      ],
       "source_units": 10
     },
     {
@@ -1241,10 +1423,15 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 133,
+      "matched_units": 136,
       "reference_units": 140,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/StatisticsView#1/_get_panel_group_data#1",
+        "<module>/_corrected_finalized_solar_values#1",
+        "<module>/_resolve_entity_id_by_unique_suffix#1"
+      ],
       "source_units": 140
     },
     {
@@ -1264,11 +1451,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 34,
+      "all_units_match": true,
+      "matched_units": 35,
       "reference_units": 35,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/SupportSubmitView#1/post#1"
+      ],
       "source_units": 35
     },
     {
@@ -1276,11 +1466,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 97,
+      "all_units_match": true,
+      "matched_units": 98,
       "reference_units": 98,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_selected_day_bundle#1"
+      ],
       "source_units": 98
     },
     {
@@ -1301,10 +1494,14 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 33,
+      "matched_units": 35,
       "reference_units": 38,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/PowerSourcesHistoryView#1/_get_hourly_history_from_file#1",
+        "<module>/PowerSourcesHistoryView#1/_process_history#1"
+      ],
       "source_units": 38
     },
     {
@@ -1312,13 +1509,15 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 16,
+      "all_units_match": true,
+      "matched_units": 18,
       "reference_units": 18,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
       "retained_source_units": [
-        "<module>/websocket_get_dashboard_data#1"
+        "<module>/_get_realtime_data#1",
+        "<module>/websocket_get_dashboard_data#1",
+        "<module>/websocket_subscribe_updates#1/send_updates#1"
       ],
       "source_units": 18
     },
@@ -1327,11 +1526,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 18,
+      "all_units_match": true,
+      "matched_units": 19,
       "reference_units": 19,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/calculate_amortization#1"
+      ],
       "source_units": 19
     },
     {
@@ -1351,11 +1553,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 59,
+      "all_units_match": true,
+      "matched_units": 60,
       "reference_units": 60,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/BillingCalculator#1/_get_dynamic_costs_from_db#1"
+      ],
       "source_units": 60
     },
     {
@@ -1363,11 +1568,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 10,
+      "all_units_match": true,
+      "matched_units": 11,
       "reference_units": 11,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_hour_number#1"
+      ],
       "source_units": 11
     },
     {
@@ -1387,11 +1595,15 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 113,
+      "all_units_match": true,
+      "matched_units": 115,
       "reference_units": 115,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_pragma_names#1",
+        "<module>/scale_field_hours#1"
+      ],
       "source_units": 115
     },
     {
@@ -1399,11 +1611,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 126,
+      "all_units_match": true,
+      "matched_units": 127,
       "reference_units": 127,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EnergyCorrectionStore#1/_raw_day#1"
+      ],
       "source_units": 127
     },
     {
@@ -1423,11 +1638,16 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 20,
+      "all_units_match": true,
+      "matched_units": 23,
       "reference_units": 23,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/daily_costs_from_hourly_rows#1",
+        "<module>/load_provenance#1",
+        "<module>/merge_daily_costs#1"
+      ],
       "source_units": 23
     },
     {
@@ -1459,11 +1679,20 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 237,
+      "all_units_match": true,
+      "matched_units": 244,
       "reference_units": 244,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EMSManager#1/_energy_context#1",
+        "<module>/EMSManager#1/_issue_tokens#1",
+        "<module>/EMSManager#1/_recommendations#1",
+        "<module>/EMSManager#1/async_auto_cycle#1",
+        "<module>/EMSManager#1/async_control_cycle#1",
+        "<module>/EMSManager#1/async_setup#1",
+        "<module>/EMSManager#1/async_snapshot#1"
+      ],
       "source_units": 244
     },
     {
@@ -1483,11 +1712,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 38,
+      "all_units_match": true,
+      "matched_units": 39,
       "reference_units": 39,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_bounded_number#1"
+      ],
       "source_units": 39
     },
     {
@@ -1508,10 +1740,15 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 48,
+      "matched_units": 51,
       "reference_units": 52,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ForecastComparisonCollector#1/_get_all_sfml_summaries#1",
+        "<module>/ForecastComparisonCollector#1/_get_sfml_forecast#1",
+        "<module>/ForecastComparisonCollector#1/async_collect_historical#1"
+      ],
       "source_units": 52
     },
     {
@@ -1567,11 +1804,15 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 23,
+      "all_units_match": true,
+      "matched_units": 25,
       "reference_units": 25,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/async_backfill_daily_grid_split#1",
+        "<module>/async_backfill_grid_split#1"
+      ],
       "source_units": 25
     },
     {
@@ -1579,11 +1820,17 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 377,
+      "all_units_match": true,
+      "matched_units": 381,
       "reference_units": 381,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/HeatingManager#1/_refresh_forecast#1",
+        "<module>/_entity_classes#1",
+        "<module>/_phases_from_dict#1",
+        "<module>/document_from_dict#1"
+      ],
       "source_units": 381
     },
     {
@@ -1591,11 +1838,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 51,
+      "all_units_match": true,
+      "matched_units": 52,
       "reference_units": 52,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/thermostat_demand#1"
+      ],
       "source_units": 52
     },
     {
@@ -1615,11 +1865,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 57,
+      "all_units_match": true,
+      "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/HourlyBillingAggregator#1/_aggregate_hour_with_lock_retry#1"
+      ],
       "source_units": 58
     },
     {
@@ -1639,11 +1892,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 19,
+      "all_units_match": true,
+      "matched_units": 20,
       "reference_units": 20,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/power_states_from_recorder#1"
+      ],
       "source_units": 20
     },
     {
@@ -1675,11 +1931,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 36,
+      "all_units_match": true,
+      "matched_units": 37,
       "reference_units": 37,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/build_shadow_fingerprint#1"
+      ],
       "source_units": 37
     },
     {
@@ -1687,11 +1946,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 46,
+      "all_units_match": true,
+      "matched_units": 47,
       "reference_units": 47,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_as_positive_prices#1"
+      ],
       "source_units": 47
     },
     {
@@ -1723,11 +1985,15 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 64,
+      "all_units_match": true,
+      "matched_units": 66,
       "reference_units": 66,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/read_log_window#1",
+        "<module>/tail_lines_since#1"
+      ],
       "source_units": 66
     },
     {
@@ -1735,11 +2001,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 10,
+      "all_units_match": true,
+      "matched_units": 11,
       "reference_units": 11,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/submit_report#1"
+      ],
       "source_units": 11
     },
     {
@@ -1759,11 +2028,15 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 51,
+      "all_units_match": true,
+      "matched_units": 53,
       "reference_units": 53,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/build_day_features#1",
+        "<module>/build_weather_impact#1"
+      ],
       "source_units": 53
     },
     {
@@ -1771,11 +2044,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 45,
+      "all_units_match": true,
+      "matched_units": 46,
       "reference_units": 46,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/fill_gap_from_daily_costs#1"
+      ],
       "source_units": 46
     },
     {
@@ -1783,11 +2059,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 14,
+      "all_units_match": true,
+      "matched_units": 15,
       "reference_units": 15,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_forecast#1"
+      ],
       "source_units": 15
     },
     {
@@ -1795,11 +2074,17 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 72,
+      "all_units_match": true,
+      "matched_units": 76,
       "reference_units": 76,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/PowerSourcesCollector#1/_backfill_efficiency_day#1",
+        "<module>/PowerSourcesCollector#1/_backfill_efficiency_history#1",
+        "<module>/PowerSourcesCollector#1/_collect_data#1",
+        "<module>/PowerSourcesCollector#1/_update_consumer_atlas#1"
+      ],
       "source_units": 76
     },
     {
@@ -1807,11 +2092,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 48,
+      "all_units_match": true,
+      "matched_units": 49,
       "reference_units": 49,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/AnnualForecastReader#1/_get_calibration_data#1"
+      ],
       "source_units": 49
     },
     {
@@ -1879,11 +2167,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 43,
+      "all_units_match": true,
+      "matched_units": 44,
       "reference_units": 44,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/SurplusAvailableBinarySensor#1/_async_refresh#1"
+      ],
       "source_units": 44
     },
     {
@@ -1891,11 +2182,14 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 51,
+      "all_units_match": true,
+      "matched_units": 52,
       "reference_units": 52,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/SFMLDataReader#1/get_daily_yield_from_hourly#1"
+      ],
       "source_units": 52
     },
     {
@@ -1903,11 +2197,15 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 41,
+      "all_units_match": true,
+      "matched_units": 43,
       "reference_units": 43,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherDataCollector#1/_load_from_solar_forecast_ml#1",
+        "<module>/WeatherDataCollector#1/_load_ki_forecast_data#1"
+      ],
       "source_units": 43
     },
     {
@@ -1975,11 +2273,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 31,
+      "all_units_match": true,
+      "matched_units": 32,
       "reference_units": 32,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_detect_virtual_machine#1"
+      ],
       "source_units": 32
     },
     {
@@ -1987,11 +2288,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 75,
+      "all_units_match": true,
+      "matched_units": 76,
       "reference_units": 76,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/AIPredictor#1/initialize#1"
+      ],
       "source_units": 76
     },
     {
@@ -2047,11 +2351,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 57,
+      "all_units_match": true,
+      "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EAIRecommendationEngine#1/_build_snapshot#1"
+      ],
       "source_units": 58
     },
     {
@@ -2071,11 +2378,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 32,
+      "all_units_match": true,
+      "matched_units": 33,
       "reference_units": 33,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/AdaptiveForecastEngine#1/_execute_correction#1"
+      ],
       "source_units": 33
     },
     {
@@ -2096,10 +2406,14 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 21,
+      "matched_units": 23,
       "reference_units": 24,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/MorningRoutineHandler#1/_verify_integrity#1",
+        "<module>/MorningRoutineHandler#1/execute_morning_routine_with_retry#1"
+      ],
       "source_units": 24
     },
     {
@@ -2120,10 +2434,23 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 132,
+      "matched_units": 143,
       "reference_units": 147,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ScheduledTasksManager#1/_calculate_stats_internal#1",
+        "<module>/ScheduledTasksManager#1/_collect_sensor_data#1",
+        "<module>/ScheduledTasksManager#1/_execute_midnight_task#1",
+        "<module>/ScheduledTasksManager#1/_execute_morning_routine_unlocked#1",
+        "<module>/ScheduledTasksManager#1/_finalize_day_internal#1",
+        "<module>/ScheduledTasksManager#1/_run_weather_expert_learning#1",
+        "<module>/ScheduledTasksManager#1/_train_ml_main_model#1",
+        "<module>/ScheduledTasksManager#1/_train_panel_group_efficiency#1",
+        "<module>/ScheduledTasksManager#1/_train_weather_mlp#1",
+        "<module>/ScheduledTasksManager#1/migrate_daily_consumption_model#1",
+        "<module>/ScheduledTasksManager#1/recover_missing_hourly_actuals#1"
+      ],
       "source_units": 147
     },
     {
@@ -2131,11 +2458,16 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 43,
+      "all_units_match": true,
+      "matched_units": 46,
       "reference_units": 46,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ProductionTimeCalculator#1/_handle_power_change#1",
+        "<module>/ProductionTimeCalculator#1/_load_persistent_state#1",
+        "<module>/ProductionTimeCalculator#1/stop_tracking#1"
+      ],
       "source_units": 46
     },
     {
@@ -2143,13 +2475,15 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 67,
+      "all_units_match": true,
+      "matched_units": 69,
       "reference_units": 69,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
       "retained_source_units": [
-        "<module>/SolarForecastEAICoordinator#1/_background_initialization#1"
+        "<module>/SolarForecastEAICoordinator#1/_background_initialization#1",
+        "<module>/SolarForecastEAICoordinator#1/_initialize_services#1",
+        "<module>/SolarForecastEAICoordinator#1/async_shutdown#1"
       ],
       "source_units": 69
     },
@@ -2170,11 +2504,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 35,
+      "all_units_match": true,
+      "matched_units": 36,
       "reference_units": 36,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/StartupDataResolver#1/_sensor_retry_loop#1"
+      ],
       "source_units": 36
     },
     {
@@ -2182,11 +2519,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 66,
+      "all_units_match": true,
+      "matched_units": 67,
       "reference_units": 67,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DailySummariesHandler#1/create_daily_summary#1"
+      ],
       "source_units": 67
     },
     {
@@ -2255,10 +2595,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 34,
+      "matched_units": 35,
       "reference_units": 38,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DataMLHandler#1/get_training_data_stats#1"
+      ],
       "source_units": 38
     },
     {
@@ -2266,11 +2609,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 59,
+      "all_units_match": true,
+      "matched_units": 60,
       "reference_units": 60,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/OpenMeteoClient#1/_fetch_visibility_from_default_model#1"
+      ],
       "source_units": 60
     },
     {
@@ -2279,10 +2625,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 24,
+      "matched_units": 25,
       "reference_units": 26,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DataSchemaValidator#1/validate_table_integrity#1"
+      ],
       "source_units": 26
     },
     {
@@ -2290,11 +2639,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 36,
+      "all_units_match": true,
+      "matched_units": 37,
       "reference_units": 37,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ShadowDetector#1/_apply_learned_patterns#1"
+      ],
       "source_units": 37
     },
     {
@@ -2326,11 +2678,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 34,
+      "all_units_match": true,
+      "matched_units": 35,
       "reference_units": 35,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/VisibilityLearner#1/learn_from_day#1"
+      ],
       "source_units": 35
     },
     {
@@ -2338,11 +2693,17 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 77,
+      "all_units_match": true,
+      "matched_units": 81,
       "reference_units": 81,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherActualTracker#1/_detect_fog#1",
+        "<module>/WeatherActualTracker#1/_ensure_snow_tracking_schema#1",
+        "<module>/WeatherActualTracker#1/_is_snow_plausible#1",
+        "<module>/WeatherActualTracker#1/_read_sensors#1"
+      ],
       "source_units": 81
     },
     {
@@ -2363,10 +2724,17 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 92,
+      "matched_units": 97,
       "reference_units": 102,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/BrightSkyExpert#1/_fetch_forecast#1",
+        "<module>/PirateWeatherExpert#1/_fetch_forecast#1",
+        "<module>/WeatherExpertBlender#1/_load_weights_from_db#1",
+        "<module>/WttrInExpert#1/_fetch_forecast#1",
+        "<module>/_read_wttr_payload#1"
+      ],
       "source_units": 102
     },
     {
@@ -2386,11 +2754,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 34,
+      "all_units_match": true,
+      "matched_units": 35,
       "reference_units": 35,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherDataPipelineManager#1/stop_pipeline#1"
+      ],
       "source_units": 35
     },
     {
@@ -2410,11 +2781,21 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 228,
+      "all_units_match": true,
+      "matched_units": 237,
       "reference_units": 237,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/DatabaseManager#1/_backfill_astronomy_enrichment_v1640#1",
+        "<module>/DatabaseManager#1/_migrate_snow_tracking_table_v161#1",
+        "<module>/DatabaseManager#1/_migrate_visibility_learning_table_v161#1",
+        "<module>/DatabaseManager#1/_parse_astronomy_ts#1",
+        "<module>/DatabaseManager#1/_retry_on_locked#1",
+        "<module>/DatabaseManager#1/execute#1",
+        "<module>/DatabaseManager#1/save_weather_mlp_weights#1",
+        "<module>/DatabaseManager#1/transaction#1"
+      ],
       "source_units": 237
     },
     {
@@ -2435,10 +2816,24 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 132,
+      "matched_units": 144,
       "reference_units": 145,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/JsonMigrator#1/_migrate_coordinator_state#1",
+        "<module>/JsonMigrator#1/_migrate_daily_forecasts#1",
+        "<module>/JsonMigrator#1/_migrate_daily_summaries#1",
+        "<module>/JsonMigrator#1/_migrate_dni_tracker#1",
+        "<module>/JsonMigrator#1/_migrate_group_calibration#1",
+        "<module>/JsonMigrator#1/_migrate_hourly_predictions#1",
+        "<module>/JsonMigrator#1/_migrate_learned_weights#1",
+        "<module>/JsonMigrator#1/_migrate_learning_config#1",
+        "<module>/JsonMigrator#1/_migrate_production_time_state#1",
+        "<module>/JsonMigrator#1/_migrate_retrospective_forecast#1",
+        "<module>/JsonMigrator#1/_migrate_visibility_learning#1",
+        "<module>/JsonMigrator#1/_migrate_weather_expert_weights#1"
+      ],
       "source_units": 145
     },
     {
@@ -2458,11 +2853,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 49,
+      "all_units_match": true,
+      "matched_units": 50,
       "reference_units": 50,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EAISharedEnergyAllocator#1/enrich#1"
+      ],
       "source_units": 50
     },
     {
@@ -2483,10 +2881,14 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 63,
+      "matched_units": 65,
       "reference_units": 66,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/RuleBasedForecastStrategy#1/_calculate_thermodynamics_consumption#1",
+        "<module>/RuleBasedForecastStrategy#1/calculate_forecast#1"
+      ],
       "source_units": 66
     },
     {
@@ -2518,11 +2920,17 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 261,
+      "all_units_match": true,
+      "matched_units": 265,
       "reference_units": 265,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EAIInsightsEngine#1/_forecast#1",
+        "<module>/EAIInsightsEngine#1/_forecast_energy_for_day#1",
+        "<module>/EAIInsightsEngine#1/_last_valid_operating_metrics#1",
+        "<module>/EAIInsightsEngine#1/_mode_segmented_cop#1"
+      ],
       "source_units": 265
     },
     {
@@ -2566,11 +2974,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 70,
+      "all_units_match": true,
+      "matched_units": 71,
       "reference_units": 71,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EAIMobilityPlanner#1/snapshot#1"
+      ],
       "source_units": 71
     },
     {
@@ -2578,11 +2989,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 67,
+      "all_units_match": true,
+      "matched_units": 68,
       "reference_units": 68,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EAIRuntime#1/_async_update_weather_intelligence#1"
+      ],
       "source_units": 68
     },
     {
@@ -2590,11 +3004,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 15,
+      "all_units_match": true,
+      "matched_units": 16,
       "reference_units": 16,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/thermal_loss_snapshot#1"
+      ],
       "source_units": 16
     },
     {
@@ -2650,11 +3067,15 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 66,
+      "all_units_match": true,
+      "matched_units": 68,
       "reference_units": 68,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherFusionAdapter#1/_hourly#1",
+        "<module>/_project_source_comparison#1"
+      ],
       "source_units": 68
     },
     {
@@ -2662,11 +3083,14 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 94,
+      "all_units_match": true,
+      "matched_units": 95,
       "reference_units": 95,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherIntelligenceEngine#1/_latest_actual#1"
+      ],
       "source_units": 95
     },
     {
@@ -2675,10 +3099,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 75,
+      "matched_units": 76,
       "reference_units": 77,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_year_comparison#1"
+      ],
       "source_units": 77
     },
     {
@@ -2746,11 +3173,14 @@
       "scope": "weather_fusion_ai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 52,
+      "all_units_match": true,
+      "matched_units": 53,
       "reference_units": 53,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherLearner#1/_calculate_expert_accuracy_from_records#1"
+      ],
       "source_units": 53
     },
     {
@@ -2770,11 +3200,15 @@
       "scope": "weather_fusion_ai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 70,
+      "all_units_match": true,
+      "matched_units": 72,
       "reference_units": 72,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherFusionCoordinator#1/_get_daily_forecast#1",
+        "<module>/WeatherFusionCoordinator#1/_is_night#1"
+      ],
       "source_units": 72
     },
     {
@@ -2818,11 +3252,15 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 38,
+      "all_units_match": true,
+      "matched_units": 40,
       "reference_units": 40,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ForecastOrchestrator#1/_calculate_candidate_shadow_pair#1",
+        "<module>/ForecastOrchestrator#1/is_production_hour#1"
+      ],
       "source_units": 40
     },
     {
@@ -2830,11 +3268,20 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 201,
+      "all_units_match": true,
+      "matched_units": 208,
       "reference_units": 208,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/RuleBasedForecastStrategy#1/_calculate_hour_production#1",
+        "<module>/RuleBasedForecastStrategy#1/_default_astronomy#1",
+        "<module>/RuleBasedForecastStrategy#1/_get_astronomy_for_hour#1",
+        "<module>/RuleBasedForecastStrategy#1/_get_recent_daily_up_bias_guard_signal#1",
+        "<module>/RuleBasedForecastStrategy#1/_get_similar_weather_underforecast_signal#1",
+        "<module>/_classify_blend_weather_regime#1",
+        "<module>/_classify_static_forecast_weather_regime#1"
+      ],
       "source_units": 208
     },
     {
@@ -2854,11 +3301,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 9,
+      "all_units_match": true,
+      "matched_units": 10,
       "reference_units": 10,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/TFSClient#1/is_available#1"
+      ],
       "source_units": 10
     },
     {
@@ -2866,11 +3316,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 34,
+      "all_units_match": true,
+      "matched_units": 35,
       "reference_units": 35,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherService#1/_background_forecast_update#1"
+      ],
       "source_units": 35
     },
     {
@@ -2926,11 +3379,17 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 117,
+      "all_units_match": true,
+      "matched_units": 121,
       "reference_units": 121,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/PhysicsCalibrator#1/_load_history#1",
+        "<module>/PhysicsCalibrator#1/_replay_raw_contract#1",
+        "<module>/PhysicsCalibrator#1/calibrate_from_daily_data#1",
+        "<module>/PhysicsCalibrator#1/recalculate_factors#1"
+      ],
       "source_units": 121
     },
     {
@@ -2974,11 +3433,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 46,
+      "all_units_match": true,
+      "matched_units": 47,
       "reference_units": 47,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ActualSourceResolver#1/resolve_from_recorder_power#1"
+      ],
       "source_units": 47
     },
     {
@@ -2987,10 +3449,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 29,
+      "matched_units": 30,
       "reference_units": 31,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/AdaptiveForecastEngine#1/_check_special_situations#1"
+      ],
       "source_units": 31
     },
     {
@@ -3023,10 +3488,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 71,
+      "matched_units": 72,
       "reference_units": 75,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/MorningRoutineHandler#1/_verify_integrity#1"
+      ],
       "source_units": 75
     },
     {
@@ -3059,10 +3527,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 16,
+      "matched_units": 17,
       "reference_units": 18,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/RuleBasedForecastStrategy#1/_get_hour_factor#1"
+      ],
       "source_units": 18
     },
     {
@@ -3071,10 +3542,28 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 217,
+      "matched_units": 233,
       "reference_units": 242,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ScheduledTasksManager#1/_calculate_stats_internal#1",
+        "<module>/ScheduledTasksManager#1/_catch_up_missed_hourly_actuals#1",
+        "<module>/ScheduledTasksManager#1/_collect_sensor_data#1",
+        "<module>/ScheduledTasksManager#1/_execute_morning_routine#1",
+        "<module>/ScheduledTasksManager#1/_execute_morning_routine_once#1",
+        "<module>/ScheduledTasksManager#1/_finalize_day_internal#1",
+        "<module>/ScheduledTasksManager#1/_learn_group_method_performance#1",
+        "<module>/ScheduledTasksManager#1/_learn_method_performance#1",
+        "<module>/ScheduledTasksManager#1/_learn_weather_regime_performance#1",
+        "<module>/ScheduledTasksManager#1/_move_to_history_internal#1",
+        "<module>/ScheduledTasksManager#1/_run_drift_detection#1",
+        "<module>/ScheduledTasksManager#1/_run_weather_expert_learning#1",
+        "<module>/ScheduledTasksManager#1/_train_panel_group_efficiency#1",
+        "<module>/ScheduledTasksManager#1/generate_monthly_report#1",
+        "<module>/ScheduledTasksManager#1/resume_pending_model_candidate_gate#1",
+        "<module>/_classify_static_weather_regime_for_learning#1"
+      ],
       "source_units": 242
     },
     {
@@ -3082,11 +3571,15 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 53,
+      "all_units_match": true,
+      "matched_units": 55,
       "reference_units": 55,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ProductionTimeCalculator#1/_load_persistent_state#1",
+        "<module>/ProductionTimeCalculator#1/stop_tracking#1"
+      ],
       "source_units": 55
     },
     {
@@ -3119,10 +3612,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 440,
+      "matched_units": 441,
       "reference_units": 443,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/_load_active_ops_day_forecast#1"
+      ],
       "source_units": 443
     },
     {
@@ -3202,11 +3698,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 35,
+      "all_units_match": true,
+      "matched_units": 36,
       "reference_units": 36,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/SystemStatusSensor#1/_get_hourly_forecast_for_day#1"
+      ],
       "source_units": 36
     },
     {
@@ -3214,11 +3713,15 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 21,
+      "all_units_match": true,
+      "matched_units": 23,
       "reference_units": 23,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/AstronomyServiceHandler#1/_auto_build_cache_if_needed#1",
+        "<module>/AstronomyServiceHandler#1/_auto_extract_max_peaks_if_needed#1"
+      ],
       "source_units": 23
     },
     {
@@ -3238,11 +3741,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 43,
+      "all_units_match": true,
+      "matched_units": 44,
       "reference_units": 44,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/EmergencyOutageService#1/_invalidate_learning#1"
+      ],
       "source_units": 44
     },
     {
@@ -3262,11 +3768,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 21,
+      "all_units_match": true,
+      "matched_units": 22,
       "reference_units": 22,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ExtraFeaturesInstaller#1/_get_version_from_manifest#1"
+      ],
       "source_units": 22
     },
     {
@@ -3274,11 +3783,15 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 56,
+      "all_units_match": true,
+      "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/NotificationService#1/initialize#1",
+        "<module>/NotificationService#1/show_startup_success#1"
+      ],
       "source_units": 58
     },
     {
@@ -3286,11 +3799,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 57,
+      "all_units_match": true,
+      "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ServiceRegistry#1/_handle_backfill_shadow_detection#1"
+      ],
       "source_units": 58
     },
     {
@@ -3310,11 +3826,15 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 35,
+      "all_units_match": true,
+      "matched_units": 37,
       "reference_units": 37,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/SystemReportGenerator#1/_calculate_seasonal_stats#1",
+        "<module>/SystemReportGenerator#1/_load_physics_telemetry#1"
+      ],
       "source_units": 37
     }
   ]

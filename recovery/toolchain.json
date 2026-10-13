@@ -17,7 +17,7 @@
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 62,
-    "selected_module_behavior_tests_passed": 187,
+    "selected_module_behavior_tests_passed": 192,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -164,7 +164,11 @@
       "displaced_context_paired_cases": 72,
       "fresh_displaced_context_generation_crosschecks": 5,
       "weather_reader_behavior_methods": 4,
-      "weather_reader_behavior_pairs": 149
+      "weather_reader_behavior_pairs": 149,
+      "owner_definition_path_methods": 3,
+      "candidate_reconciliation_methods": 2,
+      "candidate_reconciliation_paired_scenarios": 42,
+      "owner_body_source_preservation": "Signatures, decorators, annotations, defaults and docstrings preserved; every inserted owner and all descendants fully proved."
     },
     "complete_readable_module_matches": 99,
     "complete_readable_module_code_units": 2587,
@@ -184,7 +188,7 @@
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000565",
       "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000506"
     },
-    "retained_definition_count": 2,
+    "retained_definition_count": 284,
     "independently_verified_source_files": 16,
     "previous_ci_shared_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193009204",
@@ -299,8 +303,8 @@
       "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
       "unchanged_source_composite_gains": 0,
       "unchanged_source_raw_gains": 0,
-      "new_source_composite_gains": 8,
-      "new_source_raw_gains": 8,
+      "new_source_composite_gains": 283,
+      "new_source_raw_gains": 0,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
     "inline_filter_readability": {
@@ -668,6 +672,41 @@
       "new_source_composite_gains": 12,
       "new_source_raw_gains": 12,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
-    }
+    },
+    "selected_application_behavior_test_methods": 189,
+    "source_definition_path_test_methods": 3,
+    "owner_compilation_context_files": 121,
+    "owner_compilation_context_entries": 282,
+    "owner_compilation_context_distinct_units": 464,
+    "all_isolated_source_files": 139,
+    "all_isolated_entries": 302,
+    "all_isolated_distinct_proved_units": 489,
+    "previous_comparison_variance_before_owner_recipes": {
+      "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
+      "unchanged_source_composite_gains": 0,
+      "unchanged_source_raw_gains": 0,
+      "new_source_composite_gains": 8,
+      "new_source_raw_gains": 8,
+      "instruction_branches_calls_and_exception_dispatch_remain_significant": true
+    },
+    "owner_recipe_retention": {
+      "raw": {
+        "previous": 13910,
+        "matched": 13910,
+        "gained": 0,
+        "lost": 0,
+        "whole_modules": 134,
+        "loss_paths": []
+      },
+      "composite": {
+        "previous": 13915,
+        "matched": 14198,
+        "gained": 283,
+        "lost": 0,
+        "whole_modules": 225,
+        "loss_paths": []
+      }
+    },
+    "stable_toolchain_unchanged": true
   }
 }
