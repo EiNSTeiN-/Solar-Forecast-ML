@@ -59,6 +59,144 @@ class ShadowPatternLearner(DataManagerIO):
         finally:
             self._config["rolling_window_days"] = _var_var_12
 
+    async def learn_from_day(
+        self, date_str: str, group_name: str = "_system_"
+    ) -> LearningResult:
+        """Learn shadow patterns from a day's shadow detection data. @zara V17.0.0
+
+        This is the main learning entry point, called from EOD workflow.
+
+        Args:
+            date_str: Date to learn from (YYYY-MM-DD)
+            group_name: Panel group name ('_system_' for system-wide)
+
+        Returns:
+            LearningResult with success status and details
+        """
+        try:
+            _var_var_35 = await self._get_shadow_data_for_date(date_str, group_name)
+            if not _var_var_35:
+                _LOGGER.debug(
+                    "No shadow data for %s/%s - skipping learning", date_str, group_name
+                )
+                return LearningResult(
+                    success=False,
+                    message="No shadow detection data available",
+                    date=date_str,
+                    reason_code="shadow_detection_data_unavailable",
+                )
+            _var_var_15 = 0
+            for _var_var_36 in _var_var_35:
+                _var_var_32 = _var_var_36.get("hour")
+                if _var_var_32 is None:
+                    continue
+                await self._save_learning_history(date_str, _var_var_36, group_name)
+                _var_var_15 += 1
+            _var_var_16 = datetime.strptime(date_str, "%Y-%m-%d").date()
+            async with self.db.transaction():
+                _var_var_14, _var_var_37 = await self._rebuild_group_patterns(
+                    group_name, _var_var_16
+                )
+            await self._update_config_stats(date_str, _var_var_15, _var_var_37)
+            _LOGGER.info(
+                "Shadow pattern learning for %s [%s]: %d hours, %d patterns updated, %d fixed obstructions",
+                date_str,
+                group_name,
+                _var_var_15,
+                _var_var_14,
+                _var_var_37,
+            )
+            return LearningResult(
+                success=True,
+                message=f"Learned from {_var_var_15} hours",
+                hours_learned=_var_var_15,
+                patterns_updated=_var_var_14,
+                fixed_obstructions_found=_var_var_37,
+                date=date_str,
+            )
+        except Exception as _var_var_9:
+            _LOGGER.error(
+                "Shadow pattern learning failed for %s: %s", date_str, _var_var_9
+            )
+            return LearningResult(
+                success=False,
+                message=str(_var_var_9),
+                date=date_str,
+                reason_code="shadow_pattern_learning_failed",
+            )
+
+    async def _get_shadow_data_for_date(
+        self, date_str: str, group_name: str = "_system_"
+    ) -> List[Dict[str, Any]]:
+        """Get shadow detection data for a specific date. @zara V17.0.0"""
+        try:
+            if group_name != "_system_":
+                _var_var_13 = await self.fetch_all(
+                    "SELECT hp.target_hour, sdg.shadow_type, sdg.shadow_percent,\n                              sdg.root_cause, sdg.confidence, sdg.efficiency_ratio,\n                              sdg.theoretical_max_kwh, sdg.actual_kwh,\n                              pa.sun_elevation_deg,\n                              (SELECT clouds FROM weather_forecast wf\n                               WHERE wf.forecast_date = hp.target_date\n                                 AND wf.hour = hp.target_hour LIMIT 1) as cloud_cover,\n                              hp.exclude_from_learning, hp.mppt_throttle_reason,\n                              hp.mppt_throttled, hp.inverter_clipped,\n                              hp.weather_alert_type, hp.actual_backfill_blocked,\n                              hp.data_quarantine_reason, NULL as fusion_mode,\n                              NULL as ensemble_mode, NULL as observation_class,\n                              NULL as evaluable, NULL as learning_eligible\n                       FROM hourly_predictions hp\n                       JOIN shadow_detection_groups sdg ON hp.prediction_id = sdg.prediction_id\n                       LEFT JOIN prediction_astronomy pa ON hp.prediction_id = pa.prediction_id\n                       WHERE hp.target_date = ?\n                         AND sdg.group_name = ?\n                         AND hp.target_hour >= 6 AND hp.target_hour <= 20\n                       ORDER BY hp.target_hour",
+                    (date_str, group_name),
+                )
+            else:
+                _var_var_13 = await self.fetch_all(
+                    "SELECT hp.target_hour, hsd.shadow_type, hsd.shadow_percent,\n                              hsd.root_cause, hsd.confidence, hsd.efficiency_ratio,\n                              hsd.theoretical_max_kwh, hp.actual_kwh,\n                              pa.sun_elevation_deg,\n                              (SELECT clouds FROM weather_forecast wf\n                               WHERE wf.forecast_date = hp.target_date\n                                 AND wf.hour = hp.target_hour LIMIT 1) as cloud_cover,\n                              hp.exclude_from_learning, hp.mppt_throttle_reason,\n                              hp.mppt_throttled, hp.inverter_clipped,\n                              hp.weather_alert_type, hp.actual_backfill_blocked,\n                              hp.data_quarantine_reason, hsd.fusion_mode,\n                              hsd.ensemble_mode, hsd.observation_class,\n                              hsd.evaluable, hsd.learning_eligible\n                       FROM hourly_predictions hp\n                       JOIN hourly_shadow_detection hsd ON hp.prediction_id = hsd.prediction_id\n                       LEFT JOIN prediction_astronomy pa ON hp.prediction_id = pa.prediction_id\n                       WHERE hp.target_date = ?\n                         AND hp.target_hour >= 6 AND hp.target_hour <= 20\n                       ORDER BY hp.target_hour",
+                    (date_str,),
+                )
+            _var_var_5 = []
+            for _var_var_10 in _var_var_13:
+                _var_var_36 = {
+                    "hour": _var_var_10[0],
+                    "shadow_type": _var_var_10[1],
+                    "shadow_percent": _var_var_10[2] or 0.0,
+                    "root_cause": _var_var_10[3],
+                    "confidence": _var_var_10[4] or 0.0,
+                    "efficiency_ratio": _var_var_10[5] or 0.0,
+                    "theoretical_max_kwh": _var_var_10[6],
+                    "actual_kwh": _var_var_10[7],
+                    "sun_elevation_deg": _var_var_10[8],
+                    "cloud_cover_percent": _var_var_10[9],
+                    "exclude_from_learning": (
+                        bool(_var_var_10[10]) if _var_var_10[10] is not None else False
+                    ),
+                    "mppt_throttle_reason": _var_var_10[11],
+                    "mppt_throttled": (
+                        bool(_var_var_10[12]) if _var_var_10[12] is not None else False
+                    ),
+                    "inverter_clipped": (
+                        bool(_var_var_10[13]) if _var_var_10[13] is not None else False
+                    ),
+                    "weather_alert_type": _var_var_10[14],
+                    "actual_backfill_blocked": (
+                        bool(_var_var_10[15]) if _var_var_10[15] is not None else False
+                    ),
+                    "data_quarantine_reason": _var_var_10[16],
+                    "fusion_mode": _var_var_10[17] if len(_var_var_10) > 17 else None,
+                    "ensemble_mode": _var_var_10[18] if len(_var_var_10) > 18 else None,
+                    "observation_class": (
+                        _var_var_10[19] if len(_var_var_10) > 19 else None
+                    ),
+                    "evaluable": (
+                        bool(_var_var_10[20])
+                        if len(_var_var_10) > 20 and _var_var_10[20] is not None
+                        else True
+                    ),
+                    "learning_eligible": (
+                        bool(_var_var_10[21])
+                        if len(_var_var_10) > 21 and _var_var_10[21] is not None
+                        else True
+                    ),
+                }
+                if self._is_shadow_learning_eligible(_var_var_36):
+                    _var_var_5.append(_var_var_36)
+                    continue
+            return _var_var_5
+        except Exception as _var_var_9:
+            _LOGGER.error(
+                "Failed to get shadow data for %s [%s]: %s",
+                date_str,
+                group_name,
+                _var_var_9,
+            )
+            raise
+
     async def recalculate_from_history(self, days: int = 30) -> LearningResult:
         """Recalculate all patterns from learning history. @zara V17.0.0
 

@@ -1,12 +1,12 @@
 {
-  "previous_stage": "owner-recipes-03",
-  "current_stage": "owner-recipes-04",
-  "new_matching_units": 14,
+  "previous_stage": "owner-recipes-04",
+  "current_stage": "owner-recipes-05",
+  "new_matching_units": 5,
   "previous_matches_lost": 0,
   "raw_new_matching_units": 0,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 14,
+  "source_repair_gains": 5,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 653,
@@ -16,68 +16,32 @@
   "verified_compound_return_shapes": 12,
   "verified_attribute_callable_values": 5,
   "verified_shared_try_fragments": 140,
-  "verified_definition_overrides": 339,
+  "verified_definition_overrides": 344,
   "verified_code_units_in_overrides": 0,
   "raw_decompiler_matched_units": 13910,
   "raw_all_units_match_modules": 134,
-  "manually_reconstructed_candidate_matched_units": 14256,
+  "manually_reconstructed_candidate_matched_units": 14261,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     [
-      "data/data_open_meteo_client.py",
-      "<module>/OpenMeteoClient#1/_fetch_models_from_api#1"
+      "data/data_shadow_pattern_learning.py",
+      "<module>/ShadowPatternLearner#1/_get_shadow_data_for_date#1"
     ],
     [
-      "data/data_weather_expert_blender.py",
-      "<module>/BrightSkyExpert#1/_fetch_forecast#1"
+      "data/data_shadow_pattern_learning.py",
+      "<module>/ShadowPatternLearner#1/learn_from_day#1"
     ],
     [
-      "data/data_weather_expert_blender.py",
-      "<module>/PirateWeatherExpert#1/_fetch_forecast#1"
+      "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
+      "<module>/WeatherForecastCorrector#1/_load_correction_factors#1"
     ],
     [
-      "data/data_weather_expert_blender.py",
-      "<module>/WttrInExpert#1/_fetch_forecast#1"
-    ],
-    [
-      "extra_features/solar_forecast_eai/consumption/consumption_scheduled_tasks.py",
-      "<module>/ScheduledTasksManager#1/_learn_method_performance#1"
-    ],
-    [
-      "extra_features/solar_forecast_eai/data/data_hourly_predictions.py",
-      "<module>/HourlyPredictionsHandler#1/update_hourly_actual#1"
-    ],
-    [
-      "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
-      "<module>/WeatherExpertLearner#1/learn_from_day#1"
-    ],
-    [
-      "production/production_morning_routine.py",
-      "<module>/MorningRoutineHandler#1/execute_morning_routine_with_retry#1"
-    ],
-    [
-      "production/production_scheduled_tasks.py",
-      "<module>/ScheduledTasksManager#1/_end_of_day_workflow_internal#1"
-    ],
-    [
-      "production/production_scheduled_tasks.py",
-      "<module>/ScheduledTasksManager#1/_end_of_day_workflow_internal#1/record_step#1"
-    ],
-    [
-      "production/production_scheduled_tasks.py",
-      "<module>/ScheduledTasksManager#1/_end_of_day_workflow_internal#1/set_workflow_step#1"
-    ],
-    [
-      "production/production_scheduled_tasks.py",
-      "<module>/ScheduledTasksManager#1/_run_shadow_pattern_learning#1"
-    ],
-    [
-      "production/production_scheduled_tasks.py",
-      "<module>/ScheduledTasksManager#1/_train_ml_main_model#1"
+      "extra_features/solar_forecast_eai/data/data_weather_precision.py",
+      "<module>/WeatherPrecisionTracker#1/get_hourly_correction_factors#1"
     ],
     [
       "sensors/sensor_base.py",
-      "<module>/ConservativePlanningForecastSensor#1/_load_from_sources#1"
+      "<module>/SolarForecastSensor#1/_today_hourly_total#1"
     ]
   ],
   "rejected_intermediate_stage": {
@@ -90,9 +54,8 @@
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
   "new_complete_candidate_modules": [
-    "data/data_open_meteo_client.py",
-    "data/data_weather_expert_blender.py",
-    "production/production_morning_routine.py"
+    "data/data_shadow_pattern_learning.py",
+    "sensors/sensor_base.py"
   ],
   "new_readable_modules": [],
   "verified_coupled_statement_shapes": 79,
@@ -104,10 +67,10 @@
   "verified_payload_and_handler_shapes": 39,
   "verified_physical_local_slots": 3,
   "verified_displaced_context_results": 8,
-  "source_reconstructed_owners": 12,
-  "source_compilation_context_files": 8,
-  "newly_proved_owner_tree_units": 25,
-  "isolated_distinct_proved_units": 637,
+  "source_reconstructed_owners": 5,
+  "source_compilation_context_files": 4,
+  "newly_proved_owner_tree_units": 5,
+  "isolated_distinct_proved_units": 642,
   "generic_decompiler_gains": 0,
   "rejected_async_normal_exit_checkpoint": {
     "stage": "async-normal-exits-01",

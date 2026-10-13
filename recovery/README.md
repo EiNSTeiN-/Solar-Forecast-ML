@@ -39,8 +39,8 @@ production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
 101 readable whole modules (3,354 nested units) and passes 199 selected
 test methods (196 application checks and three source-path checks). The full
-corpus has 249 completely matched candidate modules and 14,256/14,291 matching
-units; 35 units remain. Candidate fidelity
+corpus has 251 completely matched candidate modules and 14,261/14,291 matching
+units; 30 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -354,3 +354,13 @@ future/expired/active deadlines and progress-handler restoration. Complete proof
 precedes each selected function's controlled execution. The full selected suite
 passes 199 methods. Readable coverage becomes 101 modules/3,354 units; the already
 proved database receives no additional corpus match credit.
+
+
+The `owner-recipes-05` checkpoint adds 5 exact owner bodies across 4
+changed contexts, gaining 5 corpus matches with zero losses. Its 5
+proved owner-tree units include previously matched descendants. Coupled accepting guards and original result scopes restore shadow data, correction factors and solar totals. Guard-only and return-only repairs remain unproved; complete owners decide the combined reconstruction. Every old
+and new public source/hash/subtree proof passes. There are 362
+isolated entries in 152 files, covering
+642 distinct units; 344
+definitions are retained. These new contexts remain non-readable. The frozen
+.25/.31 generation tools and selected suite's executed bodies remain unchanged.

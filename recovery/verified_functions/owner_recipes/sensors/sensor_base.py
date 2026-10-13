@@ -203,6 +203,41 @@ async def _load_active_ops_day_forecast(
     )
 
 
+class SolarForecastSensor(SensorEntity):
+
+    def _today_hourly_total(self) -> Optional[float]:
+        try:
+            from homeassistant.util import dt as _var_var_36
+
+            _var_var_48 = getattr(self._coordinator, CACHE_HOURLY_PREDICTIONS, None)
+            if not _var_var_48 or not isinstance(_var_var_48, dict):
+                return None
+            _var_var_49 = _var_var_48.get(CACHE_PREDICTIONS, [])
+            if not _var_var_49:
+                return
+            _var_var_50 = _var_var_36.now().strftime("%Y-%m-%d")
+            _var_var_6 = 0.0
+            _var_var_51 = False
+            for _var_var_2 in _var_var_49:
+                if _var_var_2.get(PRED_TARGET_DATE) != _var_var_50:
+                    continue
+                _var_var_4 = self._safe_float(
+                    _var_var_2.get(PRED_PREDICTION_KWH)
+                    if _var_var_2.get(PRED_PREDICTION_KWH) is not None
+                    else _var_var_2.get(PRED_PREDICTED_KWH)
+                )
+                if _var_var_4 is None:
+                    continue
+                _var_var_51 = True
+                _var_var_6 += _var_var_4
+            return _var_var_6 if _var_var_51 else None
+        except Exception as _var_var_46:
+            _LOGGER.warning(
+                "Failed to calculate today's hourly forecast total: %s", _var_var_46
+            )
+            return
+
+
 class ConservativePlanningForecastSensor(SensorEntity):
 
     async def _load_from_sources(self) -> None:

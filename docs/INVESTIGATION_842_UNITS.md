@@ -378,3 +378,13 @@ The full audit reaches **14,256/14,291**, with **35 remaining** and
 zero losses. Three investigators continue disjoint remaining scopes; the main
 thread authors and publishes every change. The readable subset remains
 100/2,637; source-only work uses stable .25/.31 and unchanged comparison rules.
+
+
+## Owner checkpoint 05
+
+The full audit reaches **14,261/14,291**, with **30 remaining** and
+**251 complete candidates**. The 5 new owners add 5 matches with
+zero losses. Three investigators continue disjoint remaining scopes; the main
+thread authors and publishes every change. The readable subset remains
+101/3,354; source-only work uses frozen .25/.31 and
+unchanged comparison rules.

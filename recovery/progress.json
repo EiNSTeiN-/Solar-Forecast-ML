@@ -3,16 +3,16 @@
     "protected_modules": 274,
     "bytecode_verified_modules": 274,
     "source_compiles_modules": 274,
-    "all_units_match_modules": 249,
+    "all_units_match_modules": 251,
     "reference_units": 14291,
-    "matched_units": 14256,
+    "matched_units": 14261,
     "input_files_unchanged": true,
     "vendor_modules_imported": 0,
     "behavioral_equivalence_verified": false,
     "unit_results": {
-      "normalized_bytecode_match": 14256,
+      "normalized_bytecode_match": 14261,
       "instructions": 13,
-      "exception_table": 22
+      "exception_table": 17
     },
     "scopes": {
       "main": 99,
@@ -589,13 +589,15 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 78,
+      "all_units_match": true,
+      "matched_units": 80,
       "reference_units": 80,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
       "retained_source_units": [
+        "<module>/ShadowPatternLearner#1/_get_shadow_data_for_date#1",
         "<module>/ShadowPatternLearner#1/_recalculate_repaired_group_patterns#1",
+        "<module>/ShadowPatternLearner#1/learn_from_day#1",
         "<module>/ShadowPatternLearner#1/recalculate_from_history#1"
       ],
       "source_units": 80
@@ -763,37 +765,6 @@
       "reference_units": 717,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/DatabaseManager#1/_backfill_astronomy_enrichment_v1640#1",
-        "<module>/DatabaseManager#1/_migrate_ai_model_cycle_evaluation_v42#1",
-        "<module>/DatabaseManager#1/_migrate_model_candidate_shadow_compression_v20260813#1",
-        "<module>/DatabaseManager#1/_migrate_raw_physics_kwh_v20260826#1",
-        "<module>/DatabaseManager#1/_migrate_snow_tracking_table_v161#1",
-        "<module>/DatabaseManager#1/_migrate_visibility_learning_table_v161#1",
-        "<module>/DatabaseManager#1/_migrate_weather_visibility_source_v20260827#1",
-        "<module>/DatabaseManager#1/_parse_astronomy_ts#1",
-        "<module>/DatabaseManager#1/_probe_database_connection#1",
-        "<module>/DatabaseManager#1/_rebuild_shadow_run_table#1",
-        "<module>/DatabaseManager#1/_record_model_candidate_terminal_event#1",
-        "<module>/DatabaseManager#1/_restore_schema_indexes#1",
-        "<module>/DatabaseManager#1/_retry_on_locked#1",
-        "<module>/DatabaseManager#1/_seal_json_column#1",
-        "<module>/DatabaseManager#1/_seal_model_weight_rows#1",
-        "<module>/DatabaseManager#1/_seal_shadow_runs_in_place#1",
-        "<module>/DatabaseManager#1/compact_terminal_model_candidate_evidence#1",
-        "<module>/DatabaseManager#1/get_model_weights#1",
-        "<module>/DatabaseManager#1/get_or_create_confirmed_model_retrain_request#1",
-        "<module>/DatabaseManager#1/model_candidate_covers_retrain_request#1",
-        "<module>/DatabaseManager#1/reconcile_pending_model_candidates#1",
-        "<module>/DatabaseManager#1/reconsider_migration_superseded_model_candidate#1",
-        "<module>/DatabaseManager#1/record_model_candidate_evaluation#1",
-        "<module>/DatabaseManager#1/record_model_candidate_evaluation_v2#1",
-        "<module>/DatabaseManager#1/save_model_candidate#1",
-        "<module>/DatabaseManager#1/transaction#1",
-        "<module>/DatabaseManager#1/transaction#1/_enter_transaction#1",
-        "<module>/DatabaseManager#1/transaction#1/_run_outer_transaction#1",
-        "<module>/daily_summary_evaluation_unchanged#1"
-      ],
       "source_units": 717
     },
     {
@@ -2769,10 +2740,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 42,
+      "matched_units": 43,
       "reference_units": 45,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherForecastCorrector#1/_load_correction_factors#1"
+      ],
       "source_units": 45
     },
     {
@@ -2828,10 +2802,13 @@
       "bytecode_verified": true,
       "source_compiles": true,
       "all_units_match": false,
-      "matched_units": 39,
+      "matched_units": 40,
       "reference_units": 41,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/WeatherPrecisionTracker#1/get_hourly_correction_factors#1"
+      ],
       "source_units": 41
     },
     {
@@ -3683,13 +3660,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 442,
+      "all_units_match": true,
+      "matched_units": 443,
       "reference_units": 443,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
       "retained_source_units": [
         "<module>/ConservativePlanningForecastSensor#1/_load_from_sources#1",
+        "<module>/SolarForecastSensor#1/_today_hourly_total#1",
         "<module>/_load_active_ops_day_forecast#1"
       ],
       "source_units": 443

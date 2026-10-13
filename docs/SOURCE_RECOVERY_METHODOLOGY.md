@@ -2491,3 +2491,25 @@ integration module, database file or armor runtime executes. The full selected
 suite passes **199 methods** in **156.712 seconds**, including 196 application
 methods and three source-definition-path methods. This does not claim exhaustive
 runtime equivalence for every application code path.
+
+
+## owner-recipes-05: complete owner and neighbor proofs
+
+`owner-recipes-05` adopts 5 reconstructed bodies after full owner/descendant
+and module-retention proofs. Coupled accepting guards and original result scopes restore shadow data, correction factors and solar totals. Guard-only and return-only repairs remain unproved; complete owners decide the combined reconstruction. No alias assignments or comparator
+changes are introduced. Owned controls reject wrong closure order, absent writes,
+changed scope and omitted error paths.
+
+All 274 candidates compile. The complete corpus gains **5 / zero losses**,
+reaching **14,261/14,291 / 251 complete candidates**, leaving **30
+units (13 instructions / 17 exception tables)**.
+Raw generic coverage remains 13,910/134 in this frozen source-only checkpoint;
+readable whole source stays 101/3,354.
+There are 362 isolated entries, 152
+files and 642 distinct proved units. Source-only
+proofs are counted separately from generic decompiler or readable-source gains.
+All published hashes and complete source/owner proofs pass. Previously tested
+selected function bodies are unchanged; no blanket runtime-equivalence claim is
+made for the new application owners. Full source and readability goals remain
+active. Native .30's separately proved full retention gate adds fifteen raw
+matches without losses; its gains are not credited to these source bodies.
