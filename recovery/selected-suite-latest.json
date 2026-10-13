@@ -1,0 +1,16 @@
+{
+  "tests_run": 212,
+  "failures": 0,
+  "errors": 0,
+  "expected_failures": 0,
+  "success": true,
+  "seconds": 144.475,
+  "readable_snapshot_modules": 211,
+  "readable_snapshot_units": 12158,
+  "source_api": "0.4.37-einstein.1",
+  "backend": "0.6.30-einstein.1",
+  "original_exports_unchanged": true,
+  "instruction_and_exception_criteria_changed": false,
+  "manifest_sha256": "dd0ee6800bf3d586dabfe24c69de7be02810de6bee4a115aceae3ff17b2c66bb",
+  "vendor_modules_imported": 0
+}

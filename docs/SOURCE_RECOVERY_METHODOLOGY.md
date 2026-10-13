@@ -3362,3 +3362,22 @@ Names distinguish champion/candidate forecast histories, canonical shadow evalua
 The previously passed 210-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Selected-suite verification after generator layout repair
+
+The full selected suite passes **212 methods in 144.475 seconds** against
+unpacker .37 and a frozen **211-module / 12,158-unit** readable snapshot.
+It contains 196 application methods and 16 source/coverage methods, including
+both new nested repeated-target generator checks. Those checks demonstrate
+that ordinary results can agree while strict instructions differ, and that
+keeping only the target-and-iterator header on one physical line restores
+complete instructions and exception regions. The surrounding condition keeps
+its normal multiline formatting. Wrong calculation logic remains rejected.
+
+All original protected inputs remain unchanged. Only selected proved
+definitions and owned dependency stand-ins execute; no integration module or
+PyArmor runtime is imported. Later naming publications require complete
+static source/hash/subtree proofs and separate owned investigatory controls.
+The 18 strict coroutine/terminal differences remain unresolved and uncounted.
+See `recovery/selected-suite-latest.json` and the unpacking evidence.

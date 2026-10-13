@@ -18,7 +18,7 @@
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 73,
-    "selected_module_behavior_tests_passed": 210,
+    "selected_module_behavior_tests_passed": 212,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -735,7 +735,7 @@
       }
     },
     "stable_toolchain_unchanged": false,
-    "selected_suite_reuse": "The full selected suite passes 210 methods in 152.75 seconds against .37 and a frozen 186-module, 11,108-unit readable snapshot including ten neutral reservation names. This includes 196 application methods and 14 source/coverage methods. Later naming-only publications require complete static proofs and separate owned controls; no whole integration or PyArmor runtime runs.",
+    "selected_suite_reuse": "The full selected suite passes 212 methods in 144.475 seconds against .37 and a frozen 211-module, 12,158-unit readable snapshot, including the reservation and generator-layout controls: 196 application methods and 16 source/coverage methods. Later naming-only source publications retain complete static instruction and exception proofs and separate owned controls. No whole integration or PyArmor runtime modules are imported.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",
       "stage": "promoted-exit-tools-01",
@@ -1871,22 +1871,21 @@
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     },
-    "selected_source_coverage_test_methods": 14,
+    "selected_source_coverage_test_methods": 16,
     "selected_suite_latest_run": {
-      "tests_run": 210,
+      "tests_run": 212,
       "failures": 0,
       "errors": 0,
       "expected_failures": 0,
       "success": true,
-      "seconds": 152.75,
-      "readable_snapshot_modules": 186,
-      "readable_snapshot_units": 11108,
-      "renamed_unused_slots": 10,
+      "seconds": 144.475,
+      "readable_snapshot_modules": 211,
+      "readable_snapshot_units": 12158,
       "source_api": "0.4.37-einstein.1",
       "backend": "0.6.30-einstein.1",
-      "instruction_and_exception_criteria_changed": false,
       "original_exports_unchanged": true,
-      "manifest_sha256": "09f2a37f37e438c84b8e3863823bb4a2b6386de5f79080196014e9e45f1f4e2f",
+      "instruction_and_exception_criteria_changed": false,
+      "manifest_sha256": "dd0ee6800bf3d586dabfe24c69de7be02810de6bee4a115aceae3ff17b2c66bb",
       "vendor_modules_imported": 0
     },
     "readable-batch-20": {
@@ -3141,6 +3140,7 @@
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true,
       "pinned_comparator_sha256": "810071a10fe86f5c49498e2f086518076207d9e5c0164376c55dbde958a15400"
-    }
+    },
+    "unpacker_expected_failures": 1
   }
 }
