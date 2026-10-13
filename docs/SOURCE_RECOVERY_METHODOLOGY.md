@@ -3436,3 +3436,46 @@ area. Only hashes and proof counts are published in the private-readable
 manifest. This module is counted separately from public readable files and
 receives no new corpus-match credit. Sequence headers, derived keys and raw
 cryptographic diagnostics remain outside tracked artifacts.
+
+
+## Readable data validation, solar consumption, cost accounting and feature lifecycle
+
+Root-authored source names **1,000 bindings across
+163 actual scopes**, exposing **441
+already-proved units**. It removes 252 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**238 modules / 12,929 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `data/data_schema_validator.py` | 26 | 38 | 10 |
+| `services/service_astronomy.py` | 23 | 50 | 9 |
+| `extra_features/solar_forecast_eai/data/data_learning_filter.py` | 26 | 80 | 11 |
+| `extra_features/solar_forecast_eai/data/data_schema_validator.py` | 26 | 38 | 10 |
+| `extra_features/weather_fusion_ai/config_flow.py` | 24 | 9 | 5 |
+| `extra_features/weather_fusion_ai/actual_tracker.py` | 29 | 43 | 10 |
+| `extra_features/sfml_stats/core/daily_aggregator.py` | 22 | 53 | 8 |
+| `extra_features/sfml_stats/core/grid_split_backfill.py` | 25 | 55 | 8 |
+| `extra_features/sfml_stats/readers/forecast_comparison_reader.py` | 24 | 54 | 6 |
+| `extra_features/sfml_stats/core/daily_costs.py` | 23 | 73 | 9 |
+| `extra_features/solar_forecast_eai/consumption/consumption_morning_routine.py` | 24 | 130 | 11 |
+| `extra_features/solar_forecast_eai/consumption/consumption_history.py` | 22 | 50 | 9 |
+| `production/production_history.py` | 22 | 52 | 9 |
+| `services/service_extra_features.py` | 22 | 38 | 8 |
+| `extra_features/solar_forecast_eai/consumption/consumption_adaptive_forecast.py` | 33 | 128 | 15 |
+| `extra_features/solar_forecast_eai/data/data_visibility_learner.py` | 35 | 64 | 10 |
+| `extra_features/solar_forecast_eai/data/data_weather_pipeline_manager.py` | 35 | 45 | 15 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Names expose main and EAI schema/default validation while retaining their distinct tables, clocks and report arithmetic; astronomy capacity, cache and reload units; weather integration configuration and observations; hourly/daily allocation and correction-preserving backfill; forecast comparison and cost scaling; consumption morning/history and main production history; existing feature installation states; adaptive snow/deviation/cooldown decisions; visibility weighting; and EAI provider/bootstrap ordering and physical captures. The EAI morning routine uses the already-proved .37 neutral name for one additional unused, same-position compiler reservation. Its source and descendants must pass complete strict instruction and exception proofs. Main/EAI differences in history windows, persisted fields, learning-disablement and fallback arithmetic stay unchanged. All investigative installers, schedulers, SQL and notification protocols use owned inert stand-ins; no actual install, services, persistence or integration module execution occurs.
+
+The previously passed 212-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

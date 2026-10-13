@@ -500,7 +500,7 @@
       "matched_units": 26,
       "reference_units": 26,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DataSchemaValidator#1/validate_and_migrate_all#1",
         "<module>/DataSchemaValidator#1/validate_table_integrity#1"
@@ -1537,7 +1537,7 @@
       "matched_units": 22,
       "reference_units": 22,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 22
     },
     {
@@ -1549,7 +1549,7 @@
       "matched_units": 23,
       "reference_units": 23,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/daily_costs_from_hourly_rows#1",
         "<module>/load_provenance#1",
@@ -1703,7 +1703,7 @@
       "matched_units": 25,
       "reference_units": 25,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/async_backfill_daily_grid_split#1",
         "<module>/async_backfill_grid_split#1"
@@ -1996,7 +1996,7 @@
       "matched_units": 24,
       "reference_units": 24,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 24
     },
     {
@@ -2265,7 +2265,7 @@
       "matched_units": 33,
       "reference_units": 33,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/AdaptiveForecastEngine#1/_execute_correction#1"
       ],
@@ -2281,7 +2281,7 @@
       "matched_units": 22,
       "reference_units": 22,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ProductionCalculator#1/get_weather_correlation#1"
       ],
@@ -2297,7 +2297,7 @@
       "matched_units": 24,
       "reference_units": 24,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/MorningRoutineHandler#1/_create_daily_predictions#1",
         "<module>/MorningRoutineHandler#1/_verify_integrity#1",
@@ -2470,7 +2470,7 @@
       "matched_units": 26,
       "reference_units": 26,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 26
     },
     {
@@ -2522,7 +2522,7 @@
       "matched_units": 26,
       "reference_units": 26,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DataSchemaValidator#1/validate_and_migrate_all#1",
         "<module>/DataSchemaValidator#1/validate_table_integrity#1"
@@ -2583,7 +2583,7 @@
       "matched_units": 35,
       "reference_units": 35,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/VisibilityLearner#1/learn_from_day#1"
       ],
@@ -2660,7 +2660,7 @@
       "matched_units": 35,
       "reference_units": 35,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherDataPipelineManager#1/stop_pipeline#1"
       ],
@@ -2968,7 +2968,7 @@
       "matched_units": 29,
       "reference_units": 29,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 29
     },
     {
@@ -3040,7 +3040,7 @@
       "matched_units": 24,
       "reference_units": 24,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 24
     },
     {
@@ -3305,7 +3305,7 @@
       "matched_units": 22,
       "reference_units": 22,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ProductionCalculator#1/get_weather_correlation#1"
       ],
@@ -3547,7 +3547,7 @@
       "matched_units": 23,
       "reference_units": 23,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/AstronomyServiceHandler#1/_auto_build_cache_if_needed#1",
         "<module>/AstronomyServiceHandler#1/_auto_extract_max_peaks_if_needed#1"
@@ -3604,7 +3604,7 @@
       "matched_units": 22,
       "reference_units": 22,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ExtraFeaturesInstaller#1/_get_version_from_manifest#1"
       ],

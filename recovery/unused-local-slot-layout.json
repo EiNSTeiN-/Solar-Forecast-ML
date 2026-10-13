@@ -162,5 +162,25 @@
       ],
       "source_sha256": "0f83d27d7f6cf9156b9e518229f924da08056b141163099d3f82b2ab02cfcaa4"
     }
-  ]
+  ],
+  "additional_publications": [
+    {
+      "label": "readable-batch-29",
+      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_morning_routine.py",
+      "units": 24,
+      "owners": [
+        "<module>/MorningRoutineHandler#1/_create_daily_predictions#1"
+      ],
+      "renamed_unused_slots": 1,
+      "source_sha256": "fe5a31af716bcbf76492b9ea00cb241bce5cfa8f677f79df115f4811be2d0541",
+      "complete_instruction_and_exception_tree_proof_passes": true,
+      "internal_name_variance_only": true,
+      "physical_slot_positions_preserved": true,
+      "comparison_rules_changed": false,
+      "new_corpus_matches": 0
+    }
+  ],
+  "current_total_renamed_unused_slots": 11,
+  "current_total_renamed_modules": 10,
+  "initial_gate_and_suite_counts_preserved": true
 }
