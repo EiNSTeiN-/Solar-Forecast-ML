@@ -436,7 +436,7 @@
       "matched_units": 90,
       "reference_units": 90,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DataManager#1/_load_shadow_detection_for_date#1",
         "<module>/DataManager#1/initialize#1",
@@ -498,7 +498,7 @@
       "matched_units": 90,
       "reference_units": 90,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/OpenMeteoClient#1/_fetch_models_from_api#1",
         "<module>/OpenMeteoClient#1/_load_from_database#1",
@@ -645,7 +645,7 @@
       "matched_units": 92,
       "reference_units": 92,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherActualTracker#1/_detect_sensor_freeze#1",
         "<module>/WeatherActualTracker#1/_is_snow_plausible#1",

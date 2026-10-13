@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-127 readable whole modules (7,149 nested units) and passes 206 selected
+130 readable whole modules (7,421 nested units) and passes 206 selected
 test methods (196 application checks and ten source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -686,3 +686,32 @@ coverage gaps and the WeatherExpert duplicated terminal rethrow. Research views
 and owned tests document them; no new comparator variance is applied or credited.
 See the coroutine and terminal-layout reports. These failures and unfinished
 readability work keep the overall recovery goal active.
+
+
+## Readable weather actual tracking, data manager and Open-Meteo client
+
+Root-authored source names **521 bindings across
+104 actual scopes**, exposing **272
+already-proved units**. It removes63 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**130 modules /7,421 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `data/data_weather_actual_tracker.py` | 92 | 258 | 45 |
+| `data/data_manager.py` | 90 | 117 | 27 |
+| `data/data_open_meteo_client.py` | 90 | 146 | 32 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Actual-weather tracking preserves the freeze detector recent-values capture, compiler annotation/class captures, sensor constants and fog imports while distinguishing measurements, units and lifecycle state. The data manager keeps forecast locks, database interfaces, persisted profiles and optional join fields intact. Open-Meteo names distinguish provider-specific radiation, missing versus zero values, date coverage, endpoint failover and retries; shared rate-limit list identity, daylight-saving boundaries and cancellation routes remain unchanged.
+
+The previously passed206-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

@@ -182,6 +182,15 @@
       "behavior_tests": 2
     },
     {
+      "path": "data/data_manager.py",
+      "original_payload_sha256": "3680cee06af38f1d079f19da7d08f991b4aab87e8a8590ecef5a9c28203ff7a8",
+      "reconstructed_source_sha256": "d54ba7cb2e422189be081aa26603ad4a1400a12b6e563b01da7f12a4517711ff",
+      "matched_units": 90,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "data/data_model_promotion_policy.py",
       "original_payload_sha256": "af8b958c4086471d9ffcf399d350e65fa5bd95429fe37ec8d9b231e1de800422",
       "reconstructed_source_sha256": "943594c339d1a63752ac64a1bbb045c33616c09f7cfe3687163b2f4cd625f485",
@@ -189,6 +198,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "data/data_open_meteo_client.py",
+      "original_payload_sha256": "8b15ed3198b12396ee3a6d46a9f71ab9a2495700452adf40bf1b40ad8093bd7e",
+      "reconstructed_source_sha256": "26cff96b75968e3338ff0337c02591bb95eaf2980ca12fbc7af5a23c37bbe844",
+      "matched_units": 90,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "data/data_shadow_group_math.py",
@@ -216,6 +234,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 5
+    },
+    {
+      "path": "data/data_weather_actual_tracker.py",
+      "original_payload_sha256": "4b275584c4d53698ee4469afc4c03a606583a7bdb674bf4bc681849b2b4eb264",
+      "reconstructed_source_sha256": "98253b83501bcb9403b9a9d8928865941fb632ab41a59d023b7fc53ec51f4437",
+      "matched_units": 92,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "data/data_weather_expert_blender.py",
@@ -1146,5 +1173,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 7149
+  "total_matched_units": 7421
 }

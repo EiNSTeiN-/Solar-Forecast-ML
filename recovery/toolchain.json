@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 127,
-    "complete_readable_module_code_units": 7149,
+    "complete_readable_module_matches": 130,
+    "complete_readable_module_code_units": 7421,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1529,6 +1529,59 @@
       "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38350738481",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
+    },
+    "readable-batch-14": {
+      "modules": [
+        {
+          "module_path": "data/data_weather_actual_tracker.py",
+          "matched_units": 92,
+          "scoped_maps": 45,
+          "renamed_bindings": 258,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "98253b83501bcb9403b9a9d8928865941fb632ab41a59d023b7fc53ec51f4437",
+          "docstring_values_restored_after_formatting": 6,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "data/data_manager.py",
+          "matched_units": 90,
+          "scoped_maps": 27,
+          "renamed_bindings": 117,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "d54ba7cb2e422189be081aa26603ad4a1400a12b6e563b01da7f12a4517711ff",
+          "docstring_values_restored_after_formatting": 10,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "data/data_open_meteo_client.py",
+          "matched_units": 90,
+          "scoped_maps": 32,
+          "renamed_bindings": 146,
+          "removed_empty_artifacts": 27,
+          "source_sha256": "26cff96b75968e3338ff0337c02591bb95eaf2980ca12fbc7af5a23c37bbe844",
+          "docstring_values_restored_after_formatting": 5,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 130,
+      "readable_units": 7421,
+      "new_readable_modules": 3,
+      "new_readable_units": 272,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 521,
+      "scoped_maps": 104,
+      "removed_empty_artifacts": 63,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
     }
   }
 }
