@@ -2206,3 +2206,43 @@ All **206 unpacker cases** pass with one existing expected failure; native
 retains 35 Rust and 59 behavior methods. Inputs, comparator and retained
 definition overrides are unchanged. No vendor module or armor runtime is
 imported. Investigators' other queued oracles are excluded from these gains.
+
+
+## Lexical loop ownership of nested handlers (0.4.30 / 0.6.25)
+
+A relocated inner dispatch between its parent body and dispatch does not
+justify flattening an inner Try out of a live For. Record that intervening
+lexical loop when opening the inner region, retain its own tail, exclude its
+head from the outer flat rebuild, and keep its clauses independent of the
+parent dispatch. A POP_EXCEPT fragment protected by that recorded parent
+cannot cut off later clauses. All genuine private nested clause and sibling
+head bounds remain. No-loop, sequential and outer-finally cases retain the
+previous algorithm. If/While/With-only and private-handler families remain
+unproved and are not claimed fixed.
+
+Three owned methods add 156 paired normal, empty, row/handler/post-loop faults
+and cancellation paths. Sync/async variants have zero/one/two awaits; named,
+multiple, same-type and two sibling handlers retain exact instruction and
+exception bytes, as do independent no-loop and outer-finally controls.
+
+`lexical-loop-handlers-01` pins native `f650d85ad33e51c3982c2d98a7f75f16f459bd59` and unchanged source API
+`75923fb4fbac7602551dfec6fe0aae6bd72962c5`. All 274 native outputs and
+diagnostics are compared: 205 identical sources
+are reused, 69 changed sources regenerated,
+and every source receives fresh raw and composite fidelity audits. Generation
+takes 703.4 seconds with four workers.
+
+Raw gains **12** to **13,902 / 132
+complete candidates**. Composite gains **12** to
+**13,907/14,291 / 132 complete
+candidates**. Both lose **zero**. **384 remain**, with
+**344 instruction and
+40 exception mismatches**.
+All 274 sources compile; 219 are structurally
+complete. The readable subset remains **98 modules / 2,565 units**; all 183
+application methods and their full-module references remain independently
+proved. Local checks pass **35 Rust, 62 behavior and 206 unpacker
+cases**, with one existing unpacker expected failure. Input payloads, comparator
+rules and retained definition overrides are unchanged; no vendor module or
+PyArmor runtime is imported. Queued investigator source oracles are excluded
+from these regenerated gains.

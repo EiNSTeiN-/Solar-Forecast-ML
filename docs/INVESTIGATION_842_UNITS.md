@@ -338,3 +338,12 @@ with zero prior raw or composite matches lost. This reaches
 The readable subset remains **98 modules / 2,565 units**. Five fresh complete
 recoveries independently establish the final-pass reuse method. Other queued
 source oracles remain excluded until root authors and validates them.
+
+
+## Lexical loop ownership of nested handlers
+
+`lexical-loop-handlers-01` audits all 274 modules, retaining every prior raw and composite match.
+Raw gains 12, composite gains 12, with zero losses:
+**13,907/14,291 matches, 384 remaining,
+132 complete candidates**. Readable source remains
+**98 modules / 2,565 units**. Investigators' separate source oracles stay queued.

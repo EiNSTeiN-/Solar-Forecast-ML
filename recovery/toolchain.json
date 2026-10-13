@@ -6,8 +6,8 @@
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
-    "commit": "4c02fc60a7aae297ced8a84e884aeb46b58fda55",
-    "version": "0.6.24-einstein.1"
+    "commit": "f650d85ad33e51c3982c2d98a7f75f16f459bd59",
+    "version": "0.6.25-einstein.1"
   },
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
@@ -16,7 +16,7 @@
     "unpacker_passes": 205,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
-    "backend_behavior_tests_passed": 59,
+    "backend_behavior_tests_passed": 62,
     "selected_module_behavior_tests_passed": 183,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
@@ -158,7 +158,8 @@
       "guarded_else_01_paired_cases": 900,
       "saved_boolean_01_paired_cases": 113,
       "physical_local_owned_methods": 6,
-      "fresh_physical_local_generation_crosschecks": 5
+      "fresh_physical_local_generation_crosschecks": 5,
+      "lexical_loop_handlers_01_paired_cases": 156
     },
     "complete_readable_module_matches": 98,
     "complete_readable_module_code_units": 2565,
@@ -172,9 +173,10 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38325451685",
-      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38325069117",
-      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38325069287"
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38325846343",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38327367141",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38325846345",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38325846302"
     },
     "retained_definition_count": 2,
     "independently_verified_source_files": 16,
@@ -224,21 +226,21 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38248627170"
     },
     "source_generation": {
-      "stage": "physical-local-slots-01",
-      "method": "exact unchanged earlier API algorithms reused; sole new final postpass applied; every source independently audited",
+      "stage": "lexical-loop-handlers-01",
+      "method": "all native outputs compared; identical inputs to frozen source API reused; changed outputs regenerated",
       "private_worker_processes_per_batch": 4,
       "maximum_simultaneous_private_workers": 4,
       "exports_unchanged": true,
       "modern_backend_source_sha256": "43552162a77a406efdf8142420b17c4e244ef9b128ad2bfee8d8d8b2b67dd22e",
-      "summary_sha256": "c8544422b1706025ca50fea4b63ecb48d33e1c7723d2319ddf6a0b1db9dd4c42",
-      "postpass_evidence_sha256": "3719f1177dbaf06bcb7d8a43cff0a7e4d17d49714704d3099157eec3610d8d1d",
-      "reused_native_captures_verified": 274,
-      "new_postpass_modules": 274,
-      "unchanged_prior_algorithm_ast_proved": true,
-      "comparison_rules_unchanged": true,
-      "fresh_full_recovery_crosschecks": 5,
-      "fresh_crosscheck_sha256": "7c93ef8e18d24331f016bae1aac4af4f3bb78b685bf0f52a6d4ac1169b8144b6",
-      "every_source_independently_compared_to_original_bytecode": true
+      "native_source_sha256": "dc295d7209ad3e9b0fd0b1b2d63bc0f0546fdbe2b3dc2da133f6b172897bf3b0",
+      "native_binary_sha256": "a468856d39ed5331cf4b90ff1531b6734811b8ad114f32508b24c04de628e4f7",
+      "summary_sha256": "2a6fb4d15fdd36fd1b960c0a1325733cde17e3abae4093fe902bf8a4cbc79cce",
+      "reuse_evidence_sha256": "427dcba19535d2209b5918f1be5997787d27fe669a4f9ba4f02500119b820cea",
+      "native_outputs_compared": 274,
+      "identical_source_reused": 205,
+      "source_regenerated": 69,
+      "every_source_independently_compared_to_original_bytecode": true,
+      "frozen_source_algorithm_commit": "75923fb4fbac7602551dfec6fe0aae6bd72962c5"
     },
     "previous_ci_before_branch_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38258152444",
@@ -291,8 +293,8 @@
       "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
       "unchanged_source_composite_gains": 0,
       "unchanged_source_raw_gains": 0,
-      "new_source_composite_gains": 3,
-      "new_source_raw_gains": 3,
+      "new_source_composite_gains": 12,
+      "new_source_raw_gains": 12,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
     "inline_filter_readability": {
@@ -430,14 +432,14 @@
       "source_only_trial_gains": 87,
       "source_only_trial_losses": 0,
       "rejected_intermediate_stage_lost_matches": 5,
-      "final_full_tool_gains": 3,
+      "final_full_tool_gains": 12,
       "final_full_tool_lost_matches": 0,
-      "remaining_failures": 396,
+      "remaining_failures": 384,
       "ongoing_residual_investigation": true,
       "previous_checkpoint": {
-        "final_full_tool_gains": 1,
+        "final_full_tool_gains": 3,
         "final_full_tool_lost_matches": 0,
-        "remaining_failures": 399
+        "remaining_failures": 396
       },
       "residual_shards": [
         {
@@ -632,6 +634,19 @@
       "unchanged_source_raw_gains": 0,
       "new_source_composite_gains": 1,
       "new_source_raw_gains": 1,
+      "instruction_branches_calls_and_exception_dispatch_remain_significant": true
+    },
+    "previous_ci_before_lexical_loop_handlers_01": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38325451685",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38325069117",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38325069287"
+    },
+    "previous_comparison_variance_before_lexical_loop_handlers_01": {
+      "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
+      "unchanged_source_composite_gains": 0,
+      "unchanged_source_raw_gains": 0,
+      "new_source_composite_gains": 3,
+      "new_source_raw_gains": 3,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     }
   }

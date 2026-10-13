@@ -39,7 +39,7 @@ production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
 98 readable whole modules (2,565 nested units) and passes 183 selected
 application test methods. The full corpus has 132 completely matched candidate
-modules and 13,895/14,291 matching units; 396 units remain. Candidate fidelity
+modules and 13,907/14,291 matching units; 384 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
