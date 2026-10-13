@@ -740,7 +740,7 @@
       }
     },
     "stable_toolchain_unchanged": false,
-    "selected_suite_reuse": "The full selected suite passes 212 methods in 210.741 seconds against .37 and a frozen 262-module, 13,355-unit readable snapshot: 196 application methods and 16 source/coverage methods. No whole integration or PyArmor runtime is imported. All complete candidates are readable, including one separately retained private crypto module. The 18 strict gaps in incomplete modules remain unaccepted.",
+    "selected_suite_reuse": "The full selected suite passes 214 methods against frozen .37 and a 262-module, 13,355-unit readable snapshot: 196 application methods and 18 source/coverage methods. The two new owned controls distinguish return aliases from real-return cleanup holes. No whole integration or PyArmor runtime is imported; 18 strict gaps remain unaccepted.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",
       "stage": "promoted-exit-tools-01",
@@ -1878,12 +1878,12 @@
     },
     "selected_source_coverage_test_methods": 16,
     "selected_suite_latest_run": {
-      "tests_run": 212,
+      "tests_run": 214,
       "failures": 0,
       "errors": 0,
       "expected_failures": 0,
       "success": true,
-      "seconds": 210.741,
+      "seconds": 158.685,
       "readable_snapshot_modules": 262,
       "readable_snapshot_units": 13355,
       "source_api": "0.4.37-einstein.1",

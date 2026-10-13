@@ -1484,3 +1484,50 @@ The owned actual-return-hole tracing test remains a negative control, rather
 than a direct runtime counterexample for those aliases. The corrected scope
 is documented in `docs/COROUTINE_RETURN_COVERAGE.md`; no comparison rule or
 acceptance count is changed.
+
+
+## Compiler patch review and conditional-finalizer witness
+
+A read-only review of54 official compiler files across CPython3.14.0–3.14.8
+finds no direct patch change that resolves the18 remaining owners. The applicable
+coroutine wrapper, return lowering, handler labeling/table assembly and terminal
+copying functions stay unchanged. Other changes concern annotations, constants,
+comprehension bookkeeping and failure cleanup. This is source-level evidence,
+not execution under nine interpreters or a general impossibility proof. Primary
+references are [code generation](https://github.com/python/cpython/blob/v3.14.8/Python/codegen.c),
+[flowgraph optimization](https://github.com/python/cpython/blob/v3.14.8/Python/flowgraph.c),
+and [exception-table assembly](https://github.com/python/cpython/blob/v3.14.8/Python/assemble.c).
+
+Owned witnesses show that a plain conditional finalizer can produce the
+duplicated exceptional rethrow. In the complete WFA context, however, the
+zero-padding conditional also adds normal returns:266 instructions versus the
+reference263. Both bounded source trials fail while retaining all108 passing
+neighbors. Fifty-two paired owned cases and four meaningful negatives exercise
+cleanup ownership, failures, cancellation and context suppression. No vendor
+module runs and no new owner or corpus match is accepted. See
+`recovery/compiler-patch-review.json`.
+
+
+## Readable previews of the unresolved functions
+
+The main thread prepared private readable candidates for all 18 unresolved
+owners in 11 module contexts. The scoped changes replace 39 internal bindings
+with descriptive names while preserving parameters, metadata, documentation,
+all 888 existing matches, and the canonical shapes of the same 18 failures.
+No opaque nonparameter locals remain in these previews. They receive zero
+recovery credit and are excluded from the accepted source manifests.
+
+Seventeen coroutine candidates match the reference instruction streams and
+signatures, with one forward-jump return-alias dispatch difference each. The
+WeatherExpert candidate remains at 262 instructions versus the reference's 263.
+The public [preview ledger](../recovery/unaccepted-readable-previews.json) records
+hashes and bounded diagnostics; the candidate sources remain local for review.
+
+The owned regression
+`recovery/tests/test_coroutine_return_alias_provenance.py` checks the distinction
+between an alias opcode and its actual return target. Ordinary return values
+agree in the literal witness; an injected opcode exception at the jump follows
+the user handler, whereas an exception at the actual return follows the intrinsic
+StopIteration route. Removing that actual return route changes the observed
+result. Both tests retain strict comparator rejection and establish no blanket
+equivalence for protected vendor functions.

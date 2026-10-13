@@ -46,12 +46,12 @@
     "selected_suite_212_includes_both_generator_tests": true
   },
   "latest_selected_suite": {
-    "tests_run": 212,
+    "tests_run": 214,
     "failures": 0,
     "errors": 0,
     "expected_failures": 0,
     "success": true,
-    "seconds": 210.741,
+    "seconds": 158.685,
     "readable_snapshot_modules": 262,
     "readable_snapshot_units": 13355,
     "source_api": "0.4.37-einstein.1",

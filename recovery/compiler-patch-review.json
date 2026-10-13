@@ -1,0 +1,31 @@
+{
+  "official_patch_versions": 9,
+  "official_compiler_files": 54,
+  "full_function_comparisons": 44,
+  "unchanged_function_bodies": 36,
+  "compiler_version_owned": "3.14.2 (main, Dec  9 2025, 19:03:28) [Clang 21.1.4 ]",
+  "owned_static_geometries": 13,
+  "owned_fixture_pairs": 2,
+  "paired_owned_cases": 52,
+  "strict_behavior_negative_controls": 4,
+  "wfa_fresh_static_trials": 2,
+  "wfa_frozen_neighbor_matches": 108,
+  "wfa_all_neighbor_losses": [],
+  "new_exact_owners": 0,
+  "new_corpus_gains": 0,
+  "criteria_and_references_unchanged": true,
+  "recovered_module_execution_count": 0,
+  "full_transformed_vendor_source_saved": false,
+  "tracked_mutation_count": 0,
+  "compiler_build_install_count": 0,
+  "home_assistant_io_count": 0,
+  "patch_level_direct_explanation_found": false,
+  "full_impossibility_claim": false,
+  "official_sources": [
+    "https://github.com/python/cpython/blob/v3.14.8/Python/codegen.c",
+    "https://github.com/python/cpython/blob/v3.14.8/Python/flowgraph.c",
+    "https://github.com/python/cpython/blob/v3.14.8/Python/assemble.c"
+  ],
+  "comparison_policy_changed": false,
+  "source_review_only_not_cross_interpreter_execution": true
+}
