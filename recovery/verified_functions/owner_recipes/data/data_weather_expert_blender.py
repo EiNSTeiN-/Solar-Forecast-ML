@@ -78,6 +78,218 @@ def expert_cache_is_fresh(
         return _var_var_3 <= _var_var_4
 
 
+class BrightSkyExpert(WeatherExpert):
+
+    async def _fetch_forecast(self, force: bool = False) -> bool:
+        """Fetch forecast from Bright Sky API and persist to DB. @zara"""
+        if not force:
+            if self._last_fetch_time:
+                _var_var_17 = (dt_util.now() - self._last_fetch_time).total_seconds()
+                if _var_var_17 < 10800:
+                    return True
+        if not force:
+            _var_var_18 = await self._check_db_freshness()
+            if _var_var_18:
+                _LOGGER.debug("BrightSky: Using existing DB data (still fresh)")
+                self._last_fetch_time = dt_util.now()
+                return True
+        try:
+            _var_var_15 = dt_util.now().strftime("%Y-%m-%d")
+            _var_var_19 = (dt_util.now() + timedelta(days=2)).strftime("%Y-%m-%d")
+            _var_var_20 = {
+                "lat": self.latitude,
+                "lon": self.longitude,
+                "date": _var_var_15,
+                "last_date": _var_var_19,
+            }
+            async with aiohttp.ClientSession() as _var_var_21:
+                async with _var_var_21.get(
+                    BRIGHT_SKY_BASE_URL,
+                    params=_var_var_20,
+                    timeout=aiohttp.ClientTimeout(total=BRIGHT_SKY_TIMEOUT),
+                ) as _var_var_22:
+                    if _var_var_22.status != 200:
+                        self.record_failure(f"HTTP {_var_var_22.status}")
+                        return False
+                    _var_var_23 = await _var_var_22.json()
+            _var_var_24 = _var_var_23.get("weather", [])
+            _var_var_16 = dt_util.now().isoformat()
+            _var_var_25 = 0
+            for _var_var_26 in _var_var_24:
+                _var_var_27 = _var_var_26.get("timestamp")
+                if not _var_var_27:
+                    continue
+                _var_var_28 = datetime.fromisoformat(_var_var_27.replace("Z", "+00:00"))
+                _var_var_29 = (
+                    dt_util.as_local(_var_var_28)
+                    if _var_var_28.tzinfo is not None
+                    else dt_util.ensure_local(_var_var_28)
+                )
+                _var_var_30 = _var_var_29.strftime("%Y-%m-%d")
+                _var_var_31 = _var_var_29.hour
+                _var_var_32 = _var_var_26.get("cloud_cover")
+                _var_var_33 = _var_var_26.get("solar")
+                _var_var_34 = _var_var_26.get("sunshine")
+                if _var_var_32 is not None or _var_var_33 is not None:
+                    await self._save_to_db(
+                        _var_var_30,
+                        _var_var_31,
+                        float(_var_var_32) if _var_var_32 is not None else None,
+                        self._solar_to_wm2(_var_var_33),
+                        float(_var_var_34) if _var_var_34 is not None else None,
+                        _var_var_16,
+                    )
+                    _var_var_25 += 1
+            self._last_fetch_time = dt_util.now()
+            self.reset_failures()
+            _LOGGER.debug("BrightSky: Saved %d hours to DB", _var_var_25)
+            return True
+        except Exception as _var_var_35:
+            self.record_failure(str(_var_var_35))
+            _LOGGER.warning("BrightSky fetch error: %s", _var_var_35)
+            return False
+
+
+class PirateWeatherExpert(WeatherExpert):
+
+    async def _fetch_forecast(self, force: bool = False) -> bool:
+        """Fetch forecast from Pirate Weather API and persist to DB. @zara"""
+        if not self._enabled:
+            return False
+        if not force:
+            if self._last_fetch_time:
+                _var_var_17 = (dt_util.now() - self._last_fetch_time).total_seconds()
+                if _var_var_17 < 10800:
+                    return True
+        if not force:
+            _var_var_18 = await self._check_db_freshness()
+            if _var_var_18:
+                _LOGGER.debug("PirateWeather: Using existing DB data (still fresh)")
+                self._last_fetch_time = dt_util.now()
+                return True
+        try:
+            _var_var_40 = f"{PIRATE_WEATHER_BASE_URL}/{self._api_key}/{self.latitude},{self.longitude}"
+            _var_var_20 = {"units": "si"}
+            async with aiohttp.ClientSession() as _var_var_21:
+                async with _var_var_21.get(
+                    _var_var_40,
+                    params=_var_var_20,
+                    timeout=aiohttp.ClientTimeout(total=PIRATE_WEATHER_TIMEOUT),
+                ) as _var_var_22:
+                    if _var_var_22.status != 200:
+                        self.record_failure(f"HTTP {_var_var_22.status}")
+                        return False
+                    _var_var_23 = await _var_var_22.json()
+            _var_var_41 = _var_var_23.get("hourly", {}).get("data", [])
+            _var_var_16 = dt_util.now().isoformat()
+            _var_var_25 = 0
+            for _var_var_26 in _var_var_41:
+                _var_var_27 = _var_var_26.get("time")
+                if not _var_var_27:
+                    continue
+                _var_var_42 = datetime.fromtimestamp(_var_var_27)
+                _var_var_30 = _var_var_42.strftime("%Y-%m-%d")
+                _var_var_31 = _var_var_42.hour
+                _var_var_32 = _var_var_26.get("cloudCover")
+                if _var_var_32 is not None:
+                    _var_var_43 = float(_var_var_32 * 100)
+                    await self._save_to_db(
+                        _var_var_30, _var_var_31, _var_var_43, _var_var_16
+                    )
+                    _var_var_25 += 1
+            self._last_fetch_time = dt_util.now()
+            self.reset_failures()
+            _LOGGER.debug("PirateWeather: Saved %d hours to DB", _var_var_25)
+            return True
+        except Exception as _var_var_35:
+            self.record_failure(str(_var_var_35))
+            _LOGGER.warning("PirateWeather fetch error: %s", _var_var_35)
+            return False
+
+
+class WttrInExpert(WeatherExpert):
+
+    async def _fetch_forecast(self, force: bool = False) -> bool:
+        """Fetch forecast from wttr.in API and persist to DB. @zara"""
+        if not force:
+            if self._last_fetch_time:
+                _var_var_17 = (dt_util.now() - self._last_fetch_time).total_seconds()
+                if _var_var_17 < 21600:
+                    return True
+        if not force:
+            _var_var_18 = await self._check_db_freshness()
+            if _var_var_18:
+                _LOGGER.debug("WttrIn: Using existing DB data (still fresh)")
+                self._last_fetch_time = dt_util.now()
+                return True
+        try:
+            _var_var_40 = (
+                f"{WTTR_IN_BASE_URL}/{self.latitude},{self.longitude}?format=j1"
+            )
+            async with aiohttp.ClientSession() as _var_var_21:
+                async with _var_var_21.get(
+                    _var_var_40,
+                    timeout=aiohttp.ClientTimeout(total=WTTR_IN_TIMEOUT),
+                    headers={"User-Agent": "SolarForecastML/1.0"},
+                ) as _var_var_22:
+                    if _var_var_22.status != 200:
+                        self.record_failure(f"HTTP {_var_var_22.status}")
+                        return False
+                    _var_var_44 = await _var_var_22.text()
+                    try:
+                        _var_var_23 = json.loads(_var_var_44)
+                    except json.JSONDecodeError:
+                        _var_var_45 = _var_var_22.headers.get("Content-Type", "unknown")
+                        self.record_failure(f"invalid_json content_type={_var_var_45}")
+                        _LOGGER.debug(
+                            "WttrIn returned non-JSON response: status=%s content_type=%s body_prefix=%r",
+                            _var_var_22.status,
+                            _var_var_45,
+                            _var_var_44[:120],
+                        )
+                        return False
+            _var_var_46 = _var_var_23.get("weather", [])
+            _var_var_16 = dt_util.now().isoformat()
+            _var_var_25 = 0
+            for _var_var_47 in _var_var_46:
+                _var_var_30 = _var_var_47.get("date")
+                if not _var_var_30:
+                    continue
+                for _var_var_26 in _var_var_47.get("hourly", []):
+                    _var_var_48 = _var_var_26.get("time", "0")
+                    try:
+                        _var_var_31 = int(_var_var_48) // 100
+                    except (ValueError, TypeError):
+                        continue
+                    _var_var_32 = _var_var_26.get("cloudcover")
+                    if _var_var_32 is not None:
+                        _var_var_49 = {
+                            "cloud_cover": float(_var_var_32),
+                            "temperature": self._safe_float(_var_var_26.get("tempC")),
+                            "humidity": self._safe_float(_var_var_26.get("humidity")),
+                            "wind_speed": self._safe_float(
+                                _var_var_26.get("windspeedKmph")
+                            ),
+                            "precipitation": self._safe_float(
+                                _var_var_26.get("precipMM")
+                            ),
+                            "pressure": self._safe_float(_var_var_26.get("pressure")),
+                        }
+                        await self._save_to_db(
+                            _var_var_30, _var_var_31, _var_var_49, _var_var_16
+                        )
+                        _var_var_25 += 1
+                continue
+            self._last_fetch_time = dt_util.now()
+            self.reset_failures()
+            _LOGGER.debug("WttrIn: Saved %d hours to DB", _var_var_25)
+            return True
+        except Exception as _var_var_35:
+            self.record_failure(str(_var_var_35))
+            _LOGGER.warning("WttrIn fetch error: %s", _var_var_35)
+            return False
+
+
 class WeatherExpertBlender(DataManagerIO):
 
     async def _load_weights_from_db(self) -> None:

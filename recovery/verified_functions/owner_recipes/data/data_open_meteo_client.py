@@ -209,3 +209,90 @@ class OpenMeteoClient(DataManagerIO):
             _LOGGER.error("Error saving Open-Meteo data to database: %s", _var_var_26)
             return False
         return True
+
+    async def _fetch_models_from_api(
+        self, models: Optional[str], *, endpoint: str, source: str
+    ) -> Optional[list[dict[str, Any]]]:
+        """Fetch and parse one endpoint without mutating the persistent cache."""
+        if not self._check_rate_limit_budget():
+            self._last_api_status = 429
+            self._last_api_error = "Local rate-limit budget exhausted"
+            return
+        try:
+            _var_var_51 = self._forecast_params(models)
+            self._record_api_call()
+            self._last_api_status = None
+            self._last_retry_after_seconds = None
+            async with aiohttp.ClientSession() as _var_var_52:
+                async with _var_var_52.get(
+                    endpoint,
+                    params=_var_var_51,
+                    timeout=aiohttp.ClientTimeout(total=OPEN_METEO_TIMEOUT),
+                    allow_redirects=False,
+                ) as _var_var_53:
+                    self._last_api_status = _var_var_53.status
+                    if _var_var_53.status != 200:
+                        self._last_api_error = f"HTTP {_var_var_53.status}"
+                        _var_var_54 = _var_var_53.headers.get("Retry-After")
+                        if _var_var_54:
+                            try:
+                                self._last_retry_after_seconds = max(
+                                    0.0, float(_var_var_54)
+                                )
+                            except (TypeError, ValueError):
+                                self._last_retry_after_seconds = None
+                        _var_var_55 = (
+                            _LOGGER.info
+                            if _var_var_53.status in OPEN_METEO_RETRYABLE_STATUSES
+                            else _LOGGER.warning
+                        )
+                        _var_var_55(
+                            "Open-Meteo API returned status %d (source=%s models=%s)",
+                            _var_var_53.status,
+                            source,
+                            models,
+                        )
+                        return
+                    _var_var_56 = await _var_var_53.json()
+            _var_var_57 = self._parse_hourly_response(_var_var_56, source=source)
+            if _var_var_57:
+                self._cache["daily"] = _var_var_56.get("daily", {})
+                _var_var_50 = [
+                    _var_var_58.get("ghi", 0) or 0 for _var_var_58 in _var_var_57
+                ]
+                _var_var_59 = sum(
+                    (
+                        1
+                        for _var_var_58 in _var_var_57
+                        if _var_var_58.get("ghi_icon_d2") is not None
+                    )
+                )
+                _LOGGER.info(
+                    "Open-Meteo refresh: %d h (source=%s models=%s, ICON-D2 %d h, GHI %.0f–%.0f W/m²)",
+                    len(_var_var_57),
+                    source,
+                    models,
+                    _var_var_59,
+                    min(_var_var_50),
+                    max(_var_var_50),
+                )
+            return _var_var_57
+        except asyncio.TimeoutError:
+            self._last_api_status = None
+            self._last_api_error = "Timeout"
+            _LOGGER.warning("Open-Meteo API request timed out (source=%s)", source)
+            return
+        except aiohttp.ClientError as _var_var_26:
+            self._last_api_status = None
+            self._last_api_error = f"Connection: {_var_var_26}"
+            _LOGGER.warning(
+                "Open-Meteo API connection error (%s): %s", source, _var_var_26
+            )
+            return
+        except Exception as _var_var_26:
+            self._last_api_status = None
+            self._last_api_error = f"Error: {_var_var_26}"
+            _LOGGER.error(
+                "Open-Meteo API error (%s): %s", source, _var_var_26, exc_info=True
+            )
+            return

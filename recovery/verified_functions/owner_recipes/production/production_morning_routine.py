@@ -64,6 +64,150 @@ from ..core.core_panel_group_forecast import (
 
 class MorningRoutineHandler:
 
+    async def execute_morning_routine_with_retry(
+        self,
+        date: str,
+        hourly_forecast: List[Dict[str, Any]],
+        weather_hourly: List[Dict[str, Any]],
+        astronomy_data: Dict[str, Any],
+        sensor_config: Dict[str, Any],
+        candidate_shadow: Optional[Dict[str, Any]] = None,
+        forecast_cycle: str = "",
+        trigger_kind: str = "",
+        max_retries: int = 3,
+    ) -> bool:
+        """
+        Execute morning routine with bulletproof retry logic.
+
+        Returns:
+            True if successful, False if all retries failed. @zara
+        """
+        if self.db is None:
+            _LOGGER.error("Database not available for morning routine")
+            return False
+        max_retries = max(1, min(int(max_retries), 3))
+        _var_var_6 = None
+        try:
+            _var_var_6, _var_var_7 = (
+                await self._ensemble_shadow_handler.acquire_morning_batch(
+                    date, forecast_cycle, trigger_kind
+                )
+            )
+            _LOGGER.info(
+                "Ensemble shadow morning batch %s: %s",
+                "resumed" if _var_var_7 else "created",
+                _var_var_6,
+            )
+        except Exception:
+            _LOGGER.exception(
+                "Ensemble shadow batch setup failed; continuing the production forecast"
+            )
+        try:
+            for _var_var_8 in range(1, max_retries + 1):
+                _LOGGER.info("")
+                _LOGGER.info(
+                    "================================================================================"
+                )
+                _LOGGER.info(
+                    "  MORNING ROUTINE EXECUTION - Attempt %d/%d for %s",
+                    _var_var_8,
+                    max_retries,
+                    date,
+                )
+                _LOGGER.info(
+                    "================================================================================"
+                )
+                try:
+                    _LOGGER.info("→ Step 1/5: Validating prerequisites...")
+                    if not await self._validate_prerequisites(
+                        date, hourly_forecast, weather_hourly, astronomy_data
+                    ):
+                        raise ValueError("Prerequisites validation failed")
+                    _LOGGER.info(
+                        "  ✓ Prerequisites validated: %d forecast hours, %d weather hours",
+                        len(hourly_forecast),
+                        len(weather_hourly),
+                    )
+                    _var_var_9 = getattr(self.coordinator, "inverter_max_power", 0.0)
+                    if _var_var_9 > 0:
+                        _LOGGER.info(
+                            "  ℹ Inverter capping enabled: %.2f kW", _var_var_9
+                        )
+                    _LOGGER.info(
+                        "→ Step 2/5: Creating hourly predictions in database..."
+                    )
+                    _var_var_10 = await self._create_daily_predictions(
+                        date=date,
+                        hourly_forecast=hourly_forecast,
+                        weather_forecast=weather_hourly,
+                        astronomy_data=astronomy_data,
+                        sensor_config=sensor_config,
+                        inverter_max_power=_var_var_9,
+                        morning_batch_id=_var_var_6 or "",
+                        candidate_shadow=candidate_shadow,
+                        forecast_cycle=forecast_cycle,
+                    )
+                    _LOGGER.info("  ✓ Hourly predictions created successfully")
+                    _LOGGER.info("→ Step 3/5: Verifying data integrity...")
+                    if not await self._verify_integrity(date, _var_var_10):
+                        raise RuntimeError("Integrity verification failed")
+                    _LOGGER.info("  ✓ Data integrity verified - no duplicates found")
+                    _LOGGER.info("→ Step 4/5: Refreshing coordinator cache...")
+                    await self.coordinator._refresh_hourly_predictions_cache()
+                    _LOGGER.info("  ✓ Coordinator cache refreshed")
+                    _LOGGER.info("→ Step 5/5: Triggering sensor updates...")
+                    await self.coordinator.async_request_refresh()
+                    _LOGGER.info("  ✓ Sensor updates triggered")
+                    _LOGGER.info("")
+                    _LOGGER.info(
+                        "================================================================================"
+                    )
+                    _LOGGER.info("  ✓✓✓ MORNING ROUTINE SUCCESSFUL ✓✓✓")
+                    _LOGGER.info(
+                        "  Date: %s | Attempt: %d/%d", date, _var_var_8, max_retries
+                    )
+                    _LOGGER.info(
+                        "================================================================================"
+                    )
+                    _LOGGER.info("")
+                    await self._finish_ensemble_shadow_batch(_var_var_6, True)
+                    return True
+                except Exception as _var_var_11:
+                    _LOGGER.error(
+                        "Morning routine attempt %d/%d FAILED: %s",
+                        _var_var_8,
+                        max_retries,
+                        _var_var_11,
+                        exc_info=True,
+                    )
+                    if _var_var_8 < max_retries:
+                        _var_var_12 = 60 * _var_var_8
+                        _LOGGER.info(
+                            "Waiting %ds before retry %d...",
+                            _var_var_12,
+                            _var_var_8 + 1,
+                        )
+                        await asyncio.sleep(_var_var_12)
+                    else:
+                        _LOGGER.error(
+                            "CRITICAL: Morning routine FAILED after %d attempts! Manual intervention required",
+                            max_retries,
+                        )
+                        await self._send_critical_alert(
+                            "Morning routine failure", str(_var_var_11)
+                        )
+                        await self._finish_ensemble_shadow_batch(_var_var_6, False)
+                        return False
+            await self._finish_ensemble_shadow_batch(_var_var_6, False)
+            return False
+        except Exception as _var_var_11:
+            _LOGGER.error(
+                "CRITICAL: Morning routine handler crashed: %s",
+                _var_var_11,
+                exc_info=True,
+            )
+            return False
+
     async def _persist_daily_predictions(
         self,
         date: str,

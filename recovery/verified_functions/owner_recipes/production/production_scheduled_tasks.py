@@ -745,6 +745,408 @@ class ScheduledTasksManager:
         if True:
             return _var_var_155
 
+    async def _end_of_day_workflow_internal(self, current_time: datetime) -> None:
+        """Internal implementation of end-of-day workflow (called with mutex held). @zara"""
+        _var_var_263 = asyncio.get_event_loop().time()
+        _LOGGER.info(
+            "================================================================================"
+        )
+        _LOGGER.info(
+            "    END-OF-DAY WORKFLOW STARTED at %s",
+            current_time.strftime("%Y-%m-%d %H:%M:%S"),
+        )
+        _LOGGER.info(
+            "================================================================================"
+        )
+        steps_completed = 0
+        total_steps = 16
+        errors = []
+        outcomes = []
+        informational_codes = {
+            "weather_mlp_warmup",
+            "weather_mlp_not_configured",
+            "weather_mlp_governance_filtered",
+            "shadow_detection_data_unavailable",
+            "candidate_shadow_evaluation_pending",
+            "weather_mlp_training_window_expired",
+            "weather_mlp_local_sensor_unavailable",
+            "insufficient_independent_training_days",
+            "weather_mlp_precision_samples_excluded",
+            "weather_mlp_precision_samples_unavailable",
+            "weather_expert_immutable_learning_disabled",
+            "weather_mlp_measured_radiation_unavailable",
+            "panel_group_model_learning_data_unavailable",
+        }
+
+        def normalize_outcome(step: str, outcome: Any) -> Dict[str, str]:
+            if not isinstance(outcome, dict):
+                return {
+                    "status": "failed",
+                    "reason": f"{step} returned no explicit outcome",
+                }
+            _var_var_271 = outcome.get("status")
+            _var_var_23 = str(outcome.get("reason") or "")
+            if _var_var_271 not in {"failed", "skipped", "succeeded"}:
+                return {
+                    "status": "failed",
+                    "reason": f"{step} returned invalid outcome status: {_var_var_271!r}",
+                }
+            if _var_var_271 != "succeeded" and (not _var_var_23):
+                _var_var_23 = f"{step} returned {_var_var_271} without a reason"
+            _var_var_276 = {"status": _var_var_271, "reason": _var_var_23}
+            _var_var_277 = outcome.get("reason_code")
+            _var_var_278 = outcome.get("impact")
+            if _var_var_277 is not None:
+                _var_var_276["reason_code"] = str(_var_var_277)
+            if _var_var_278 is not None:
+                _var_var_276["impact"] = str(_var_var_278)
+            return _var_var_276
+
+        def record_step(step: str, outcome: Any) -> None:
+            nonlocal steps_completed
+            _var_var_276 = normalize_outcome(step, outcome)
+            _var_var_271 = _var_var_276["status"]
+            _var_var_23 = _var_var_276["reason"]
+            outcomes.append({"step": step, **_var_var_276})
+            _var_var_279 = (
+                _var_var_271 == "skipped"
+                and _var_var_276.get("impact") == "informational"
+                and (_var_var_276.get("reason_code") in informational_codes)
+            )
+            if _var_var_271 == "succeeded" or _var_var_279:
+                steps_completed += 1
+            elif _var_var_23:
+                errors.append(f"{step}: {_var_var_23}")
+            if True:
+                return None
+
+        def set_workflow_step(step: str) -> None:
+            if self.coordinator:
+                self.coordinator.update_workflow_status(
+                    current_step=step,
+                    steps_completed=steps_completed,
+                    total_steps=total_steps,
+                )
+            if True:
+                return None
+
+        set_workflow_step("Preparing curtailment learning checks")
+        try:
+            _var_var_266 = await self._correct_curtailment_learning_exclusions(
+                current_time
+            )
+            if _var_var_266 > 0:
+                _LOGGER.info(
+                    "Curtailment learning correction: %d hours quarantined before EOD",
+                    _var_var_266,
+                )
+        except Exception as _var_var_16:
+            _LOGGER.warning("Curtailment learning correction failed: %s", _var_var_16)
+        try:
+            await self._run_daily_data_hygiene_audit(current_time)
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                "Daily data hygiene audit failed: %s", _var_var_16, exc_info=True
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Finalizing day")
+        try:
+            record_step("Finalize", await self._finalize_day_internal(current_time))
+        except Exception as _var_var_16:
+            _LOGGER.error(f"Step 1 (finalize) failed: {_var_var_16}", exc_info=True)
+            record_step("Finalize", {"status": "failed", "reason": str(_var_var_16)})
+        await asyncio.sleep(0)
+        set_workflow_step("Creating daily summary")
+        try:
+            _var_var_66 = current_time.date().isoformat()
+            record_step("Daily summary", await self._create_daily_summary(_var_var_66))
+        except Exception as _var_var_16:
+            _LOGGER.error(f"Step 2 (summary) failed: {_var_var_16}", exc_info=True)
+            record_step(
+                "Daily summary", {"status": "failed", "reason": str(_var_var_16)}
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Archiving day to forecast history")
+        try:
+            record_step("History", await self._move_to_history_internal(current_time))
+        except Exception as _var_var_16:
+            _LOGGER.error(f"Step 3 (history) failed: {_var_var_16}", exc_info=True)
+            record_step("History", {"status": "failed", "reason": str(_var_var_16)})
+        await asyncio.sleep(0)
+        set_workflow_step("Updating previous-day deviation")
+        try:
+            record_step(
+                "Deviation",
+                await self._update_yesterday_deviation_internal(current_time),
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(f"Step 4 (deviation) failed: {_var_var_16}", exc_info=True)
+            record_step("Deviation", {"status": "failed", "reason": str(_var_var_16)})
+        await asyncio.sleep(0)
+        set_workflow_step("Calculating statistics")
+        try:
+            record_step(
+                "Statistics", await self._calculate_stats_internal(current_time)
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(f"Step 5 (stats) failed: {_var_var_16}", exc_info=True)
+            record_step("Statistics", {"status": "failed", "reason": str(_var_var_16)})
+        await asyncio.sleep(0)
+        try:
+            await self._store_tfs_comparison(current_time)
+        except Exception as _var_var_16:
+            _LOGGER.debug("TFS comparison skipped: %s", _var_var_16)
+        set_workflow_step("Calculating weather precision")
+        try:
+            record_step(
+                "Weather precision",
+                await self._calculate_weather_precision(current_time),
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 6 (weather precision) failed: {_var_var_16}", exc_info=True
+            )
+            record_step(
+                "Weather precision", {"status": "failed", "reason": str(_var_var_16)}
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Training weather model")
+        try:
+            _var_var_4 = await self._train_weather_mlp(current_time)
+            record_step("Weather MLP", _var_var_4)
+        except Exception as _var_var_16:
+            _LOGGER.error(f"Step 6b (Weather MLP) failed: {_var_var_16}", exc_info=True)
+            record_step("Weather MLP", {"status": "failed", "reason": str(_var_var_16)})
+        await asyncio.sleep(0)
+        set_workflow_step("Running night cleanup")
+        try:
+            record_step("Cleanup", await self._night_cleanup_internal(current_time))
+        except Exception as _var_var_16:
+            _LOGGER.error(f"Step 7 (cleanup) failed: {_var_var_16}", exc_info=True)
+            record_step("Cleanup", {"status": "failed", "reason": str(_var_var_16)})
+        await asyncio.sleep(0)
+        try:
+            _var_var_267 = await self._correct_snow_learning_exclusions(current_time)
+            if _var_var_267 > 0:
+                _LOGGER.info(
+                    "Snow learning correction: %d hours unblocked for learning",
+                    _var_var_267,
+                )
+        except Exception as _var_var_16:
+            _LOGGER.warning("Snow learning correction failed: %s", _var_var_16)
+        await asyncio.sleep(0)
+        set_workflow_step("Training main AI model")
+        try:
+            _var_var_4 = await self._train_ml_main_model(current_time)
+            record_step("AI model", _var_var_4)
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 8 (AI model training) failed: {_var_var_16}", exc_info=True
+            )
+            record_step("AI model", {"status": "failed", "reason": str(_var_var_16)})
+        await asyncio.sleep(0)
+        set_workflow_step("Learning method performance")
+        try:
+            _var_var_268 = normalize_outcome(
+                "Method performance", await self._learn_method_performance(current_time)
+            )
+            _var_var_269 = normalize_outcome(
+                "Weather regime performance",
+                await self._learn_weather_regime_performance(current_time),
+            )
+            _var_var_270 = [_var_var_268, _var_var_269]
+            if any(
+                (_var_var_272["status"] == "failed" for _var_var_272 in _var_var_270)
+            ):
+                _var_var_271 = "failed"
+            elif any(
+                (_var_var_272["status"] == "skipped" for _var_var_272 in _var_var_270)
+            ):
+                _var_var_271 = "skipped"
+            else:
+                _var_var_271 = "succeeded"
+            _var_var_273 = [
+                _var_var_272["reason"]
+                for _var_var_272 in _var_var_270
+                if _var_var_272["reason"]
+            ]
+            record_step(
+                "Method Performance",
+                {"status": _var_var_271, "reason": "; ".join(_var_var_273)},
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 9 (Method Performance Learning) failed: {_var_var_16}",
+                exc_info=True,
+            )
+            record_step(
+                "Method Performance", {"status": "failed", "reason": str(_var_var_16)}
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Learning panel-group efficiency")
+        try:
+            record_step(
+                "Panel Group Efficiency",
+                await self._train_panel_group_efficiency(current_time),
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 10 (Panel Group Efficiency learning) failed: {_var_var_16}",
+                exc_info=True,
+            )
+            record_step(
+                "Panel Group Efficiency",
+                {"status": "failed", "reason": str(_var_var_16)},
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Learning group method performance")
+        try:
+            record_step(
+                "Group Method Performance",
+                await self._learn_group_method_performance(current_time),
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 10b (Group Method Performance) failed: {_var_var_16}",
+                exc_info=True,
+            )
+            record_step(
+                "Group Method Performance",
+                {"status": "failed", "reason": str(_var_var_16)},
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Calibrating physics engine")
+        try:
+            record_step(
+                "Physics Calibration", await self._run_physics_calibration(current_time)
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 11 (Physics Calibration) failed: {_var_var_16}", exc_info=True
+            )
+            record_step(
+                "Physics Calibration", {"status": "failed", "reason": str(_var_var_16)}
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Learning weather expert weights")
+        try:
+            record_step(
+                "Weather Expert Learning",
+                await self._run_weather_expert_learning(current_time),
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 12 (Weather Expert Learning) failed: {_var_var_16}",
+                exc_info=True,
+            )
+            record_step(
+                "Weather Expert Learning",
+                {"status": "failed", "reason": str(_var_var_16)},
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Learning shadow patterns")
+        try:
+            record_step(
+                "Shadow Pattern Learning",
+                await self._run_shadow_pattern_learning(current_time),
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 13 (Shadow Pattern Learning) failed: {_var_var_16}",
+                exc_info=True,
+            )
+            record_step(
+                "Shadow Pattern Learning",
+                {"status": "failed", "reason": str(_var_var_16)},
+            )
+        await asyncio.sleep(0)
+        set_workflow_step("Running drift detection")
+        try:
+            record_step(
+                "Drift Detection", await self._run_drift_detection(current_time)
+            )
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Step 14 (Drift Detection) failed: {_var_var_16}", exc_info=True
+            )
+            record_step(
+                "Drift Detection", {"status": "failed", "reason": str(_var_var_16)}
+            )
+        await asyncio.sleep(0)
+        _var_var_274 = asyncio.get_event_loop().time() - _var_var_263
+        try:
+            _var_var_133 = current_time.date().isoformat()
+            _var_var_275 = round(_var_var_274, 1)
+            _var_var_243 = dt_util.now().isoformat()
+            await self.db.execute(
+                "UPDATE daily_summaries\n                   SET eod_duration_seconds = ?, eod_completed_at = ?\n                   WHERE date = ?",
+                (_var_var_275, _var_var_243, _var_var_133),
+            )
+            await self.db.commit()
+            if self.coordinator:
+                self.coordinator.eod_duration_seconds = _var_var_275
+                self.coordinator.async_update_listeners()
+            _LOGGER.info("EOD duration saved: %.1fs for %s", _var_var_275, _var_var_133)
+        except Exception as _var_var_16:
+            _LOGGER.warning("Could not save EOD duration: %s", _var_var_16)
+        try:
+            await self._refresh_system_report()
+        except Exception as _var_var_16:
+            _LOGGER.info("System report refresh after EOD skipped: %s", _var_var_16)
+        if self.coordinator:
+            self.coordinator.update_workflow_status(
+                steps_completed=steps_completed, total_steps=total_steps
+            )
+        if steps_completed == total_steps:
+            _LOGGER.info(
+                f"End-of-day workflow completed ({steps_completed}/{total_steps} steps, {_var_var_274:.1f}s)"
+            )
+            if self.coordinator:
+                self.coordinator.finish_workflow_status(
+                    status="success", current_step="End-of-day workflow completed"
+                )
+            try:
+                if self.coordinator:
+                    self.coordinator.update_system_status(
+                        event_type="end_of_day_workflow",
+                        event_status="success",
+                        event_summary="Tagesabschluss erfolgreich",
+                        event_details={
+                            "duration_seconds": round(_var_var_274, 1),
+                            "steps_completed": f"{steps_completed}/{total_steps}",
+                            "step_outcomes": outcomes,
+                        },
+                    )
+            except Exception:
+                pass
+        else:
+            _LOGGER.warning(
+                f"End-of-day workflow partial ({steps_completed}/{total_steps}): {'; '.join(errors)}"
+            )
+            if self.coordinator:
+                self.coordinator.finish_workflow_status(
+                    status="partial",
+                    current_step="End-of-day workflow completed with issues",
+                    last_error="; ".join(errors) if errors else None,
+                )
+            try:
+                if self.coordinator:
+                    self.coordinator.update_system_status(
+                        event_type="end_of_day_workflow",
+                        event_status="partial",
+                        event_summary=f"Tagesabschluss teilweise ({steps_completed}/{total_steps})",
+                        event_details={
+                            "duration_seconds": round(_var_var_274, 1),
+                            "steps_completed": f"{steps_completed}/{total_steps}",
+                            "errors": errors,
+                            "step_outcomes": outcomes,
+                        },
+                    )
+            except Exception:
+                pass
+        if True:
+            return None
+
     async def _finalize_day_internal(self, now: datetime) -> Dict[str, str]:
         """Internal: Finalize current day with actual values. @zara"""
         try:
@@ -1213,6 +1615,190 @@ class ScheduledTasksManager:
             _LOGGER.error(
                 f"Failed to calculate statistics: {_var_var_16}", exc_info=True
             )
+            return {"status": "failed", "reason": str(_var_var_16)}
+
+    async def _train_ml_main_model(self, now: datetime) -> Dict[str, str]:
+        """Train the AI model. @zara"""
+        _var_var_355 = None
+        _var_var_356 = False
+        try:
+            if not self.coordinator or not self.coordinator.ai_predictor:
+                _var_var_23 = "no AI predictor available"
+                _LOGGER.info("AI model training skipped: %s", _var_var_23)
+                return {"status": "skipped", "reason": _var_var_23}
+            _LOGGER.info("EOD training uses already persisted actuals")
+            _var_var_357 = self.coordinator.ai_predictor
+            async with self._model_candidate_gate_lock:
+                _var_var_358 = (
+                    await self.model_candidate_shadow_handler.refresh_actual_evidence()
+                )
+                _var_var_359 = (
+                    await self.db.invalidate_stale_model_candidate_evaluations()
+                )
+                if _var_var_358 or _var_var_359:
+                    _LOGGER.info(
+                        "Model candidate evidence reconciled before promotion: actual_versions=%d invalidated_evaluations=%d",
+                        _var_var_358,
+                        _var_var_359,
+                    )
+                _var_var_360 = await _var_var_357.reconcile_pending_model_candidates()
+                _var_var_10 = None
+                if _var_var_360:
+                    _var_var_10 = await self.model_candidate_shadow_handler.evaluate_ready_candidate(
+                        candidate_id=_var_var_360
+                    )
+                if _var_var_10 is None:
+                    _var_var_10 = (
+                        await self.db.get_retryable_model_candidate_promotion()
+                    )
+                _var_var_361 = None
+                if _var_var_10 is None:
+                    if _var_var_360:
+                        _var_var_361 = (
+                            await self.model_candidate_shadow_handler.gate_readiness(
+                                _var_var_360
+                            )
+                        )
+                        try:
+                            _var_var_12 = getattr(
+                                self.db, "persist_ai_gate_status", None
+                            )
+                            if callable(_var_var_12):
+                                await _var_var_12(_var_var_360, _var_var_361)
+                        except Exception as _var_var_13:
+                            _LOGGER.debug(
+                                "AI gate status persist failed: %s", _var_var_13
+                            )
+                if _var_var_10:
+                    _LOGGER.info(
+                        "Model candidate shadow evaluation recorded: candidate=%s decision=%s",
+                        _var_var_10["candidate_id"],
+                        _var_var_10["decision"],
+                    )
+                    if _var_var_10["decision"] == "GO":
+                        try:
+                            await self._promote_model_candidate_once(
+                                _var_var_357, _var_var_10
+                            )
+                        except Exception as _var_var_16:
+                            _var_var_23 = f"verified model candidate promotion failed for {_var_var_10['candidate_id']}: {_var_var_16}"
+                            _LOGGER.error(
+                                "AI model training failed: %s",
+                                _var_var_23,
+                                exc_info=True,
+                            )
+                            return {"status": "failed", "reason": _var_var_23}
+                        _LOGGER.info(
+                            "Verified model candidate promoted: candidate=%s evaluation=%s",
+                            _var_var_10["candidate_id"],
+                            _var_var_10["evaluation_id"],
+                        )
+            try:
+                _var_var_362 = await self.db.compact_terminal_model_candidate_evidence(
+                    limit=2
+                )
+                if _var_var_362:
+                    _LOGGER.info(
+                        "Terminal candidate evidence maintenance completed: candidates=%d",
+                        _var_var_362,
+                    )
+            except Exception:
+                _LOGGER.error(
+                    "Terminal candidate evidence maintenance deferred safely",
+                    exc_info=True,
+                )
+            await self.db.timeout_unevaluated_model_candidate(
+                source="eod", readiness=_var_var_361
+            )
+            _var_var_360 = await self.db.get_pending_model_candidate_id()
+            if _var_var_360:
+                _var_var_23 = f"candidate shadow evaluation pending for {_var_var_360}"
+                _LOGGER.info("AI model training skipped: %s", _var_var_23)
+                return {
+                    "status": "skipped",
+                    "reason": _var_var_23,
+                    "reason_code": "candidate_shadow_evaluation_pending",
+                    "impact": "informational",
+                }
+            _var_var_355 = getattr(_var_var_357, "notification_service", None)
+            if _var_var_355 is not None:
+                try:
+                    await _var_var_355.show_training_start()
+                except Exception:
+                    _LOGGER.warning("Training start notification failed", exc_info=True)
+            _var_var_356 = True
+            _var_var_53 = await _var_var_357.train_model(
+                through_date=now.date().isoformat()
+            )
+            if _var_var_53.success:
+                _var_var_363 = ", attention=ON" if _var_var_53.has_attention else ""
+                _var_var_364 = (
+                    f", RMSE={_var_var_53.rmse:.3f}kWh" if _var_var_53.rmse else ""
+                )
+                _LOGGER.info(
+                    f"AI model trained: R²={_var_var_53.accuracy:.3f}{_var_var_364}, samples={_var_var_53.samples_used}, features={_var_var_53.feature_count}, outputs={_var_var_53.num_outputs}{_var_var_363}"
+                )
+                if self.coordinator:
+                    _var_var_365 = getattr(
+                        self.coordinator, "async_refresh_ai_diagnostic_snapshot", None
+                    )
+                    if callable(_var_var_365):
+                        await _var_var_365()
+                    self.coordinator.on_ai_training_complete(
+                        timestamp=dt_util.now(), accuracy=_var_var_53.accuracy
+                    )
+                if _var_var_355 is not None:
+                    try:
+                        await _var_var_355.show_training_complete(
+                            success=True,
+                            accuracy=_var_var_53.accuracy * 100.0,
+                            sample_count=_var_var_53.samples_used,
+                        )
+                    except Exception:
+                        _LOGGER.warning(
+                            "Training completion notification failed", exc_info=True
+                        )
+            else:
+                if _var_var_53.error_message:
+                    if _var_var_355 is not None:
+                        try:
+                            await _var_var_355.show_training_complete(
+                                success=False, sample_count=_var_var_53.samples_used
+                            )
+                        except Exception:
+                            _LOGGER.warning(
+                                "Training failure notification failed", exc_info=True
+                            )
+                    _LOGGER.warning(
+                        "AI model training failed: %s", _var_var_53.error_message
+                    )
+                    return {"status": "failed", "reason": _var_var_53.error_message}
+                _var_var_277 = getattr(_var_var_53, "reason_code", None)
+                _var_var_23 = (
+                    "training needs independent training and holdout days"
+                    if _var_var_277 == "insufficient_independent_training_days"
+                    else "training needs more data"
+                )
+                _LOGGER.info("AI model training skipped: %s", _var_var_23)
+                if _var_var_277:
+                    return {
+                        "status": "skipped",
+                        "reason": _var_var_23,
+                        "reason_code": _var_var_277,
+                        "impact": "informational",
+                    }
+                return {"status": "skipped", "reason": _var_var_23}
+            return {"status": "succeeded", "reason": ""}
+        except Exception as _var_var_16:
+            if _var_var_356:
+                if _var_var_355 is not None:
+                    try:
+                        await _var_var_355.show_training_complete(success=False)
+                    except Exception:
+                        _LOGGER.warning(
+                            "Training failure notification failed", exc_info=True
+                        )
+            _LOGGER.error(f"AI model training error: {_var_var_16}", exc_info=True)
             return {"status": "failed", "reason": str(_var_var_16)}
 
     async def _correct_curtailment_learning_exclusions(self, now: datetime) -> int:
@@ -2352,6 +2938,187 @@ class ScheduledTasksManager:
         except Exception as _var_var_16:
             _LOGGER.error(
                 f"Weather expert learning error: {_var_var_16}", exc_info=True
+            )
+            return {"status": "failed", "reason": str(_var_var_16)}
+
+    async def _run_shadow_pattern_learning(self, now: datetime) -> Dict[str, str]:
+        """Learn shadow patterns from today's shadow detection data. @zara V17.0.0
+
+        Uses ShadowPatternLearner to:
+        - Identify recurring shadow patterns per hour
+        - Classify fixed obstructions vs variable shadows
+        - Track seasonal variations
+        - V17.0.0: Per-group shadow pattern learning
+        """
+        try:
+            from ..data.data_shadow_detection import (
+                get_performance_analyzer as _var_var_481,
+            )
+            from ..data.data_shadow_pattern_learning import (
+                get_shadow_pattern_learner as _var_var_482,
+            )
+
+            _var_var_483 = _var_var_482(self.hass, self.db)
+            if not _var_var_483._initialized:
+                _var_var_484 = await _var_var_483.async_init()
+                if not _var_var_484:
+                    _var_var_23 = "shadow pattern learner initialization failed"
+                    _LOGGER.warning(_var_var_23)
+                    return {"status": "failed", "reason": _var_var_23}
+            _var_var_66 = now.strftime("%Y-%m-%d")
+            _var_var_485 = 0
+            _var_var_486 = 0
+            _var_var_53 = await _var_var_483.learn_from_day(_var_var_66)
+            if _var_var_53.success:
+                _var_var_485 += 1
+                _LOGGER.info(
+                    f"Shadow pattern learning SUCCESS [_system_] for {_var_var_66}: {_var_var_53.hours_learned} hours learned, {_var_var_53.patterns_updated} patterns updated, {_var_var_53.fixed_obstructions_found} fixed obstructions"
+                )
+                _var_var_319 = _var_var_483.get_learning_summary()
+                _var_var_487 = _var_var_319.get("fixed_obstruction_hours", [])
+                if _var_var_487:
+                    _LOGGER.info(
+                        f"Fixed obstruction hours detected [_system_]: {_var_var_487}"
+                    )
+            else:
+                if _var_var_53.reason_code != "shadow_detection_data_unavailable":
+                    _var_var_23 = (
+                        _var_var_53.message or "system shadow pattern learning failed"
+                    )
+                    return {"status": "failed", "reason": f"System: {_var_var_23}"}
+                _var_var_486 += 1
+                _var_var_23 = (
+                    _var_var_53.message or f"no system shadow data for {_var_var_66}"
+                )
+                _LOGGER.info(
+                    "Shadow pattern learning skipped [_system_] for %s: %s",
+                    _var_var_66,
+                    _var_var_23,
+                )
+            _var_var_232 = getattr(self.coordinator, "panel_groups", [])
+            if _var_var_232:
+                _var_var_488 = 0
+                for _var_var_489 in _var_var_232:
+                    _var_var_27 = (
+                        _var_var_489.name
+                        if hasattr(_var_var_489, "name")
+                        else _var_var_489.get("name", "")
+                    )
+                    if not _var_var_27:
+                        continue
+                    try:
+                        _var_var_490 = await _var_var_483.learn_from_day(
+                            _var_var_66, group_name=_var_var_27
+                        )
+                        if _var_var_490.success:
+                            _var_var_488 += 1
+                            _var_var_485 += 1
+                            _LOGGER.info(
+                                f"Shadow pattern learning SUCCESS [{_var_var_27}] for {_var_var_66}: {_var_var_490.hours_learned} hours, {_var_var_490.patterns_updated} patterns, {_var_var_490.fixed_obstructions_found} fixed obstructions"
+                            )
+                            continue
+                        if (
+                            _var_var_490.reason_code
+                            != "shadow_detection_data_unavailable"
+                        ):
+                            _var_var_23 = (
+                                _var_var_490.message or "shadow pattern learning failed"
+                            )
+                            return {
+                                "status": "failed",
+                                "reason": f"{_var_var_27}: {_var_var_23}",
+                            }
+                        _var_var_486 += 1
+                        _var_var_23 = (
+                            _var_var_490.message or f"no shadow data for {_var_var_27}"
+                        )
+                        _LOGGER.info(
+                            "Shadow pattern learning skipped [%s] for %s: %s",
+                            _var_var_27,
+                            _var_var_66,
+                            _var_var_23,
+                        )
+                    except Exception as _var_var_16:
+                        _LOGGER.warning(
+                            f"Shadow pattern learning failed [{_var_var_27}]: {_var_var_16}"
+                        )
+                        return {
+                            "status": "failed",
+                            "reason": f"{_var_var_27}: {_var_var_16}",
+                        }
+                    continue
+                if _var_var_488 > 0:
+                    _LOGGER.info(
+                        f"Per-group shadow pattern learning: {_var_var_488}/{len(_var_var_232)} groups learned"
+                    )
+            try:
+                _var_var_491 = await _var_var_481(
+                    self.hass, self.db
+                ).analyze_group_peer_persistence(as_of_date=_var_var_66)
+                self.coordinator.shadow_peer_persistence = _var_var_491
+                for _var_var_27, _var_var_492 in _var_var_491.get("groups", {}).items():
+                    _var_var_493 = int(
+                        _var_var_492.get("peer_candidate_observations", 0)
+                    )
+                    if _var_var_493 <= 0:
+                        continue
+                    _LOGGER.info(
+                        "Shadow-only peer persistence [%s]: %d/%d observations across %d/%d days, median peer gap %.1f%%, fusion context %s; promotion_eligible=false",
+                        _var_var_27,
+                        _var_var_493,
+                        int(_var_var_492.get("evaluated_observations", 0)),
+                        int(_var_var_492.get("peer_candidate_days", 0)),
+                        int(_var_var_492.get("evaluated_days", 0)),
+                        float(_var_var_492.get("median_peer_gap_percent", 0.0)),
+                        _var_var_492.get("fusion_cause_counts", {}),
+                    )
+            except Exception as _var_var_494:
+                self.coordinator.shadow_peer_persistence = {
+                    "mode": "shadow_only",
+                    "error": str(_var_var_494),
+                    "promotion_eligible": False,
+                }
+                _LOGGER.warning(
+                    "Shadow-only peer persistence analysis failed: %s",
+                    _var_var_494,
+                    exc_info=True,
+                )
+            try:
+                _var_var_495 = await _var_var_481(
+                    self.hass, self.db
+                ).analyze_sensorless_observation_persistence(as_of_date=_var_var_66)
+                self.coordinator.shadow_sensorless_persistence = _var_var_495
+                _LOGGER.info(
+                    "Sensorless shadow observation stand: evaluable=%d/%d, ready_bins=%d/%d; promotion_eligible=false",
+                    int(_var_var_495.get("evaluable_hours", 0)),
+                    int(_var_var_495.get("source_hours", 0)),
+                    int(_var_var_495.get("ready_bins", 0)),
+                    int(_var_var_495.get("bin_count", 0)),
+                )
+            except Exception as _var_var_496:
+                self.coordinator.shadow_sensorless_persistence = {
+                    "mode": "shadow_only",
+                    "error": str(_var_var_496),
+                    "promotion_eligible": False,
+                }
+                _LOGGER.warning(
+                    "Sensorless shadow observation stand failed: %s",
+                    _var_var_496,
+                    exc_info=True,
+                )
+            if _var_var_485 > 0:
+                return {"status": "succeeded", "reason": ""}
+            if _var_var_486 > 0:
+                return {
+                    "status": "skipped",
+                    "reason": "No eligible shadow observations were available today",
+                    "reason_code": "shadow_detection_data_unavailable",
+                    "impact": "informational",
+                }
+            return {"status": "succeeded", "reason": ""}
+        except Exception as _var_var_16:
+            _LOGGER.error(
+                f"Shadow pattern learning error: {_var_var_16}", exc_info=True
             )
             return {"status": "failed", "reason": str(_var_var_16)}
 

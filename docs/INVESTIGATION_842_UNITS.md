@@ -369,3 +369,12 @@ changes. Readable source remains 100 modules/2,637 units. Native .29 is held
 out of stable main after its full corpus loses one prior reader match, despite
 passing ordinary fixtures. All source gains use stable .25/.31 and unchanged
 instruction and exception-table proof rules.
+
+
+## Owner checkpoint 04
+
+The full audit reaches **14,256/14,291**, with **35 remaining** and
+**249 complete candidates**. The 12 new owners add 14 matches with
+zero losses. Three investigators continue disjoint remaining scopes; the main
+thread authors and publishes every change. The readable subset remains
+100/2,637; source-only work uses stable .25/.31 and unchanged comparison rules.

@@ -201,3 +201,224 @@ async def _load_active_ops_day_forecast(
         if True
         else None
     )
+
+
+class ConservativePlanningForecastSensor(SensorEntity):
+
+    async def _load_from_sources(self) -> None:
+        """Load and blend conservative planning values from SFML cache and TFS. @zara"""
+        self._cached_value = None
+        self._hourly_values = {}
+        self._hourly_group_values = {}
+        self._group_totals = {}
+        self._tfs_available = False
+        self._forecast_locked = False
+        self._forecast_lock_source = None
+        self._forecast_locked_at = None
+        self._normal_full_day_forecast = None
+        self._remaining_conservative_forecast = None
+        self._remaining_forecast_cap = None
+        self._mapping_mode = "unknown"
+        self._mapping_fallback_hours = []
+        self._p10_value_updated_at = None
+        self._p10_age_hours = None
+        self._p10_source = "unavailable"
+        self._p10_persisted_fresh = False
+        self._p10_recomputed_at = None
+        self._tfs_generated_at = None
+        self._tfs_http_status = None
+        self._fallback_reason = None
+        try:
+            from homeassistant.util import dt as _var_var_36
+
+            _var_var_50 = _var_var_36.now().date().isoformat()
+            _var_var_97 = await self._load_today_forecast_lock_state(_var_var_50)
+            _var_var_87, _var_var_88 = await self._load_current_forecast_caps(
+                _var_var_50
+            )
+            self._normal_full_day_forecast = _var_var_87
+            self._remaining_forecast_cap = _var_var_88
+            _var_var_98 = await self._load_persisted_value(
+                _var_var_50, _var_var_87, _var_var_88
+            )
+            if _var_var_97 and _var_var_98 is not None and self._p10_persisted_fresh:
+                self._cached_value = _var_var_98
+                return
+            if not _var_var_97:
+                self._cached_value = _var_var_98
+                return
+            if not p10_morning_recompute_allowed(
+                _var_var_50, self._forecast_lock_source, self._forecast_locked_at
+            ):
+                self._p10_source = "missing_morning_snapshot"
+                if self._fallback_reason is None:
+                    self._fallback_reason = "outside_morning_snapshot_window"
+                self._log_p10_event_once(
+                    logging.DEBUG,
+                    (
+                        "p10_recompute_blocked",
+                        _var_var_50,
+                        self._forecast_lock_source,
+                        self._forecast_locked_at,
+                    ),
+                    "P10 planning value kept from the morning snapshot for %s (recomputed only inside the morning window; lock_source=%s, locked_at=%s, reason=%s)",
+                    _var_var_50,
+                    self._forecast_lock_source,
+                    self._forecast_locked_at,
+                    self._fallback_reason,
+                )
+                return
+            _var_var_49 = await self._load_sfml_hourly_panel_groups(_var_var_50)
+            if not _var_var_49:
+                self._cached_value = _var_var_98
+                return
+            if self._tfs_client is None:
+                self._tfs_client = TFSClient(self.hass)
+            _var_var_99 = await self._fetch_tfs_quantiles()
+            _var_var_100 = (
+                self._parse_tfs_hourly_p10(_var_var_99) if _var_var_99 else {}
+            )
+            _var_var_101 = any(
+                (
+                    (_var_var_65.get("p10") or 0.0) > 0
+                    or any(
+                        (
+                            (_var_var_79.get("p10") or 0.0) > 0
+                            for _var_var_79 in _var_var_65.get("groups", [])
+                        )
+                    )
+                    for _var_var_65 in _var_var_100.values()
+                )
+            )
+            if _var_var_99 and (not _var_var_101):
+                self._fallback_reason = "tfs_response_without_p10"
+                _LOGGER.warning(
+                    "ConservativePlanningForecastSensor: TFS response contains no p10 values for forecast_type=sfml"
+                )
+            elif not _var_var_99 and self._fallback_reason is None:
+                self._fallback_reason = "tfs_unavailable"
+            _var_var_102 = {}
+            _var_var_21 = {}
+            _var_var_22 = {}
+            _var_var_103 = 0.0
+            for _var_var_104 in _var_var_49:
+                if _var_var_104.get(PRED_TARGET_DATE) != _var_var_50:
+                    continue
+                _var_var_3 = _var_var_104.get(PRED_TARGET_HOUR)
+                _var_var_105 = _var_var_104.get("panel_group_predictions") or {}
+                if _var_var_3 is None or not _var_var_105:
+                    continue
+                _var_var_107 = {
+                    str(_var_var_23): float(_var_var_106 or 0.0)
+                    for _var_var_23, _var_var_106 in _var_var_105.items()
+                }
+                _var_var_24 = f"{int(_var_var_3):02d}:00"
+                _var_var_76 = f"{_var_var_50}T{int(_var_var_3):02d}:00:00"
+                _var_var_108 = _var_var_100.get(_var_var_76)
+                _var_var_109 = _var_var_108.get("groups") if _var_var_108 else None
+                _var_var_110 = {}
+                if _var_var_109:
+                    _var_var_110 = self._map_tfs_groups(
+                        _var_var_109, _var_var_107, _var_var_24
+                    )
+                    if not _var_var_110:
+                        self._mapping_mode = "sfml_only_fallback"
+                        self._mapping_fallback_hours.append(_var_var_24)
+                elif self._mapping_mode == "unknown":
+                    self._mapping_mode = "sfml_only_fallback"
+                _var_var_111 = {}
+                for _var_var_23, _var_var_112 in _var_var_107.items():
+                    _var_var_113 = conservative_planning_value(
+                        _var_var_112,
+                        _var_var_110.get(_var_var_23),
+                        sfml_weight=self._sfml_weight,
+                        tfs_weight=self._tfs_weight,
+                        precision=4,
+                    )
+                    _var_var_111[_var_var_23] = _var_var_113
+                    _var_var_22[_var_var_23] = round(
+                        _var_var_22.get(_var_var_23, 0.0) + _var_var_113, 4
+                    )
+                if not _var_var_111:
+                    continue
+                _var_var_114 = sum(
+                    (max(0.0, _var_var_53) for _var_var_53 in _var_var_107.values())
+                )
+                _var_var_103 += _var_var_114
+                _var_var_115 = round_not_above(
+                    sum(_var_var_111.values()), _var_var_114, 4
+                )
+                _var_var_102[_var_var_24] = _var_var_115
+                _var_var_21[_var_var_24] = _var_var_111
+            if not _var_var_102:
+                return
+            self._tfs_available = _var_var_101
+            self._p10_source = (
+                "morning_snapshot_tfs"
+                if _var_var_101
+                else "morning_snapshot_sfml_fallback"
+            )
+            if _var_var_101:
+                self._fallback_reason = None
+            if self._mapping_mode == "unknown":
+                self._mapping_mode = "name" if _var_var_101 else "sfml_only_fallback"
+            _var_var_116 = round(_var_var_103, 2)
+            self._normal_full_day_forecast = (
+                min(self._normal_full_day_forecast, _var_var_116)
+                if self._normal_full_day_forecast is not None
+                else _var_var_116
+            )
+            self._cached_value = round_not_above(
+                sum(_var_var_102.values()), _var_var_116, 2
+            )
+            self._remaining_conservative_forecast = remaining_conservative_value(
+                self._cached_value,
+                self._today_actual_total(_var_var_50),
+                self._remaining_forecast_cap,
+            )
+            self._hourly_values = {
+                _var_var_24: round(_var_var_53, 3)
+                for _var_var_24, _var_var_53 in _var_var_102.items()
+            }
+            self._hourly_group_values = {
+                _var_var_24: {
+                    _var_var_23: round(_var_var_53, 4)
+                    for _var_var_23, _var_var_53 in _var_var_117.items()
+                }
+                for _var_var_24, _var_var_117 in _var_var_21.items()
+            }
+            self._group_totals = {
+                _var_var_23: round(_var_var_53, 3)
+                for _var_var_23, _var_var_53 in _var_var_22.items()
+            }
+            await self._persist_final_value(_var_var_50, self._cached_value)
+            self._log_p10_event_once(
+                logging.INFO,
+                ("recomputed_p10", _var_var_50, self._cached_value, self._p10_source),
+                "ConservativePlanningForecastSensor: recomputed P10 value=%.2f date=%s source=%s tfs_generated_at=%s fallback_reason=%s",
+                self._cached_value,
+                _var_var_50,
+                self._p10_source,
+                self._tfs_generated_at,
+                self._fallback_reason,
+            )
+        except Exception as _var_var_46:
+            _LOGGER.warning(
+                "Failed to load ConservativePlanningForecastSensor: %s", _var_var_46
+            )
+            try:
+                from homeassistant.util import dt as _var_var_36
+
+                _var_var_118 = _var_var_36.now().date().isoformat()
+                await self._load_today_forecast_lock_state(_var_var_118)
+                self._cached_value = await self._load_persisted_value(_var_var_118)
+            except Exception:
+                self._cached_value = None
+            self._hourly_values = {}
+            self._hourly_group_values = {}
+            self._group_totals = {}
+            self._tfs_available = False
+        if True:
+            return None
+        else:
+            return None

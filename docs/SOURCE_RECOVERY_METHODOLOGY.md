@@ -2434,3 +2434,28 @@ pass; this does not override the corpus failure. The failed stage is preserved
 and stable main remains native .25/source API .31. Investigation of the lost
 protected continuation proceeds in the main thread, independently of source
 reconstruction gains. No comparison rule is loosened to make it pass.
+
+
+## Live response lifetimes and end-of-day dependency trees
+
+`owner-recipes-04` adopts 12 reconstructed bodies after full owner/descendant
+and module-retention proofs. A response must remain live through its original
+JSON/text reads, parsing, persistence and shared error handler. Missing hourly
+weather fields and increments are recovered from original instructions. Morning
+retries retain their last-attempt alert/finalization path. Training retains the
+lock-owned promotion work and warning-only notification scope. Nested end-of-day
+status functions preserve physical closure order through descriptive local names;
+no alias assignments or comparator changes are introduced. Owned controls reject
+wrong closure order, absent writes, changed scope and omitted error paths.
+
+All 274 candidates compile. The complete corpus gains **14 / zero losses**,
+reaching **14,256/14,291 / 249 complete candidates**, leaving **35
+units (13 instructions / 22 exception tables)**.
+Raw generic coverage remains 13,910/134; readable whole source stays 100/2,637.
+There are 357 isolated entries, 150
+files and 637 distinct proved units. Source-only
+proofs are counted separately from generic decompiler or readable-source gains.
+All published hashes and complete source/owner proofs pass. Previously tested
+selected function bodies are unchanged; no blanket runtime-equivalence claim is
+made for the new application owners. Full source and readability goals remain
+active. Native .30's full frozen retention gate is separately pending.

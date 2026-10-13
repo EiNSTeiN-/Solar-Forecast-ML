@@ -39,8 +39,8 @@ production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
 100 readable whole modules (2,637 nested units) and passes 196 selected
 test methods (193 application checks and three source-path checks). The full
-corpus has 246 completely matched candidate modules and 14,242/14,291 matching
-units; 49 units remain. Candidate fidelity
+corpus has 249 completely matched candidate modules and 14,256/14,291 matching
+units; 35 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -327,3 +327,16 @@ source/hash/subtree checks validate every current published entry. Stable
 native .25 and source API .31 remain unchanged. A .29 native trial gains 15 raw
 units but loses one existing reader; its evidence is retained and it is held
 out of stable main. Full source equivalence and readability remain incomplete.
+
+
+The `owner-recipes-04` checkpoint adds 12 exact owner bodies across 8
+changed contexts, gaining 14 corpus matches with zero losses. Its 25
+proved owner-tree units include previously matched descendants. Reconstructions
+restore live HTTP response ownership, omitted hourly weather data, optional snow
+lookups, method-learning writes, conservative planning row guards, morning retry
+alerts, training notifications and end-of-day nested status captures. Every old
+and new public source/hash/subtree proof passes. There are 357
+isolated entries in 150 files, covering
+637 distinct units; 339
+definitions are retained. These new contexts remain non-readable. Stable .25/.31
+tools and the selected suite's executed function bodies remain unchanged.

@@ -1017,6 +1017,164 @@ class ScheduledTasksManager:
             _LOGGER.error(f"AI model training error: {_var_var_2}", exc_info=True)
         return None if True else None
 
+    async def _learn_method_performance(self, now: datetime) -> None:
+        """Learn physics vs AI accuracy per condition bucket. @zara V16.0.0
+
+        Compares physics_kwh, ai_kwh, prediction_kwh (blend) against actual_kwh
+        for each hour of the day. Updates method_performance_learning table
+        with smoothed MAE values and derived ai_advantage_factor.
+        """
+        _var_var_236 = False
+        try:
+            if not self.coordinator or not self.coordinator.data_manager:
+                _LOGGER.debug("Method performance learning skipped: no data manager")
+                return
+            _var_var_231 = self.db
+            _var_var_25 = now.date().isoformat()
+            _var_var_28 = await _var_var_231.fetchall(
+                "SELECT hp.target_hour,\n                          CASE WHEN hp.adaptive_corrected = TRUE\n                               THEN hp.prediction_kwh_uncapped\n                               ELSE hp.prediction_kwh END AS blend_kwh,\n                          hp.actual_kwh,\n                          hp.physics_kwh, hp.ai_kwh, hp.ai_confidence,\n                          pw.clouds\n                   FROM hourly_predictions hp\n                   LEFT JOIN prediction_weather pw ON hp.prediction_id = pw.prediction_id\n                       AND pw.weather_type = 'forecast'\n                   WHERE hp.target_date = ?\n                     AND hp.actual_kwh IS NOT NULL\n                     AND hp.physics_kwh IS NOT NULL\n                     AND (hp.exclude_from_learning = FALSE OR hp.exclude_from_learning IS NULL)",
+                (_var_var_25,),
+            )
+            if not _var_var_28:
+                _LOGGER.info(
+                    "Method performance learning: No data with raw values for %s",
+                    _var_var_25,
+                )
+                return
+            _var_var_237 = {}
+            for _var_var_36 in _var_var_28:
+                _var_var_37 = _var_var_36[0]
+                _var_var_238 = _var_var_36[1]
+                _var_var_38 = _var_var_36[2]
+                _var_var_239 = _var_var_36[3]
+                _var_var_240 = _var_var_36[4]
+                _var_var_241 = _var_var_36[6] or 50
+                if _var_var_38 is None or _var_var_38 <= 0:
+                    continue
+                _var_var_242 = (
+                    "clear"
+                    if _var_var_241 < 30
+                    else "partly_cloudy" if _var_var_241 < 70 else "overcast"
+                )
+                _var_var_243 = (
+                    "morning"
+                    if _var_var_37 < 10
+                    else "midday" if _var_var_37 < 15 else "afternoon"
+                )
+                _var_var_244 = (_var_var_242, _var_var_243)
+                if _var_var_244 not in _var_var_237:
+                    _var_var_237[_var_var_244] = {"physics": [], "ai": [], "blend": []}
+                _var_var_237[_var_var_244]["physics"].append(
+                    abs(_var_var_239 - _var_var_38)
+                )
+                _var_var_237[_var_var_244]["blend"].append(
+                    abs(_var_var_238 - _var_var_38)
+                )
+                if _var_var_240 is not None and _var_var_240 > 0:
+                    _var_var_237[_var_var_244]["ai"].append(
+                        abs(_var_var_240 - _var_var_38)
+                    )
+            if not _var_var_237:
+                _LOGGER.info(
+                    "Method performance learning: No valid production hours for %s",
+                    _var_var_25,
+                )
+                return
+            _var_var_245 = 0.3
+            _var_var_246 = get_season(now.month)
+            for (_var_var_242, _var_var_243), _var_var_166 in _var_var_237.items():
+                _var_var_247 = sum(_var_var_166["physics"]) / len(
+                    _var_var_166["physics"]
+                )
+                _var_var_248 = sum(_var_var_166["blend"]) / len(_var_var_166["blend"])
+                _var_var_249 = (
+                    sum(_var_var_166["ai"]) / len(_var_var_166["ai"])
+                    if _var_var_166["ai"]
+                    else None
+                )
+                for _var_var_250 in (None, _var_var_246):
+                    _var_var_62 = await _var_var_231.fetchone(
+                        "SELECT physics_mae, ai_mae, blend_mae, sample_count\n                           FROM method_performance_learning\n                           WHERE cloud_bucket = ? AND hour_bucket = ?\n                               AND season IS ?",
+                        (_var_var_242, _var_var_243, _var_var_250),
+                    )
+                    if _var_var_62 and _var_var_62[3] and (_var_var_62[3] > 0):
+                        _var_var_251 = (
+                            _var_var_245 * _var_var_247
+                            + (1 - _var_var_245) * _var_var_62[0]
+                        )
+                        _var_var_252 = (
+                            _var_var_245 * _var_var_249
+                            + (1 - _var_var_245) * _var_var_62[1]
+                            if _var_var_249 and _var_var_62[1]
+                            else _var_var_249
+                        )
+                        _var_var_253 = (
+                            _var_var_245 * _var_var_248
+                            + (1 - _var_var_245) * _var_var_62[2]
+                        )
+                        _var_var_254 = _var_var_62[3] + len(_var_var_166["physics"])
+                    else:
+                        _var_var_251 = _var_var_247
+                        _var_var_252 = _var_var_249
+                        _var_var_253 = _var_var_248
+                        _var_var_254 = len(_var_var_166["physics"])
+                    if _var_var_252 and _var_var_252 > 0 and (_var_var_251 > 0):
+                        _var_var_255 = _var_var_251 / _var_var_252
+                        _var_var_256 = max(0.5, min(2.0, _var_var_255))
+                    else:
+                        _var_var_256 = 1.0
+                    _var_var_257 = (
+                        _var_var_242,
+                        _var_var_243,
+                        _var_var_250,
+                        round(_var_var_251, 6),
+                        round(_var_var_252, 6) if _var_var_252 else None,
+                        round(_var_var_253, 6),
+                        round(_var_var_256, 4),
+                        _var_var_254,
+                        now,
+                    )
+                    if _var_var_250 is None:
+                        async with _var_var_231.transaction():
+                            await _var_var_231.execute(
+                                "DELETE FROM method_performance_learning\n                                   WHERE cloud_bucket = ? AND hour_bucket = ?\n                                       AND season IS NULL",
+                                (_var_var_242, _var_var_243),
+                                auto_commit=False,
+                            )
+                            await _var_var_231.execute(
+                                "INSERT INTO method_performance_learning\n                                   (cloud_bucket, hour_bucket, season, physics_mae, ai_mae, blend_mae,\n                                    ai_advantage_factor, sample_count, last_updated)\n                                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                                _var_var_257,
+                                auto_commit=False,
+                            )
+                    else:
+                        await _var_var_231.execute(
+                            "INSERT INTO method_performance_learning\n                               (cloud_bucket, hour_bucket, season, physics_mae, ai_mae, blend_mae,\n                                ai_advantage_factor, sample_count, last_updated)\n                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)\n                               ON CONFLICT(cloud_bucket, hour_bucket, season) DO UPDATE SET\n                                   physics_mae = excluded.physics_mae,\n                                   ai_mae = excluded.ai_mae,\n                                   blend_mae = excluded.blend_mae,\n                                   ai_advantage_factor = excluded.ai_advantage_factor,\n                                   sample_count = excluded.sample_count,\n                                   last_updated = excluded.last_updated",
+                            _var_var_257,
+                            auto_commit=True,
+                        )
+                _LOGGER.info(
+                    "Method learning [%s/%s]: physics_mae=%.4f, ai_mae=%s, advantage=%.2f (%d samples)",
+                    _var_var_242,
+                    _var_var_243,
+                    _var_var_251,
+                    f"{_var_var_252:.4f}" if _var_var_252 else "N/A",
+                    _var_var_256,
+                    _var_var_254,
+                )
+            _LOGGER.info("Method performance learning completed for %s", _var_var_25)
+            _var_var_236 = True
+        except Exception as _var_var_2:
+            _LOGGER.error(
+                f"Method performance learning error: {_var_var_2}", exc_info=True
+            )
+            return
+        if _var_var_236:
+            await self._calibrate_physics_from_learned_day(now)
+        if True:
+            return None
+        else:
+            return None
+
     async def migrate_daily_consumption_model(self) -> dict:
         """One-shot relearn from stored hours, then rewrite unlocked future hours.
 
