@@ -121,10 +121,17 @@ class CoroutineReturnAliasProvenanceTests(unittest.TestCase):
         self.assertTrue(any(region.start <= target < region.end
                             and region.target == intrinsic and region.lasti for region in regions))
         self.assertEqual(canonical(stock).instructions, canonical(alias).instructions)
-        self.assertNotEqual(canonical(stock).exceptions, canonical(alias).exceptions)
+        self.assertEqual(canonical(stock).exceptions, canonical(alias).exceptions)
+        self.assertEqual(len(canonical(alias).return_alias_provenance), 1)
         proof = compare(alias, stock)
-        self.assertFalse(proof["all_units_match"])
-        self.assertEqual(proof["entries"][0]["reason"], "exception_table")
+        self.assertTrue(proof["all_units_match"])
+        # The old projection accepted this genuinely different actual-return
+        # hole. Effective-target dispatch must now distinguish it.
+        direct_hole = stock.replace(co_exceptiontable=self.exception_table(
+            self.remove_slot(list(dis.Bytecode(stock).exception_entries), jump)))
+        self.assertFalse(compare(alias, direct_hole)["all_units_match"])
+        self.assertEqual(self.invoke(direct_hole, True, inject_offset=jump,
+                                     inject_event="return"), ("stop", "owned trace witness"))
         for flag, expected in ((False, 9), (True, 7)):
             self.assertEqual(self.invoke(stock, flag), ("stop", expected))
             self.assertEqual(self.invoke(alias, flag), ("stop", expected))

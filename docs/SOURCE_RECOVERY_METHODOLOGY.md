@@ -3702,3 +3702,34 @@ the user handler, whereas an exception at the actual return follows the intrinsi
 StopIteration route. Removing that actual return route changes the observed
 result. Both tests retain strict comparator rejection and establish no blanket
 equivalence for protected vendor functions.
+
+
+## Astra investigation and effective-return dispatch repair
+
+Three Astra investigators split the unresolved owners and helped identify a
+specific comparer defect. The existing shared-return abstraction substituted
+a return operation for a forward jump, but failed to assign the actual return
+target's intrinsic cleanup route. An owned fixture showed a false acceptance
+of a real return with missing cleanup. The repaired .38 comparer projects the
+exact target route under narrow eligibility checks and records original
+transfer provenance. It retains real return holes, lasti alias routes, and
+overlapping handler priority as significant differences.
+
+The reviewed full gate retains every previous unit and complete module. Raw
+coverage is 13,930/14,291 with one gain; readable composite coverage is
+14,290/14,291 with seventeen gains and 273 complete candidates. All 274 sources
+compile and all original inputs remain unchanged. Public readable source now
+contains 272 complete modules and 14,152 units; the private crypto module adds
+30 complete units separately. One WFA context retains 108 flat matches and
+106 units in fully verified owner trees. Eight owned regressions and all
+233 unpacker methods run successfully: 232 passes and one existing expected
+failure. See `recovery/return-alias-cleanup-repair.json`.
+
+WeatherExpert remains the sole failure. Both adjacent rethrows are genuine raw
+instructions with unchanged handlers, separate from the removed runtime exit.
+Owned compiler IR controls isolate the source-location asymmetry needed for
+shared normal returns and duplicated exceptional rethrows. That IR intervention
+is not ordinary source and receives no recovery credit. Tested structured
+exits and frame-stack variants do not supply an exact source recipe. See
+`recovery/wfa-astra-investigation.json`; the current result is not an
+impossibility claim or an approval to share terminals.

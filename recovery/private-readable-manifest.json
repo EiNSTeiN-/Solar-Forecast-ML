@@ -19,5 +19,12 @@
       "owned_paired_cases_passed": 87,
       "strict_negative_controls_passed": 6
     }
-  ]
+  ],
+  "current_static_verification": {
+    "comparison_api": "0.4.38-einstein.1",
+    "comparer_sha256": "193f0b91fd4cf2ca66fd203bdbb72f72910294a56dc974f4f378511d7a61d5b2",
+    "complete_units_verified": 30,
+    "source_hash_unchanged": true,
+    "public_key_material": false
+  }
 }

@@ -1,9 +1,15 @@
-# Remaining coroutine-return coverage difference
+# Coroutine return-alias dispatch repair
 
-Seventeen reconstructed coroutine units match all normalized instructions and
-signatures, but fail the unchanged exception-table proof. Every earlier matching
-neighbor is retained. These candidates remain private, unaccepted, and excluded
-from corpus and readable-source counts. The original exports are unchanged.
+All seventeen classified coroutine units now pass the repaired .38 comparison
+and are published in ten completely verified readable modules. The full corpus
+retains every earlier match and reaches 14,290/14,291 units, with only the
+separate WeatherExpert terminal-layout mismatch remaining. Original exports
+are unchanged. See [the repair ledger](../recovery/return-alias-cleanup-repair.json).
+
+The following diagnosis describes the frozen .37 result: all seventeen nearest
+candidates matched instructions and signatures but differed at one canonical
+dispatch position each. That apparent cleanup hole was introduced by the
+comparer's return-alias projection, rather than found at a raw return.
 
 Each difference affects one **canonical** `RETURN_VALUE`: the reference has no
 handler at that comparison position, while stock CPython 3.14.2 assigns a
@@ -45,12 +51,23 @@ raw protected code retain intrinsic routes; runtime-exit normalization makes
 those earlier physical returns unreachable after replacing an exit jump.
 The final protected leave/return tail is separate from the disputed alias.
 
-Any proposed alias-specific treatment still needs a precise rule, controls
-that retain every real return and meaningful handler, and an explicit decision
-before expanding the current accepted comparison policy. No blanket runtime
-equivalence claim follows, and no arbitrary exception region may be ignored.
-Until then, the strict result remains failure. The separately unresolved
-WeatherExpert instruction-layout mismatch is not covered by this classification.
+An owned alias fixture exposed the concrete comparer defect: .37 accepted the
+intrinsic-covered shared return as equal to a direct actual return with its
+cleanup interval removed, while rejecting the correctly guarded direct return.
+The .38 repair assigns the actual target's intrinsic dispatch to the canonical
+return operation. It requires a native coroutine, a forward jump directly to a
+bare return, one depth-zero non-lasti transfer route, one depth-zero lasti target
+route to the StopIteration intrinsic, and an ordered disjoint exception table.
+Every physical return route and lasti-covered alias remains significant.
+Transfer-site provenance is recorded separately; opcode-tracing equivalence is
+not asserted. Eight owned regressions include actual-return holes, mutations
+of handler/depth/lasti, ambiguous coverage, backward/chained transfers, and
+reversed overlapping handler priority elsewhere in the function.
+
+This repairs operation-to-handler association within the already-established
+forward-return abstraction. It introduces no blanket exception omission or
+terminal-rethrow sharing rule. The separately unresolved WeatherExpert
+instruction-layout mismatch is not covered by this repair.
 
 ## Classified units
 

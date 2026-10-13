@@ -1,12 +1,11 @@
-# Incomplete compilation contexts
+# Incomplete and historical compilation contexts
 
-These files are **not replacement integration modules**. Only the explicit
-maximal owner trees in `../verified-partial-manifest.json` have complete
-instruction and exception proofs. Other module/class parents provide context,
-and the18 listed failing functions retain their unaccepted original candidates.
-Do not import these complete files or copy them into a running integration.
+The current partial manifest lists only `weather_fusion_ai/weather_experts.py`:
+108 units match, 106 belong to fully verified disjoint owner trees, and
+`WeatherExpert._get_json` remains unmatched. This containing module is not a
+replacement integration module and must not be imported into a running system.
 
-Readable matched scopes preserve the same baseline passing set, parameters,
-imports, captures, units, schemas and documentation. No new corpus match credit
-is claimed. The containing modules remain incomplete even when every admitted
-function tree passes. See `../README.md` and the recovery methodology.
+The other ten files are retained as historical partial contexts. Their current,
+completely verified readable sources live under `../verified_units/`; consult
+`../verified-manifest.json`. These old copies receive no additional coverage
+count and are excluded from the current partial manifest.

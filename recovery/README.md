@@ -37,10 +37,10 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-262 readable whole modules (13,355 nested units) and passes 212 selected
-test methods (196 application checks and sixteen source/coverage checks). The full
-corpus has 263 completely matched candidate modules and 14,273/14,291 matching
-units; 18 units remain. Candidate fidelity
+272 readable whole modules (14,152 nested units). The full corpus has
+273 completely matched candidate modules and 14,290/14,291 matching units;
+only WeatherExpert._get_json remains. The latest selected-suite run is
+recorded in selected-suite-latest.json (214 methods). Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -1531,3 +1531,34 @@ the user handler, whereas an exception at the actual return follows the intrinsi
 StopIteration route. Removing that actual return route changes the observed
 result. Both tests retain strict comparator rejection and establish no blanket
 equivalence for protected vendor functions.
+
+
+## Astra investigation and effective-return dispatch repair
+
+Three Astra investigators split the unresolved owners and helped identify a
+specific comparer defect. The existing shared-return abstraction substituted
+a return operation for a forward jump, but failed to assign the actual return
+target's intrinsic cleanup route. An owned fixture showed a false acceptance
+of a real return with missing cleanup. The repaired .38 comparer projects the
+exact target route under narrow eligibility checks and records original
+transfer provenance. It retains real return holes, lasti alias routes, and
+overlapping handler priority as significant differences.
+
+The reviewed full gate retains every previous unit and complete module. Raw
+coverage is 13,930/14,291 with one gain; readable composite coverage is
+14,290/14,291 with seventeen gains and 273 complete candidates. All 274 sources
+compile and all original inputs remain unchanged. Public readable source now
+contains 272 complete modules and 14,152 units; the private crypto module adds
+30 complete units separately. One WFA context retains 108 flat matches and
+106 units in fully verified owner trees. Eight owned regressions and all
+233 unpacker methods run successfully: 232 passes and one existing expected
+failure. See `recovery/return-alias-cleanup-repair.json`.
+
+WeatherExpert remains the sole failure. Both adjacent rethrows are genuine raw
+instructions with unchanged handlers, separate from the removed runtime exit.
+Owned compiler IR controls isolate the source-location asymmetry needed for
+shared normal returns and duplicated exceptional rethrows. That IR intervention
+is not ordinary source and receives no recovery credit. Tested structured
+exits and frame-stack variants do not supply an exact source recipe. See
+`recovery/wfa-astra-investigation.json`; the current result is not an
+impossibility claim or an approval to share terminals.

@@ -303,5 +303,8 @@
   "effective_normalized_terminal_intrinsic_coverage_retained": true,
   "observable_tracing_hook_difference_scope": "Owned literal actual-return-hole negative control; not a direct runtime counterexample for the seventeen protected forward-jump aliases.",
   "production_alias_runtime_equivalence_verified": false,
-  "acceptance_policy_changed": false
+  "acceptance_policy_changed": false,
+  "historical_comparison_api": "0.4.37-einstein.1",
+  "current_resolved_units": 17,
+  "superseded_by": "return-alias-cleanup-repair.json"
 }

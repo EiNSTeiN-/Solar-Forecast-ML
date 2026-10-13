@@ -1,0 +1,56 @@
+{
+  "investigation_model": "gpt-6-astra",
+  "remaining_unit": "WeatherExpert._get_json",
+  "module_path": "extra_features/weather_fusion_ai/weather_experts.py",
+  "original_raw_terminal_offsets": [
+    1238,
+    1240
+  ],
+  "normalized_terminal_indices": [
+    254,
+    255
+  ],
+  "both_original_raw_instructions_are_reraise_zero": true,
+  "original_terminal_bytes_and_handler_rows_unchanged_by_normalization": true,
+  "shared_handler": {
+    "start": 1228,
+    "end": 1242,
+    "target": 1242,
+    "depth": 1,
+    "lasti": true
+  },
+  "separate_runtime_exit_rethrow_removed_at_offset": 1290,
+  "concrete_normalizer_defect_found": false,
+  "owned_structured_exit_exact_recipe_found": false,
+  "owned_compiler_location_intervention_only": true,
+  "compiler_location_only_diagnostic": [
+    {
+      "case": "shared_break_source",
+      "normal_returns": 1,
+      "exceptional_rethrows": 1
+    },
+    {
+      "case": "erase_exceptional_copy_locations_only",
+      "normal_returns": 1,
+      "exceptional_rethrows": 2,
+      "adjacent_rethrows": true
+    },
+    {
+      "case": "erase_normal_copy_locations_only",
+      "normal_returns": 2,
+      "exceptional_rethrows": 1
+    },
+    {
+      "case": "erase_both_copy_locations",
+      "normal_returns": 2,
+      "exceptional_rethrows": 2
+    }
+  ],
+  "ordinary_source_recipe_for_selective_location_intervention_found": false,
+  "inner_loop_break_stops_before_differing_outer_cleanup_frames": true,
+  "outer_loop_break_owned_negative_abandons_return_or_exception": true,
+  "candidate_accepted": false,
+  "new_corpus_gains": 0,
+  "source_impossibility_claimed": false,
+  "protected_code_executed": false
+}

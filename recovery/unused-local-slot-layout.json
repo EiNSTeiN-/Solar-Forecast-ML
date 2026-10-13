@@ -206,6 +206,6 @@
   "current_total_renamed_unused_slots": 12,
   "current_total_renamed_modules": 11,
   "initial_gate_and_suite_counts_preserved": true,
-  "current_complete_public_modules_with_renamed_slots": 10,
-  "current_partial_contexts_with_renamed_slots": 1
+  "current_complete_public_modules_with_renamed_slots": 11,
+  "current_partial_contexts_with_renamed_slots": 0
 }

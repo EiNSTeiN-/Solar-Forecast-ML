@@ -322,5 +322,9 @@
         }
       ]
     }
-  ]
+  ],
+  "historical_preview_ledger": true,
+  "current_verified_owners": 17,
+  "current_unresolved_owners": 1,
+  "verification_ledger": "return-alias-cleanup-repair.json"
 }

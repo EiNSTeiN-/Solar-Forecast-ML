@@ -51,14 +51,16 @@
     "errors": 0,
     "expected_failures": 0,
     "success": true,
-    "seconds": 158.685,
-    "readable_snapshot_modules": 262,
-    "readable_snapshot_units": 13355,
-    "source_api": "0.4.37-einstein.1",
+    "seconds": 191.64,
+    "readable_snapshot_modules": 272,
+    "readable_snapshot_units": 14152,
+    "source_api": "0.4.38-einstein.1",
     "backend": "0.6.30-einstein.1",
     "original_exports_unchanged": true,
     "instruction_and_exception_criteria_changed": false,
-    "manifest_sha256": "c84bf2cc20785d5fad5477c008fda0112004d9b83f16d8609cb57ea6797ce9e9",
+    "comparer_sha256": "193f0b91fd4cf2ca66fd203bdbb72f72910294a56dc974f4f378511d7a61d5b2",
+    "comparison_normalizer_return_dispatch_repaired": true,
+    "manifest_sha256": "4397705e80a0c5349dc94575dbe10de059d0202d62c9b892be7fc6be988a720b",
     "vendor_modules_imported": 0
   }
 }
