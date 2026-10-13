@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-238 readable whole modules (12,929 nested units) and passes 212 selected
+248 readable whole modules (13,142 nested units) and passes 212 selected
 test methods (196 application checks and sixteen source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -1304,6 +1304,42 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 Names expose main and EAI schema/default validation while retaining their distinct tables, clocks and report arithmetic; astronomy capacity, cache and reload units; weather integration configuration and observations; hourly/daily allocation and correction-preserving backfill; forecast comparison and cost scaling; consumption morning/history and main production history; existing feature installation states; adaptive snow/deviation/cooldown decisions; visibility weighting; and EAI provider/bootstrap ordering and physical captures. The EAI morning routine uses the already-proved .37 neutral name for one additional unused, same-position compiler reservation. Its source and descendants must pass complete strict instruction and exception proofs. Main/EAI differences in history windows, persisted fields, learning-disablement and fallback arithmetic stay unchanged. All investigative installers, schedulers, SQL and notification protocols use owned inert stand-ins; no actual install, services, persistence or integration module execution occurs.
+
+The previously passed 212-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable energy accounting, dashboard APIs and weather stores
+
+Root-authored source names **648 bindings across
+72 actual scopes**, exposing **213
+already-proved units**. It removes 90 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**248 modules / 13,142 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/core/power_integration.py` | 20 | 38 | 8 |
+| `extra_features/sfml_stats/core/energy_balance.py` | 19 | 46 | 7 |
+| `extra_features/sfml_stats/core/amortization.py` | 19 | 47 | 9 |
+| `extra_features/sfml_stats/core/reprice.py` | 17 | 44 | 4 |
+| `extra_features/sfml_stats/api/frontend_views.py` | 21 | 58 | 7 |
+| `extra_features/sfml_stats/api/shadow_views.py` | 20 | 84 | 8 |
+| `extra_features/sfml_stats/api/websocket.py` | 18 | 27 | 6 |
+| `extra_features/sfml_stats/api/smart_charging_dashboard.py` | 10 | 207 | 3 |
+| `forecast/forecast_weather.py` | 35 | 34 | 10 |
+| `extra_features/solar_forecast_eai/weather_forecast_store.py` | 34 | 63 | 10 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Local names expose power integration and quality filtering, load/solar allocation, amortization projections and STATS repricing; frontend and shadow access/readiness gates; WebSocket subscription, polling and task lifetime; smart-charging energy, percent, cent-price and euro-cost quantities; main weather retrieval, row defaults, provenance and cache health; and EAI forecast-store persistence and sun-position contracts. Ordered captures, literal parameters, imports, schema keys and historical main/EAI differences are retained. The WebSocket proposal also removes opaque _recovered_ local names. Each root-authored whole module must pass complete instruction and exception-tree comparison after formatting, and all public source hashes/subtrees are checked again. Owned controls use inert HA, SQL, clock, task and network facades; no recovered module body or real integration I/O is executed.
 
 The previously passed 212-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or

@@ -1166,7 +1166,7 @@
       "matched_units": 21,
       "reference_units": 21,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/NewStaticFilesView#1/get#1"
       ],
@@ -1297,7 +1297,7 @@
       "matched_units": 20,
       "reference_units": 20,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ShadowAnalyticsView#1/get#1",
         "<module>/ShadowFingerprintView#1/get#1",
@@ -1327,7 +1327,7 @@
       "matched_units": 10,
       "reference_units": 10,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SmartChargingDashboardView#1/get#1"
       ],
@@ -1427,7 +1427,7 @@
       "matched_units": 18,
       "reference_units": 18,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_get_realtime_data#1",
         "<module>/websocket_get_dashboard_data#1",
@@ -1445,7 +1445,7 @@
       "matched_units": 19,
       "reference_units": 19,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/calculate_amortization#1"
       ],
@@ -1603,7 +1603,7 @@
       "matched_units": 19,
       "reference_units": 19,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 19
     },
     {
@@ -1788,7 +1788,7 @@
       "matched_units": 20,
       "reference_units": 20,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/power_states_from_recorder#1"
       ],
@@ -1816,7 +1816,7 @@
       "matched_units": 17,
       "reference_units": 17,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 17
     },
     {
@@ -2920,7 +2920,7 @@
       "matched_units": 34,
       "reference_units": 34,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 34
     },
     {
@@ -3157,7 +3157,7 @@
       "matched_units": 35,
       "reference_units": 35,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherService#1/_background_forecast_update#1"
       ],
