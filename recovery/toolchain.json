@@ -18,7 +18,7 @@
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 73,
-    "selected_module_behavior_tests_passed": 201,
+    "selected_module_behavior_tests_passed": 203,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -179,8 +179,8 @@
       "intrinsic_return_coverage_test_methods": 2,
       "intrinsic_return_coverage_result": "Two separate owned tests pass. Identical instructions with a missing coroutine-return cleanup interval fail the unchanged strict comparator. Five ordinary calls agree; a tracing-hook StopIteration produces an observable propagation difference."
     },
-    "complete_readable_module_matches": 106,
-    "complete_readable_module_code_units": 4137,
+    "complete_readable_module_matches": 112,
+    "complete_readable_module_code_units": 4982,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -730,7 +730,7 @@
       }
     },
     "stable_toolchain_unchanged": false,
-    "selected_suite_reuse": "The full selected suite passes201 methods in168.722seconds after readable sensor/solar-API/adaptive publication:196application methods,3definition-path methods and2candidate-layout methods. Original full source/hash proofs precede controlled selected execution; no integration or armor runtime imports.",
+    "selected_suite_reuse": "The full selected suite passes203 methods in160.934seconds against the frozen .35 generation and106-module readable source snapshot:196application methods and7source/coverage methods. The subsequent six naming-only publications retain complete compiled trees under unchanged instruction/exception rules; every public source/hash/subtree proof passes. Their owned investigatory controls are separately reported, not counted as selected methods.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",
       "stage": "promoted-exit-tools-01",
@@ -998,6 +998,86 @@
       "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558186",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
+    },
+    "readable_batch_08": {
+      "modules": [
+        {
+          "module_path": "sensors/sensor_shadow_detection.py",
+          "matched_units": 63,
+          "scoped_maps": 20,
+          "renamed_bindings": 96,
+          "removed_empty_artifacts": 36,
+          "source_sha256": "a8ca3621bc702e914877a9bdd37887af4d312386b36a2a1b4971d6f008f79f22",
+          "parameters_metadata_docstrings_preserved": true,
+          "remaining_internal_name_scopes": 0,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/data/data_weather_precision.py",
+          "matched_units": 41,
+          "scoped_maps": 20,
+          "renamed_bindings": 185,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "9253f55cda99ed75e1de6b277a9e7aba29a0534c828a00fd17cb12ba0e07fb79",
+          "parameters_metadata_docstrings_preserved": true,
+          "remaining_internal_name_scopes": 0,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/core/forecast_collector.py",
+          "matched_units": 52,
+          "scoped_maps": 22,
+          "renamed_bindings": 165,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "84e9ce90e2b829ae9d1abbb0757d095e4865303fef4fc14f9a809e4412156cfc",
+          "parameters_metadata_docstrings_preserved": true,
+          "remaining_internal_name_scopes": 0,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/core/heating.py",
+          "matched_units": 381,
+          "scoped_maps": 138,
+          "renamed_bindings": 554,
+          "removed_empty_artifacts": 0,
+          "source_sha256": "2115563c54145d8ca4c832d3d539f5e3a95ec0c1f033b296d42ac2788fa54271",
+          "parameters_metadata_docstrings_preserved": true,
+          "remaining_internal_name_scopes": 0,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/insights.py",
+          "matched_units": 265,
+          "scoped_maps": 123,
+          "renamed_bindings": 613,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "1818b1cb67a25ccbeb009e4494b30d0505dedc15e9782f345e4efee974c91d40",
+          "parameters_metadata_docstrings_preserved": true,
+          "remaining_internal_name_scopes": 0,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "data/data_weather_precision.py",
+          "matched_units": 43,
+          "scoped_maps": 23,
+          "renamed_bindings": 214,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "7f47df94b2ec52e99f49e344aef8dcd21a4a9356c1157ff9fed69445f2ae7709",
+          "parameters_metadata_docstrings_preserved": true,
+          "remaining_internal_name_scopes": 0,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 112,
+      "readable_units": 4982,
+      "new_readable_modules": 6,
+      "new_readable_units": 845,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 1827,
+      "scoped_maps": 346,
+      "removed_empty_artifacts": 90,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
     }
   }
 }

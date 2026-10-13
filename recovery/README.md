@@ -37,8 +37,8 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-106 readable whole modules (4,137 nested units) and passes 201 selected
-test methods (196 application checks and five source-construction checks). The full
+112 readable whole modules (4,982 nested units) and passes 203 selected
+test methods (196 application checks and seven source/coverage checks). The full
 corpus has 260 completely matched candidate modules and 14,270/14,291 matching
 units; 21 units remain. Candidate fidelity
 and published readable source are counted separately.
@@ -480,3 +480,38 @@ cases (215passes and one existing expected failure), C++ builds and Actions
 security checks. The workflow named Regression Test is skipped and is not
 counted as passed. The three newly proved .36 return joins are a separate
 development checkpoint until their fresh274-module gate finishes.
+
+
+## Readable heating, insights, weather precision and forecast collection
+
+Six root-authored naming refactors publish **845 already-proved units** with
+**1,827 descriptive bindings across346 actual code scopes**. Ninety non-docstring
+empty artifacts are removed. Complete instructions and exception tables remain
+exact after Black formatting, and every current public source/hash/subtree proof
+passes. Readable coverage reaches **112 modules /4,982 units**; this adds **zero
+corpus matches** and changes no comparison rule.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `sensors/sensor_shadow_detection.py` | 63 | 96 | 20 |
+| `extra_features/solar_forecast_eai/data/data_weather_precision.py` | 41 | 185 | 20 |
+| `extra_features/sfml_stats/core/forecast_collector.py` | 52 | 165 | 22 |
+| `extra_features/sfml_stats/core/heating.py` | 381 | 554 | 138 |
+| `extra_features/solar_forecast_eai/insights.py` | 265 | 613 | 123 |
+| `data/data_weather_precision.py` | 43 | 214 | 23 |
+
+Actual parameters, globals, attributes, imported objects, SQL/payload schemas,
+documentation, decorators/defaults/annotations, signatures and ordered closure
+slots remain fixed. Names distinguish weather readings from values, percentage
+from fractional confidence, power from energy, samples from counts, and heating
+setpoints from measured temperatures. Actual generator scopes own their targets;
+`.0`, lambda shadows and assignment-expression ownership remain protected.
+Class bases, keywords and decorators are visited in the enclosing scope before
+entering the class body, so nested classes retain their captured imports.
+
+The full selected suite passes **203 methods in160.934seconds** against the .35
+generation and106-module readable snapshot, before these six naming-only
+publications. Their complete compiled trees remain exact; the separate owned
+investigatory controls are not added to that test-method count. No full
+integration or armor runtime is imported. Candidate, readability and controlled
+behavior coverage remain distinct; full source recovery is unfinished.

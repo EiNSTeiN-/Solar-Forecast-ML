@@ -746,7 +746,7 @@
       "matched_units": 43,
       "reference_units": 43,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherPrecisionTracker#1/_calculate_daily_factors#1",
         "<module>/WeatherPrecisionTracker#1/_save_hourly_factors#1",
@@ -1791,7 +1791,7 @@
       "matched_units": 52,
       "reference_units": 52,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ForecastComparisonCollector#1/_get_all_sfml_summaries#1",
         "<module>/ForecastComparisonCollector#1/_get_sfml_forecast#1",
@@ -1875,7 +1875,7 @@
       "matched_units": 381,
       "reference_units": 381,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/HeatingManager#1/_refresh_forecast#1",
         "<module>/_entity_classes#1",
@@ -2888,7 +2888,7 @@
       "matched_units": 41,
       "reference_units": 41,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherPrecisionTracker#1/_update_rolling_averages#1",
         "<module>/WeatherPrecisionTracker#1/get_hourly_correction_factors#1"
@@ -3049,7 +3049,7 @@
       "matched_units": 265,
       "reference_units": 265,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/EAIInsightsEngine#1/_forecast#1",
         "<module>/EAIInsightsEngine#1/_forecast_energy_for_day#1",
@@ -3830,7 +3830,7 @@
       "matched_units": 63,
       "reference_units": 63,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ShadowTodaySensor#1/_get_today_analysis#1"
       ],
