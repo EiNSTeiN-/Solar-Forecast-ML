@@ -434,6 +434,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/api/solar_views.py",
+      "original_payload_sha256": "d86d44b9f22fbe856448acce42a100b09de26fa81d4670fcb90ec8093a1d5b2b",
+      "reconstructed_source_sha256": "b84a61d2a1af003346b6165af2f5a394a48021233cd438cd76773cf9a0c57e9e",
+      "matched_units": 140,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/api/statistics_views.py",
       "original_payload_sha256": "c1984d1c338e5f7fef540bd2aa7029d3036053c354834909e9f95739d2550b7c",
       "reconstructed_source_sha256": "867730e5103d34af078920c468076a2b2240a89235b0e4cae91cbd964a6e03cb",
@@ -821,6 +830,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "production/production_adaptive_forecast.py",
+      "original_payload_sha256": "62be8d420d3ad41885f66b2dc5920e70a54f9c1099c838c28d038a1273df7f12",
+      "reconstructed_source_sha256": "5473cfc967cd1558943107917bd7209eba887eb3c9d43f2741a684c4fa2f944c",
+      "matched_units": 31,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "production/production_forecast_regeneration.py",
       "original_payload_sha256": "cd0f2facf0893fb0ce7ccff801b31204f51dd75831a5c79710030db7af155b6c",
       "reconstructed_source_sha256": "0a6cc13a3c7111a6dd95956f9f6ea76c71323c847483a1b85d4bbe5884e32604",
@@ -855,6 +873,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "sensors/sensor_base.py",
+      "original_payload_sha256": "ecd4fe2a3e333f2afd03180319a8220024cfb93b84e80fa88ab16dc20b5d251e",
+      "reconstructed_source_sha256": "40563093280b45d0f0cb63c38b7812af17ee25a0e83f1c3c1a2d4c525ea7d0e6",
+      "matched_units": 443,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "sensors/sensor_data_collector.py",
@@ -912,5 +939,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 3354
+  "total_matched_units": 3968
 }

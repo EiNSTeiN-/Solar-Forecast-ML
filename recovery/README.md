@@ -37,8 +37,8 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-101 readable whole modules (3,354 nested units) and passes 199 selected
-test methods (196 application checks and three source-path checks). The full
+104 readable whole modules (3,968 nested units) and passes 201 selected
+test methods (196 application checks and five source-construction checks). The full
 corpus has 258 completely matched candidate modules and 14,268/14,291 matching
 units; 23 units remain. Candidate fidelity
 and published readable source are counted separately.
@@ -399,3 +399,38 @@ isolated entries in 154 files, covering
 657 distinct units; 351
 definitions are retained. These new contexts remain non-readable. The frozen
 0.6.30-einstein.1/0.4.34-einstein.1 generation tools and selected suite's executed bodies remain unchanged.
+
+
+## Scope-aware readable sensor, solar API and adaptive source
+
+Three root-authored files now provide readable whole source for **614 already
+matched units**: the main sensor layer443, STATS solar API140, and adaptive
+forecast engine31. The final source names **1,089 local/capture bindings** in
+149 actual code-object scopes and removes315 non-docstring empty artifacts.
+Names follow data flow, existing fields and helper roles; original spelling is
+not claimed. Actual parameters, globals/attributes, imports, schemas, signatures,
+decorators/defaults/annotations, flags and docstrings remain fixed.
+
+Generator targets belong to their actual `<genexpr>` code scopes, even when an
+investigatory proposal groups them under its enclosing function. Split those
+bindings before renaming; preserve `.0`, lambda parameters and lexical shadows.
+Free references follow their owning binding. Nine solar API aliases and fourteen
+sensor datetime aliases get descriptive local names while the real imported
+modules, relative levels, symbols and ordering stay unchanged. Physical closure
+ordering remains part of the complete proof. Removing the solar API's single
+dead private compiler slot loses its instruction proof, so that required slot
+remains with an explanation; it performs no runtime work.
+
+All three complete trees still prove exact normalized instructions **and
+exception tables** after Black formatting. They increase readable coverage to
+**104 modules /3,968 units**, with **zero new corpus match credit**. Every old and
+new public source/hash/subtree proof passes. The selected suite passes
+**201 methods in168.722seconds** (196 application methods plus five source
+construction methods); no complete integration or armor runtime is imported.
+
+The candidate auditor also preserves verified multiline return layout after
+AST body insertion. Two owned assembly regressions compare19 paired calls,
+check keyword defaults/docstrings, and reject a wrong retained body. Successful
+layout recovery does not certify that body's semantics: independent complete
+candidate comparison remains mandatory. The generic .35 corpus gate is recorded
+separately from these already-matched readability changes.

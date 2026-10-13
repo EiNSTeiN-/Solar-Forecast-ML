@@ -1429,7 +1429,7 @@
       "matched_units": 140,
       "reference_units": 140,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SolarDataView#1/get#1",
         "<module>/StatisticsView#1/_get_panel_group_data#1",
@@ -3492,7 +3492,7 @@
       "matched_units": 31,
       "reference_units": 31,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/AdaptiveForecastEngine#1/_check_special_situations#1",
         "<module>/AdaptiveForecastEngine#1/_execute_correction#1"
@@ -3672,7 +3672,7 @@
       "matched_units": 443,
       "reference_units": 443,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ConservativePlanningForecastSensor#1/_load_from_sources#1",
         "<module>/SolarForecastSensor#1/_today_hourly_total#1",

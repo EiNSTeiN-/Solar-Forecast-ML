@@ -2559,3 +2559,38 @@ All published hashes and complete source/owner proofs pass. Previously tested
 selected function bodies are unchanged; no blanket runtime-equivalence claim is
 made for the new application owners. Full source and readability goals remain
 active. Earlier native gains are not credited to these source bodies.
+
+
+## Scope-aware readable sensor, solar API and adaptive source
+
+Three root-authored files now provide readable whole source for **614 already
+matched units**: the main sensor layer443, STATS solar API140, and adaptive
+forecast engine31. The final source names **1,089 local/capture bindings** in
+149 actual code-object scopes and removes315 non-docstring empty artifacts.
+Names follow data flow, existing fields and helper roles; original spelling is
+not claimed. Actual parameters, globals/attributes, imports, schemas, signatures,
+decorators/defaults/annotations, flags and docstrings remain fixed.
+
+Generator targets belong to their actual `<genexpr>` code scopes, even when an
+investigatory proposal groups them under its enclosing function. Split those
+bindings before renaming; preserve `.0`, lambda parameters and lexical shadows.
+Free references follow their owning binding. Nine solar API aliases and fourteen
+sensor datetime aliases get descriptive local names while the real imported
+modules, relative levels, symbols and ordering stay unchanged. Physical closure
+ordering remains part of the complete proof. Removing the solar API's single
+dead private compiler slot loses its instruction proof, so that required slot
+remains with an explanation; it performs no runtime work.
+
+All three complete trees still prove exact normalized instructions **and
+exception tables** after Black formatting. They increase readable coverage to
+**104 modules /3,968 units**, with **zero new corpus match credit**. Every old and
+new public source/hash/subtree proof passes. The selected suite passes
+**201 methods in168.722seconds** (196 application methods plus five source
+construction methods); no complete integration or armor runtime is imported.
+
+The candidate auditor also preserves verified multiline return layout after
+AST body insertion. Two owned assembly regressions compare19 paired calls,
+check keyword defaults/docstrings, and reject a wrong retained body. Successful
+layout recovery does not certify that body's semantics: independent complete
+candidate comparison remains mandatory. The generic .35 corpus gate is recorded
+separately from these already-matched readability changes.

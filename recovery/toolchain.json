@@ -17,7 +17,7 @@
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 73,
-    "selected_module_behavior_tests_passed": 199,
+    "selected_module_behavior_tests_passed": 201,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -172,10 +172,12 @@
       "csv_import_behavior_methods": 4,
       "csv_import_paired_scenarios": 130,
       "database_transaction_behavior_methods": 3,
-      "database_transaction_paired_scenarios": 60
+      "database_transaction_paired_scenarios": 60,
+      "candidate_layout_test_methods": 2,
+      "candidate_layout_paired_scenarios": 19
     },
-    "complete_readable_module_matches": 101,
-    "complete_readable_module_code_units": 3354,
+    "complete_readable_module_matches": 104,
+    "complete_readable_module_code_units": 3968,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -755,7 +757,7 @@
       }
     },
     "stable_toolchain_unchanged": true,
-    "selected_suite_reuse": "The complete selected suite passes199 methods in156.712seconds after readable database preparation:196application methods plus3definition-path methods. Whole source proof precedes controlled execution; no integration or armor runtime imports.",
+    "selected_suite_reuse": "The full selected suite passes201 methods in168.722seconds after readable sensor/solar-API/adaptive publication:196application methods,3definition-path methods and2candidate-layout methods. Original full source/hash proofs precede controlled selected execution; no integration or armor runtime imports.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",
       "stage": "promoted-exit-tools-01",
@@ -858,6 +860,52 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38327367134",
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000565",
       "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000506"
+    },
+    "readable_triplet": {
+      "modules": [
+        {
+          "module_path": "production/production_adaptive_forecast.py",
+          "matched_units": 31,
+          "scoped_maps": 13,
+          "renamed_bindings": 120,
+          "removed_empty_artifacts": 18,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "source_sha256": "5473cfc967cd1558943107917bd7209eba887eb3c9d43f2741a684c4fa2f944c",
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "sensors/sensor_base.py",
+          "matched_units": 443,
+          "scoped_maps": 63,
+          "renamed_bindings": 311,
+          "removed_empty_artifacts": 234,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "source_sha256": "40563093280b45d0f0cb63c38b7812af17ee25a0e83f1c3c1a2d4c525ea7d0e6",
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/api/solar_views.py",
+          "matched_units": 140,
+          "scoped_maps": 73,
+          "renamed_bindings": 658,
+          "removed_empty_artifacts": 63,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "source_sha256": "b84a61d2a1af003346b6165af2f5a394a48021233cd438cd76773cf9a0c57e9e",
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 104,
+      "readable_units": 3968,
+      "new_readable_modules": 3,
+      "new_readable_units": 614,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 1089,
+      "removed_empty_artifacts": 315,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
     }
   }
 }

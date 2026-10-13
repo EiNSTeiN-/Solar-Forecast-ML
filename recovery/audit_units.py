@@ -50,6 +50,20 @@ def named_source_unit(tree, path):
     return parent, index, owner
 
 
+def render_retained_candidate(tree, reference, decoder, formatter=None):
+    """Retain verified return layout after inserting existing owner bodies.
+
+    AST rendering alone can alter CPython's shared-return optimization. A
+    source backend that supports verified layout recovery must run it after
+    body insertion too. Older backends keep their existing dense rendering;
+    the independent complete-candidate audit still decides equivalence.
+    """
+    source = ast.unparse(ast.fix_missing_locations(tree)) + '\n'
+    if formatter is None:
+        return source, []
+    return formatter(source, reference, decoder)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--work-dir', type=Path, required=True)
@@ -67,6 +81,7 @@ def main():
     sys.path.insert(0, str(args.unpacker.resolve() / 'oneshot'))
     from bytecode_fidelity import compare, compile_source, units
     from modern_backend import MarkerNormalizer, normalize_code
+    import modern_backend
     work = args.work_dir.resolve()
     manifest = json.loads((work / 'input-manifest.json').read_text())
     directory = work / args.stage
@@ -139,9 +154,12 @@ def main():
                     # arguments, defaults, annotations and type parameters from
                     # the enclosing candidate; replace only the proven body.
                     target.body = replacement.body
-                source = ast.unparse(ast.fix_missing_locations(tree)) + '\n'
+                source, layout_owners = render_retained_candidate(
+                    tree, reference, decoder,
+                    getattr(modern_backend, 'preserve_multiline_return_shapes', None))
                 entry['source_origin'] = 'decompiler_candidate_with_verified_units'
                 entry['retained_source_units'] = [unit['unit_path'] for unit in retained]
+                entry['retained_source_layout_owners'] = layout_owners
             with warnings.catch_warnings():
                 warnings.simplefilter('ignore', SyntaxWarning)
                 candidate = compile_source(source, relative)
