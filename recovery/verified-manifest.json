@@ -11,6 +11,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "ai/ai_model_promotion.py",
+      "original_payload_sha256": "bf5e69170b88244cc374b88c25dd92ec0b18f1f00eda08bbb2399d5b1b037785",
+      "reconstructed_source_sha256": "81e58aca57124a747087b4791c3970a55cdc95a1ded463ee51530e50230f1e5b",
+      "matched_units": 136,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "ai/ai_model_reaction.py",
       "original_payload_sha256": "b14f15014a19c70e743f232a35cb58f1c661d5df29055d08e237b09456050ace",
       "reconstructed_source_sha256": "c933a0bd46f2da81252b67958bc0ed1d8267586d001a7aa15f9df82028604270",
@@ -18,6 +27,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "ai/ai_predictor.py",
+      "original_payload_sha256": "e420e1fa001f5a20db5e029ab78c5e82e4c82c1f0701194be1f6856a47493855",
+      "reconstructed_source_sha256": "f5782281c79decaddc0b80aad62d1eaa333d9c19c86800cd0b71bacf47b0d000",
+      "matched_units": 179,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "ai/ai_tiny_ridge.py",
@@ -432,6 +450,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/api/gpm.py",
+      "original_payload_sha256": "c78b6c93835395699ec4c9167a7cc6280f090d9f1cd943641c56e32629bb0bac",
+      "reconstructed_source_sha256": "171af98847029757625fbc4eee475a0f66bf6ca8eca69f296d68785d6fad6cc7",
+      "matched_units": 164,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "extra_features/sfml_stats/api/heating.py",
@@ -1038,5 +1065,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 5671
+  "total_matched_units": 6150
 }

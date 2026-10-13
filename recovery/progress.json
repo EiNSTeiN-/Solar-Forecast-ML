@@ -88,7 +88,7 @@
       "matched_units": 136,
       "reference_units": 136,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_validate_and_normalize#1"
       ],
@@ -116,7 +116,7 @@
       "matched_units": 179,
       "reference_units": 179,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/AIPredictor#1/_load_dual_model_weights#1",
         "<module>/AIPredictor#1/_start_training_lease_heartbeat#1/heartbeat#1",
@@ -1294,7 +1294,7 @@
       "matched_units": 164,
       "reference_units": 164,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_read_csv_upload#1",
         "<module>/public_gpm_status#1"

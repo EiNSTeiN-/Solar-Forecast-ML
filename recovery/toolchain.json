@@ -179,8 +179,8 @@
       "intrinsic_return_coverage_test_methods": 2,
       "intrinsic_return_coverage_result": "Two separate owned tests pass. Identical instructions with a missing coroutine-return cleanup interval fail the unchanged strict comparator. Five ordinary calls agree; a tracing-hook StopIteration produces an observable propagation difference."
     },
-    "complete_readable_module_matches": 115,
-    "complete_readable_module_code_units": 5671,
+    "complete_readable_module_matches": 118,
+    "complete_readable_module_code_units": 6150,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1126,6 +1126,56 @@
       "renamed_bindings": 1865,
       "scoped_maps": 304,
       "removed_empty_artifacts": 63,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-10": {
+      "modules": [
+        {
+          "module_path": "ai/ai_predictor.py",
+          "matched_units": 179,
+          "scoped_maps": 75,
+          "renamed_bindings": 481,
+          "removed_empty_artifacts": 45,
+          "source_sha256": "f5782281c79decaddc0b80aad62d1eaa333d9c19c86800cd0b71bacf47b0d000",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/api/gpm.py",
+          "matched_units": 164,
+          "scoped_maps": 60,
+          "renamed_bindings": 294,
+          "removed_empty_artifacts": 99,
+          "source_sha256": "171af98847029757625fbc4eee475a0f66bf6ca8eca69f296d68785d6fad6cc7",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "ai/ai_model_promotion.py",
+          "matched_units": 136,
+          "scoped_maps": 81,
+          "renamed_bindings": 190,
+          "removed_empty_artifacts": 99,
+          "source_sha256": "81e58aca57124a747087b4791c3970a55cdc95a1ded463ee51530e50230f1e5b",
+          "docstring_values_restored_after_formatting": 1,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 118,
+      "readable_units": 6150,
+      "new_readable_modules": 3,
+      "new_readable_units": 479,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 965,
+      "scoped_maps": 216,
+      "removed_empty_artifacts": 243,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }

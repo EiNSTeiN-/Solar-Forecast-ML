@@ -2715,3 +2715,32 @@ The EMS names preserve the thirteen-slot nested flush capture layout. The rule-b
 The previously passed203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable prediction, model promotion and GPM API
+
+Root-authored source names **965 bindings across
+216 actual scopes**, exposing **479
+already-proved units**. It removes243 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**118 modules /6,150 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `ai/ai_predictor.py` | 179 | 481 | 75 |
+| `extra_features/sfml_stats/api/gpm.py` | 164 | 294 | 60 |
+| `ai/ai_model_promotion.py` | 136 | 190 | 81 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+The prediction source preserves heartbeat ownership and lease-loss versus external-cancellation routes, feature ordering, model field names, and residual allocations. Model promotion preserves twenty-four capture contracts. The GPM API names distinguish internal rows from customer-visible DTOs, CSV bytes, form fields and upload readers while preserving privacy schemas, BOM/profile/language handling and upload limits. The imports retain their actual modules and objects; only local aliases are renamed.
+
+The previously passed203-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
