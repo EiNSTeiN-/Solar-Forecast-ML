@@ -2,6 +2,15 @@
   "comparison": "normalized bytecode under the documented whitelist",
   "modules": [
     {
+      "path": "ai/ai_drift_monitor.py",
+      "original_payload_sha256": "ec0249afa7959526b7eed1c39ebc5110f1eb54387faf8ca373643dc0328a6141",
+      "reconstructed_source_sha256": "61a6e5af068166fa5250e1c7df12ca5d98fa26f132ffd51c511f58873ef1c768",
+      "matched_units": 69,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "ai/ai_feature_importance.py",
       "original_payload_sha256": "52699fb1ea99e95b35461705beb17114bb40858310ee0a62389be7179926ac79",
       "reconstructed_source_sha256": "e5685a22da25f60f24272e65172a7df52ba0a463fb5f9f4cb4ec2d1921240b71",
@@ -33,6 +42,15 @@
       "original_payload_sha256": "e420e1fa001f5a20db5e029ab78c5e82e4c82c1f0701194be1f6856a47493855",
       "reconstructed_source_sha256": "f5782281c79decaddc0b80aad62d1eaa333d9c19c86800cd0b71bacf47b0d000",
       "matched_units": 179,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "ai/ai_tiny_lstm.py",
+      "original_payload_sha256": "d942a617cdb2b37ea28f22b33840952612c1faee397f15128ccf3d4036b3674e",
+      "reconstructed_source_sha256": "e887a5e73c8913f2c0e222a6e50d5a3724829b00995ca4be71803fc1f25a80b3",
+      "matched_units": 64,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -767,6 +785,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/core/support_report.py",
+      "original_payload_sha256": "5f6ebecff37a3e7478ddc5716794a1ffc204b87eafc887b1f2654846dd62ff19",
+      "reconstructed_source_sha256": "527268f9539210304d33b7da4ef0d0e039830548b2748a44310921cbebf27af7",
+      "matched_units": 66,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/power_sources_collector.py",
       "original_payload_sha256": "c711495d7144a453e3abaf63428c251b45adafaf3749d53978fbc1d4a55ce809",
       "reconstructed_source_sha256": "48a185d1c60c864bc8af26bcd4a1fdb9cfe5053f89ea6e4528aebd324f32886c",
@@ -875,6 +902,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/solar_forecast_eai/coordinator.py",
+      "original_payload_sha256": "becad700f25b4d6308b52f9d48026e141ee407f86a40aabab99c6450e802f426",
+      "reconstructed_source_sha256": "716005eda915e783467a1673c99e84b2826546ebf81ecacd3410242e7d49c237",
+      "matched_units": 69,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/data/data_forecast_handler.py",
       "original_payload_sha256": "9b21ae0869f758b385d51691a229b7a1a6fa8ccee3b9fcafd2e7f19677f0b4d3",
       "reconstructed_source_sha256": "f9a4b5d8985dba0d2ab787bab1415d49d15d2aecdcdbdd416184265542e18780",
@@ -974,6 +1010,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/solar_forecast_eai/forecast/forecast_rule_based_strategy.py",
+      "original_payload_sha256": "f044451f3bd4bf8668750754c858cbed06b269bd71f52b33f263e44f72acd713",
+      "reconstructed_source_sha256": "74ac93e8f006712687a53a8aed267bb6ca19ae09605f6c48aa926fb5177fe386",
+      "matched_units": 66,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/forecast/forecast_weather_calculator.py",
       "original_payload_sha256": "2d4b8c099ce592e05e6b7bc4002d07cec589cba68794654bca7ade92c3ad3bb4",
       "reconstructed_source_sha256": "11a88f9685184341d6394be2af0a81eaa587f60393ee593a189552921cf360ab",
@@ -1053,6 +1098,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/weather_fusion_adapter.py",
+      "original_payload_sha256": "661d887af4e367aeb7228e3acca5d4793034a68b53466f04d3c4d914fafdc495",
+      "reconstructed_source_sha256": "2051fc86e8ba812e595ac95735dda44c58a5a72374a854354ea70f237e1c0651",
+      "matched_units": 68,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "extra_features/solar_forecast_eai/weather_intelligence.py",
@@ -1353,5 +1407,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 9062
+  "total_matched_units": 9464
 }

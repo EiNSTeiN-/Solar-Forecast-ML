@@ -32,7 +32,7 @@
       "matched_units": 69,
       "reference_units": 69,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DriftMonitor#1/calculate_rolling_metrics#1"
       ],
@@ -124,7 +124,7 @@
       "matched_units": 64,
       "reference_units": 64,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/TinyLSTM#1/_chronological_split_indices#1"
       ],
@@ -1974,7 +1974,7 @@
       "matched_units": 66,
       "reference_units": 66,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/read_log_window#1",
         "<module>/tail_lines_since#1"
@@ -2493,7 +2493,7 @@
       "matched_units": 69,
       "reference_units": 69,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SolarForecastEAICoordinator#1/_background_initialization#1",
         "<module>/SolarForecastEAICoordinator#1/_initialize_services#1",
@@ -2921,7 +2921,7 @@
       "matched_units": 66,
       "reference_units": 66,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/RuleBasedForecastStrategy#1/_calculate_hour_consumption#1",
         "<module>/RuleBasedForecastStrategy#1/_calculate_thermodynamics_consumption#1",
@@ -3107,7 +3107,7 @@
       "matched_units": 68,
       "reference_units": 68,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherFusionAdapter#1/_hourly#1",
         "<module>/_project_source_comparison#1"

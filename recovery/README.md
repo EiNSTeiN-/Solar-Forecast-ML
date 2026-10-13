@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-150 readable whole modules (9,062 nested units) and passes 206 selected
+156 readable whole modules (9,464 nested units) and passes 206 selected
 test methods (196 application checks and ten source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -912,6 +912,38 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 Weather coordination names expose zero versus missing precipitation, fog visibility, UTC stepping and confidence caps without changing corrections or cancellation. Mobility names distinguish telemetry units/freshness, demand modes, eligible charging intervals and allocation fractions while preserving daylight-saving behavior and the read-only advisory contract. Solar reader names retain hourly/panel-group schema captures and original conservative planning limits. Energy AI lifecycle names keep task supervision, listener removal ordering, timeout/cancellation, persistence and original license revalidation unchanged. All four root-formatted modules retain their full instruction and exception proofs.
+
+The previously passed 208-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable drift, Tiny LSTM, Energy AI coordination and support reports
+
+Root-authored source names **1,009 bindings across
+164 actual scopes**, exposing **402
+already-proved units**. It removes 126 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**156 modules / 9,464 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `ai/ai_drift_monitor.py` | 69 | 209 | 34 |
+| `ai/ai_tiny_lstm.py` | 64 | 257 | 29 |
+| `extra_features/solar_forecast_eai/coordinator.py` | 69 | 123 | 23 |
+| `extra_features/solar_forecast_eai/weather_fusion_adapter.py` | 68 | 153 | 27 |
+| `extra_features/solar_forecast_eai/forecast/forecast_rule_based_strategy.py` | 66 | 171 | 25 |
+| `extra_features/sfml_stats/core/support_report.py` | 66 | 96 | 26 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+The drift and Tiny LSTM modules expose training partitions, source intervals, model state and numerical intermediates while keeping all original ML calculations, tensor shapes and persisted weight formats. Tiny LSTM retains ordered cls/source-interval/embargo/sample-index/sample-label cells and np/self helper captures. Energy AI coordination preserves peak persistence and listener routing; its weather adapter preserves provider, timezone, privacy and sanitization contracts. Rule-based strategy names distinguish config entries, predictions, training/calibration records and thermal/insights engines without changing serving or fallback decisions. Support-report names retain nonlocal kept-mask/used-byte routing, family filters, record grouping, redaction and byte budgets. Full root-formatted instruction and exception proofs run for every complete module.
 
 The previously passed 208-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
