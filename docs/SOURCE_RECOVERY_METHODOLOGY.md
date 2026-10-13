@@ -2246,3 +2246,38 @@ cases**, with one existing unpacker expected failure. Input payloads, comparator
 rules and retained definition overrides are unchanged; no vendor module or
 PyArmor runtime is imported. Queued investigator source oracles are excluded
 from these regenerated gains.
+
+
+## Displaced async-context results (0.4.31 / 0.6.25)
+
+A computed context return can be displaced into a bogus four-argument
+`await None(result, None, None, None)` after an existing protected AsyncWith.
+Its matching trailing handler is only a candidate continuation. Reuse the
+existing result and at most three intervening statements inside the context,
+then require full original owner/descendant instructions and exception tables.
+Handler-owned loop continuation and shared implicit-None compiler forms are
+separate bounded trials. All previous module matches must remain. Genuine
+independent None calls, nonprotocol arguments, different handlers, wrong
+payloads and extra work are rejected. No business expression is invented.
+
+`displaced-context-results-01` freezes API `b2afcb1079745f709c1d0f0e6f279683bcc8f5f9` with native
+`f650d85ad33e51c3982c2d98a7f75f16f459bd59`. Removing only the new final pass and its
+invocation proves all earlier algorithm ASTs unchanged; comparator bytes
+remain identical. All 274 prior captures and original exports are hashed.
+Five fresh complete recoveries give byte-for-byte identical source and every
+report field for both repaired reader modules and three unchanged controls.
+Final-pass generation takes 16.6 seconds with
+four workers, followed by complete independent raw/composite audits.
+
+Both views gain **8 and lose zero**: raw **13,910 / 134 complete candidates**;
+composite **13,915/14,291 / 134 complete candidates**. **376 remain: 336
+instruction and 40 exception mismatches**. Weather and solar readers become
+fully matching candidates. All 274 sources compile; 219 are structurally
+complete. Published readable source remains **98 modules / 2,565 units**,
+with 183 separate application methods. Four owned methods include 72 paired
+normal/malformed/context suppression/construction/exit/cancellation cases,
+strict negatives, retained docstrings and generator descendants. All **210
+unpacker cases** pass with one existing expected failure; native retains 35
+Rust and 62 behavior methods. No comparison rule, payload or retained
+definition override changes; no vendor module or armor runtime is imported.
+Other investigators' source oracles remain excluded from regenerated gains.

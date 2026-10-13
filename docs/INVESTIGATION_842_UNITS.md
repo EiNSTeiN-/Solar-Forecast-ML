@@ -347,3 +347,13 @@ Raw gains 12, composite gains 12, with zero losses:
 **13,907/14,291 matches, 384 remaining,
 132 complete candidates**. Readable source remains
 **98 modules / 2,565 units**. Investigators' separate source oracles stay queued.
+
+
+## Displaced async-context result checkpoint
+
+`displaced-context-results-01` audits all 274 modules and proves eight more
+original units, with zero losses. This reaches **13,915/14,291 matches, 376
+remaining, 134 complete candidates**. Both weather-reader and solar-reader
+modules now match completely. Published readable source remains **98 modules /
+2,565 units**. Five fresh complete runs prove the final-pass reuse method.
+Other queued source oracles remain excluded until main-thread integration.
