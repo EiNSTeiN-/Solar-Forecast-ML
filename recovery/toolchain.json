@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 121,
-    "complete_readable_module_code_units": 6520,
+    "complete_readable_module_matches": 124,
+    "complete_readable_module_code_units": 6853,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1230,6 +1230,56 @@
       "renamed_bindings": 863,
       "scoped_maps": 137,
       "removed_empty_artifacts": 144,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-12": {
+      "modules": [
+        {
+          "module_path": "extra_features/grid_price_monitor/coordinator.py",
+          "matched_units": 117,
+          "scoped_maps": 40,
+          "renamed_bindings": 230,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "eb972b75600e1887cd19ba80fb0a232ae0ede34719294c04a32f72b750ae2e53",
+          "docstring_values_restored_after_formatting": 2,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/core/corrected_energy.py",
+          "matched_units": 115,
+          "scoped_maps": 45,
+          "renamed_bindings": 280,
+          "removed_empty_artifacts": 0,
+          "source_sha256": "0e48a636e815106ff39613b293146552b0924c7982effc93ed6e6ad34be329d7",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py",
+          "matched_units": 101,
+          "scoped_maps": 39,
+          "renamed_bindings": 189,
+          "removed_empty_artifacts": 45,
+          "source_sha256": "bfa0c4e5fe272641b8256a6a695c1f251bb4d349ed3348b810c67b23bc044749",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 124,
+      "readable_units": 6853,
+      "new_readable_modules": 3,
+      "new_readable_units": 333,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 699,
+      "scoped_maps": 124,
+      "removed_empty_artifacts": 54,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }

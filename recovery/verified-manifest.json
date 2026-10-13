@@ -281,6 +281,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/grid_price_monitor/coordinator.py",
+      "original_payload_sha256": "620fc026b87da073eb1e9f641d0aa514aca681f0232dda2903bb92273d7aa900",
+      "reconstructed_source_sha256": "eb972b75600e1887cd19ba80fb0a232ae0ede34719294c04a32f72b750ae2e53",
+      "matched_units": 117,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/grid_price_monitor/core/calculator.py",
       "original_payload_sha256": "c6b75fb7089efe7c9064e56072859ced76fb2052d1277aa67dd97c8edb30c537",
       "reconstructed_source_sha256": "fa7c5e3acbaa866e48283bdf3db8a2271fe82150a93553ca2586c926b795aa87",
@@ -531,6 +540,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/core/corrected_energy.py",
+      "original_payload_sha256": "be57be3b1e8d79f033d4dda45e15175598f90b0dd38ab50d96b54fb6e0ba4efc",
+      "reconstructed_source_sha256": "0e48a636e815106ff39613b293146552b0924c7982effc93ed6e6ad34be329d7",
+      "matched_units": 115,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "extra_features/sfml_stats/core/corrections.py",
@@ -848,6 +866,15 @@
       "behavior_tests": 2
     },
     {
+      "path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py",
+      "original_payload_sha256": "60dcb161f442aa3822b9c3e2e2b8987cf5c7fb1877b5bf98da847ef607eea395",
+      "reconstructed_source_sha256": "bfa0c4e5fe272641b8256a6a695c1f251bb4d349ed3348b810c67b23bc044749",
+      "matched_units": 101,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/weather_contract.py",
       "original_payload_sha256": "f72b52e443cb6def020041f4f1615f83d1bafc518802f0378ae804018a9038e8",
       "reconstructed_source_sha256": "69efac4a87deea8d3b563d5ec4959dea6bb5effe02e82bd2b99359722b63c1fe",
@@ -1092,5 +1119,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 6520
+  "total_matched_units": 6853
 }

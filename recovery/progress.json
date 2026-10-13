@@ -856,7 +856,7 @@
       "matched_units": 117,
       "reference_units": 117,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/GridPriceMonitorCoordinator#1/_async_monitor_license#1"
       ],
@@ -1642,7 +1642,7 @@
       "matched_units": 115,
       "reference_units": 115,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_pragma_names#1",
         "<module>/scale_field_hours#1"
@@ -3152,7 +3152,7 @@
       "matched_units": 101,
       "reference_units": 101,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 101
     },
     {

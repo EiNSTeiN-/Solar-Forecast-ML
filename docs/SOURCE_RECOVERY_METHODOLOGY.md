@@ -2773,3 +2773,32 @@ Correction allocation distinguishes decimal amounts from integer cents and prese
 The previously passed203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable GPM coordination, corrected energy and thermodynamics calibration
+
+Root-authored source names **699 bindings across
+124 actual scopes**, exposing **333
+already-proved units**. It removes54 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**124 modules /6,853 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/grid_price_monitor/coordinator.py` | 117 | 230 | 40 |
+| `extra_features/sfml_stats/core/corrected_energy.py` | 115 | 280 | 45 |
+| `extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py` | 101 | 189 | 39 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+GPM coordination preserves the license recheck callback captures, provider/cache fields, current-hour selection and retry cancellation. Corrected energy distinguishes raw versus corrected kWh, scaling bases, prices, cost units and read-only query rows; the public values capture stays fixed in all three generator children. Thermodynamics preserves sorting lambdas, actual time imports, engine U-factor restoration and heating/hot-water energy routing. Formatting preserves each original docstring value.
+
+The previously passed203-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
