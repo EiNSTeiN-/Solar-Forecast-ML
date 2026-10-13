@@ -776,6 +776,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/sfml_stats/readers/solar_reader.py",
+      "original_payload_sha256": "add62399d203deffd1a32c7aaac34f422e8211d1fd8f6c53c0464f22c64df861",
+      "reconstructed_source_sha256": "d72147303456aedcbecd61db3b6360ca910ff02f7abfc759e809dd2e3dc85e32",
+      "matched_units": 68,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/readers/weather_energy_reader.py",
       "original_payload_sha256": "14191caaadb7086818499b88bb6091d6131910f229ce9db4fa39ee09e77eb0e2",
       "reconstructed_source_sha256": "a2b065bcf7b0829eaeb006ab83fb3b52550dbbe72dcd42439e968713d1bc34c4",
@@ -1010,6 +1019,24 @@
       "behavior_tests": 2
     },
     {
+      "path": "extra_features/solar_forecast_eai/mobility.py",
+      "original_payload_sha256": "82358dc3228d0aadccaf9773a0163e5065cada37a835f0b39b63072955642ff0",
+      "reconstructed_source_sha256": "3f755a9950f235eb306795c46a54524bce82a5ebfee7ef712356e644cc9ef62c",
+      "matched_units": 71,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/runtime.py",
+      "original_payload_sha256": "aab7e95527e055df27fef7c3b21cd9b8597126d2a6ca1399bcc97dcff829ef18",
+      "reconstructed_source_sha256": "bb4cbbbf623fdf1c463258f11a59eab7ed539159d13631705712a8effdb88127",
+      "matched_units": 68,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_calibrator.py",
       "original_payload_sha256": "60dcb161f442aa3822b9c3e2e2b8987cf5c7fb1877b5bf98da847ef607eea395",
       "reconstructed_source_sha256": "bfa0c4e5fe272641b8256a6a695c1f251bb4d349ed3348b810c67b23bc044749",
@@ -1068,6 +1095,15 @@
       "original_payload_sha256": "4215e68052f3db776cbb6ec721428d6e7a0df51218262e930656386174e0e124",
       "reconstructed_source_sha256": "0035db83b6c5546fd92d68c656f8ee657da46b1e734f177298da36c31c658301",
       "matched_units": 88,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/coordinator.py",
+      "original_payload_sha256": "feac91074b40ef149aa16ada3acf793b75f818091f9ee173a2a944f7b23bbb4e",
+      "reconstructed_source_sha256": "ebdb42ac28465e269cc20eb01c84dee08dc6fefadee5eab71ce3ee1b66c1f6c8",
+      "matched_units": 72,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -1317,5 +1353,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 8783
+  "total_matched_units": 9062
 }

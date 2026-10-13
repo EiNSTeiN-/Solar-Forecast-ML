@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-146 readable whole modules (8,783 nested units) and passes 206 selected
+150 readable whole modules (9,062 nested units) and passes 206 selected
 test methods (196 application checks and ten source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -886,3 +886,33 @@ against frozen API .36 exports and a **143-module / 8,573-unit** readable snapsh
 receive full static source proofs separately. This is selected behavior coverage,
 not execution or proof of the entire integration. Machine-readable evidence is
 in `recovery/same-line-unpacking.json` and `recovery/toolchain.json`.
+
+
+## Readable weather coordinator, mobility, solar reader and Energy AI lifecycle
+
+Root-authored source names **538 bindings across
+117 actual scopes**, exposing **279
+already-proved units**. It removes 117 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**150 modules / 9,062 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/weather_fusion_ai/coordinator.py` | 72 | 130 | 22 |
+| `extra_features/solar_forecast_eai/mobility.py` | 71 | 191 | 40 |
+| `extra_features/sfml_stats/readers/solar_reader.py` | 68 | 152 | 32 |
+| `extra_features/solar_forecast_eai/runtime.py` | 68 | 65 | 23 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Weather coordination names expose zero versus missing precipitation, fog visibility, UTC stepping and confidence caps without changing corrections or cancellation. Mobility names distinguish telemetry units/freshness, demand modes, eligible charging intervals and allocation fractions while preserving daylight-saving behavior and the read-only advisory contract. Solar reader names retain hourly/panel-group schema captures and original conservative planning limits. Energy AI lifecycle names keep task supervision, listener removal ordering, timeout/cancellation, persistence and original license revalidation unchanged. All four root-formatted modules retain their full instruction and exception proofs.
+
+The previously passed 208-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

@@ -2127,7 +2127,7 @@
       "matched_units": 68,
       "reference_units": 68,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 68
     },
     {
@@ -3011,7 +3011,7 @@
       "matched_units": 71,
       "reference_units": 71,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/EAIMobilityPlanner#1/snapshot#1"
       ],
@@ -3027,7 +3027,7 @@
       "matched_units": 68,
       "reference_units": 68,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/EAIRuntime#1/_async_update_weather_intelligence#1"
       ],
@@ -3246,7 +3246,7 @@
       "matched_units": 72,
       "reference_units": 72,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherFusionCoordinator#1/_get_daily_forecast#1",
         "<module>/WeatherFusionCoordinator#1/_is_night#1"
