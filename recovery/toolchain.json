@@ -740,7 +740,7 @@
       }
     },
     "stable_toolchain_unchanged": false,
-    "selected_suite_reuse": "The full selected suite passes 212 methods in 144.475 seconds against .37 and a frozen 211-module, 12,158-unit readable snapshot, including the reservation and generator-layout controls: 196 application methods and 16 source/coverage methods. Later naming-only source publications retain complete static instruction and exception proofs and separate owned controls. No whole integration or PyArmor runtime modules are imported.",
+    "selected_suite_reuse": "The full selected suite passes 212 methods in 210.741 seconds against .37 and a frozen 262-module, 13,355-unit readable snapshot: 196 application methods and 16 source/coverage methods. No whole integration or PyArmor runtime is imported. All complete candidates are readable, including one separately retained private crypto module. The 18 strict gaps in incomplete modules remain unaccepted.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",
       "stage": "promoted-exit-tools-01",
@@ -1883,14 +1883,14 @@
       "errors": 0,
       "expected_failures": 0,
       "success": true,
-      "seconds": 144.475,
-      "readable_snapshot_modules": 211,
-      "readable_snapshot_units": 12158,
+      "seconds": 210.741,
+      "readable_snapshot_modules": 262,
+      "readable_snapshot_units": 13355,
       "source_api": "0.4.37-einstein.1",
       "backend": "0.6.30-einstein.1",
       "original_exports_unchanged": true,
       "instruction_and_exception_criteria_changed": false,
-      "manifest_sha256": "dd0ee6800bf3d586dabfe24c69de7be02810de6bee4a115aceae3ff17b2c66bb",
+      "manifest_sha256": "c84bf2cc20785d5fad5477c008fda0112004d9b83f16d8609cb57ea6797ce9e9",
       "vendor_modules_imported": 0
     },
     "readable-batch-20": {
@@ -3998,5 +3998,19 @@
       "comparison_rules_unchanged": true,
       "pinned_comparator_sha256": "810071a10fe86f5c49498e2f086518076207d9e5c0164376c55dbde958a15400"
     }
+  },
+  "complete_readability_name_audit": {
+    "public_complete_modules": 262,
+    "public_complete_units": 13355,
+    "private_complete_modules": 1,
+    "private_complete_units": 30,
+    "all_complete_candidates_readable": true,
+    "whole_goal_complete": false,
+    "opaque_nonparameter_local_scopes": 0,
+    "pyarmor_marker_files_in_public_source": 0,
+    "original_parameters_preserved": true,
+    "vendor_modules_imported": 0,
+    "private_key_material_in_public_report": false,
+    "public_manifest_sha256": "c84bf2cc20785d5fad5477c008fda0112004d9b83f16d8609cb57ea6797ce9e9"
   }
 }

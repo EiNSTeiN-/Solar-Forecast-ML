@@ -1410,3 +1410,29 @@ Names expose heat-pump measured/source precedence, energy rounding and residual 
 The previously passed 212-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Complete-candidate readability and final snapshot checks
+
+All **263** completely matched candidates now have readable source: **262
+public modules /13,355 units**, plus **one private crypto module /30 units**.
+The expanded audit covers `_var_var_*`, `_localN`, `_recovered_*` and capture
+placeholders, and reports zero opaque nonparameter local scopes. Public source
+contains no PyArmor markers. Eleven neutral unused layout reservations retain
+their physical slots and full instruction/exception proofs. The crypto source
+and its embedded keying material remain in ignored local storage.
+
+The selected suite passes **212 methods in 210.741 seconds** against
+unpacker .37, native .30 and the final **262-module /13,355-unit** public
+snapshot:196 application methods and16 source/coverage methods. This tests
+selected definitions with owned facades, not a live integration or PyArmor
+module import. Source hashes, full trees and isolated subtree proofs remain
+separate from these behavior checks. See `recovery/readability-name-audit.json`
+and `recovery/selected-suite-latest.json`.
+
+Five additional WeatherExpert finalizer ownership structures compile and
+preserve every passing neighbor, but still fail the unchanged strict comparison.
+No candidate is accepted and no gain is credited. These probes change actual
+conditional/loop continuation ownership rather than repeating padding counts;
+they are recorded in `recovery/weather-finalizer-loop-ownership.json`.
+Full source recovery remains unfinished at **14,273/14,291** matches.

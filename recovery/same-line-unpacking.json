@@ -51,14 +51,14 @@
     "errors": 0,
     "expected_failures": 0,
     "success": true,
-    "seconds": 144.475,
-    "readable_snapshot_modules": 211,
-    "readable_snapshot_units": 12158,
+    "seconds": 210.741,
+    "readable_snapshot_modules": 262,
+    "readable_snapshot_units": 13355,
     "source_api": "0.4.37-einstein.1",
     "backend": "0.6.30-einstein.1",
     "original_exports_unchanged": true,
     "instruction_and_exception_criteria_changed": false,
-    "manifest_sha256": "dd0ee6800bf3d586dabfe24c69de7be02810de6bee4a115aceae3ff17b2c66bb",
+    "manifest_sha256": "c84bf2cc20785d5fad5477c008fda0112004d9b83f16d8609cb57ea6797ce9e9",
     "vendor_modules_imported": 0
   }
 }

@@ -1,0 +1,67 @@
+{
+  "research_only": true,
+  "strict_criteria_and_inputs_unchanged": true,
+  "vendor_modules_executed": 0,
+  "trials": [
+    {
+      "label": "condition-owned-loop",
+      "strict_match": false,
+      "reason": "instructions",
+      "first_difference": 54,
+      "reference_instructions": 263,
+      "candidate_instructions": 267,
+      "reraise_zero_count": 3,
+      "all_prior_neighbors_retained": true,
+      "new_corpus_credit": 0,
+      "candidate_accepted": false
+    },
+    {
+      "label": "condition-owned-loop-with-else",
+      "strict_match": false,
+      "reason": "instructions",
+      "first_difference": 54,
+      "reference_instructions": 263,
+      "candidate_instructions": 267,
+      "reraise_zero_count": 3,
+      "all_prior_neighbors_retained": true,
+      "new_corpus_credit": 0,
+      "candidate_accepted": false
+    },
+    {
+      "label": "close-owned-inner-loop",
+      "strict_match": false,
+      "reason": "instructions",
+      "first_difference": 54,
+      "reference_instructions": 263,
+      "candidate_instructions": 267,
+      "reraise_zero_count": 3,
+      "all_prior_neighbors_retained": true,
+      "new_corpus_credit": 0,
+      "candidate_accepted": false
+    },
+    {
+      "label": "else-owned-loop-exit",
+      "strict_match": false,
+      "reason": "instructions",
+      "first_difference": 54,
+      "reference_instructions": 263,
+      "candidate_instructions": 268,
+      "reraise_zero_count": 3,
+      "all_prior_neighbors_retained": true,
+      "new_corpus_credit": 0,
+      "candidate_accepted": false
+    },
+    {
+      "label": "close-owned-loop-else-return",
+      "strict_match": false,
+      "reason": "instructions",
+      "first_difference": 54,
+      "reference_instructions": 263,
+      "candidate_instructions": 267,
+      "reraise_zero_count": 3,
+      "all_prior_neighbors_retained": true,
+      "new_corpus_credit": 0,
+      "candidate_accepted": false
+    }
+  ]
+}
