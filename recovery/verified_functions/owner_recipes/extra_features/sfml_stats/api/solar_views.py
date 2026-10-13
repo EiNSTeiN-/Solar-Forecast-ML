@@ -2233,6 +2233,27 @@ class SummaryDataView(HomeAssistantView):
         return web.json_response(_var_var_169)
 
 
+def _get_sfml_panel_groups() -> list[dict[str, Any]]:
+    """Get panel groups configuration from SFML. @zara"""
+    if context.HASS is None:
+        return []
+    try:
+        _var_var_333 = "solar_forecast_ml"
+        _var_var_334 = context.HASS.data.get(_var_var_333, {})
+        for _var_var_335, _var_var_240 in _var_var_334.items():
+            if hasattr(_var_var_240, "panel_groups"):
+                _var_var_336 = _var_var_240.panel_groups
+                if _var_var_336:
+                    _LOGGER.debug(
+                        "Found %d panel groups from SFML coordinator", len(_var_var_336)
+                    )
+                    return _var_var_336
+        return []
+    except Exception as _var_var_171:
+        _LOGGER.debug("Could not get SFML panel groups: %s", _var_var_171)
+        return []
+
+
 def _resolve_entity_id_by_unique_suffix(
     entity_domain: str,
     platform: str,

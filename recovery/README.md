@@ -39,8 +39,8 @@ production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
 101 readable whole modules (3,354 nested units) and passes 199 selected
 test methods (196 application checks and three source-path checks). The full
-corpus has 251 completely matched candidate modules and 14,261/14,291 matching
-units; 30 units remain. Candidate fidelity
+corpus has 258 completely matched candidate modules and 14,268/14,291 matching
+units; 23 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -389,3 +389,13 @@ Main-branch CI passes211 unpacker cases with one existing expected failure,
 correctness, C++ builds and Actions security checks. Local Rust tests pass35.
 No test or corpus gate broadens the comparison rules or imports the integration.
 All three goals continue; complete source/readable recovery is unfinished.
+
+
+The `owner-recipes-06` checkpoint adds 7 exact owner bodies across 7
+changed contexts, gaining 7 corpus matches with zero losses. Its 15
+proved owner-tree units include previously matched descendants. Reconstructed owners restore original work and its guards, contexts and error scopes. Every old
+and new public source/hash/subtree proof passes. There are 369
+isolated entries in 154 files, covering
+657 distinct units; 351
+definitions are retained. These new contexts remain non-readable. The frozen
+0.6.30-einstein.1/0.4.34-einstein.1 generation tools and selected suite's executed bodies remain unchanged.

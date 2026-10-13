@@ -192,8 +192,8 @@
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
     },
-    "retained_definition_count": 344,
-    "independently_verified_source_files": 152,
+    "retained_definition_count": 351,
+    "independently_verified_source_files": 154,
     "previous_ci_shared_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193009204",
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193008847",
@@ -383,9 +383,9 @@
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742682",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742615"
     },
-    "isolated_manifest_entries": 362,
-    "isolated_source_files": 152,
-    "isolated_distinct_code_units": 642,
+    "isolated_manifest_entries": 369,
+    "isolated_source_files": 154,
+    "isolated_distinct_code_units": 657,
     "previous_comparison_variance_before_callable_returns": {
       "rule": "Unchanged fail-closed rules from the preceding padded-return checkpoint",
       "unchanged_source_composite_gains": 0,
@@ -679,12 +679,12 @@
     },
     "selected_application_behavior_test_methods": 196,
     "source_definition_path_test_methods": 3,
-    "owner_compilation_context_files": 134,
-    "owner_compilation_context_entries": 342,
-    "owner_compilation_context_distinct_units": 617,
-    "all_isolated_source_files": 152,
-    "all_isolated_entries": 362,
-    "all_isolated_distinct_proved_units": 642,
+    "owner_compilation_context_files": 136,
+    "owner_compilation_context_entries": 349,
+    "owner_compilation_context_distinct_units": 632,
+    "all_isolated_source_files": 154,
+    "all_isolated_entries": 369,
+    "all_isolated_distinct_proved_units": 657,
     "previous_comparison_variance_before_owner_recipes": {
       "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
       "unchanged_source_composite_gains": 0,
@@ -695,53 +695,66 @@
     },
     "owner_recipe_retention": {
       "raw": {
-        "previous": 13910,
-        "matched": 13910,
+        "previous": 13925,
+        "matched": 13925,
         "gained": 0,
         "lost": 0,
-        "whole_modules": 134,
+        "whole_modules": 137,
         "lost_complete_modules": [],
         "loss_paths": [],
         "gained_paths": [],
         "new_complete_modules": []
       },
       "composite": {
-        "previous": 14256,
-        "matched": 14261,
-        "gained": 5,
+        "previous": 14261,
+        "matched": 14268,
+        "gained": 7,
         "lost": 0,
-        "whole_modules": 251,
+        "whole_modules": 258,
         "lost_complete_modules": [],
         "loss_paths": [],
         "gained_paths": [
           [
-            "data/data_shadow_pattern_learning.py",
-            "<module>/ShadowPatternLearner#1/_get_shadow_data_for_date#1"
+            "extra_features/sfml_stats/api/shadow_views.py",
+            "<module>/ShadowMovementView#1/get#1"
           ],
           [
-            "data/data_shadow_pattern_learning.py",
-            "<module>/ShadowPatternLearner#1/learn_from_day#1"
+            "extra_features/sfml_stats/api/solar_views.py",
+            "<module>/_get_sfml_panel_groups#1"
           ],
           [
-            "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
-            "<module>/WeatherForecastCorrector#1/_load_correction_factors#1"
+            "extra_features/sfml_stats/core/forecast_collector.py",
+            "<module>/ForecastComparisonCollector#1/async_migrate_historical_forecasts#1"
           ],
           [
             "extra_features/solar_forecast_eai/data/data_weather_precision.py",
-            "<module>/WeatherPrecisionTracker#1/get_hourly_correction_factors#1"
+            "<module>/WeatherPrecisionTracker#1/_update_rolling_averages#1"
           ],
           [
-            "sensors/sensor_base.py",
-            "<module>/SolarForecastSensor#1/_today_hourly_total#1"
+            "production/production_adaptive_forecast.py",
+            "<module>/AdaptiveForecastEngine#1/_execute_correction#1"
+          ],
+          [
+            "sensors/sensor_actual_sot.py",
+            "<module>/ActualLiveStateManager#1/async_refresh#1"
+          ],
+          [
+            "sensors/sensor_shadow_detection.py",
+            "<module>/ShadowTodaySensor#1/_get_today_analysis#1"
           ]
         ],
         "new_complete_modules": [
-          "data/data_shadow_pattern_learning.py",
-          "sensors/sensor_base.py"
+          "extra_features/sfml_stats/api/shadow_views.py",
+          "extra_features/sfml_stats/api/solar_views.py",
+          "extra_features/sfml_stats/core/forecast_collector.py",
+          "extra_features/solar_forecast_eai/data/data_weather_precision.py",
+          "production/production_adaptive_forecast.py",
+          "sensors/sensor_actual_sot.py",
+          "sensors/sensor_shadow_detection.py"
         ]
       }
     },
-    "stable_toolchain_unchanged": false,
+    "stable_toolchain_unchanged": true,
     "selected_suite_reuse": "The complete selected suite passes199 methods in156.712seconds after readable database preparation:196application methods plus3definition-path methods. Whole source proof precedes controlled execution; no integration or armor runtime imports.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",

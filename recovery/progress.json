@@ -3,15 +3,15 @@
     "protected_modules": 274,
     "bytecode_verified_modules": 274,
     "source_compiles_modules": 274,
-    "all_units_match_modules": 251,
+    "all_units_match_modules": 258,
     "reference_units": 14291,
-    "matched_units": 14261,
+    "matched_units": 14268,
     "input_files_unchanged": true,
     "vendor_modules_imported": 0,
     "behavioral_equivalence_verified": false,
     "unit_results": {
-      "normalized_bytecode_match": 14261,
-      "instructions": 13,
+      "normalized_bytecode_match": 14268,
+      "instructions": 6,
       "exception_table": 17
     },
     "scopes": {
@@ -1381,14 +1381,15 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 19,
+      "all_units_match": true,
+      "matched_units": 20,
       "reference_units": 20,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
       "retained_source_units": [
         "<module>/ShadowAnalyticsView#1/get#1",
-        "<module>/ShadowFingerprintView#1/get#1"
+        "<module>/ShadowFingerprintView#1/get#1",
+        "<module>/ShadowMovementView#1/get#1"
       ],
       "source_units": 20
     },
@@ -1424,8 +1425,8 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 139,
+      "all_units_match": true,
+      "matched_units": 140,
       "reference_units": 140,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
@@ -1435,6 +1436,7 @@
         "<module>/SummaryDataView#1/get#1",
         "<module>/_build_hubble_summary#1",
         "<module>/_corrected_finalized_solar_values#1",
+        "<module>/_get_sfml_panel_groups#1",
         "<module>/_resolve_entity_id_by_unique_suffix#1"
       ],
       "source_units": 140
@@ -1747,15 +1749,16 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 51,
+      "all_units_match": true,
+      "matched_units": 52,
       "reference_units": 52,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
       "retained_source_units": [
         "<module>/ForecastComparisonCollector#1/_get_all_sfml_summaries#1",
         "<module>/ForecastComparisonCollector#1/_get_sfml_forecast#1",
-        "<module>/ForecastComparisonCollector#1/async_collect_historical#1"
+        "<module>/ForecastComparisonCollector#1/async_collect_historical#1",
+        "<module>/ForecastComparisonCollector#1/async_migrate_historical_forecasts#1"
       ],
       "source_units": 52
     },
@@ -2801,12 +2804,13 @@
       "scope": "solar_forecast_eai",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 40,
+      "all_units_match": true,
+      "matched_units": 41,
       "reference_units": 41,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
       "retained_source_units": [
+        "<module>/WeatherPrecisionTracker#1/_update_rolling_averages#1",
         "<module>/WeatherPrecisionTracker#1/get_hourly_correction_factors#1"
       ],
       "source_units": 41
@@ -3484,13 +3488,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 30,
+      "all_units_match": true,
+      "matched_units": 31,
       "reference_units": 31,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate_with_verified_units",
       "retained_source_units": [
-        "<module>/AdaptiveForecastEngine#1/_check_special_situations#1"
+        "<module>/AdaptiveForecastEngine#1/_check_special_situations#1",
+        "<module>/AdaptiveForecastEngine#1/_execute_correction#1"
       ],
       "source_units": 31
     },
@@ -3648,11 +3653,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 85,
+      "all_units_match": true,
+      "matched_units": 86,
       "reference_units": 86,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ActualLiveStateManager#1/async_refresh#1"
+      ],
       "source_units": 86
     },
     {
@@ -3725,11 +3733,14 @@
       "scope": "main",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 62,
+      "all_units_match": true,
+      "matched_units": 63,
       "reference_units": 63,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "decompiler_candidate_with_verified_units",
+      "retained_source_units": [
+        "<module>/ShadowTodaySensor#1/_get_today_analysis#1"
+      ],
       "source_units": 63
     },
     {

@@ -225,3 +225,97 @@ class ForecastComparisonCollector:
             _var_var_56,
         )
         return True
+
+    async def async_migrate_historical_forecasts(self) -> None:
+        """Migrate and correct historical forecast values using dynamic lock times from recorder. @zara"""
+        _LOGGER.info("Starting historical forecast comparison database migration...")
+        try:
+            async with self._get_db_connection() as _var_var_11:
+                if not _var_var_11:
+                    _LOGGER.error("No DB connection for historical forecast migration")
+                    return
+                async with _var_var_11.execute(
+                    "SELECT date, actual_kwh, sfml_forecast_kwh FROM stats_forecast_comparison"
+                ) as _var_var_12:
+                    _var_var_40 = await _var_var_12.fetchall()
+            if not _var_var_40:
+                _LOGGER.info("No historical forecast comparison data found to migrate")
+                return
+            _var_var_20 = self._get_config()
+            _var_var_82 = _var_var_20.get(CONF_FORECAST_ENTITY_1)
+            _var_var_83 = _var_var_20.get(CONF_FORECAST_ENTITY_2)
+            if not _var_var_82 and (not _var_var_83):
+                _LOGGER.info(
+                    "No external forecast entities configured, skipping migration"
+                )
+                return
+            from datetime import date as _var_var_84
+
+            _var_var_85 = []
+            for _var_var_13 in _var_var_40:
+                _var_var_42 = _var_var_13["date"]
+                _var_var_86 = _var_var_84.fromisoformat(_var_var_42)
+                _var_var_87 = await self._async_calculate_lock_time(_var_var_86)
+                if not _var_var_87:
+                    continue
+                _var_var_88 = None
+                if _var_var_82:
+                    _var_var_88 = await self._get_historical_sensor_value(
+                        _var_var_82, _var_var_87
+                    )
+                _var_var_89 = None
+                if _var_var_83:
+                    _var_var_89 = await self._get_historical_sensor_value(
+                        _var_var_83, _var_var_87
+                    )
+                if not (_var_var_88 is None and _var_var_89 is None):
+                    _var_var_90 = _var_var_13["actual_kwh"]
+                    _var_var_58 = _var_var_13["sfml_forecast_kwh"]
+                    _var_var_36 = (
+                        _compute_accuracy(_var_var_90, _var_var_58)
+                        if _var_var_90 is not None
+                        else None
+                    )
+                    _var_var_37 = (
+                        _compute_accuracy(_var_var_90, _var_var_88)
+                        if _var_var_90 is not None and _var_var_88 is not None
+                        else None
+                    )
+                    _var_var_38 = (
+                        _compute_accuracy(_var_var_90, _var_var_89)
+                        if _var_var_90 is not None and _var_var_89 is not None
+                        else None
+                    )
+                    _var_var_39 = _determine_best_source(
+                        _var_var_36, _var_var_37, _var_var_38
+                    )
+                    _var_var_85.append(
+                        (
+                            _var_var_88,
+                            _var_var_37,
+                            _var_var_89,
+                            _var_var_38,
+                            _var_var_36,
+                            _var_var_39,
+                            _var_var_42,
+                        )
+                    )
+                    continue
+            if _var_var_85:
+                async with self._write_transaction() as _var_var_11:
+                    for _var_var_91 in _var_var_85:
+                        await _var_var_11.execute(
+                            "UPDATE stats_forecast_comparison\n                               SET external_1_kwh = COALESCE(?, external_1_kwh),\n                                   external_1_accuracy_percent = COALESCE(?, external_1_accuracy_percent),\n                                   external_2_kwh = COALESCE(?, external_2_kwh),\n                                   external_2_accuracy_percent = COALESCE(?, external_2_accuracy_percent),\n                                   sfml_accuracy_percent = COALESCE(?, sfml_accuracy_percent),\n                                   best_source = ?,\n                                   updated_at = CURRENT_TIMESTAMP\n                               WHERE date = ?",
+                            _var_var_91,
+                        )
+                _LOGGER.info(
+                    "Successfully corrected %d historical forecast days in DB",
+                    len(_var_var_85),
+                )
+            else:
+                _LOGGER.info("No historical forecast days needed correction")
+        except Exception as _var_var_9:
+            _LOGGER.error(
+                "Error migrating historical forecasts: %s", _var_var_9, exc_info=True
+            )
+        return None if True else None

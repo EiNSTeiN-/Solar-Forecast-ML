@@ -2538,3 +2538,24 @@ Main-branch CI passes211 unpacker cases with one existing expected failure,
 correctness, C++ builds and Actions security checks. Local Rust tests pass35.
 No test or corpus gate broadens the comparison rules or imports the integration.
 All three goals continue; complete source/readable recovery is unfinished.
+
+
+## owner-recipes-06: complete owner and neighbor proofs
+
+`owner-recipes-06` adopts 7 reconstructed bodies after full owner/descendant
+and module-retention proofs. Reconstructed owners restore original work and its guards, contexts and error scopes. No alias assignments or comparator
+changes are introduced. Owned controls reject wrong closure order, absent writes,
+changed scope and omitted error paths.
+
+All 274 candidates compile. The complete corpus gains **7 / zero losses**,
+reaching **14,268/14,291 / 258 complete candidates**, leaving **23
+units (6 instructions / 17 exception tables)**.
+Raw generic coverage remains 13,925/137 in this frozen source-only checkpoint;
+readable whole source stays 101/3,354.
+There are 369 isolated entries, 154
+files and 657 distinct proved units. Source-only
+proofs are counted separately from generic decompiler or readable-source gains.
+All published hashes and complete source/owner proofs pass. Previously tested
+selected function bodies are unchanged; no blanket runtime-equivalence claim is
+made for the new application owners. Full source and readability goals remain
+active. Earlier native gains are not credited to these source bodies.

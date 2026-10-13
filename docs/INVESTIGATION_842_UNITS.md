@@ -413,3 +413,13 @@ Main-branch CI passes211 unpacker cases with one existing expected failure,
 correctness, C++ builds and Actions security checks. Local Rust tests pass35.
 No test or corpus gate broadens the comparison rules or imports the integration.
 All three goals continue; complete source/readable recovery is unfinished.
+
+
+## Owner checkpoint 06
+
+The full audit reaches **14,268/14,291**, with **23 remaining** and
+**258 complete candidates**. The 7 new owners add 7 matches with
+zero losses. Three investigators continue disjoint remaining scopes; the main
+thread authors and publishes every change. The readable subset remains
+101/3,354; source-only work uses frozen 0.6.30-einstein.1/0.4.34-einstein.1 and
+unchanged comparison rules.

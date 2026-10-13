@@ -272,3 +272,256 @@ class ShadowAnalyticsView(HomeAssistantView):
             return web.json_response(
                 {"success": False, "error": "Internal server error"}, status=500
             )
+
+
+class ShadowMovementView(HomeAssistantView):
+
+    @local_only
+    async def get(self, request: web.Request) -> web.Response:
+        """Return per-group hourly shadow data. Supports single date or days range. @zara"""
+        if not is_dev_active(context.HASS):
+            return json_dev_required()
+        try:
+            if context.HASS is None:
+                return web.json_response(
+                    {"success": False, "error": "HASS not initialized"}, status=500
+                )
+            _var_var_33 = request.query.get("days")
+            _var_var_34 = request.query.get("date")
+            if _var_var_33:
+                _var_var_35 = min(max(int(_var_var_33), 1), 30)
+                _var_var_36 = ha_today(context.HASS)
+                _var_var_37 = _var_var_36 - timedelta(days=_var_var_35 - 1)
+                _var_var_39 = [
+                    (_var_var_37 + timedelta(days=_var_var_38)).isoformat()
+                    for _var_var_38 in range(_var_var_35)
+                ]
+            else:
+                _var_var_39 = [_var_var_34 or ha_today(context.HASS).isoformat()]
+            _var_var_40 = {}
+            _var_var_41 = set()
+            async with _get_db() as _var_var_15:
+                _var_var_32 = await _table_columns(
+                    _var_var_15, "prediction_panel_groups"
+                )
+                _var_var_31 = await _table_columns(_var_var_15, "hourly_predictions")
+
+                def hp_expr(name: str, default: str) -> str:
+                    return (
+                        f"hp.{name}" if name in _var_var_31 else f"{default} AS {name}"
+                    )
+
+                def ppg_expr(name: str, default: str) -> str:
+                    return (
+                        f"ppg.{name}" if name in _var_var_32 else f"{default} AS {name}"
+                    )
+
+                for _var_var_44 in _var_var_39:
+                    _var_var_45 = {}
+                    async with _var_var_15.execute(
+                        f"SELECT ppg.prediction_id, ppg.group_name,\n                                  ppg.prediction_kwh, ppg.actual_kwh,\n                                  hp.target_hour,\n                                  {hp_expr('exclude_from_learning', '0')},\n                                  {hp_expr('exclude_from_clean_evaluation', '0')},\n                                  {hp_expr('mppt_throttled', '0')},\n                                  {hp_expr('inverter_clipped', '0')},\n                                  {hp_expr('mppt_throttle_reason', 'NULL')},\n                                  {hp_expr('has_weather_alert', '0')},\n                                  {hp_expr('weather_alert_type', 'NULL')},\n                                  {ppg_expr('exclude_from_learning_group', '0')},\n                                  {ppg_expr('exclusion_reason_group', 'NULL')},\n                                  {ppg_expr('snow_covered_group', '0')},\n                                  {ppg_expr('topology_compatible', '1')},\n                                  {ppg_expr('topology_exclusion_reason', 'NULL')}\n                           FROM prediction_panel_groups ppg\n                           JOIN hourly_predictions hp ON hp.prediction_id = ppg.prediction_id\n                           WHERE hp.target_date = ?\n                           ORDER BY hp.target_hour, ppg.group_name",
+                        (_var_var_44,),
+                    ) as _var_var_7:
+                        _var_var_46 = await _var_var_7.fetchall()
+                        for _var_var_8 in _var_var_46:
+                            _var_var_47 = _var_var_8["target_hour"]
+                            if _var_var_47 < 6 or _var_var_47 > 20:
+                                continue
+                            if _var_var_47 not in _var_var_45:
+                                _var_var_45[_var_var_47] = {"groups": {}}
+                            _var_var_48 = _var_var_8["group_name"]
+                            _var_var_49 = _panel_group_exclusion_reason(_var_var_8)
+                            _var_var_45[_var_var_47]["groups"][_var_var_48] = {
+                                "prediction": round(
+                                    _var_var_8["prediction_kwh"] or 0, 4
+                                ),
+                                "actual": (
+                                    None
+                                    if _var_var_8["actual_kwh"] is None
+                                    else round(_var_var_8["actual_kwh"], 4)
+                                ),
+                                "excluded": _var_var_49 is not None,
+                                "exclusion_reason": _var_var_49,
+                            }
+                    async with _var_var_15.execute(
+                        "SELECT acpg.hour, acpg.group_name,\n                                  acpg.theoretical_kwh, acpg.poa_wm2\n                           FROM astronomy_cache_panel_groups acpg\n                           WHERE acpg.cache_date = ?\n                             AND acpg.hour BETWEEN 6 AND 20\n                           ORDER BY acpg.hour, acpg.group_name",
+                        (_var_var_44,),
+                    ) as _var_var_7:
+                        _var_var_46 = await _var_var_7.fetchall()
+                        for _var_var_8 in _var_var_46:
+                            _var_var_47 = _var_var_8["hour"]
+                            if _var_var_47 not in _var_var_45:
+                                _var_var_45[_var_var_47] = {"groups": {}}
+                            _var_var_48 = _var_var_8["group_name"]
+                            if _var_var_48 not in _var_var_45[_var_var_47]["groups"]:
+                                _var_var_45[_var_var_47]["groups"][_var_var_48] = {}
+                            _var_var_45[_var_var_47]["groups"][_var_var_48][
+                                "theoretical"
+                            ] = round(_var_var_8["theoretical_kwh"] or 0, 4)
+                            _var_var_45[_var_var_47]["groups"][_var_var_48]["poa"] = (
+                                round(_var_var_8["poa_wm2"] or 0, 1)
+                            )
+                    async with _var_var_15.execute(
+                        "SELECT p.target_hour,\n                                  h.shadow_percent, h.shadow_type, h.root_cause,\n                                  h.efficiency_ratio, h.loss_kwh, h.confidence\n                           FROM hourly_shadow_detection h\n                           JOIN hourly_predictions p ON h.prediction_id = p.prediction_id\n                           WHERE p.target_date = ?\n                             AND p.target_hour BETWEEN 6 AND 20\n                           ORDER BY p.target_hour",
+                        (_var_var_44,),
+                    ) as _var_var_7:
+                        _var_var_46 = await _var_var_7.fetchall()
+                        for _var_var_8 in _var_var_46:
+                            _var_var_47 = _var_var_8["target_hour"]
+                            if _var_var_47 not in _var_var_45:
+                                _var_var_45[_var_var_47] = {"groups": {}}
+                            _var_var_45[_var_var_47]["shadow"] = {
+                                "pct": round(_var_var_8["shadow_percent"] or 0, 1),
+                                "type": _var_var_8["shadow_type"] or "none",
+                                "cause": _var_var_8["root_cause"] or "unknown",
+                                "confidence": round(_var_var_8["confidence"] or 0, 2),
+                                "local_shadow_confirmed": is_local_shadow_observation(
+                                    _var_var_8["root_cause"], _var_var_8["confidence"]
+                                ),
+                                "efficiency": round(
+                                    (_var_var_8["efficiency_ratio"] or 1) * 100, 1
+                                ),
+                                "loss": round(_var_var_8["loss_kwh"] or 0, 3),
+                            }
+                    _var_var_50 = {
+                        "curtailment",
+                        "battery_full",
+                        "manual_limit",
+                        "external_limit",
+                        "inverter_limit",
+                        "mppt_throttled",
+                        "inverter_clipped",
+                        "demand_limited_zero_export",
+                        "suspected_battery_curtailment",
+                    }
+                    for _var_var_47, _var_var_51 in _var_var_45.items():
+                        _var_var_52 = 0.0
+                        _var_var_53 = 0.0
+                        _var_var_54 = 0
+                        _var_var_55 = 0
+                        _var_var_56 = 0
+                        _var_var_57 = {}
+                        for _var_var_48, _var_var_58 in _var_var_51.get(
+                            "groups", {}
+                        ).items():
+                            _var_var_59 = _var_var_58.get("theoretical", 0)
+                            _var_var_60 = _var_var_58.get("actual")
+                            if _var_var_58.get("excluded"):
+                                _var_var_58["efficiency"] = None
+                                _var_var_58["shadow_pct"] = None
+                                _var_var_55 += 1
+                                _var_var_61 = (
+                                    _var_var_58.get("exclusion_reason") or "excluded"
+                                )
+                                _var_var_57[_var_var_61] = (
+                                    _var_var_57.get(_var_var_61, 0) + 1
+                                )
+                                if _var_var_61 in _var_var_50:
+                                    _var_var_56 += 1
+                                    continue
+                                continue
+                            if _var_var_60 is not None:
+                                if _var_var_59 > 0.001:
+                                    _var_var_58["efficiency"] = round(
+                                        min(_var_var_60 / _var_var_59 * 100, 100), 1
+                                    )
+                                    _var_var_58["shadow_pct"] = round(
+                                        max(
+                                            0,
+                                            min(
+                                                (1 - _var_var_60 / _var_var_59) * 100,
+                                                100,
+                                            ),
+                                        ),
+                                        1,
+                                    )
+                                    _var_var_52 += max(float(_var_var_60), 0.0)
+                                    _var_var_53 += max(float(_var_var_59), 0.0)
+                                    _var_var_54 += 1
+                                    continue
+                            if _var_var_60 is None:
+                                _var_var_58["efficiency"] = None
+                                _var_var_58["shadow_pct"] = None
+                                continue
+                            _var_var_58["efficiency"] = 0
+                            _var_var_58["shadow_pct"] = 0
+                            continue
+                        if _var_var_53 > 0.001 and _var_var_54 > 0:
+                            _var_var_62 = min(_var_var_52 / _var_var_53 * 100, 100)
+                            _var_var_63 = max(0, min(100, 100 - _var_var_62))
+                            _var_var_64 = _var_var_51.get("shadow") or {}
+                            _var_var_51["clean_shadow"] = {
+                                "pct": round(_var_var_63, 1),
+                                "efficiency": round(_var_var_62, 1),
+                                "loss": round(max(_var_var_53 - _var_var_52, 0), 3),
+                                "cause": _var_var_64.get("cause") or "unknown",
+                                "local_shadow_confirmed": bool(
+                                    _var_var_64.get("local_shadow_confirmed")
+                                ),
+                                "valid_groups": _var_var_54,
+                                "excluded_groups": _var_var_55,
+                                "throttled_groups": _var_var_56,
+                                "exclusion_reasons": _var_var_57,
+                            }
+                            continue
+                        _var_var_51["clean_shadow"] = {
+                            "pct": 0,
+                            "efficiency": None,
+                            "loss": 0,
+                            "cause": (
+                                "mppt_throttled"
+                                if _var_var_56
+                                else "excluded" if _var_var_55 else "unknown"
+                            ),
+                            "valid_groups": 0,
+                            "excluded_groups": _var_var_55,
+                            "throttled_groups": _var_var_56,
+                            "exclusion_reasons": _var_var_57,
+                        }
+                        continue
+                    for _var_var_51 in _var_var_45.values():
+                        _var_var_41.update(_var_var_51.get("groups", {}).keys())
+                    _var_var_65 = any(
+                        (
+                            (_var_var_71.get("actual") or 0) > 0
+                            for _var_var_70 in _var_var_45.values()
+                            for _var_var_71 in _var_var_70.get("groups", {}).values()
+                        )
+                    )
+                    if _var_var_45:
+                        if _var_var_65:
+                            _var_var_40[_var_var_44] = {
+                                str(_var_var_66): _var_var_67
+                                for _var_var_66, _var_var_67 in sorted(
+                                    _var_var_45.items()
+                                )
+                            }
+                            continue
+            _var_var_68 = sorted(_var_var_40.keys())
+            _var_var_69 = (
+                _var_var_68[-1]
+                if _var_var_68
+                else (
+                    _var_var_39[-1]
+                    if _var_var_39
+                    else ha_today(context.HASS).isoformat()
+                )
+            )
+            return web.json_response(
+                {
+                    "success": True,
+                    "dates": {
+                        _var_var_17: _var_var_40[_var_var_17]
+                        for _var_var_17 in _var_var_68
+                    },
+                    "available_dates": _var_var_68,
+                    "selected_date": _var_var_69,
+                    "groups": sorted(_var_var_41),
+                    "time_context": _time_context(),
+                }
+            )
+        except Exception as _var_var_12:
+            _LOGGER.error("Error getting shadow movement: %s", _var_var_12)
+            return web.json_response(
+                {"success": False, "error": "Internal server error"}, status=500
+            )
