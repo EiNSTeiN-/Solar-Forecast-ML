@@ -416,9 +416,8 @@ async def _get_summary_outdoor_temperature(config: dict[str, Any]) -> dict[str, 
 async def _build_hubble_summary(
     today: date, summary: dict[str, Any]
 ) -> dict[str, Any] | None:
-    # Retain the private compiler slot required by the verified instruction layout.
     if False:
-        __assert_armored__ = None
+        unused_layout_slot = None
     now = ha_now(context.HASS)
     today_key = today.isoformat()
     today_summary = summary.get("today") or {}

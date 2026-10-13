@@ -1,9 +1,9 @@
 {
-  "previous_stage": "promoted-line-layout-tools-01",
-  "current_stage": "promoted-asymmetric-tools-01",
-  "new_matching_units": 3,
+  "previous_stage": "promoted-asymmetric-tools-01",
+  "current_stage": "unused-local-names-02",
+  "new_matching_units": 0,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 3,
+  "raw_new_matching_units": 0,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
   "source_repair_gains": 0,
@@ -22,11 +22,7 @@
   "raw_all_units_match_modules": 138,
   "manually_reconstructed_candidate_matched_units": 14269,
   "readable_isolated_generator_units": 7,
-  "new_unit_paths": [
-    "data/json_migration.py::<module>/JsonMigrator#1/_count_entries#1",
-    "extra_features/solar_forecast_eai/data/json_migration.py::<module>/JsonMigrator#1/_count_entries#1",
-    "extra_features/solar_forecast_eai/weather_station_adapter.py::<module>/_state_timestamp#1"
-  ],
+  "new_unit_paths": [],
   "rejected_intermediate_stage": {
     "stage": "investigated-repairs-01",
     "gained": 97,
@@ -36,11 +32,7 @@
   "verified_chained_comprehension_filters": 7,
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
-  "new_complete_candidate_modules": [
-    "data/json_migration.py",
-    "extra_features/solar_forecast_eai/data/json_migration.py",
-    "extra_features/solar_forecast_eai/weather_station_adapter.py"
-  ],
+  "new_complete_candidate_modules": [],
   "new_readable_modules": [],
   "verified_coupled_statement_shapes": 79,
   "verified_individual_return_edges": 29,
@@ -55,7 +47,7 @@
   "source_compilation_context_files": 0,
   "newly_proved_owner_tree_units": 0,
   "isolated_distinct_proved_units": 661,
-  "generic_decompiler_gains": 3,
+  "generic_decompiler_gains": 0,
   "rejected_async_normal_exit_checkpoint": {
     "stage": "async-normal-exits-01",
     "raw_gained": 18,
@@ -69,5 +61,8 @@
     "composite_gained": 3,
     "composite_lost": 1,
     "reason": "SolarDataReader.async_get_model_state loses a protected continuation. Native .29 remains excluded from stable main; source publication uses .25/.31."
-  }
+  },
+  "internal_name_variance_updated": true,
+  "instruction_and_exception_criteria_changed": false,
+  "source_generation_algorithm_changed": false
 }

@@ -1,0 +1,166 @@
+{
+  "renamed_modules": 9,
+  "renamed_unused_slots": 10,
+  "affected_complete_units": 1265,
+  "complete_affected_tree_proofs_pass": true,
+  "new_corpus_matches": 0,
+  "internal_name_variance_only": true,
+  "physical_slot_positions_preserved": true,
+  "live_slot_and_closure_accesses_rejected": true,
+  "instruction_and_exception_criteria_changed": false,
+  "original_inputs_unchanged": true,
+  "all_current_public_hash_and_subtree_proofs_pass": true,
+  "comparator_sha256": "810071a10fe86f5c49498e2f086518076207d9e5c0164376c55dbde958a15400",
+  "source_algorithm_sha256": "eb692c9a3de04c645b82e7be4e179b8740f736013eda8f4949cb9157d84b3730",
+  "frozen_generation_reused_from": "asymmetric-return-joins-01",
+  "frozen_retention_before_names": {
+    "baseline": "promoted-asymmetric-tools-01",
+    "stage": "unused-local-names-01",
+    "comparator_unchanged": false,
+    "comparator_sha256": "810071a10fe86f5c49498e2f086518076207d9e5c0164376c55dbde958a15400",
+    "raw": {
+      "previous": 13929,
+      "matched": 13929,
+      "gained": 0,
+      "lost": 0,
+      "whole_modules": 138,
+      "lost_complete_modules": [],
+      "loss_paths": [],
+      "gained_paths": [],
+      "new_complete_modules": []
+    },
+    "composite": {
+      "previous": 14273,
+      "matched": 14273,
+      "gained": 0,
+      "lost": 0,
+      "whole_modules": 263,
+      "lost_complete_modules": [],
+      "loss_paths": [],
+      "gained_paths": [],
+      "new_complete_modules": []
+    },
+    "retention_passes": true
+  },
+  "frozen_retention_after_names": {
+    "baseline": "unused-local-names-01",
+    "stage": "unused-local-names-02",
+    "comparator_unchanged": false,
+    "comparator_sha256": "810071a10fe86f5c49498e2f086518076207d9e5c0164376c55dbde958a15400",
+    "raw": {
+      "previous": 13929,
+      "matched": 13929,
+      "gained": 0,
+      "lost": 0,
+      "whole_modules": 138,
+      "lost_complete_modules": [],
+      "loss_paths": [],
+      "gained_paths": [],
+      "new_complete_modules": []
+    },
+    "composite": {
+      "previous": 14273,
+      "matched": 14273,
+      "gained": 0,
+      "lost": 0,
+      "whole_modules": 263,
+      "lost_complete_modules": [],
+      "loss_paths": [],
+      "gained_paths": [],
+      "new_complete_modules": []
+    },
+    "retention_passes": true
+  },
+  "selected_suite": {
+    "tests_run": 210,
+    "failures": 0,
+    "errors": 0,
+    "expected_failures": 0,
+    "success": true,
+    "seconds": 152.75,
+    "readable_snapshot_modules": 186,
+    "readable_snapshot_units": 11108,
+    "renamed_unused_slots": 10,
+    "source_api": "0.4.37-einstein.1",
+    "backend": "0.6.30-einstein.1",
+    "instruction_and_exception_criteria_changed": false,
+    "original_exports_unchanged": true,
+    "manifest_sha256": "09f2a37f37e438c84b8e3863823bb4a2b6386de5f79080196014e9e45f1f4e2f",
+    "vendor_modules_imported": 0
+  },
+  "modules": [
+    {
+      "module_path": "ai/ai_predictor.py",
+      "units": 179,
+      "owners": [
+        "<module>/AIPredictor#1/_process_hour_data_for_training#1"
+      ],
+      "source_sha256": "488e723b01bbe8c61afcebee4a9a34197c5b95a0c08cdef682288960c1e970a3"
+    },
+    {
+      "module_path": "data/json_migration.py",
+      "units": 143,
+      "owners": [
+        "<module>/JsonMigrator#1/_migrate_daily_forecasts#1"
+      ],
+      "source_sha256": "fc1d94f1963bcc311f54a18a113eff276d3a94c444456e1ddae4052ddc3e524f"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/api/solar_views.py",
+      "units": 140,
+      "owners": [
+        "<module>/_build_hubble_summary#1"
+      ],
+      "source_sha256": "6a2b69d02b3b6f10c70de695fe1ebcda7ffacfc7fb676275bf6a14f5ebd8fc07"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/billing.py",
+      "units": 60,
+      "owners": [
+        "<module>/BillingCalculator#1/async_calculate_billing#1"
+      ],
+      "source_sha256": "fc13d1c426ead05a583a6bef5ba8e357d3018261408f74ff6d5f536ece5705dc"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/ems.py",
+      "units": 244,
+      "owners": [
+        "<module>/EMSManager#1/_intelligence#1"
+      ],
+      "source_sha256": "290683a9ce97b98f410f54ca0f5e9f783397f1895748e12dcdb9ca502f6bd633"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/json_migration.py",
+      "units": 145,
+      "owners": [
+        "<module>/JsonMigrator#1/_migrate_daily_forecasts#1"
+      ],
+      "source_sha256": "695909fd23e8c0737122f10438a995e843e54da0441af4daad405b5552fc9e5a"
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/mobility.py",
+      "units": 71,
+      "owners": [
+        "<module>/EAIMobilityPlanner#1/snapshot#1"
+      ],
+      "source_sha256": "d95146ccc005a1f95f0815c203dbbd51f078cb54a2f760789b22198278c694fe"
+    },
+    {
+      "module_path": "forecast/forecast_rule_based_strategy.py",
+      "units": 208,
+      "owners": [
+        "<module>/RuleBasedForecastStrategy#1/_calculate_hour_production#1"
+      ],
+      "source_sha256": "edd12f1de9dd5b02f31e66ee948b8885ea8a0d73af483663094fa4d18c954919"
+    },
+    {
+      "module_path": "production/production_morning_routine.py",
+      "units": 75,
+      "owners": [
+        "<module>/MorningRoutineHandler#1/_persist_daily_predictions#1",
+        "<module>/MorningRoutineHandler#1/update_hourly_actual#1"
+      ],
+      "source_sha256": "0f83d27d7f6cf9156b9e518229f924da08056b141163099d3f82b2ab02cfcaa4"
+    }
+  ]
+}

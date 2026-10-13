@@ -37,8 +37,8 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-186 readable whole modules (11,108 nested units) and passes 206 selected
-test methods (196 application checks and ten source/coverage checks). The full
+186 readable whole modules (11,108 nested units) and passes 210 selected
+test methods (196 application checks and fourteen source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
 and published readable source are counted separately.
@@ -671,7 +671,7 @@ readers and the timestamp adapter without changing their work. Raw coverage is
 **13,929/14,291 /138 complete raw modules**. Frozen106-module and current124-module
 overlays independently reach **14,273/14,291 /263 complete candidates**. Every
 previous matching unit and complete module is retained: three gains, zero losses.
-All274 sources compile. Comparison rules and native0.6.30 stay unchanged.
+All274 sources compile. Comparison rules and native 0.6.30 stay unchanged.
 
 Black preserves every old and new match in the three targeted raw modules;
 their other incomplete raw neighbors remain unclaimed. Main-branch CI passes219
@@ -1082,3 +1082,35 @@ Tariff names distinguish invoice EUR from hourly ct/kWh and preserve weighted co
 The previously passed 208-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable unused compiler reservations
+
+Unpacker **0.4.37** retains the physical position of an unused PyArmor local
+while allowing its internal name to become `unused_layout_slot`. Ten such slots
+in nine complete files now have that neutral name. Deleting them can move real
+locals across CPython 3.14's 64-slot load boundary and change instructions; a
+dead declaration preserves layout without executing work. Neither instructions
+nor exception-table variance is broadened. Same-position/local-count/parameter
+guards and live-access, fused-access and closure checks prevent this naming
+rule from hiding changed work.
+
+The frozen gates retain every original matching unit and complete module:
+**13,929/14,291 raw units /138 raw complete modules**, and
+**14,273/14,291 units /263 complete candidates**, with **zero gains or losses**.
+The `.36` source-generation algorithm and native 0.6.30 are byte-identical;
+generation is explicitly reused, rather than claimed as regenerated. The
+prospective ten-name overlay proves all 1,265 affected units and the entire
+274-module corpus. Every current public source/hash/subtree proof passes.
+Seventeen coroutine exception gaps and one terminal rethrow mismatch remain
+strict failures. These names earn no new corpus credit.
+
+Six new unpacker controls pass within the 225-case suite (224 passes and one
+existing expected failure), and feature CI passes. Two public owned compiler
+fixtures demonstrate byte-identical renaming, ordinary outcomes and rejected
+slot deletion/live access/changed work. The full selected component suite
+passes **210 methods in 152.75 seconds** against a frozen **186-module /
+11,108-unit** snapshot including the ten neutral names:196 application and
+14 source/coverage methods. Only selected proved definitions and owned
+stand-ins execute; no integration module or native PyArmor runtime is loaded.
+See `recovery/unused-local-slot-layout.json` and the owned reservation tests.

@@ -2367,7 +2367,7 @@ class RuleBasedForecastStrategy(ForecastStrategy):
     ) -> Dict[str, Any]:
         """Hybrid Physics + ML prediction. @zara"""
         if False:
-            __assert_armored__ = None
+            unused_layout_slot = None
         try:
             hour = hour_dt.hour
             cloud_cover = float(

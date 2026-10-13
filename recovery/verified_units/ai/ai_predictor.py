@@ -2413,7 +2413,7 @@ class AIPredictor:
     ) -> None:
         """Process single hour data for Multi-Output training @zara"""
         if False:
-            __assert_armored__ = None
+            unused_layout_slot = None
         date_str = hour_data.get("target_date")
         if not date_str:
             return

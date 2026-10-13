@@ -2629,7 +2629,7 @@ class EMSManager:
         building: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         if False:
-            __assert_armored__ = None
+            unused_layout_slot = None
         snapshot_sections = _mapping((snapshot or {}).get("sections"))
         forecast_section = _mapping(snapshot_sections.get("forecast"))
         energy_section = _mapping(snapshot_sections.get("energy"))

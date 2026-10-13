@@ -5952,7 +5952,7 @@
     }
   ],
   "current_checkpoint": {
-    "stage": "promoted-asymmetric-tools-01",
+    "stage": "unused-local-names-02",
     "matched_units": 14269,
     "remaining_units": 22,
     "complete_candidate_modules": 259,
@@ -5961,10 +5961,12 @@
     "owner_entries_added": 0,
     "complete_owner_tree_units": 0,
     "source_context_files": 0,
-    "comparison_rules_changed": false,
+    "comparison_rules_changed": true,
     "stable_native_version": "0.6.30-einstein.1",
-    "stable_unpacker_version": "0.4.36-einstein.1",
+    "stable_unpacker_version": "0.4.37-einstein.1",
     "raw_generic_matches": 13929,
-    "native_retention_gains": 3
+    "native_retention_gains": 0,
+    "internal_name_variance_only": true,
+    "instruction_and_exception_criteria_changed": false
   }
 }

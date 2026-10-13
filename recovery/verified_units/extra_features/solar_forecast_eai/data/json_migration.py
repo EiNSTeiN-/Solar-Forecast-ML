@@ -1576,7 +1576,7 @@ class JsonMigrator:
 
     async def _migrate_daily_forecasts(self, data: Dict[str, Any]) -> None:
         if False:
-            __assert_armored__ = None
+            unused_layout_slot = None
         history = data.get("history", [])
         today_forecast = data.get("today", {})
         total_entries = len(history) + (1 if today_forecast else 0)

@@ -419,7 +419,7 @@ class BillingCalculator:
     async def async_calculate_billing(self) -> dict[str, Any]:
         """Calculate current energy balance from database. @zara"""
         if False:
-            __assert_armored__ = None
+            unused_layout_slot = None
         if self._billing_cache is not None and self._cache_timestamp is not None:
             cache_age_seconds = (
                 ha_now(self._hass) - self._cache_timestamp

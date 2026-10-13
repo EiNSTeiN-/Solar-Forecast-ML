@@ -407,7 +407,7 @@ class MorningRoutineHandler:
         tomorrow / day-after. Raises on error so retry logic can handle it.
         """
         if False:
-            __assert_armored__ = None
+            unused_layout_slot = None
         _LOGGER.info("  ├─ Checking existing forecast locks...")
         existing_count_row = await self.db.fetchone(
             "SELECT COUNT(*) as count FROM hourly_predictions WHERE target_date = ?",
@@ -1217,7 +1217,7 @@ class MorningRoutineHandler:
         @zara
         """
         if False:
-            __assert_armored__ = None
+            unused_layout_slot = None
         try:
             if self.db is None:
                 _LOGGER.warning("Database not available for updating hourly actual")

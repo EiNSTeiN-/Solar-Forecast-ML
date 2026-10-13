@@ -33,10 +33,6 @@
       "reference_units": 69,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/DriftMonitor#1/calculate_rolling_metrics#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 69
     },
     {
@@ -125,10 +121,6 @@
       "reference_units": 64,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/TinyLSTM#1/_chronological_split_indices#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 64
     },
     {
@@ -353,10 +345,6 @@
       "reference_units": 73,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/DailySummariesHandler#1/create_daily_summary#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 73
     },
     {
@@ -437,12 +425,6 @@
       "reference_units": 90,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/DataManager#1/_load_shadow_detection_for_date#1",
-        "<module>/DataManager#1/initialize#1",
-        "<module>/DataManager#1/save_forecast_day#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 90
     },
     {
@@ -471,10 +453,6 @@
       "reference_units": 79,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/ModelCandidateShadowHandler#1/capture_morning_run#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 79
     },
     {
@@ -499,12 +477,6 @@
       "reference_units": 90,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/OpenMeteoClient#1/_fetch_models_from_api#1",
-        "<module>/OpenMeteoClient#1/_load_from_database#1",
-        "<module>/OpenMeteoClient#1/_save_to_database#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 90
     },
     {
@@ -546,11 +518,6 @@
       "reference_units": 67,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/ShadowDetector#1/_apply_learned_patterns#1",
-        "<module>/ShadowDetector#1/_first_numeric#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 67
     },
     {
@@ -587,13 +554,6 @@
       "reference_units": 80,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/ShadowPatternLearner#1/_get_shadow_data_for_date#1",
-        "<module>/ShadowPatternLearner#1/_recalculate_repaired_group_patterns#1",
-        "<module>/ShadowPatternLearner#1/learn_from_day#1",
-        "<module>/ShadowPatternLearner#1/recalculate_from_history#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 80
     },
     {
@@ -646,12 +606,6 @@
       "reference_units": 92,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/WeatherActualTracker#1/_detect_sensor_freeze#1",
-        "<module>/WeatherActualTracker#1/_is_snow_plausible#1",
-        "<module>/WeatherActualTracker#1/_read_sensors#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 92
     },
     {
@@ -734,10 +688,6 @@
       "reference_units": 80,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/_exact_rounded_partition#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 80
     },
     {
@@ -762,23 +712,6 @@
       "reference_units": 143,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/JsonMigrator#1/_migrate_astronomy_cache#1",
-        "<module>/JsonMigrator#1/_migrate_coordinator_state#1",
-        "<module>/JsonMigrator#1/_migrate_daily_forecasts#1",
-        "<module>/JsonMigrator#1/_migrate_daily_summaries#1",
-        "<module>/JsonMigrator#1/_migrate_group_calibration#1",
-        "<module>/JsonMigrator#1/_migrate_hourly_predictions#1",
-        "<module>/JsonMigrator#1/_migrate_learned_weights#1",
-        "<module>/JsonMigrator#1/_migrate_learning_config#1",
-        "<module>/JsonMigrator#1/_migrate_production_time_state#1",
-        "<module>/JsonMigrator#1/_migrate_retrospective_forecast#1",
-        "<module>/JsonMigrator#1/_migrate_visibility_learning#1",
-        "<module>/JsonMigrator#1/_migrate_weather_expert_weights#1"
-      ],
-      "retained_source_layout_owners": [
-        "<module>/JsonMigrator#1/_count_entries#1"
-      ],
       "source_units": 143
     },
     {
@@ -1115,11 +1048,6 @@
       "reference_units": 62,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/GPMPricesView#1/get#1",
-        "<module>/MonthlyTariffsView#1/get#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 62
     },
     {
@@ -1144,12 +1072,6 @@
       "reference_units": 81,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/AmortizationView#1/_load_monthly_cashflows#1",
-        "<module>/ConsumerAtlasBackfillView#1/_recorder_states#1",
-        "<module>/ConsumerDetailView#1/get#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 81
     },
     {
@@ -1273,10 +1195,6 @@
       "reference_units": 55,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/_demo_hourly_rows#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 55
     },
     {
@@ -1466,10 +1384,6 @@
       "reference_units": 98,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/_selected_day_bundle#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 98
     },
     {
@@ -1560,10 +1474,6 @@
       "reference_units": 60,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/BillingCalculator#1/_get_dynamic_costs_from_db#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 60
     },
     {
@@ -1975,11 +1885,6 @@
       "reference_units": 66,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/read_log_window#1",
-        "<module>/tail_lines_since#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 66
     },
     {
@@ -2020,11 +1925,6 @@
       "reference_units": 53,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/build_day_features#1",
-        "<module>/build_weather_impact#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 53
     },
     {
@@ -2069,13 +1969,6 @@
       "reference_units": 76,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/PowerSourcesCollector#1/_backfill_efficiency_day#1",
-        "<module>/PowerSourcesCollector#1/_backfill_efficiency_history#1",
-        "<module>/PowerSourcesCollector#1/_collect_data#1",
-        "<module>/PowerSourcesCollector#1/_update_consumer_atlas#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 76
     },
     {
@@ -2289,10 +2182,6 @@
       "reference_units": 76,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/AIPredictor#1/initialize#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 76
     },
     {
@@ -2353,10 +2242,6 @@
       "reference_units": 58,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/EAIRecommendationEngine#1/_build_snapshot#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 58
     },
     {
@@ -2494,12 +2379,6 @@
       "reference_units": 69,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/SolarForecastEAICoordinator#1/_background_initialization#1",
-        "<module>/SolarForecastEAICoordinator#1/_initialize_services#1",
-        "<module>/SolarForecastEAICoordinator#1/async_shutdown#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 69
     },
     {
@@ -2540,10 +2419,6 @@
       "reference_units": 67,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/DailySummariesHandler#1/create_daily_summary#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 67
     },
     {
@@ -2608,10 +2483,6 @@
       "reference_units": 88,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/DataManager#1/_load_shadow_detection_for_date#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 88
     },
     {
@@ -2640,10 +2511,6 @@
       "reference_units": 60,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/OpenMeteoClient#1/_fetch_visibility_from_default_model#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 60
     },
     {
@@ -2733,13 +2600,6 @@
       "reference_units": 81,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/WeatherActualTracker#1/_detect_fog#1",
-        "<module>/WeatherActualTracker#1/_ensure_snow_tracking_schema#1",
-        "<module>/WeatherActualTracker#1/_is_snow_plausible#1",
-        "<module>/WeatherActualTracker#1/_read_sensors#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 81
     },
     {
@@ -2853,23 +2713,6 @@
       "reference_units": 145,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/JsonMigrator#1/_migrate_coordinator_state#1",
-        "<module>/JsonMigrator#1/_migrate_daily_forecasts#1",
-        "<module>/JsonMigrator#1/_migrate_daily_summaries#1",
-        "<module>/JsonMigrator#1/_migrate_dni_tracker#1",
-        "<module>/JsonMigrator#1/_migrate_group_calibration#1",
-        "<module>/JsonMigrator#1/_migrate_hourly_predictions#1",
-        "<module>/JsonMigrator#1/_migrate_learned_weights#1",
-        "<module>/JsonMigrator#1/_migrate_learning_config#1",
-        "<module>/JsonMigrator#1/_migrate_production_time_state#1",
-        "<module>/JsonMigrator#1/_migrate_retrospective_forecast#1",
-        "<module>/JsonMigrator#1/_migrate_visibility_learning#1",
-        "<module>/JsonMigrator#1/_migrate_weather_expert_weights#1"
-      ],
-      "retained_source_layout_owners": [
-        "<module>/JsonMigrator#1/_count_entries#1"
-      ],
       "source_units": 145
     },
     {
@@ -2894,10 +2737,6 @@
       "reference_units": 50,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/EAISharedEnergyAllocator#1/enrich#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 50
     },
     {
@@ -2922,12 +2761,6 @@
       "reference_units": 66,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/RuleBasedForecastStrategy#1/_calculate_hour_consumption#1",
-        "<module>/RuleBasedForecastStrategy#1/_calculate_thermodynamics_consumption#1",
-        "<module>/RuleBasedForecastStrategy#1/calculate_forecast#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 66
     },
     {
@@ -3012,10 +2845,6 @@
       "reference_units": 71,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/EAIMobilityPlanner#1/snapshot#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 71
     },
     {
@@ -3028,10 +2857,6 @@
       "reference_units": 68,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/EAIRuntime#1/_async_update_weather_intelligence#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 68
     },
     {
@@ -3108,11 +2933,6 @@
       "reference_units": 68,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/WeatherFusionAdapter#1/_hourly#1",
-        "<module>/_project_source_comparison#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 68
     },
     {
@@ -3125,10 +2945,6 @@
       "reference_units": 95,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/WeatherIntelligenceEngine#1/_latest_actual#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 95
     },
     {
@@ -3141,12 +2957,6 @@
       "reference_units": 77,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/_year_comparison#1"
-      ],
-      "retained_source_layout_owners": [
-        "<module>/_state_timestamp#1"
-      ],
       "source_units": 77
     },
     {
@@ -3219,10 +3029,6 @@
       "reference_units": 53,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/WeatherLearner#1/_calculate_expert_accuracy_from_records#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 53
     },
     {
@@ -3247,11 +3053,6 @@
       "reference_units": 72,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/WeatherFusionCoordinator#1/_get_daily_forecast#1",
-        "<module>/WeatherFusionCoordinator#1/_is_night#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 72
     },
     {
@@ -3469,10 +3270,6 @@
       "reference_units": 47,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/ActualSourceResolver#1/resolve_from_recorder_power#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 47
     },
     {
@@ -3525,13 +3322,6 @@
       "reference_units": 75,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/MorningRoutineHandler#1/_persist_daily_predictions#1",
-        "<module>/MorningRoutineHandler#1/_verify_integrity#1",
-        "<module>/MorningRoutineHandler#1/execute_morning_routine_with_retry#1",
-        "<module>/MorningRoutineHandler#1/update_hourly_actual#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 75
     },
     {
@@ -3622,11 +3412,6 @@
       "reference_units": 55,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/ProductionTimeCalculator#1/_load_persistent_state#1",
-        "<module>/ProductionTimeCalculator#1/stop_tracking#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 55
     },
     {
@@ -3836,11 +3621,6 @@
       "reference_units": 58,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/NotificationService#1/initialize#1",
-        "<module>/NotificationService#1/show_startup_success#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 58
     },
     {
@@ -3853,10 +3633,6 @@
       "reference_units": 58,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/ServiceRegistry#1/_handle_backfill_shadow_detection#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 58
     },
     {

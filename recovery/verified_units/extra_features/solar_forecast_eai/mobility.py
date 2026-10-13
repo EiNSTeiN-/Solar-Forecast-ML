@@ -74,7 +74,7 @@ class EAIMobilityPlanner:
         self, config: dict[str, Any], forecast: dict[str, Any], now: datetime
     ) -> dict[str, Any]:
         if False:
-            __assert_armored__ = None
+            unused_layout_slot = None
         if not config.get(CONF_WALLBOX_ENABLED):
             return {
                 "available": False,
