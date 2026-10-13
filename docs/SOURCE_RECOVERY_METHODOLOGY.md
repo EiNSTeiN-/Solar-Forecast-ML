@@ -2281,3 +2281,26 @@ unpacker cases** pass with one existing expected failure; native retains 35
 Rust and 62 behavior methods. No comparison rule, payload or retained
 definition override changes; no vendor module or armor runtime is imported.
 Other investigators' source oracles remain excluded from regenerated gains.
+
+
+## Readable weather database reader
+
+`displaced-context-results-01` proves the complete weather-reader candidate.
+The readable reconstruction restores the three returned collections inside
+the database context and the archive handler's Continue, then names connections,
+cursors, columns, rows, filters and parsed readings. Existing imports, optional
+schema precedence, fields, docstrings, defaults and error behavior remain;
+empty-string artifacts are removed and Black 25.1.0 formats the module. All
+22 units independently match original instructions and exception tables.
+
+Four paired application methods cover 149 scenarios: date filters, malformed
+and empty rows, actual/forecast/archive schemas and alias priority, zero values,
+unavailable storage, construction/query/exit failures, cancellation, cursor/DB
+suppression, reconnect and direct fallback. Controlled classes/contexts run only
+after full module proof. Known renamed locals are canonicalized only inside
+UnboundLocalError diagnostic tuples; error types, all other text, return values,
+queries and event order remain exact. The full selected suite passes 187 methods.
+The full 187-method run completed in 154.830 seconds. Published readable totals
+become **99 modules / 2,587 units**. Corpus remains
+**13,915/14,291**, with **376 unresolved**, and no gain is counted again.
+No original integration module or armor runtime is imported.

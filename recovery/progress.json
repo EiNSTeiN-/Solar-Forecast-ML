@@ -1871,7 +1871,7 @@
       "matched_units": 22,
       "reference_units": 22,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 22
     },
     {

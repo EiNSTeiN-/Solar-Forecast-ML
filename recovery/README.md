@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-98 readable whole modules (2,565 nested units) and passes 183 selected
+99 readable whole modules (2,587 nested units) and passes 187 selected
 application test methods. The full corpus has 134 completely matched candidate
 modules and 13,915/14,291 matching units; 376 units remain. Candidate fidelity
 and published readable source are counted separately.
@@ -258,3 +258,12 @@ and daily-summary rows, LSTM/attention field checks, report ordering and
 database failure/cancellation. The original optional-data behavior and the
 different main/EAI clocks are preserved. This adds readable source for already
 matched modules; corpus coverage is not counted again.
+
+
+The weather reader is now readable, retaining its complete 22-unit proof.
+Four paired methods cover query filters, current/forecast/archive rows,
+optional schema aliases, zero actual values, malformed rows, unavailable
+storage, query/construction/exit faults, cancellation, context suppression,
+manager reconnect and direct fallback. Only known renamed local names inside
+UnboundLocalError diagnostics are normalized in behavioral logs. This is
+readable source for an already matched candidate; corpus coverage is unchanged.
