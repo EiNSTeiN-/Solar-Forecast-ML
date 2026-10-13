@@ -1,12 +1,12 @@
 {
-  "previous_stage": "owner-recipes-04",
-  "current_stage": "owner-recipes-05",
-  "new_matching_units": 5,
+  "previous_stage": "owner-recipes-05",
+  "current_stage": "promoted-exit-tools-01",
+  "new_matching_units": 0,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 0,
+  "raw_new_matching_units": 15,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 5,
+  "source_repair_gains": 0,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 653,
@@ -18,32 +18,11 @@
   "verified_shared_try_fragments": 140,
   "verified_definition_overrides": 344,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13910,
-  "raw_all_units_match_modules": 134,
+  "raw_decompiler_matched_units": 13925,
+  "raw_all_units_match_modules": 137,
   "manually_reconstructed_candidate_matched_units": 14261,
   "readable_isolated_generator_units": 7,
-  "new_unit_paths": [
-    [
-      "data/data_shadow_pattern_learning.py",
-      "<module>/ShadowPatternLearner#1/_get_shadow_data_for_date#1"
-    ],
-    [
-      "data/data_shadow_pattern_learning.py",
-      "<module>/ShadowPatternLearner#1/learn_from_day#1"
-    ],
-    [
-      "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
-      "<module>/WeatherForecastCorrector#1/_load_correction_factors#1"
-    ],
-    [
-      "extra_features/solar_forecast_eai/data/data_weather_precision.py",
-      "<module>/WeatherPrecisionTracker#1/get_hourly_correction_factors#1"
-    ],
-    [
-      "sensors/sensor_base.py",
-      "<module>/SolarForecastSensor#1/_today_hourly_total#1"
-    ]
-  ],
+  "new_unit_paths": [],
   "rejected_intermediate_stage": {
     "stage": "investigated-repairs-01",
     "gained": 97,
@@ -53,10 +32,7 @@
   "verified_chained_comprehension_filters": 7,
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
-  "new_complete_candidate_modules": [
-    "data/data_shadow_pattern_learning.py",
-    "sensors/sensor_base.py"
-  ],
+  "new_complete_candidate_modules": [],
   "new_readable_modules": [],
   "verified_coupled_statement_shapes": 79,
   "verified_individual_return_edges": 29,
@@ -67,11 +43,11 @@
   "verified_payload_and_handler_shapes": 39,
   "verified_physical_local_slots": 3,
   "verified_displaced_context_results": 8,
-  "source_reconstructed_owners": 5,
-  "source_compilation_context_files": 4,
-  "newly_proved_owner_tree_units": 5,
+  "source_reconstructed_owners": 0,
+  "source_compilation_context_files": 0,
+  "newly_proved_owner_tree_units": 0,
   "isolated_distinct_proved_units": 642,
-  "generic_decompiler_gains": 0,
+  "generic_decompiler_gains": 15,
   "rejected_async_normal_exit_checkpoint": {
     "stage": "async-normal-exits-01",
     "raw_gained": 18,

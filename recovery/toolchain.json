@@ -1,22 +1,22 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "b2afcb1079745f709c1d0f0e6f279683bcc8f5f9",
-    "version": "0.4.31-einstein.1"
+    "commit": "8500c6b521487c8c4d8d68e1799826e5f740abf2",
+    "version": "0.4.34-einstein.1"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
-    "commit": "f650d85ad33e51c3982c2d98a7f75f16f459bd59",
-    "version": "0.6.25-einstein.1"
+    "commit": "672b6a870137e28d46c4c2766d0b4fd9458aa2dc",
+    "version": "0.6.30-einstein.1"
   },
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 210,
-    "unpacker_passes": 209,
+    "unpacker_test_cases": 211,
+    "unpacker_passes": 210,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
-    "backend_behavior_tests_passed": 62,
+    "backend_behavior_tests_passed": 73,
     "selected_module_behavior_tests_passed": 199,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
@@ -186,11 +186,11 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000520",
-      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38327367141",
-      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38327367134",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000565",
-      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000506"
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38339537040",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38339537060",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38339537041",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
     },
     "retained_definition_count": 344,
     "independently_verified_source_files": 152,
@@ -741,7 +741,110 @@
         ]
       }
     },
-    "stable_toolchain_unchanged": true,
-    "selected_suite_reuse": "The complete selected suite passes199 methods in156.712seconds after readable database preparation:196application methods plus3definition-path methods. Whole source proof precedes controlled execution; no integration or armor runtime imports."
+    "stable_toolchain_unchanged": false,
+    "selected_suite_reuse": "The complete selected suite passes199 methods in156.712seconds after readable database preparation:196application methods plus3definition-path methods. Whole source proof precedes controlled execution; no integration or armor runtime imports.",
+    "full_native_retention": {
+      "baseline": "owner-recipes-05",
+      "stage": "promoted-exit-tools-01",
+      "comparator_unchanged": true,
+      "raw": {
+        "previous": 13910,
+        "matched": 13925,
+        "gained": 15,
+        "lost": 0,
+        "whole_modules": 137,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [
+          [
+            "ai/ai_predictor.py",
+            "<module>/AIPredictor#1/reconcile_pending_model_candidates#1"
+          ],
+          [
+            "data/db_manager.py",
+            "<module>/DatabaseManager#1/_migrate_raw_physics_kwh_v20260826#1"
+          ],
+          [
+            "data/db_manager.py",
+            "<module>/DatabaseManager#1/_migrate_snow_tracking_table_v161#1"
+          ],
+          [
+            "data/db_manager.py",
+            "<module>/DatabaseManager#1/_migrate_visibility_learning_table_v161#1"
+          ],
+          [
+            "data/db_manager.py",
+            "<module>/DatabaseManager#1/_migrate_weather_visibility_source_v20260827#1"
+          ],
+          [
+            "data/db_manager.py",
+            "<module>/DatabaseManager#1/compact_terminal_model_candidate_evidence#1"
+          ],
+          [
+            "extra_features/sfml_stats/api/export_views.py",
+            "<module>/_export_billing_rows#1"
+          ],
+          [
+            "extra_features/sfml_stats/api/export_views.py",
+            "<module>/_export_smart_charging_rows#1"
+          ],
+          [
+            "extra_features/sfml_stats/api/hubble.py",
+            "<module>/_hubble_build_memory#1"
+          ],
+          [
+            "extra_features/sfml_stats/api/premium_dashboard.py",
+            "<module>/_live_payload#1"
+          ],
+          [
+            "extra_features/sfml_stats/api/solar_views.py",
+            "<module>/_corrected_finalized_solar_values#1"
+          ],
+          [
+            "extra_features/sfml_stats/api/tomorrow.py",
+            "<module>/_selected_day_bundle#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/data/db_manager.py",
+            "<module>/DatabaseManager#1/_migrate_snow_tracking_table_v161#1"
+          ],
+          [
+            "extra_features/solar_forecast_eai/data/db_manager.py",
+            "<module>/DatabaseManager#1/_migrate_visibility_learning_table_v161#1"
+          ],
+          [
+            "services/service_emergency_outage.py",
+            "<module>/EmergencyOutageService#1/_invalidate_learning#1"
+          ]
+        ],
+        "new_complete_modules": [
+          "extra_features/sfml_stats/api/premium_dashboard.py",
+          "extra_features/sfml_stats/api/tomorrow.py",
+          "services/service_emergency_outage.py"
+        ]
+      },
+      "composite": {
+        "previous": 14261,
+        "matched": 14261,
+        "gained": 0,
+        "lost": 0,
+        "whole_modules": 251,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [],
+        "new_complete_modules": []
+      },
+      "retention_passes": true
+    },
+    "current_output_stage": "promoted-exit-tools-01",
+    "generic_source_api_sha256": "fbbb824d2014425f7d82aa4548008d1c4b2575aa77148b1ef36fbf877f6e5e1c",
+    "comparator_sha256": "cb3a4b32d5297125793926e8900e33093184706587006f7ecbf3ceb403d2e833",
+    "previous_ci_before_promoted_exits": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000520",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38327367141",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38327367134",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000565",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000506"
+    }
   }
 }

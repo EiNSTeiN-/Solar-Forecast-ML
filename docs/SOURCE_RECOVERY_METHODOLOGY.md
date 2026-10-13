@@ -2513,3 +2513,28 @@ selected function bodies are unchanged; no blanket runtime-equivalence claim is
 made for the new application owners. Full source and readability goals remain
 active. Native .30's separately proved full retention gate adds fifteen raw
 matches without losses; its gains are not credited to these source bodies.
+
+
+## Promoted async-exit recovery tools
+
+Native **0.6.30** and unpacker **0.4.34** are promoted to both forks' main
+branches after complete frozen retention and current-source re-audits. Fifteen
+new raw matches reach **13,925/14,291 /137 complete raw candidates**, with zero
+prior losses. Existing owner reconstructions already cover those units, so
+composite coverage stays **14,261/14,291 /251 complete candidates**, with
+**30 remaining**. All 274 sources compile. Readable source remains
+101 modules/3,354 units; the selected suite passes199 methods.
+
+The source API and comparator remain byte-identical to .31. A calculated return
+or nested exit protected by a known context handler keeps its original protocol,
+including displaced fragments that have lost lexical blocks. Unprotected/open
+context walks retain their normal exit handling. The original reader again
+proves all68units. Earlier .27/.29 failed stages remain preserved and excluded
+from success counts. Source reconstruction, native gains and readability are
+separately tallied.
+
+Main-branch CI passes211 unpacker cases with one existing expected failure,
+73 native behavior methods, native builds/tests on Linux/macOS/Windows, clippy
+correctness, C++ builds and Actions security checks. Local Rust tests pass35.
+No test or corpus gate broadens the comparison rules or imports the integration.
+All three goals continue; complete source/readable recovery is unfinished.
