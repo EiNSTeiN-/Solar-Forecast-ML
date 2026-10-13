@@ -614,6 +614,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/sfml_stats/api/gpm_monthly.py",
+      "original_payload_sha256": "692c1940e2de0929397834f9df05e41a1db1c223ce51a7717066b8dcb20137d9",
+      "reconstructed_source_sha256": "bc68a107ad365d65489b2df5e2beaa12f41bf711f8ff1d46a77892870bf08628",
+      "matched_units": 55,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/api/heating.py",
       "original_payload_sha256": "227e7264c1d497c546b32edb7b1f6ef1f83300dd8b454cff4b44d20e51ec3f18",
       "reconstructed_source_sha256": "63a6f77922d29ba777a5c2f72701bf1a26f0fd47d54fefb1c0ce98456a5c81a3",
@@ -785,6 +794,15 @@
       "behavior_tests": 2
     },
     {
+      "path": "extra_features/sfml_stats/core/grid_import_split.py",
+      "original_payload_sha256": "f717a5c213880d24b9648e47f6814b591a298267323717ac5745a02d0ac71c98",
+      "reconstructed_source_sha256": "2a7ebb080f241af5b1212740b2299251dd1fae10193c1399ad32cb6b760b4be4",
+      "matched_units": 55,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/core/grid_split.py",
       "original_payload_sha256": "e9df7bb22dd22f34388e42869b61f6caae64db0a15df0412dc605f6f3217785a",
       "reconstructed_source_sha256": "77d80d00b7aa7d7baf595641d2c0bfa43ad68851daefe83d9d4aaa9be32d7e1e",
@@ -834,6 +852,24 @@
       "original_payload_sha256": "5f6ebecff37a3e7478ddc5716794a1ffc204b87eafc887b1f2654846dd62ff19",
       "reconstructed_source_sha256": "527268f9539210304d33b7da4ef0d0e039830548b2748a44310921cbebf27af7",
       "matched_units": 66,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/sfml_stats/core/tariff_manager.py",
+      "original_payload_sha256": "9663f8ea869cf4f939847d6771d20da7246ed4e2bdaa0198256540264deb1697",
+      "reconstructed_source_sha256": "932231c82ba957aecd328f6061d5681c97d1da202395c17badbf2251465ed43e",
+      "matched_units": 54,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/sfml_stats/core/weather_energy.py",
+      "original_payload_sha256": "bac30df3c7dca7c8a65b79a56ff782b9b6d492a7bf16199371373f617bc1f632",
+      "reconstructed_source_sha256": "b2eb27a0871d2fcd6ca86254b3cca2a8336ea1771fb7170e92e0706f63c116b8",
+      "matched_units": 53,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -915,6 +951,15 @@
       "original_payload_sha256": "3e513a1607be834ece017d2fcdcca5c7c1b1b1b09e6472332ab2094e5dbb9ea7",
       "reconstructed_source_sha256": "b0f5ee7b083fe34622a75f2b756a3aab9ac11e15e93a96fdafcfe00c413fcdf0",
       "matched_units": 76,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_tiny_lstm.py",
+      "original_payload_sha256": "dd43702bda3343f9a934c3dca1fae1c0405ebb33e9664fb1f9c9336785eb1533",
+      "reconstructed_source_sha256": "bdaa744a7754bf36df1f6113f88f055bf4f75cbeb42aaafd4c7772b515cc588a",
+      "matched_units": 50,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -1082,6 +1127,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/solar_forecast_eai/energy_context.py",
+      "original_payload_sha256": "8ed6e13d500eab94ad82060c5288c49d795135e0a3c98f932ffb2b53e1dd2954",
+      "reconstructed_source_sha256": "05eea4ee6c5773a7028804741278b3cd7dc6c026996d056b214622e96f995e78",
+      "matched_units": 50,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/forecast/forecast_rule_based_strategy.py",
       "original_payload_sha256": "f044451f3bd4bf8668750754c858cbed06b269bd71f52b33f263e44f72acd713",
       "reconstructed_source_sha256": "74ac93e8f006712687a53a8aed267bb6ca19ae09605f6c48aa926fb5177fe386",
@@ -1163,6 +1217,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/solar_forecast_eai/thermodynamics/thermodynamics_engine.py",
+      "original_payload_sha256": "23182cd2d65e30961a9d1c68ebe78000f29a47a571b389b82f18b7ddda9b134b",
+      "reconstructed_source_sha256": "e840aff086acc3b9fe52aee7a52ec4f1e909f54133951fed9a88ec782bc5f717",
+      "matched_units": 51,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/weather_contract.py",
       "original_payload_sha256": "f72b52e443cb6def020041f4f1615f83d1bafc518802f0378ae804018a9038e8",
       "reconstructed_source_sha256": "69efac4a87deea8d3b563d5ec4959dea6bb5effe02e82bd2b99359722b63c1fe",
@@ -1217,10 +1280,28 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/weather_fusion_ai/ai/pattern_detector.py",
+      "original_payload_sha256": "b6fde9c3f8ea95a652768615184be32fad196d497cb0d9aa93665974ce4096ae",
+      "reconstructed_source_sha256": "773d36158db2951d0347f71d0a60bfe158c4c81bf7c4a21ffbc452f2f83b9744",
+      "matched_units": 45,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/weather_fusion_ai/ai/precision_tracker.py",
       "original_payload_sha256": "4215e68052f3db776cbb6ec721428d6e7a0df51218262e930656386174e0e124",
       "reconstructed_source_sha256": "0035db83b6c5546fd92d68c656f8ee657da46b1e734f177298da36c31c658301",
       "matched_units": 88,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/weather_fusion_ai/ai/weather_learner.py",
+      "original_payload_sha256": "522175772b315b7ed9eeb75c72832959f9d51425f244ddb9d4240db06dc21770",
+      "reconstructed_source_sha256": "51f6ae19e7ec3a23ba5dbf21c649c3e5b2b7d967187794f21a453ba83ec0688a",
+      "matched_units": 53,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -1334,6 +1415,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "production/production_actual_resolver.py",
+      "original_payload_sha256": "7498a40ee8256b6cf4563d25661104ec62647d883d664b295662d5b8d2a7cd0f",
+      "reconstructed_source_sha256": "9dc9fc406ddb41d0af21954f84d6e485fa42f71eb484b505ad9f0f5de0447ac4",
+      "matched_units": 47,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "production/production_adaptive_forecast.py",
       "original_payload_sha256": "62be8d420d3ad41885f66b2dc5920e70a54f9c1099c838c28d038a1273df7f12",
       "reconstructed_source_sha256": "5473cfc967cd1558943107917bd7209eba887eb3c9d43f2741a684c4fa2f944c",
@@ -1377,6 +1467,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "production/production_tracker.py",
+      "original_payload_sha256": "0025d55b8613944819cbfcc6b34c4c3f90612d469d5cc0be54cd761777ada016",
+      "reconstructed_source_sha256": "3c2260e4d4677fb039702acf554aac630a7be35daf0e5b6d89cbbab82b825542",
+      "matched_units": 55,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "sensors/conservative_planning.py",
@@ -1488,5 +1587,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 10046
+  "total_matched_units": 10614
 }

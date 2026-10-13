@@ -3180,3 +3180,40 @@ Smart-charging API keeps the already-proved multiline forecast-price return thro
 The previously passed 208-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable production tracking, tariffs, weather learning and Energy AI models
+
+Root-authored source names **1,258 bindings across
+223 actual scopes**, exposing **568
+already-proved units**. It removes 189 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**176 modules / 10,614 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `production/production_tracker.py` | 55 | 76 | 19 |
+| `production/production_actual_resolver.py` | 47 | 103 | 15 |
+| `extra_features/weather_fusion_ai/ai/weather_learner.py` | 53 | 83 | 15 |
+| `extra_features/weather_fusion_ai/ai/pattern_detector.py` | 45 | 76 | 16 |
+| `extra_features/sfml_stats/api/gpm_monthly.py` | 55 | 125 | 24 |
+| `extra_features/sfml_stats/core/grid_import_split.py` | 55 | 82 | 24 |
+| `extra_features/sfml_stats/core/tariff_manager.py` | 54 | 118 | 20 |
+| `extra_features/sfml_stats/core/weather_energy.py` | 53 | 131 | 28 |
+| `extra_features/solar_forecast_eai/thermodynamics/thermodynamics_engine.py` | 51 | 103 | 16 |
+| `extra_features/solar_forecast_eai/ai/ai_tiny_lstm.py` | 50 | 236 | 22 |
+| `extra_features/solar_forecast_eai/energy_context.py` | 50 | 125 | 24 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Names expose production timing and recorder samples, tariff currency conversions and ordered fallback captures, grid split accounting, weather-energy regressions, seasonal weather learning, pattern detection, thermodynamic COP and sink calibration, TinyLSTM matrix flow, and weighted load priorities. Original public fields, imports, interfaces and ordered closure slots are retained. Owned investigative fixtures supplement the whole-module static instruction and exception proofs; this batch claims no new corpus matches or full integration runtime coverage.
+
+The previously passed 208-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

@@ -1272,7 +1272,7 @@
       "matched_units": 55,
       "reference_units": 55,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_demo_hourly_rows#1"
       ],
@@ -1769,7 +1769,7 @@
       "matched_units": 55,
       "reference_units": 55,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 55
     },
     {
@@ -2007,7 +2007,7 @@
       "matched_units": 54,
       "reference_units": 54,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 54
     },
     {
@@ -2019,7 +2019,7 @@
       "matched_units": 53,
       "reference_units": 53,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/build_day_features#1",
         "<module>/build_weather_impact#1"
@@ -2316,7 +2316,7 @@
       "matched_units": 50,
       "reference_units": 50,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 50
     },
     {
@@ -2893,7 +2893,7 @@
       "matched_units": 50,
       "reference_units": 50,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/EAISharedEnergyAllocator#1/enrich#1"
       ],
@@ -3071,7 +3071,7 @@
       "matched_units": 51,
       "reference_units": 51,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 51
     },
     {
@@ -3194,7 +3194,7 @@
       "matched_units": 45,
       "reference_units": 45,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 45
     },
     {
@@ -3218,7 +3218,7 @@
       "matched_units": 53,
       "reference_units": 53,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherLearner#1/_calculate_expert_accuracy_from_records#1"
       ],
@@ -3468,7 +3468,7 @@
       "matched_units": 47,
       "reference_units": 47,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ActualSourceResolver#1/resolve_from_recorder_power#1"
       ],
@@ -3621,7 +3621,7 @@
       "matched_units": 55,
       "reference_units": 55,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ProductionTimeCalculator#1/_load_persistent_state#1",
         "<module>/ProductionTimeCalculator#1/stop_tracking#1"
