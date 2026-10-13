@@ -2943,3 +2943,33 @@ Both JSON migration modules now distinguish persisted record types, sparse model
 The previously passed206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable telemetry, consumer views, weather tracking and DEV-mode contracts
+
+Root-authored source names **587 bindings across
+123 actual scopes**, exposing **314
+already-proved units**. It removes90 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**139 modules /8,276 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `physics/physics_calibration_telemetry.py` | 82 | 110 | 29 |
+| `extra_features/sfml_stats/api/consumer_views.py` | 81 | 174 | 31 |
+| `extra_features/solar_forecast_eai/data/data_weather_actual_tracker.py` | 81 | 254 | 40 |
+| `core/core_dev_mode.py` | 70 | 49 | 23 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Telemetry names keep the original stamp-learning and pruning boundaries, quantile parameters and capture routes. Consumer views preserve config/read/entity resolver ordering and actual Recorder and heating imports. Energy AI observation names distinguish rain counters/rates, fog confidence, per-group state and radiation versus production ratios; cancellation, notifications and SQL remain unchanged. Root-authored DEV-mode names expose canonical payloads, signatures, install hashes, expiry listeners and admin services; all original authorization and validation branches remain intact. A separate nonexecuting naming audit of the first 135 published modules finds no remaining opaque non-parameter bindings.
+
+The previously passed206-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

@@ -276,7 +276,7 @@
       "matched_units": 70,
       "reference_units": 70,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 70
     },
     {
@@ -1143,7 +1143,7 @@
       "matched_units": 81,
       "reference_units": 81,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/AmortizationView#1/_load_monthly_cashflows#1",
         "<module>/ConsumerAtlasBackfillView#1/_recorder_states#1",
@@ -2732,7 +2732,7 @@
       "matched_units": 81,
       "reference_units": 81,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherActualTracker#1/_detect_fog#1",
         "<module>/WeatherActualTracker#1/_ensure_snow_tracking_schema#1",
@@ -3408,7 +3408,7 @@
       "matched_units": 82,
       "reference_units": 82,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 82
     },
     {

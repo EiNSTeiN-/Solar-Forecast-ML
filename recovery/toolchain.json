@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 135,
-    "complete_readable_module_code_units": 7962,
+    "complete_readable_module_matches": 139,
+    "complete_readable_module_code_units": 8276,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1679,6 +1679,72 @@
       "renamed_bindings": 1089,
       "scoped_maps": 143,
       "removed_empty_artifacts": 9,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-17": {
+      "modules": [
+        {
+          "module_path": "physics/physics_calibration_telemetry.py",
+          "matched_units": 82,
+          "scoped_maps": 29,
+          "renamed_bindings": 110,
+          "removed_empty_artifacts": 0,
+          "source_sha256": "3854ea073a93700c6f444c1702cc5eb1814a9c0b9c1e8f005e952724bc222996",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/api/consumer_views.py",
+          "matched_units": 81,
+          "scoped_maps": 31,
+          "renamed_bindings": 174,
+          "removed_empty_artifacts": 45,
+          "source_sha256": "7854e8bbf416ef033bdc26a0901c2b165c8897804a87c25778dccf53216c0b92",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/data/data_weather_actual_tracker.py",
+          "matched_units": 81,
+          "scoped_maps": 40,
+          "renamed_bindings": 254,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "6352d6183aec183a33d307e8791b77a9f91ac936cf3c1055855788db56ade49a",
+          "docstring_values_restored_after_formatting": 5,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "core/core_dev_mode.py",
+          "matched_units": 70,
+          "scoped_maps": 23,
+          "renamed_bindings": 49,
+          "removed_empty_artifacts": 27,
+          "source_sha256": "c24d763135dd1eea2f9d9da0637e785cc71d5d55891cfdb9cf75e782c0189732",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 139,
+      "readable_units": 8276,
+      "new_readable_modules": 4,
+      "new_readable_units": 314,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 587,
+      "scoped_maps": 123,
+      "removed_empty_artifacts": 90,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }
