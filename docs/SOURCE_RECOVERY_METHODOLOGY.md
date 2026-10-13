@@ -3217,3 +3217,39 @@ Names expose production timing and recorder samples, tariff currency conversions
 The previously passed 208-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable tariff correction, charging decisions, reader summaries and drift tracking
+
+Root-authored source names **1,044 bindings across
+195 actual scopes**, exposing **494
+already-proved units**. It removes 216 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**186 modules / 11,108 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/grid_price_monitor/tariffs/corrections.py` | 54 | 143 | 30 |
+| `data/data_weather_pipeline_manager.py` | 44 | 63 | 19 |
+| `extra_features/sfml_stats/core/smart_charging.py` | 47 | 156 | 16 |
+| `extra_features/sfml_stats/api/export_views.py` | 52 | 172 | 22 |
+| `extra_features/sfml_stats/core/heating_model.py` | 52 | 30 | 12 |
+| `extra_features/sfml_stats/sfml_data_reader.py` | 52 | 109 | 21 |
+| `extra_features/sfml_stats/readers/annual_forecast_reader.py` | 49 | 105 | 20 |
+| `extra_features/solar_forecast_eai/data/data_shadow_pattern_learning.py` | 50 | 95 | 18 |
+| `extra_features/solar_forecast_eai/ai/ai_drift_monitor.py` | 48 | 113 | 22 |
+| `extra_features/solar_forecast_eai/consumption/consumption_tracker.py` | 46 | 58 | 15 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Tariff names distinguish invoice EUR from hourly ct/kWh and preserve weighted correction and rollback contracts. Charging names retain runway, discharge-efficiency and cheap-slot gates. Weather pipeline names distinguish horizon counts, refresh, startup retries and provider order. Reader and export names expose actual/predicted accumulators, calendar coverage, annual margins and CSV/ZIP fields. Heating preserves temperature delta, calibration and thermostat calculations. Energy AI names expose shadow learning EMA and group hydration, CUSUM drift and response expiry, consumption tracking thresholds and save/listener cleanup. Original schemas, interfaces, slot and capture order remain fixed; owned investigative fixtures complement complete static instruction and exception proofs without claiming full integration execution.
+
+The previously passed 208-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

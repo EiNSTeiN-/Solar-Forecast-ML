@@ -704,7 +704,7 @@
       "matched_units": 44,
       "reference_units": 44,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherDataPipelineManager#1/_refresh_all_weather_sources#1",
         "<module>/WeatherDataPipelineManager#1/stop_pipeline#1"
@@ -1018,7 +1018,7 @@
       "matched_units": 54,
       "reference_units": 54,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 54
     },
     {
@@ -1225,7 +1225,7 @@
       "matched_units": 52,
       "reference_units": 52,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_export_billing_rows#1",
         "<module>/_export_energy_rows#1",
@@ -1822,7 +1822,7 @@
       "matched_units": 52,
       "reference_units": 52,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/thermostat_demand#1"
       ],
@@ -1934,7 +1934,7 @@
       "matched_units": 47,
       "reference_units": 47,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_as_positive_prices#1"
       ],
@@ -2087,7 +2087,7 @@
       "matched_units": 49,
       "reference_units": 49,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/AnnualForecastReader#1/_get_calibration_data#1"
       ],
@@ -2179,7 +2179,7 @@
       "matched_units": 52,
       "reference_units": 52,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SFMLDataReader#1/get_daily_yield_from_hourly#1"
       ],
@@ -2236,7 +2236,7 @@
       "matched_units": 48,
       "reference_units": 48,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 48
     },
     {
@@ -2475,7 +2475,7 @@
       "matched_units": 46,
       "reference_units": 46,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ProductionTimeCalculator#1/_handle_power_change#1",
         "<module>/ProductionTimeCalculator#1/_load_persistent_state#1",
@@ -2688,7 +2688,7 @@
       "matched_units": 50,
       "reference_units": 50,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ShadowPatternLearner#1/learn_from_day#1"
       ],
