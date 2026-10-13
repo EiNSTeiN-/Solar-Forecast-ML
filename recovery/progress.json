@@ -216,7 +216,7 @@
       "matched_units": 83,
       "reference_units": 83,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SolarForecastMLCoordinator#1/_async_update_data#1",
         "<module>/SolarForecastMLCoordinator#1/_background_initialization#1",
@@ -3767,7 +3767,7 @@
       "matched_units": 86,
       "reference_units": 86,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ActualLiveStateManager#1/async_refresh#1"
       ],

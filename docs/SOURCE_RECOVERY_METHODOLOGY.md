@@ -2615,3 +2615,20 @@ All published hashes and complete source/owner proofs pass. Previously tested
 selected function bodies are unchanged; no blanket runtime-equivalence claim is
 made for the new application owners. Full source and readability goals remain
 active. Earlier native gains are not credited to these source bodies.
+
+
+## Readable coordinator and actual-state source
+
+Two additional complete modules expose 169 already-proved units with 239
+descriptive local/capture bindings across 49 scopes. They remove 72 non-docstring
+empty artifacts. Complete instruction and exception proofs still pass after
+Black formatting. All current public source hashes and complete/subtree proofs
+pass: **106 readable modules /4,137 units**. This changes no corpus match count.
+Public parameters, global/attribute names, imported objects, literal schemas,
+signatures, flags, documentation, and ordered closure slots remain fixed.
+
+Two separate owned tests document the remaining coroutine-return cleanup
+boundary; they supplement the previously passed 201-method selected suite.
+They intentionally show both strict rejection and an observable tracing-hook
+difference. See [the coverage report](../docs/COROUTINE_RETURN_COVERAGE.md).
+No production reference bytecode or comparator rule is changed.

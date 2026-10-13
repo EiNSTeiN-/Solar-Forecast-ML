@@ -65,6 +65,15 @@
       "behavior_tests": 2
     },
     {
+      "path": "coordinator.py",
+      "original_payload_sha256": "2518b2305598b36a838eb2c747823bb0949c963e0a77462eedd09e2c40412218",
+      "reconstructed_source_sha256": "e8f9083a16e430b8ff95153cbd28b9549e97e81ec8399c32aa913eb05aefcf27",
+      "matched_units": 83,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "core/core_coordinator_helpers.py",
       "original_payload_sha256": "426d6381107cdc95aa6e5f2f084672b97a999dc81f49028df1d8211b9c4c09fc",
       "reconstructed_source_sha256": "89782561ad0ea816a3172ee3f20f4500f0c74f4c4c41bdd8c59c6bae3de9ca84",
@@ -875,6 +884,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "sensors/sensor_actual_sot.py",
+      "original_payload_sha256": "c51639a4c9a7304c2e408f9f8ece050176bbf907769e11a7ec730e2eb60cd030",
+      "reconstructed_source_sha256": "dfe49ddc31838f1db552e890fc26b3e626c2b429ed9474d106079ac14dc3a79b",
+      "matched_units": 86,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "sensors/sensor_base.py",
       "original_payload_sha256": "ecd4fe2a3e333f2afd03180319a8220024cfb93b84e80fa88ab16dc20b5d251e",
       "reconstructed_source_sha256": "40563093280b45d0f0cb63c38b7812af17ee25a0e83f1c3c1a2d4c525ea7d0e6",
@@ -939,5 +957,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 3968
+  "total_matched_units": 4137
 }

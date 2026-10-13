@@ -174,10 +174,12 @@
       "database_transaction_behavior_methods": 3,
       "database_transaction_paired_scenarios": 60,
       "candidate_layout_test_methods": 2,
-      "candidate_layout_paired_scenarios": 19
+      "candidate_layout_paired_scenarios": 19,
+      "intrinsic_return_coverage_test_methods": 2,
+      "intrinsic_return_coverage_result": "Two separate owned tests pass. Identical instructions with a missing coroutine-return cleanup interval fail the unchanged strict comparator. Five ordinary calls agree; a tracing-hook StopIteration produces an observable propagation difference."
     },
-    "complete_readable_module_matches": 104,
-    "complete_readable_module_code_units": 3968,
+    "complete_readable_module_matches": 106,
+    "complete_readable_module_code_units": 4137,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -874,6 +876,41 @@
       "new_corpus_matches": 0,
       "renamed_bindings": 1089,
       "removed_empty_artifacts": 315,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable_coordinator_pair": {
+      "modules": [
+        {
+          "module_path": "coordinator.py",
+          "matched_units": 83,
+          "scoped_maps": 32,
+          "renamed_bindings": 190,
+          "removed_empty_artifacts": 18,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "source_sha256": "e8f9083a16e430b8ff95153cbd28b9549e97e81ec8399c32aa913eb05aefcf27",
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "sensors/sensor_actual_sot.py",
+          "matched_units": 86,
+          "scoped_maps": 17,
+          "renamed_bindings": 49,
+          "removed_empty_artifacts": 54,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "source_sha256": "dfe49ddc31838f1db552e890fc26b3e626c2b429ed9474d106079ac14dc3a79b",
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 106,
+      "readable_units": 4137,
+      "new_readable_modules": 2,
+      "new_readable_units": 169,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 239,
+      "removed_empty_artifacts": 72,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }

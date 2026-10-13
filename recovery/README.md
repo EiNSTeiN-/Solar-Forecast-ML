@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-104 readable whole modules (3,968 nested units) and passes 201 selected
+106 readable whole modules (4,137 nested units) and passes 201 selected
 test methods (196 application checks and five source-construction checks). The full
 corpus has 259 completely matched candidate modules and 14,269/14,291 matching
 units; 22 units remain. Candidate fidelity
@@ -444,3 +444,20 @@ isolated entries in 154 files, covering
 661 distinct units; 352
 definitions are retained. These new contexts remain non-readable. The frozen
 0.6.30-einstein.1/0.4.34-einstein.1 generation tools and selected suite's executed bodies remain unchanged.
+
+
+## Readable coordinator and actual-state source
+
+Two additional complete modules expose 169 already-proved units with 239
+descriptive local/capture bindings across 49 scopes. They remove 72 non-docstring
+empty artifacts. Complete instruction and exception proofs still pass after
+Black formatting. All current public source hashes and complete/subtree proofs
+pass: **106 readable modules /4,137 units**. This changes no corpus match count.
+Public parameters, global/attribute names, imported objects, literal schemas,
+signatures, flags, documentation, and ordered closure slots remain fixed.
+
+Two separate owned tests document the remaining coroutine-return cleanup
+boundary; they supplement the previously passed 201-method selected suite.
+They intentionally show both strict rejection and an observable tracing-hook
+difference. See [the coverage report](../docs/COROUTINE_RETURN_COVERAGE.md).
+No production reference bytecode or comparator rule is changed.

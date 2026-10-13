@@ -1,0 +1,267 @@
+{
+  "classified_units": 17,
+  "original_exports_unchanged": true,
+  "comparison_rules_unchanged": true,
+  "accepted_candidates": 0,
+  "proof_scope": "All instructions/signatures match; one real RETURN_VALUE dispatch slot differs.",
+  "ordinary_owned_call_pairs": 5,
+  "observable_tracing_hook_difference": true,
+  "behavioral_equivalence_verified": false,
+  "results": [
+    {
+      "module_path": "data/data_hourly_predictions.py",
+      "unit_path": "<module>/HourlyPredictionsHandler#1/get_predictions_count#1",
+      "matching_instructions": 64,
+      "return_instruction_index": 30,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 62,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "data/data_ml_handler.py",
+      "unit_path": "<module>/DataMLHandler#1/get_hourly_samples_count#1",
+      "matching_instructions": 64,
+      "return_instruction_index": 30,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 62,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "data/data_operational_forecast_handler.py",
+      "unit_path": "<module>/DataOperationalForecastHandler#1/create_snapshot#1",
+      "matching_instructions": 98,
+      "return_instruction_index": 60,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 96,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "data/data_operational_forecast_handler.py",
+      "unit_path": "<module>/DataOperationalForecastHandler#1/get_active_daily_forecast#1",
+      "matching_instructions": 69,
+      "return_instruction_index": 33,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 67,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/grid_price_monitor/storage/price_cache.py",
+      "unit_path": "<module>/PriceCache#1/async_get_country#1",
+      "matching_instructions": 39,
+      "return_instruction_index": 20,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 37,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_scheduled_tasks.py",
+      "unit_path": "<module>/ScheduledTasksManager#1/_get_forecast_radiation_for_hour#1",
+      "matching_instructions": 48,
+      "return_instruction_index": 29,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 46,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_hourly_predictions.py",
+      "unit_path": "<module>/HourlyPredictionsHandler#1/get_predictions_count#1",
+      "matching_instructions": 64,
+      "return_instruction_index": 30,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 62,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_ml_handler.py",
+      "unit_path": "<module>/DataMLHandler#1/get_hourly_samples_count#1",
+      "matching_instructions": 64,
+      "return_instruction_index": 30,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 62,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_ml_handler.py",
+      "unit_path": "<module>/DataMLHandler#1/get_max_dni_for_hour#1",
+      "matching_instructions": 67,
+      "return_instruction_index": 32,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 65,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_ml_handler.py",
+      "unit_path": "<module>/DataMLHandler#1/get_seasonal_factor#1",
+      "matching_instructions": 67,
+      "return_instruction_index": 32,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 65,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
+      "unit_path": "<module>/WeatherForecastCorrector#1/_get_sun_elevation#1",
+      "matching_instructions": 67,
+      "return_instruction_index": 48,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 65,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
+      "unit_path": "<module>/WeatherForecastCorrector#1/_get_weighted_poa_radiation#1",
+      "matching_instructions": 67,
+      "return_instruction_index": 48,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 65,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
+      "unit_path": "<module>/BrightSkyExpert#1/get_cloud_cover#1",
+      "matching_instructions": 55,
+      "return_instruction_index": 23,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 53,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
+      "unit_path": "<module>/OpenMeteoExpert#1/get_cloud_cover#1",
+      "matching_instructions": 42,
+      "return_instruction_index": 23,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 40,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
+      "unit_path": "<module>/PirateWeatherExpert#1/get_cloud_cover#1",
+      "matching_instructions": 61,
+      "return_instruction_index": 29,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 59,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
+      "unit_path": "<module>/WttrInExpert#1/get_cloud_cover#1",
+      "matching_instructions": 55,
+      "return_instruction_index": 23,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 53,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    },
+    {
+      "module_path": "production/production_scheduled_tasks.py",
+      "unit_path": "<module>/ScheduledTasksManager#1/_resolve_eod_actual_yield#1",
+      "matching_instructions": 111,
+      "return_instruction_index": 75,
+      "reference_return_handler": null,
+      "candidate_return_handler": {
+        "target": 109,
+        "depth": 0,
+        "lasti": true,
+        "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
+      },
+      "all_previous_neighbors_retained": true,
+      "accepted": false
+    }
+  ]
+}
