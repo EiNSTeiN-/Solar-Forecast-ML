@@ -39,8 +39,8 @@ production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
 106 readable whole modules (4,137 nested units) and passes 201 selected
 test methods (196 application checks and five source-construction checks). The full
-corpus has 259 completely matched candidate modules and 14,269/14,291 matching
-units; 22 units remain. Candidate fidelity
+corpus has 260 completely matched candidate modules and 14,270/14,291 matching
+units; 21 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -461,3 +461,22 @@ boundary; they supplement the previously passed 201-method selected suite.
 They intentionally show both strict rejection and an observable tracing-hook
 difference. See [the coverage report](../docs/COROUTINE_RETURN_COVERAGE.md).
 No production reference bytecode or comparator rule is changed.
+
+
+## Promoted multiline return layout
+
+Unpacker **0.4.35** is promoted to the fork's main branch after fresh complete
+source generation for all274 payloads and strict full-corpus retention.
+Its bounded layout pass restores the existing shared return block in the STATS
+hourly price method. Raw coverage reaches **13,926/14,291 /138 complete modules**.
+Re-auditing the frozen current106-module source overlay reaches
+**14,270/14,291 /260 complete candidate modules**, with **21 remaining**
+(four instruction failures and seventeen exception-coverage failures).
+Both gates retain every previous matching unit and complete module.
+
+No input export or exception comparison rule changed. Native0.6.30 remains pinned
+to its previously tested binary/code hashes. Main-branch CI passes216 unpacker
+cases (215passes and one existing expected failure), C++ builds and Actions
+security checks. The workflow named Regression Test is skipped and is not
+counted as passed. The three newly proved .36 return joins are a separate
+development checkpoint until their fresh274-module gate finishes.

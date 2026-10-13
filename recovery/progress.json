@@ -3,16 +3,16 @@
     "protected_modules": 274,
     "bytecode_verified_modules": 274,
     "source_compiles_modules": 274,
-    "all_units_match_modules": 259,
+    "all_units_match_modules": 260,
     "reference_units": 14291,
-    "matched_units": 14269,
+    "matched_units": 14270,
     "input_files_unchanged": true,
     "vendor_modules_imported": 0,
     "behavioral_equivalence_verified": false,
     "unit_results": {
-      "normalized_bytecode_match": 14269,
+      "normalized_bytecode_match": 14270,
       "exception_table": 17,
-      "instructions": 5
+      "instructions": 4
     },
     "scopes": {
       "main": 99,
@@ -217,15 +217,6 @@
       "reference_units": 83,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/SolarForecastMLCoordinator#1/_async_update_data#1",
-        "<module>/SolarForecastMLCoordinator#1/_background_initialization#1",
-        "<module>/SolarForecastMLCoordinator#1/_initialize_services#1",
-        "<module>/SolarForecastMLCoordinator#1/_update_sensor_properties#1",
-        "<module>/SolarForecastMLCoordinator#1/_validate_panel_group_power_sensors_with_grace#1",
-        "<module>/SolarForecastMLCoordinator#1/async_shutdown#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 83
     },
     {
@@ -1441,8 +1432,8 @@
       "scope": "sfml_stats",
       "bytecode_verified": true,
       "source_compiles": true,
-      "all_units_match": false,
-      "matched_units": 59,
+      "all_units_match": true,
+      "matched_units": 60,
       "reference_units": 60,
       "input_unchanged": true,
       "source_origin": "decompiler_candidate",
@@ -3768,10 +3759,6 @@
       "reference_units": 86,
       "input_unchanged": true,
       "source_origin": "manual_reconstruction",
-      "retained_source_units": [
-        "<module>/ActualLiveStateManager#1/async_refresh#1"
-      ],
-      "retained_source_layout_owners": [],
       "source_units": 86
     },
     {

@@ -433,3 +433,22 @@ zero losses. Three investigators continue disjoint remaining scopes; the main
 thread authors and publishes every change. The readable subset remains
 104/3,968; source-only work uses frozen 0.6.30-einstein.1/0.4.34-einstein.1 and
 unchanged comparison rules.
+
+
+## Promoted multiline return layout
+
+Unpacker **0.4.35** is promoted to the fork's main branch after fresh complete
+source generation for all274 payloads and strict full-corpus retention.
+Its bounded layout pass restores the existing shared return block in the STATS
+hourly price method. Raw coverage reaches **13,926/14,291 /138 complete modules**.
+Re-auditing the frozen current106-module source overlay reaches
+**14,270/14,291 /260 complete candidate modules**, with **21 remaining**
+(four instruction failures and seventeen exception-coverage failures).
+Both gates retain every previous matching unit and complete module.
+
+No input export or exception comparison rule changed. Native0.6.30 remains pinned
+to its previously tested binary/code hashes. Main-branch CI passes216 unpacker
+cases (215passes and one existing expected failure), C++ builds and Actions
+security checks. The workflow named Regression Test is skipped and is not
+counted as passed. The three newly proved .36 return joins are a separate
+development checkpoint until their fresh274-module gate finishes.

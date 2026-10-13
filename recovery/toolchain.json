@@ -1,8 +1,9 @@
 {
   "unpacker": {
     "repository": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot",
-    "commit": "8500c6b521487c8c4d8d68e1799826e5f740abf2",
-    "version": "0.4.34-einstein.1"
+    "commit": "4d02856d9fe6f687b40e16031da036fd2f6ad91e",
+    "version": "0.4.35-einstein.1",
+    "tested_code_commit": "c5d257f2d2eb5e541a3d0c30aaa8d7441965282b"
   },
   "backend": {
     "repository": "https://github.com/EiNSTeiN-/pycdc-modern",
@@ -12,8 +13,8 @@
   "interpreter": "3.14.2",
   "bytecode_magic": "2b0e0d0a",
   "verification": {
-    "unpacker_test_cases": 211,
-    "unpacker_passes": 210,
+    "unpacker_test_cases": 216,
+    "unpacker_passes": 215,
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 73,
@@ -190,9 +191,9 @@
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38187749800"
     },
     "ci": {
-      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38339537040",
-      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38339537060",
-      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38339537041",
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558116",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558191",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558186",
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
     },
@@ -728,7 +729,7 @@
         ]
       }
     },
-    "stable_toolchain_unchanged": true,
+    "stable_toolchain_unchanged": false,
     "selected_suite_reuse": "The full selected suite passes201 methods in168.722seconds after readable sensor/solar-API/adaptive publication:196application methods,3definition-path methods and2candidate-layout methods. Original full source/hash proofs precede controlled selected execution; no integration or armor runtime imports.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",
@@ -823,8 +824,8 @@
       },
       "retention_passes": true
     },
-    "current_output_stage": "promoted-exit-tools-01",
-    "generic_source_api_sha256": "fbbb824d2014425f7d82aa4548008d1c4b2575aa77148b1ef36fbf877f6e5e1c",
+    "current_output_stage": "promoted-line-layout-tools-01",
+    "generic_source_api_sha256": "8a21b6e327872b73654d3fa407a688c612fe708dcf9ec5a261a615dc67c1e25b",
     "comparator_sha256": "cb3a4b32d5297125793926e8900e33093184706587006f7ecbf3ceb403d2e833",
     "previous_ci_before_promoted_exits": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000520",
@@ -913,6 +914,90 @@
       "removed_empty_artifacts": 72,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
+    },
+    "full_line_layout_retention": {
+      "baseline": "owner-recipes-07",
+      "stage": "promoted-line-layout-tools-01",
+      "comparator_unchanged": true,
+      "raw": {
+        "previous": 13925,
+        "matched": 13926,
+        "gained": 1,
+        "lost": 0,
+        "whole_modules": 138,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [
+          [
+            "extra_features/sfml_stats/api/smart_charging.py",
+            "<module>/_forecast_price_for_hour#1"
+          ]
+        ],
+        "new_complete_modules": [
+          "extra_features/sfml_stats/api/smart_charging.py"
+        ]
+      },
+      "composite": {
+        "previous": 14269,
+        "matched": 14270,
+        "gained": 1,
+        "lost": 0,
+        "whole_modules": 260,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [
+          [
+            "extra_features/sfml_stats/api/smart_charging.py",
+            "<module>/_forecast_price_for_hour#1"
+          ]
+        ],
+        "new_complete_modules": [
+          "extra_features/sfml_stats/api/smart_charging.py"
+        ]
+      },
+      "retention_passes": true
+    },
+    "line_layout_generation": {
+      "unpacker_commit": "c5d257f2d2eb5e541a3d0c30aaa8d7441965282b",
+      "unpacker_version": "0.4.35-einstein.1",
+      "backend_version": "0.6.30-einstein.1",
+      "modern_backend_source_sha256": "8a21b6e327872b73654d3fa407a688c612fe708dcf9ec5a261a615dc67c1e25b",
+      "comparator_sha256": "cb3a4b32d5297125793926e8900e33093184706587006f7ecbf3ceb403d2e833",
+      "tool_source_sha256": "4b16664928dad2b160acc4cd8285c6c69fbe719bc8c4601e4cdbb738ff6e25ff",
+      "backend_binary_sha256": "5a996a886c06346a4e7a940d984ce527b773c00088c3ed2399b02672c661addc",
+      "source_overlay_baseline": "owner-recipes-06",
+      "source_overlay_manifest_sha256": "6d92efc3c7c834a4685aef0d5d06835de41250fcee40b61b6dc63c5d1bb5520c",
+      "source_overlay_functions_sha256": "72ad603b5142e42992b9b481456e5fa059c435b040ab985caa3f294ba1dee94c",
+      "original_exports_and_comparison_rules_unchanged": true,
+      "modules": 274,
+      "syntax_valid": 274,
+      "structurally_complete": 225,
+      "exports_unchanged": true,
+      "generation": "fresh complete source pipeline for all 274 modules; no API-generation reuse",
+      "reused_sources": 0,
+      "regenerated_sources": 274,
+      "selected_multiline_owners": 1,
+      "final_batch_seconds": 1955.1
+    },
+    "current_line_layout_source_capture": {
+      "baseline": "owner-recipes-07",
+      "raw_source_stage": "multiline-return-shapes-01",
+      "full_pipeline_generation_reused_without_changes": true,
+      "source_api_sha256": "8a21b6e327872b73654d3fa407a688c612fe708dcf9ec5a261a615dc67c1e25b",
+      "comparator_sha256": "cb3a4b32d5297125793926e8900e33093184706587006f7ecbf3ceb403d2e833",
+      "source_manifest_sha256": "99d97dbf7e2478003273abdb5e32aaf25d7c3285732f99e3fdf88733c1a935f5",
+      "source_functions_sha256": "db2726112d592d74de1d24ffe68e858a16fa5b4c089ce2007a30e30e8bedc070",
+      "current_readable_modules": 106,
+      "current_readable_units": 4137,
+      "raw_source_unchanged": true,
+      "full_current_composite_gate_required": true
+    },
+    "previous_ci_before_line_layout": {
+      "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558116",
+      "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558191",
+      "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38345558186",
+      "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
+      "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
     }
   }
 }

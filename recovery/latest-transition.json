@@ -1,12 +1,12 @@
 {
-  "previous_stage": "owner-recipes-06",
-  "current_stage": "owner-recipes-07",
+  "previous_stage": "owner-recipes-07",
+  "current_stage": "promoted-line-layout-tools-01",
   "new_matching_units": 1,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 0,
+  "raw_new_matching_units": 1,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 1,
+  "source_repair_gains": 0,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 653,
@@ -18,15 +18,12 @@
   "verified_shared_try_fragments": 140,
   "verified_definition_overrides": 352,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13925,
-  "raw_all_units_match_modules": 137,
+  "raw_decompiler_matched_units": 13926,
+  "raw_all_units_match_modules": 138,
   "manually_reconstructed_candidate_matched_units": 14269,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
-    [
-      "coordinator.py",
-      "<module>/SolarForecastMLCoordinator#1/_validate_panel_group_power_sensors_with_grace#1"
-    ]
+    "extra_features/sfml_stats/api/smart_charging.py::<module>/_forecast_price_for_hour#1"
   ],
   "rejected_intermediate_stage": {
     "stage": "investigated-repairs-01",
@@ -38,7 +35,7 @@
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
   "new_complete_candidate_modules": [
-    "coordinator.py"
+    "extra_features/sfml_stats/api/smart_charging.py"
   ],
   "new_readable_modules": [],
   "verified_coupled_statement_shapes": 79,
@@ -50,11 +47,11 @@
   "verified_payload_and_handler_shapes": 39,
   "verified_physical_local_slots": 3,
   "verified_displaced_context_results": 8,
-  "source_reconstructed_owners": 1,
-  "source_compilation_context_files": 1,
-  "newly_proved_owner_tree_units": 4,
+  "source_reconstructed_owners": 0,
+  "source_compilation_context_files": 0,
+  "newly_proved_owner_tree_units": 0,
   "isolated_distinct_proved_units": 661,
-  "generic_decompiler_gains": 15,
+  "generic_decompiler_gains": 1,
   "rejected_async_normal_exit_checkpoint": {
     "stage": "async-normal-exits-01",
     "raw_gained": 18,
