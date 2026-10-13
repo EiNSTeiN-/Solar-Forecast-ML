@@ -4012,5 +4012,17 @@
     "vendor_modules_imported": 0,
     "private_key_material_in_public_report": false,
     "public_manifest_sha256": "c84bf2cc20785d5fad5477c008fda0112004d9b83f16d8609cb57ea6797ce9e9"
+  },
+  "partial_readability": {
+    "partial_contexts": 11,
+    "flat_matched_units": 888,
+    "strictly_unmatched_units": 18,
+    "fully_verified_subtree_units": 863,
+    "complete_module_accepted": false,
+    "new_corpus_matches": 0,
+    "instruction_and_exception_criteria_changed": false,
+    "all_prior_matched_paths_retained": true,
+    "all_unmatched_shapes_and_names_unchanged": true,
+    "vendor_modules_imported": 0
   }
 }

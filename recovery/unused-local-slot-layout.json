@@ -178,9 +178,34 @@
       "physical_slot_positions_preserved": true,
       "comparison_rules_changed": false,
       "new_corpus_matches": 0
+    },
+    {
+      "label": "partial-readability-01",
+      "module_path": "data/data_hourly_predictions.py",
+      "complete_module_accepted": false,
+      "matched_context_units": 70,
+      "owners": [
+        "<module>/HourlyPredictionsHandler#1/update_hourly_actual#1"
+      ],
+      "verified_owner_trees": [
+        {
+          "unit_path": "<module>/HourlyPredictionsHandler#1/update_hourly_actual#1",
+          "complete_owner_tree_units": 1,
+          "physical_slot_preserved": true,
+          "strict_owner_tree_proof_passes": true
+        }
+      ],
+      "renamed_unused_slots": 1,
+      "source_sha256": "ba995f551907cf85e0a19dee5b7b7c0a76cfe62e0a2d1b4ec9e8cf62ac72008f",
+      "physical_slot_positions_preserved": true,
+      "internal_name_variance_only": true,
+      "comparison_rules_changed": false,
+      "new_corpus_matches": 0
     }
   ],
-  "current_total_renamed_unused_slots": 11,
-  "current_total_renamed_modules": 10,
-  "initial_gate_and_suite_counts_preserved": true
+  "current_total_renamed_unused_slots": 12,
+  "current_total_renamed_modules": 11,
+  "initial_gate_and_suite_counts_preserved": true,
+  "current_complete_public_modules_with_renamed_slots": 10,
+  "current_partial_contexts_with_renamed_slots": 1
 }

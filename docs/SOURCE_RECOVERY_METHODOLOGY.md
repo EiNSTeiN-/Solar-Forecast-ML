@@ -3607,3 +3607,22 @@ No candidate is accepted and no gain is credited. These probes change actual
 conditional/loop continuation ownership rather than repeating padding counts;
 they are recorded in `recovery/weather-finalizer-loop-ownership.json`.
 Full source recovery remains unfinished at **14,273/14,291** matches.
+
+
+## Readable matched scopes in incomplete contexts
+
+Eleven explicitly incomplete contexts now expose descriptive local names for
+previously matched scopes. Their flat comparison retains all **888** previously
+matched units and the same **18** failures. The maximal disjoint owner trees
+listed in `recovery/verified-partial-manifest.json` independently prove
+**863** complete subtree units. Module/class
+parents with an unmatched descendant are not admitted as complete trees.
+
+Every unmatched function retains its original body AST, owned local names,
+normalized instructions and exception shape. These are compilation contexts,
+not complete replacement modules; they add no corpus match credit. Physical
+locals, captures, parameters, imports, schemas and docstrings are preserved.
+No recovered module body, PyArmor runtime, Home Assistant or real I/O is run.
+The public whole-module total remains **262 / 13,355**, with one additional
+private crypto module /30 units counted separately. The 17 coroutine-return
+coverage gaps and one WeatherExpert terminal-layout gap remain unaccepted.

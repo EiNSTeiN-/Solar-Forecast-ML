@@ -3664,5 +3664,13 @@
       "retained_source_layout_owners": [],
       "source_units": 37
     }
-  ]
+  ],
+  "partial_readability": {
+    "partial_contexts": 11,
+    "flat_matched_units": 888,
+    "strictly_unmatched_units": 18,
+    "fully_verified_subtree_units": 863,
+    "complete_module_accepted": false,
+    "new_corpus_matches": 0
+  }
 }
