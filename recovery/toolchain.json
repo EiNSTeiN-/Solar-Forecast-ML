@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 124,
-    "complete_readable_module_code_units": 6853,
+    "complete_readable_module_matches": 127,
+    "complete_readable_module_code_units": 7149,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1280,6 +1280,56 @@
       "renamed_bindings": 699,
       "scoped_maps": 124,
       "removed_empty_artifacts": 54,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-13": {
+      "modules": [
+        {
+          "module_path": "extra_features/sfml_stats/api/common.py",
+          "matched_units": 103,
+          "scoped_maps": 33,
+          "renamed_bindings": 132,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "46156954e0584c3f10829afde839422c59797b92c8b0aba5221fcd962288251c",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/api/tomorrow.py",
+          "matched_units": 98,
+          "scoped_maps": 43,
+          "renamed_bindings": 231,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "c077ffe31e7094e499f5143afa6416d1b15ee0580b8b795b9c2f13418b9756da",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/weather_intelligence.py",
+          "matched_units": 95,
+          "scoped_maps": 36,
+          "renamed_bindings": 196,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "afcd369430f593f1a35570831d74d532cb78e0e594ed8a6d417b982d00fade20",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 127,
+      "readable_units": 7149,
+      "new_readable_modules": 3,
+      "new_readable_units": 296,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 559,
+      "scoped_maps": 112,
+      "removed_empty_artifacts": 27,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }

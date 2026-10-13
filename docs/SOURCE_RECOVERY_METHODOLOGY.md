@@ -2802,3 +2802,32 @@ GPM coordination preserves the license recheck callback captures, provider/cache
 The previously passed203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable STATS shared API, tomorrow view and weather intelligence
+
+Root-authored source names **559 bindings across
+112 actual scopes**, exposing **296
+already-proved units**. It removes27 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**127 modules /7,149 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/api/common.py` | 103 | 132 | 33 |
+| `extra_features/sfml_stats/api/tomorrow.py` | 98 | 231 | 43 |
+| `extra_features/solar_forecast_eai/weather_intelligence.py` | 95 | 196 | 36 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+The shared API names clarify release integrity paths, client addresses and networks, completed/clean evaluation counters, database fallback and forecast-versus-actual error denominators. Tomorrow views preserve the max-export and selected-day captures while distinguishing timeline quality, SOC, journal records and period totals. Weather intelligence preserves independent station-versus-recorder provenance, official-alert priority, warning evidence, trend thresholds and HTTP cancellation routes.
+
+The previously passed203-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

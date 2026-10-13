@@ -1165,7 +1165,7 @@
       "matched_units": 103,
       "reference_units": 103,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 103
     },
     {
@@ -1504,7 +1504,7 @@
       "matched_units": 98,
       "reference_units": 98,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_selected_day_bundle#1"
       ],
@@ -3217,7 +3217,7 @@
       "matched_units": 95,
       "reference_units": 95,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherIntelligenceEngine#1/_latest_actual#1"
       ],

@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-124 readable whole modules (6,853 nested units) and passes 203 selected
+127 readable whole modules (7,149 nested units) and passes 203 selected
 test methods (196 application checks and seven source/coverage checks). The full
 corpus has 260 completely matched candidate modules and 14,270/14,291 matching
 units; 21 units remain. Candidate fidelity
@@ -627,6 +627,35 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 GPM coordination preserves the license recheck callback captures, provider/cache fields, current-hour selection and retry cancellation. Corrected energy distinguishes raw versus corrected kWh, scaling bases, prices, cost units and read-only query rows; the public values capture stays fixed in all three generator children. Thermodynamics preserves sorting lambdas, actual time imports, engine U-factor restoration and heating/hot-water energy routing. Formatting preserves each original docstring value.
+
+The previously passed203-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable STATS shared API, tomorrow view and weather intelligence
+
+Root-authored source names **559 bindings across
+112 actual scopes**, exposing **296
+already-proved units**. It removes27 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**127 modules /7,149 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/api/common.py` | 103 | 132 | 33 |
+| `extra_features/sfml_stats/api/tomorrow.py` | 98 | 231 | 43 |
+| `extra_features/solar_forecast_eai/weather_intelligence.py` | 95 | 196 | 36 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+The shared API names clarify release integrity paths, client addresses and networks, completed/clean evaluation counters, database fallback and forecast-versus-actual error denominators. Tomorrow views preserve the max-export and selected-day captures while distinguishing timeline quality, SOC, journal records and period totals. Weather intelligence preserves independent station-versus-recorder provenance, official-alert priority, warning evidence, trend thresholds and HTTP cancellation routes.
 
 The previously passed203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
