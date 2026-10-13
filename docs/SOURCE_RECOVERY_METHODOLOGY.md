@@ -2886,3 +2886,31 @@ Actual-weather tracking preserves the freeze detector recent-values capture, com
 The previously passed206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable Energy AI data manager and weather precision tracker
+
+Root-authored source names **199 bindings across
+46 actual scopes**, exposing **176
+already-proved units**. It removes72 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**132 modules /7,597 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/solar_forecast_eai/data/data_manager.py` | 88 | 102 | 26 |
+| `extra_features/weather_fusion_ai/ai/precision_tracker.py` | 88 | 97 | 20 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Energy AI data-manager names distinguish power in kW from legacy database column names; the original hour-zero truthiness fallback and stored schemas remain intact. The weather precision tracker retains cloud, combined, expert, hourly and seasonal capture ordering, including cutoff before self, and preserves optional imported symbols while naming their local bindings. Both complete modules retain docstring values, parameters, instructions and exception coverage after formatting.
+
+The previously passed206-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

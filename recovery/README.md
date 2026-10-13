@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-130 readable whole modules (7,421 nested units) and passes 206 selected
+132 readable whole modules (7,597 nested units) and passes 206 selected
 test methods (196 application checks and ten source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -711,6 +711,34 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 Actual-weather tracking preserves the freeze detector recent-values capture, compiler annotation/class captures, sensor constants and fog imports while distinguishing measurements, units and lifecycle state. The data manager keeps forecast locks, database interfaces, persisted profiles and optional join fields intact. Open-Meteo names distinguish provider-specific radiation, missing versus zero values, date coverage, endpoint failover and retries; shared rate-limit list identity, daylight-saving boundaries and cancellation routes remain unchanged.
+
+The previously passed206-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable Energy AI data manager and weather precision tracker
+
+Root-authored source names **199 bindings across
+46 actual scopes**, exposing **176
+already-proved units**. It removes72 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**132 modules /7,597 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/solar_forecast_eai/data/data_manager.py` | 88 | 102 | 26 |
+| `extra_features/weather_fusion_ai/ai/precision_tracker.py` | 88 | 97 | 20 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Energy AI data-manager names distinguish power in kW from legacy database column names; the original hour-zero truthiness fallback and stored schemas remain intact. The weather precision tracker retains cloud, combined, expert, hourly and seasonal capture ordering, including cutoff before self, and preserves optional imported symbols while naming their local bindings. Both complete modules retain docstring values, parameters, instructions and exception coverage after formatting.
 
 The previously passed206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or

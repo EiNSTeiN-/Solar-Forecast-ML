@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 130,
-    "complete_readable_module_code_units": 7421,
+    "complete_readable_module_matches": 132,
+    "complete_readable_module_code_units": 7597,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1580,6 +1580,46 @@
       "renamed_bindings": 521,
       "scoped_maps": 104,
       "removed_empty_artifacts": 63,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-15": {
+      "modules": [
+        {
+          "module_path": "extra_features/solar_forecast_eai/data/data_manager.py",
+          "matched_units": 88,
+          "scoped_maps": 26,
+          "renamed_bindings": 102,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "d3b0667a4e24c2e980d7ec92ce06802bbf5d5bfcbf67675419f4fc9a09777345",
+          "docstring_values_restored_after_formatting": 11,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/weather_fusion_ai/ai/precision_tracker.py",
+          "matched_units": 88,
+          "scoped_maps": 20,
+          "renamed_bindings": 97,
+          "removed_empty_artifacts": 54,
+          "source_sha256": "0035db83b6c5546fd92d68c656f8ee657da46b1e734f177298da36c31c658301",
+          "docstring_values_restored_after_formatting": 2,
+          "verified_return_layout_owners": [],
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 132,
+      "readable_units": 7597,
+      "new_readable_modules": 2,
+      "new_readable_units": 176,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 199,
+      "scoped_maps": 46,
+      "removed_empty_artifacts": 72,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }

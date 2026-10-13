@@ -2607,7 +2607,7 @@
       "matched_units": 88,
       "reference_units": 88,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DataManager#1/_load_shadow_detection_for_date#1"
       ],
@@ -3206,7 +3206,7 @@
       "matched_units": 88,
       "reference_units": 88,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 88
     },
     {
