@@ -3545,3 +3545,39 @@ The two weather processors retain their original distinct direct-radiation conve
 The previously passed 212-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Final readable heat-pump, charging, support, dependency and forecast candidates
+
+Root-authored source names **262 bindings across
+54 actual scopes**, exposing **139
+already-proved units**. It removes 81 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**262 modules / 13,355 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/core/heatpump_today.py` | 18 | 31 | 9 |
+| `extra_features/sfml_stats/core/charging_status.py` | 11 | 17 | 5 |
+| `extra_features/sfml_stats/core/support_submit.py` | 11 | 12 | 2 |
+| `extra_features/solar_forecast_eai/thermal_loss.py` | 16 | 50 | 10 |
+| `core/core_dependency_handler.py` | 16 | 19 | 6 |
+| `extra_features/sfml_stats/mock/eai/scenarios.py` | 15 | 35 | 6 |
+| `extra_features/solar_forecast_eai/ai/ai_seasonal.py` | 12 | 14 | 4 |
+| `forecast/forecast_tfs_client.py` | 10 | 16 | 3 |
+| `extra_features/solar_forecast_eai/core/core_coordinator_update_helpers.py` | 18 | 37 | 7 |
+| `extra_features/solar_forecast_eai/consumption/consumption_rule_based_strategy.py` | 12 | 31 | 2 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Names expose heat-pump measured/source precedence, energy rounding and residual PV allocation; charging finite-value guards and force/observe decisions; support submission payload, cookie/token exchange and failure/cancellation handling; thermal coefficients and temperature-loss quantities; dependency installation state; owned mock scenario gates and schemas; seasonal learning sample boundaries; TFS six-hour retrieval policy; coordinator lock/statistics/noon-recovery writes; and EAI consumption COP/configuration/hourly-cap/result fields. Literal parameters, actual imports, public schemas, physical slots and ordered captures remain fixed. Original URLs and wire protocols are preserved without issuing requests. All descendant instruction and exception proofs and every published source hash/subtree are checked under .37. These exhaust complete candidates with publicly publishable source; the separately counted crypto module remains local, and incomplete contexts remain a separate review.
+
+The previously passed 212-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

@@ -252,7 +252,7 @@
       "matched_units": 16,
       "reference_units": 16,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DependencyHandler#1/_get_package_version_sync#1"
       ],
@@ -1485,7 +1485,7 @@
       "matched_units": 11,
       "reference_units": 11,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_hour_number#1"
       ],
@@ -1748,7 +1748,7 @@
       "matched_units": 18,
       "reference_units": 18,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 18
     },
     {
@@ -1896,7 +1896,7 @@
       "matched_units": 11,
       "reference_units": 11,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/submit_report#1"
       ],
@@ -1952,7 +1952,7 @@
       "matched_units": 15,
       "reference_units": 15,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_forecast#1"
       ],
@@ -2193,7 +2193,7 @@
       "matched_units": 12,
       "reference_units": 12,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 12
     },
     {
@@ -2315,7 +2315,7 @@
       "matched_units": 12,
       "reference_units": 12,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/RuleBasedForecastStrategy#1/calculate_forecast#1"
       ],
@@ -2390,7 +2390,7 @@
       "matched_units": 18,
       "reference_units": 18,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 18
     },
     {
@@ -2868,7 +2868,7 @@
       "matched_units": 16,
       "reference_units": 16,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/thermal_loss_snapshot#1"
       ],
@@ -3141,7 +3141,7 @@
       "matched_units": 10,
       "reference_units": 10,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/TFSClient#1/is_available#1"
       ],
