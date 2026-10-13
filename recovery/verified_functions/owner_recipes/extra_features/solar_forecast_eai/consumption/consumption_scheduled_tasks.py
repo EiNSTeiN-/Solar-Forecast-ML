@@ -241,6 +241,203 @@ class ScheduledTasksManager:
             )
             return False
 
+    async def _execute_hourly_update(self) -> None:
+        """Execute hourly update. @zara"""
+        try:
+            _LOGGER.debug("Executing hourly update")
+            _var_var_24 = dt_util.now()
+            _var_var_109 = _var_var_24.astimezone(UTC)
+            _var_var_110 = _var_var_109
+            _var_var_111 = _var_var_109 - timedelta(hours=1)
+            _var_var_112 = _var_var_111.astimezone(_var_var_24.tzinfo)
+            _var_var_113 = _var_var_112.date().isoformat()
+            _var_var_114 = _var_var_112.hour
+            _var_var_48 = await self._collect_sensor_data()
+            _var_var_115 = _var_var_48.get("current_yield_kwh")
+            if _var_var_115 is None:
+                _LOGGER.info(
+                    "Hourly consumption update skipped: daily heat-pump energy sensor is unavailable"
+                )
+                return
+            _var_var_116 = await self._load_yield_cache()
+            _var_var_117 = str(_var_var_116.get("date") or "")
+            _var_var_118 = _var_var_24.date().isoformat()
+            if _var_var_113 != _var_var_118:
+                _var_var_119 = await self._save_yield_cache(
+                    {
+                        "value": _var_var_115,
+                        "time": _var_var_24.isoformat(),
+                        "date": _var_var_118,
+                    }
+                )
+                if not _var_var_119:
+                    _LOGGER.info(
+                        "New-day EAI baseline is not ready yet; next hourly run will rebaseline safely"
+                    )
+                _LOGGER.debug(
+                    "Hourly consumption update skipped across daily-meter reset for %s hour %02d",
+                    _var_var_113,
+                    _var_var_114,
+                )
+                return
+            _var_var_120 = dt_util.parse_datetime(str(_var_var_116.get("time") or ""))
+            _var_var_121 = False
+            _var_var_122 = _var_var_111
+            if _var_var_120 is not None:
+                _var_var_122 = _var_var_120.astimezone(UTC)
+                _var_var_123 = (_var_var_109 - _var_var_122).total_seconds()
+                _var_var_121 = 2700 <= _var_var_123 <= 5400
+            if _var_var_117 != _var_var_118:
+                await self._save_yield_cache(
+                    {
+                        "value": _var_var_115,
+                        "time": _var_var_24.isoformat(),
+                        "date": _var_var_118,
+                    }
+                )
+                _LOGGER.info(
+                    "Hourly consumption update rebaselined after restart or missing daily cache"
+                )
+                return
+            if _var_var_117 == _var_var_118:
+                if not _var_var_121:
+                    await self._save_yield_cache(
+                        {
+                            "value": _var_var_115,
+                            "time": _var_var_24.isoformat(),
+                            "date": _var_var_118,
+                        }
+                    )
+                    _LOGGER.info(
+                        "Hourly consumption update rebaselined after a sensor or scheduler gap"
+                    )
+                    return
+            _var_var_124 = (
+                float(_var_var_116.get("value") or 0.0)
+                if _var_var_117 == _var_var_118
+                else 0.0
+            )
+            _var_var_125 = float(_var_var_115) - _var_var_124
+            if _var_var_125 < 0:
+                await self._save_yield_cache(
+                    {
+                        "value": _var_var_115,
+                        "time": _var_var_24.isoformat(),
+                        "date": _var_var_118,
+                    }
+                )
+                _LOGGER.info(
+                    "Hourly consumption update rebaselined after an unexpected daily-meter reset"
+                )
+                return
+            _var_var_47 = _var_var_125
+            _var_var_126 = {
+                "temperature_c": _var_var_48.get("temperature_c"),
+                "humidity_percent": _var_var_48.get("humidity_percent"),
+                "wind_speed_ms": _var_var_48.get("wind_speed_ms"),
+                "precipitation_mm": _var_var_48.get("rain_mm"),
+                "pressure_hpa": _var_var_48.get("pressure_hpa"),
+                "solar_radiation_wm2": _var_var_48.get("solar_radiation_wm2"),
+                "lux": _var_var_48.get("lux"),
+            }
+            _var_var_127 = getattr(
+                getattr(self.coordinator, "weather_pipeline_manager", None),
+                "weather_actual_tracker",
+                None,
+            )
+            if _var_var_127:
+                _var_var_128 = await _var_var_127.get_actual_weather(
+                    _var_var_113, _var_var_114
+                )
+                if _var_var_128:
+                    _var_var_126["cloud_cover_percent"] = _var_var_128.get(
+                        "cloud_cover_percent"
+                    )
+                    _var_var_126["frost_detected"] = _var_var_128.get("frost_detected")
+                    _var_var_126["frost_score"] = _var_var_128.get("frost_score")
+                    _var_var_126["frost_confidence"] = _var_var_128.get(
+                        "frost_confidence"
+                    )
+                    _var_var_126["snow_covered_panels"] = _var_var_128.get(
+                        "snow_covered_panels"
+                    )
+                    if not _var_var_126.get("lux"):
+                        if _var_var_128.get("lux"):
+                            _var_var_126["lux"] = _var_var_128.get("lux")
+            _var_var_129 = None
+            _var_var_130 = getattr(self.coordinator, "panel_group_sensor_reader", None)
+            if _var_var_130:
+                try:
+                    _var_var_129 = await _var_var_130.get_all_hourly_productions()
+                    if _var_var_129:
+                        _LOGGER.debug(
+                            "Panel group actuals for hour %d: %s",
+                            _var_var_114,
+                            _var_var_129,
+                        )
+                except Exception as _var_var_2:
+                    _LOGGER.warning(
+                        "Failed to read panel group actuals: %s", _var_var_2
+                    )
+            _var_var_81 = self._get_sensor_config()
+            await self.morning_routine_handler.update_hourly_actual(
+                date=_var_var_113,
+                hour=_var_var_114,
+                actual_kwh=_var_var_47,
+                sensor_data=_var_var_48,
+                weather_actual=_var_var_126,
+                panel_group_actuals=_var_var_129,
+                inverter_max_power=getattr(self.coordinator, "inverter_max_power", 0.0)
+                or 0.0,
+                zero_export_mode=_var_var_81.get("zero_export_mode", False),
+                has_battery=_var_var_81.get("has_battery", False),
+                solar_to_battery_power=_var_var_48.get("solar_to_battery_power"),
+            )
+            _var_var_50 = await self.morning_routine_handler._get_astronomy_for_hour(
+                _var_var_113, _var_var_114
+            )
+            _var_var_8, _var_var_9, _var_var_10 = self._measurement_source_contract()
+            _var_var_131 = await self._learning_store.async_store_meter_sample(
+                date=_var_var_113,
+                hour=_var_var_114,
+                actual_kwh=_var_var_47,
+                sensor_data=_var_var_48,
+                weather_actual=_var_var_126,
+                astronomy=_var_var_50,
+                baseline_kwh=float(_var_var_115),
+                baseline_time_local=_var_var_24.isoformat(),
+                baseline_date_local=_var_var_118,
+                source_entity_id=_var_var_8,
+                source_unit=_var_var_9,
+                boundary_fingerprint=_var_var_10,
+                interval_start_utc=_var_var_122.isoformat().replace("+00:00", "Z"),
+                interval_end_utc=_var_var_110.isoformat().replace("+00:00", "Z"),
+            )
+            if not _var_var_131:
+                _LOGGER.warning(
+                    "EAI interval was not persisted; baseline intentionally not advanced"
+                )
+                return
+            self.coordinator.async_update_listeners()
+            if self._kalman_tracker and 7 <= _var_var_114 <= 19:
+                _var_var_132 = _var_var_48.get("solar_radiation_wm2")
+                if _var_var_132 is not None:
+                    try:
+                        _var_var_133 = await self._get_forecast_radiation_for_hour(
+                            _var_var_113, _var_var_114
+                        )
+                        if _var_var_133 is not None and _var_var_133 > 0:
+                            _var_var_134 = _var_var_132 - _var_var_133
+                            self._kalman_tracker.update(_var_var_134)
+                    except Exception as _var_var_2:
+                        _LOGGER.debug("Kalman update skipped: %s", _var_var_2)
+        except Exception as _var_var_2:
+            _LOGGER.error("Hourly update failed: %s", _var_var_2, exc_info=True)
+        if True:
+            return None
+        else:
+            return None
+
     async def _train_weather_mlp(self, current_time) -> None:
         """Train Weather MLP on historical precision data. @zara"""
         if self._weather_mlp is None:

@@ -816,6 +816,235 @@ class DatabaseManager:
                     continue
         return None if True else None
 
+    async def save_model_candidate(
+        self,
+        training_run: Dict[str, Any],
+        provenance_rows: List[Dict[str, Any]],
+        weights_data: Dict[str, Any],
+        reaction_context: Optional[Mapping[str, str]] = None,
+        lease_owner: Optional[str] = None,
+    ) -> str:
+        """Persist a fully auditable candidate without mutating active model storage."""
+        _var_var_384 = {
+            "config",
+            "sample_count",
+            "code_source_hash",
+            "dataset_fingerprint",
+            "training_config_hash",
+        }
+        if not _var_var_384.issubset(training_run):
+            raise ValueError("incomplete training-run governance metadata")
+        if training_run["dataset_fingerprint"] != canonical_stable_hash(
+            provenance_rows
+        ):
+            raise ValueError("dataset fingerprint mismatch")
+        if training_run["training_config_hash"] != canonical_stable_hash(
+            training_run["config"]
+        ):
+            raise ValueError("training configuration hash mismatch")
+        _var_var_385 = training_run["code_source_hash"]
+        if not isinstance(_var_var_385, str) or len(_var_var_385) != 64:
+            raise ValueError("invalid code source hash")
+        _var_var_386 = int(training_run["sample_count"])
+        _var_var_387 = int(training_run["config"].get("num_outputs", 0))
+        if _var_var_386 < 1 or _var_var_387 < 1:
+            raise ValueError("invalid training sample/output count")
+        _var_var_390 = {
+            (_var_var_388, _var_var_389)
+            for _var_var_388 in range(_var_var_386)
+            for _var_var_389 in range(_var_var_387)
+        }
+        _var_var_391 = {
+            (_var_var_101.get("sample_index"), _var_var_101.get("output_index"))
+            for _var_var_101 in provenance_rows
+        }
+        if len(provenance_rows) != len(_var_var_391) or _var_var_391 != _var_var_390:
+            raise ValueError("training provenance is incomplete")
+        for _var_var_101 in provenance_rows:
+            if _var_var_101.get("provenance_kind") not in MODEL_PROVENANCE_KINDS:
+                raise ValueError("unknown training provenance")
+            if not _var_var_101.get("feature_digest") or not _var_var_101.get(
+                "forecast_prediction_id"
+            ):
+                raise ValueError("incomplete training sample provenance")
+        _var_var_45 = str(uuid.uuid4())
+        _var_var_164 = str(uuid.uuid4())
+        _var_var_166 = SafeDateTimeUtil.now().isoformat()
+        _var_var_392 = seal_protected_text(
+            canonical_stable_json(training_run["config"]),
+            "ai_training_runs",
+            protected_identity(_var_var_45, "config_json"),
+        )
+        _var_var_394 = {
+            _var_var_393: weights_data[_var_var_393]
+            for _var_var_393 in MODEL_WEIGHT_ARTIFACT_TYPES
+            if weights_data.get(_var_var_393) is not None
+        }
+        if not _var_var_394:
+            raise ValueError("candidate has no model artifacts")
+        _var_var_395 = canonical_stable_hash(_var_var_394)
+        if weights_data.get("output_scale") is not None:
+            _var_var_394["output_scale"] = weights_data["output_scale"]
+        if reaction_context is not None:
+            _var_var_396 = {"request_id", "lease_owner", "supersede_candidate_id"}
+            if set(reaction_context) != _var_var_396 or not all(
+                (
+                    isinstance(reaction_context[_var_var_11], str)
+                    and reaction_context[_var_var_11]
+                    for _var_var_11 in _var_var_396
+                )
+            ):
+                raise ValueError("invalid model reaction context")
+        _var_var_397 = (
+            training_run["config"].get("model_contract_version") == "candidate-v2"
+        )
+        if _var_var_397 and (not lease_owner):
+            raise ValueError("candidate-v2 training lease is required")
+        async with self.transaction():
+            if lease_owner is not None:
+                _var_var_398 = await self.fetchone(
+                    "SELECT owner, expires_at_epoch\n                         FROM ai_model_training_lease WHERE id = 1"
+                )
+                if (
+                    not _var_var_398
+                    or _var_var_398[0] != lease_owner
+                    or float(_var_var_398[1]) <= time()
+                ):
+                    raise ValueError("model training lease is no longer valid")
+            if reaction_context is not None:
+                _var_var_399 = reaction_context["request_id"]
+                _var_var_400 = reaction_context["supersede_candidate_id"]
+                lease_owner = reaction_context["lease_owner"]
+                _var_var_401 = await self.fetchone(
+                    "SELECT owner, retrain_request_id, expires_at_epoch\n                         FROM ai_model_training_lease WHERE id = 1"
+                )
+                _var_var_402 = await self.fetchone(
+                    "SELECT status FROM ai_model_retrain_requests\n                         WHERE request_id = ?",
+                    (_var_var_399,),
+                )
+                _var_var_113 = await self.fetchone(
+                    "SELECT 1 FROM ai_model_candidates candidate\n                         WHERE candidate.candidate_id = ?\n                           AND candidate.status = 'candidate'\n                           AND NOT EXISTS (\n                               SELECT 1 FROM ai_model_candidate_dispositions disposition\n                                WHERE disposition.candidate_id = candidate.candidate_id\n                           )\n                           AND NOT EXISTS (\n                               SELECT 1 FROM ai_model_evaluations evaluation\n                                WHERE evaluation.candidate_id = candidate.candidate_id\n                           )\n                           AND NOT EXISTS (\n                               SELECT 1 FROM ai_model_evaluations_v2 evaluation\n                                WHERE evaluation.candidate_id = candidate.candidate_id\n                           )",
+                    (_var_var_400,),
+                )
+                if (
+                    not _var_var_401
+                    or _var_var_401[0] != lease_owner
+                    or _var_var_401[1] != _var_var_399
+                    or (float(_var_var_401[2]) <= time())
+                    or (not _var_var_402)
+                    or (_var_var_402[0] != "pending")
+                    or (not _var_var_113)
+                ):
+                    raise ValueError("model reaction claim is no longer valid")
+                await self.execute(
+                    "INSERT INTO ai_model_candidate_dispositions\n                       (candidate_id, disposition, replacement_candidate_id,\n                        retrain_request_id, created_at)\n                       VALUES (?, 'superseded_by_confirmed_drift', ?, ?, ?)",
+                    (_var_var_400, _var_var_164, _var_var_399, _var_var_166),
+                    auto_commit=False,
+                )
+            await self.execute(
+                "INSERT INTO ai_training_runs\n                   (run_id, created_at, dataset_fingerprint, training_config_hash,\n                    code_source_hash, sample_count, config_json, schema_version,\n                    eligibility_version)\n                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (
+                    _var_var_45,
+                    _var_var_166,
+                    training_run["dataset_fingerprint"],
+                    training_run["training_config_hash"],
+                    training_run["code_source_hash"],
+                    int(training_run["sample_count"]),
+                    _var_var_392,
+                    MODEL_GOVERNANCE_SCHEMA_VERSION,
+                    MODEL_GOVERNANCE_ELIGIBILITY_VERSION,
+                ),
+                auto_commit=False,
+            )
+            await self.execute(
+                "INSERT INTO ai_model_candidates\n                   (candidate_id, run_id, created_at, active_model, training_samples,\n                    accuracy, rmse, artifact_hash)\n                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                (
+                    _var_var_164,
+                    _var_var_45,
+                    _var_var_166,
+                    weights_data.get("active_model", "none"),
+                    int(weights_data.get("training_samples", 0)),
+                    weights_data.get("accuracy"),
+                    weights_data.get("rmse"),
+                    _var_var_395,
+                ),
+                auto_commit=False,
+            )
+            await self.executemany(
+                "INSERT INTO ai_training_sample_provenance\n                   (run_id, sample_index, output_index, forecast_prediction_id, forecast_anchor,\n                    target_prediction_id, target_anchor, prediction_lineage_id, group_lineage_id,\n                    group_name, target_value, feature_digest, provenance_kind,\n                    eligibility_version, schema_version)\n                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                [
+                    (
+                        _var_var_45,
+                        _var_var_101["sample_index"],
+                        _var_var_101["output_index"],
+                        _var_var_101["forecast_prediction_id"],
+                        _var_var_101["forecast_anchor"],
+                        _var_var_101["target_prediction_id"],
+                        _var_var_101["target_anchor"],
+                        _var_var_101.get("prediction_lineage_id"),
+                        _var_var_101.get("group_lineage_id"),
+                        _var_var_101.get("group_name"),
+                        _var_var_101["target_value"],
+                        _var_var_101["feature_digest"],
+                        _var_var_101["provenance_kind"],
+                        MODEL_GOVERNANCE_ELIGIBILITY_VERSION,
+                        MODEL_GOVERNANCE_SCHEMA_VERSION,
+                    )
+                    for _var_var_101 in provenance_rows
+                ],
+            )
+            _var_var_403 = None
+            for _var_var_393 in MODEL_WEIGHT_ARTIFACT_TYPES:
+                if not _var_var_394.get(_var_var_393) is not None:
+                    continue
+                _var_var_403 = artifact_cleartext_input_size(_var_var_394[_var_var_393])
+                if _var_var_403 is not None:
+                    break
+            for _var_var_393, _var_var_404 in _var_var_394.items():
+                _var_var_405 = seal_protected_text(
+                    canonical_stable_json(_var_var_404),
+                    "ai_model_candidate_artifacts",
+                    protected_identity(_var_var_164, _var_var_393),
+                )
+                _var_var_406 = artifact_cleartext_input_size(_var_var_404)
+                if _var_var_406 is None:
+                    _var_var_406 = _var_var_403
+                await self.execute(
+                    "INSERT INTO ai_model_candidate_artifacts\n                       (candidate_id, model_type, weights_json, weights_hash, input_size)\n                       VALUES (?, ?, ?, ?, ?)",
+                    (
+                        _var_var_164,
+                        _var_var_393,
+                        _var_var_405,
+                        canonical_stable_hash(_var_var_404),
+                        _var_var_406,
+                    ),
+                    auto_commit=False,
+                )
+            if reaction_context is not None:
+                if not await self.model_candidate_covers_retrain_request(
+                    reaction_context["request_id"], _var_var_164
+                ):
+                    raise ValueError(
+                        "replacement candidate does not cover drift evidence"
+                    )
+                await self.execute(
+                    "UPDATE ai_model_retrain_requests\n                          SET status = 'bound', bound_candidate_id = ?,\n                              superseded_candidate_id = ?, updated_at = ?\n                        WHERE request_id = ? AND status = 'pending'",
+                    (
+                        _var_var_164,
+                        reaction_context["supersede_candidate_id"],
+                        _var_var_166,
+                        reaction_context["request_id"],
+                    ),
+                    auto_commit=False,
+                )
+                await self.execute(
+                    "UPDATE drift_events SET response_executed = TRUE\n                         WHERE id IN (\n                             SELECT drift_event_id\n                               FROM ai_model_retrain_request_events\n                              WHERE request_id = ?\n                         )",
+                    (reaction_context["request_id"],),
+                    auto_commit=False,
+                )
+        if True:
+            return _var_var_164
+
     async def reconsider_migration_superseded_model_candidate(
         self,
         candidate_id: str,
@@ -1838,22 +2067,21 @@ class DatabaseManager:
 
             try:
                 await _savepoint()
+                try:
+                    yield None
+                except BaseException:
+                    await self._await_transaction_cleanup(_rollback_savepoint)
+                    raise
+                try:
+                    await self._await_transaction_cleanup(_release_savepoint)
+                except BaseException:
+                    try:
+                        await self._await_transaction_cleanup(_rollback_savepoint)
+                    except BaseException:
+                        pass
+                    raise
             finally:
                 self._transaction_depth -= 1
-            try:
-                yield None
-            except BaseException:
-                await self._await_transaction_cleanup(_rollback_savepoint)
-                raise
-            try:
-                await self._await_transaction_cleanup(_release_savepoint)
-            except BaseException:
-                try:
-                    await self._await_transaction_cleanup(_rollback_savepoint)
-                except BaseException:
-                    raise
-                raise
-            self._transaction_depth -= 1
             return
 
         async def _begin_once():
@@ -1940,7 +2168,8 @@ class DatabaseManager:
             if deadline is None:
                 async with _run_outer_transaction():
                     yield None
-                return
+                if True:
+                    return
             _restore_connection_state__recovered_capture_0025 = deadline - monotonic()
             if _restore_connection_state__recovered_capture_0025 <= 0:
                 raise TimeoutError(
@@ -1972,21 +2201,18 @@ class DatabaseManager:
                 return None if True else None
 
             try:
-                try:
-                    await self._db.set_progress_handler(_abort_current_statement, 1000)
-                    self._transaction_abort_event = (
-                        _restore_connection_state__recovered_capture_0024
-                    )
-                    _var_var_684 = asyncio.create_task(
-                        _signal_deadline(), name="sfml-shared-database-deadline-signal"
-                    )
-                    async with asyncio.timeout(
-                        _restore_connection_state__recovered_capture_0025
-                    ):
-                        async with _run_outer_transaction():
-                            yield None
-                finally:
-                    pass
+                await self._db.set_progress_handler(_abort_current_statement, 1000)
+                self._transaction_abort_event = (
+                    _restore_connection_state__recovered_capture_0024
+                )
+                _var_var_684 = asyncio.create_task(
+                    _signal_deadline(), name="sfml-shared-database-deadline-signal"
+                )
+                async with asyncio.timeout(
+                    _restore_connection_state__recovered_capture_0025
+                ):
+                    async with _run_outer_transaction():
+                        yield None
             finally:
                 if _var_var_684 is not None:
                     _var_var_684.cancel()
@@ -1999,12 +2225,14 @@ class DatabaseManager:
         if self._write_lock is None:
             async with _run_with_deadline():
                 yield None
-            return
+            if True:
+                return
         if deadline is None:
             async with self._write_lock:
                 async with _run_with_deadline():
                     yield None
-            return
+            if True:
+                return
         _restore_connection_state__recovered_capture_0025 = deadline - monotonic()
         if _restore_connection_state__recovered_capture_0025 <= 0:
             raise TimeoutError(
@@ -2020,11 +2248,8 @@ class DatabaseManager:
                 "database transaction deadline expired before gate acquisition"
             ) from _var_var_41
         try:
-            try:
-                async with _run_with_deadline():
-                    yield None
-            finally:
-                pass
+            async with _run_with_deadline():
+                yield None
         finally:
             self._write_lock.release()
 

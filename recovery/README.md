@@ -39,8 +39,8 @@ production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
 100 readable whole modules (2,637 nested units) and passes 196 selected
 test methods (193 application checks and three source-path checks). The full
-corpus has 233 completely matched candidate modules and 14,214/14,291 matching
-units; 77 units remain. Candidate fidelity
+corpus has 246 completely matched candidate modules and 14,242/14,291 matching
+units; 49 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -310,3 +310,20 @@ retention, daily statistics, revision increments, failures and cancellation.
 Only controlled dependencies and owned data/database fixtures execute after
 the full module proof. The selected suite now passes196 methods. This adds
 readability for an already matched module, with no additional corpus gain.
+
+
+The `owner-recipes-03` checkpoint adds 27 fully proved owner definitions across
+17 changed compilation contexts. Their 99 distinct owner-tree units include
+already matched descendants; the corpus gains 28 units with zero losses.
+The complete database manager now matches all 717 units, including deadline,
+savepoint, provenance and candidate persistence paths. Other reconstructions
+restore daily hygiene, forecasting, summary queries, weather correlations,
+consumer settings, hourly updates and export lifetimes. All old owner trees in
+changed contexts are re-proved. There are now 345 isolated entries in 149
+source files, covering 612 distinct units; 327 definitions are retained in
+candidates. These contexts are not classified as readable whole modules.
+The selected 196-method suite's executed bodies remain unchanged; complete
+source/hash/subtree checks validate every current published entry. Stable
+native .25 and source API .31 remain unchanged. A .29 native trial gains 15 raw
+units but loses one existing reader; its evidence is retained and it is held
+out of stable main. Full source equivalence and readability remain incomplete.

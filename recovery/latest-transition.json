@@ -1,12 +1,12 @@
 {
-  "previous_stage": "owner-recipes-01",
-  "current_stage": "owner-recipes-02",
-  "new_matching_units": 16,
+  "previous_stage": "owner-recipes-02",
+  "current_stage": "owner-recipes-03",
+  "new_matching_units": 28,
   "previous_matches_lost": 0,
   "raw_new_matching_units": 0,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 16,
+  "source_repair_gains": 28,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 653,
@@ -16,77 +16,125 @@
   "verified_compound_return_shapes": 12,
   "verified_attribute_callable_values": 5,
   "verified_shared_try_fragments": 140,
-  "verified_definition_overrides": 300,
+  "verified_definition_overrides": 327,
   "verified_code_units_in_overrides": 0,
   "raw_decompiler_matched_units": 13910,
   "raw_all_units_match_modules": 134,
-  "manually_reconstructed_candidate_matched_units": 14214,
+  "manually_reconstructed_candidate_matched_units": 14242,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
-    {
-      "module_path": "data/data_shadow_detection.py",
-      "unit_path": "<module>/ShadowDetector#1/_apply_learned_patterns#1"
-    },
-    {
-      "module_path": "data/data_shadow_pattern_learning.py",
-      "unit_path": "<module>/ShadowPatternLearner#1/recalculate_from_history#1"
-    },
-    {
-      "module_path": "data/data_visibility_learner.py",
-      "unit_path": "<module>/VisibilityLearner#1/learn_from_day#1"
-    },
-    {
-      "module_path": "data/data_weather_expert_blender.py",
-      "unit_path": "<module>/WeatherExpertLearner#1/learn_from_day#1"
-    },
-    {
-      "module_path": "extra_features/grid_price_monitor/tariffs/csv_import.py",
-      "unit_path": "<module>/parse_csv_bytes#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/api/gpm.py",
-      "unit_path": "<module>/public_gpm_status#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/api/shadow_views.py",
-      "unit_path": "<module>/ShadowAnalyticsView#1/get#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/api/shadow_views.py",
-      "unit_path": "<module>/ShadowFingerprintView#1/get#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/api/solar_views.py",
-      "unit_path": "<module>/SolarDataView#1/get#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_rule_based_strategy.py",
-      "unit_path": "<module>/RuleBasedForecastStrategy#1/calculate_forecast#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/consumption/consumption_scheduled_tasks.py",
-      "unit_path": "<module>/ScheduledTasksManager#1/_learn_group_method_performance#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/data/data_schema_validator.py",
-      "unit_path": "<module>/DataSchemaValidator#1/validate_and_migrate_all#1"
-    },
-    {
-      "module_path": "extra_features/solar_forecast_eai/forecast/forecast_rule_based_strategy.py",
-      "unit_path": "<module>/RuleBasedForecastStrategy#1/_calculate_hour_consumption#1"
-    },
-    {
-      "module_path": "production/production_morning_routine.py",
-      "unit_path": "<module>/MorningRoutineHandler#1/update_hourly_actual#1"
-    },
-    {
-      "module_path": "production/production_rule_based_strategy.py",
-      "unit_path": "<module>/RuleBasedForecastStrategy#1/calculate_forecast#1"
-    },
-    {
-      "module_path": "production/production_scheduled_tasks.py",
-      "unit_path": "<module>/ScheduledTasksManager#1/_correct_curtailment_learning_exclusions#1"
-    }
+    [
+      "ai/ai_drift_monitor.py",
+      "<module>/DriftMonitor#1/calculate_rolling_metrics#1"
+    ],
+    [
+      "data/data_schema_validator.py",
+      "<module>/DataSchemaValidator#1/validate_and_migrate_all#1"
+    ],
+    [
+      "data/db_manager.py",
+      "<module>/DatabaseManager#1/save_model_candidate#1"
+    ],
+    [
+      "data/db_manager.py",
+      "<module>/DatabaseManager#1/transaction#1"
+    ],
+    [
+      "data/db_manager.py",
+      "<module>/DatabaseManager#1/transaction#1/_run_with_deadline#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/consumer_views.py",
+      "<module>/AmortizationView#1/_load_monthly_cashflows#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/consumer_views.py",
+      "<module>/ConsumerDetailView#1/get#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/export_views.py",
+      "<module>/_export_billing_rows#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/export_views.py",
+      "<module>/_export_energy_rows#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/export_views.py",
+      "<module>/_export_legacy_daily_rows#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/export_views.py",
+      "<module>/_export_smart_charging_rows#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/hubble.py",
+      "<module>/_hubble_build_memory#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/settings_views.py",
+      "<module>/SettingsDashboardView#1/_collect_ai_info#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/settings_views.py",
+      "<module>/SettingsDashboardView#1/get#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/solar_views.py",
+      "<module>/SummaryDataView#1/get#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/solar_views.py",
+      "<module>/_build_hubble_summary#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/weather_views.py",
+      "<module>/EnergySourcesDailyStatsView#1/get#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/weather_views.py",
+      "<module>/WeatherDashboardView#1/_get_astronomy#1"
+    ],
+    [
+      "extra_features/sfml_stats/api/weather_views.py",
+      "<module>/WeatherDashboardView#1/get#1"
+    ],
+    [
+      "extra_features/solar_forecast_eai/consumption/consumption_history.py",
+      "<module>/ProductionCalculator#1/get_weather_correlation#1"
+    ],
+    [
+      "extra_features/solar_forecast_eai/consumption/consumption_morning_routine.py",
+      "<module>/MorningRoutineHandler#1/_create_daily_predictions#1"
+    ],
+    [
+      "extra_features/solar_forecast_eai/consumption/consumption_scheduled_tasks.py",
+      "<module>/ScheduledTasksManager#1/_execute_hourly_update#1"
+    ],
+    [
+      "extra_features/solar_forecast_eai/data/data_manager.py",
+      "<module>/DataManager#1/_load_shadow_detection_for_date#1"
+    ],
+    [
+      "extra_features/solar_forecast_eai/data/data_shadow_pattern_learning.py",
+      "<module>/ShadowPatternLearner#1/learn_from_day#1"
+    ],
+    [
+      "production/production_history.py",
+      "<module>/ProductionCalculator#1/get_weather_correlation#1"
+    ],
+    [
+      "production/production_morning_routine.py",
+      "<module>/MorningRoutineHandler#1/_persist_daily_predictions#1"
+    ],
+    [
+      "production/production_scheduled_tasks.py",
+      "<module>/ScheduledTasksManager#1/_run_daily_data_hygiene_audit#1"
+    ],
+    [
+      "production/production_scheduled_tasks.py",
+      "<module>/ScheduledTasksManager#1/_train_weather_mlp#1"
+    ]
   ],
   "rejected_intermediate_stage": {
     "stage": "investigated-repairs-01",
@@ -98,14 +146,19 @@
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
   "new_complete_candidate_modules": [
-    "data/data_shadow_detection.py",
-    "data/data_visibility_learner.py",
-    "extra_features/grid_price_monitor/tariffs/csv_import.py",
-    "extra_features/sfml_stats/api/gpm.py",
-    "extra_features/solar_forecast_eai/consumption/consumption_rule_based_strategy.py",
-    "extra_features/solar_forecast_eai/data/data_schema_validator.py",
-    "extra_features/solar_forecast_eai/forecast/forecast_rule_based_strategy.py",
-    "production/production_rule_based_strategy.py"
+    "ai/ai_drift_monitor.py",
+    "data/data_schema_validator.py",
+    "data/db_manager.py",
+    "extra_features/sfml_stats/api/consumer_views.py",
+    "extra_features/sfml_stats/api/export_views.py",
+    "extra_features/sfml_stats/api/hubble.py",
+    "extra_features/sfml_stats/api/settings_views.py",
+    "extra_features/sfml_stats/api/weather_views.py",
+    "extra_features/solar_forecast_eai/consumption/consumption_history.py",
+    "extra_features/solar_forecast_eai/consumption/consumption_morning_routine.py",
+    "extra_features/solar_forecast_eai/data/data_manager.py",
+    "extra_features/solar_forecast_eai/data/data_shadow_pattern_learning.py",
+    "production/production_history.py"
   ],
   "new_readable_modules": [],
   "verified_coupled_statement_shapes": 79,
@@ -117,15 +170,23 @@
   "verified_payload_and_handler_shapes": 39,
   "verified_physical_local_slots": 3,
   "verified_displaced_context_results": 8,
-  "source_reconstructed_owners": 16,
-  "source_compilation_context_files": 15,
-  "newly_proved_owner_tree_units": 26,
-  "isolated_distinct_proved_units": 515,
+  "source_reconstructed_owners": 27,
+  "source_compilation_context_files": 17,
+  "newly_proved_owner_tree_units": 99,
+  "isolated_distinct_proved_units": 612,
   "generic_decompiler_gains": 0,
   "rejected_async_normal_exit_checkpoint": {
     "stage": "async-normal-exits-01",
     "raw_gained": 18,
     "raw_lost": 10,
     "reason": "The widened normal-exit recognizer loses prior branch/return reconstructions; held out of stable main."
+  },
+  "rejected_async_exit_ownership_checkpoint": {
+    "stage": "async-exit-ownership-01",
+    "raw_gained": 15,
+    "raw_lost": 1,
+    "composite_gained": 3,
+    "composite_lost": 1,
+    "reason": "SolarDataReader.async_get_model_state loses a protected continuation. Native .29 remains excluded from stable main; source publication uses .25/.31."
   }
 }

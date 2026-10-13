@@ -64,6 +64,610 @@ from ..core.core_panel_group_forecast import (
 
 class MorningRoutineHandler:
 
+    async def _persist_daily_predictions(
+        self,
+        date: str,
+        hourly_forecast: List[Dict[str, Any]],
+        weather_forecast: List[Dict[str, Any]],
+        astronomy_data: Dict[str, Any],
+        sensor_config: Dict[str, Any],
+        inverter_max_power: float = 0.0,
+        morning_batch_id: str = "",
+        candidate_shadow: Optional[Dict[str, Any]] = None,
+        forecast_cycle: str = "",
+    ) -> tuple[
+        set,
+        List[str],
+        Dict[str, float],
+        Dict[str, Dict[str, Any]],
+        Dict[Tuple[str, str], float],
+        float,
+    ]:
+        """Persist the core morning forecast inside the caller's transaction.
+
+        00:25 writes a fallback today lock. pre_sunrise unlocks that fallback,
+        writes fresh weather hours, and becomes the today anchor. After that
+        canonical lock, later runs keep today's hours and may still refresh
+        tomorrow / day-after. Raises on error so retry logic can handle it.
+        """
+        if False:
+            __assert_armored__ = None
+        _LOGGER.info("  ├─ Checking existing forecast locks...")
+        _var_var_16 = await self.db.fetchone(
+            "SELECT COUNT(*) as count FROM hourly_predictions WHERE target_date = ?",
+            (date,),
+        )
+        _var_var_17 = _var_var_16[0] if _var_var_16 else 0
+        if _var_var_17 > 0:
+            _LOGGER.info(
+                "  │  Found %d existing predictions - will update", _var_var_17
+            )
+        _var_var_18 = await self.db.fetchone(
+            "SELECT locked, locked_at, source, prediction_kwh FROM daily_forecasts\n               WHERE forecast_type = 'today' AND forecast_date = ?",
+            (date,),
+        )
+        _var_var_19 = str(_var_var_18[2] or "") if _var_var_18 else ""
+        _var_var_20 = preserve_existing_today_morning_lock(
+            has_today_hours=_var_var_17 > 0,
+            locked=bool(_var_var_18 and _var_var_18[0]),
+            lock_source=_var_var_19,
+            forecast_cycle=forecast_cycle,
+            locked_at=_var_var_18[1] if _var_var_18 else None,
+        )
+        _var_var_21 = None
+        if _var_var_20 and _var_var_18 and (_var_var_18[3] is not None):
+            _var_var_21 = float(_var_var_18[3])
+        _var_var_22 = (
+            _var_var_19
+            if _var_var_20 and _var_var_19
+            else today_lock_source_for_cycle(forecast_cycle)
+        )
+        if _var_var_18 and _var_var_18[0]:
+            if not _var_var_20:
+                _LOGGER.info(
+                    "  │  Unlocking daily_forecast (was locked at %s by %s) for cycle=%s",
+                    _var_var_18[1],
+                    _var_var_18[2],
+                    forecast_cycle or "unspecified",
+                )
+                await self.db.execute(
+                    "UPDATE daily_forecasts SET locked = 0\n                   WHERE forecast_type = 'today' AND forecast_date = ?",
+                    (date,),
+                )
+        _LOGGER.info("  ├─ Preparing to update predictions for 3 days...")
+        from datetime import timedelta as _var_var_23
+
+        _var_var_24 = datetime.fromisoformat(date).date()
+        _var_var_25 = set()
+        for _var_var_26 in hourly_forecast:
+            _var_var_3 = _var_var_26.get("hour")
+            _var_var_27 = _var_var_26.get("date")
+            if not _var_var_3 is None and (not not _var_var_27):
+                if _var_var_20:
+                    if _var_var_27 == date:
+                        continue
+                _var_var_25.add(f"{_var_var_27}_{_var_var_3:02d}")
+        _var_var_28 = {}
+        _var_var_29 = {}
+        _var_var_30 = {}
+        _var_var_31 = {}
+        if _var_var_25:
+            _var_var_32 = ",".join(["?"] * len(_var_var_25))
+            _var_var_33 = tuple(_var_var_25)
+            _var_var_34 = await self.db.fetchall(
+                f"SELECT prediction_id, actual_kwh, has_sensor_data\n                    FROM hourly_predictions\n                    WHERE prediction_id IN ({_var_var_32}) AND actual_kwh IS NOT NULL",
+                _var_var_33,
+            )
+            for _var_var_35 in _var_var_34:
+                _var_var_28[_var_var_35[0]] = {
+                    "actual_kwh": _var_var_35[1],
+                    "has_sensor_data": _var_var_35[2],
+                }
+            _var_var_36 = await self.db.fetchall(
+                f"SELECT prediction_id, group_name, actual_kwh\n                    FROM prediction_panel_groups\n                    WHERE prediction_id IN ({_var_var_32}) AND actual_kwh IS NOT NULL",
+                _var_var_33,
+            )
+            for _var_var_35 in _var_var_36:
+                _var_var_29[_var_var_35[0], _var_var_35[1]] = _var_var_35[2]
+            _var_var_37 = await self.db.fetchall(
+                f"SELECT prediction_id, temperature_c, humidity_percent,\n                       solar_radiation_wm2, rain_mm, wind_speed_ms\n                    FROM prediction_sensor_actual\n                    WHERE prediction_id IN ({_var_var_32})",
+                _var_var_33,
+            )
+            for _var_var_35 in _var_var_37:
+                _var_var_30[_var_var_35[0]] = {
+                    "temperature_c": _var_var_35[1],
+                    "humidity_percent": _var_var_35[2],
+                    "solar_radiation_wm2": _var_var_35[3],
+                    "rain_mm": _var_var_35[4],
+                    "wind_speed_ms": _var_var_35[5],
+                }
+            _var_var_38 = await self.db.fetchall(
+                f"SELECT prediction_id, temperature, solar_radiation_wm2, wind,\n                       humidity, rain, clouds, pressure, lux,\n                       frost_detected, frost_score, frost_confidence\n                    FROM prediction_weather\n                    WHERE prediction_id IN ({_var_var_32}) AND weather_type = 'actual'",
+                _var_var_33,
+            )
+            for _var_var_35 in _var_var_38:
+                _var_var_31[_var_var_35[0]] = {
+                    "temperature": _var_var_35[1],
+                    "solar_radiation_wm2": _var_var_35[2],
+                    "wind": _var_var_35[3],
+                    "humidity": _var_var_35[4],
+                    "rain": _var_var_35[5],
+                    "clouds": _var_var_35[6],
+                    "pressure": _var_var_35[7],
+                    "lux": _var_var_35[8],
+                    "frost_detected": _var_var_35[9],
+                    "frost_score": _var_var_35[10],
+                    "frost_confidence": _var_var_35[11],
+                }
+            if _var_var_28:
+                _LOGGER.info(
+                    "  │  Preserved %d hourly actuals, %d group actuals before re-creation",
+                    len(_var_var_28),
+                    len(_var_var_29),
+                )
+            await self.db.execute(
+                f"DELETE FROM hourly_predictions WHERE prediction_id IN ({_var_var_32})",
+                _var_var_33,
+            )
+            _LOGGER.info(
+                "  │  Cleared %d existing prediction slots for update", len(_var_var_25)
+            )
+        else:
+            _LOGGER.warning("  │  No incoming predictions to update - skipping DELETE")
+        _var_var_39 = dt_util.now()
+        _var_var_40 = {}
+        for _var_var_41 in weather_forecast:
+            _var_var_42 = (_var_var_41.get("date", date), _var_var_41.get("hour"))
+            _var_var_40[_var_var_42] = _var_var_41
+        _LOGGER.info(
+            "  ├─ Processing %d input forecast entries (3 days)...",
+            len(hourly_forecast),
+        )
+        _var_var_43 = set()
+        _var_var_44 = 0
+        _var_var_45 = {}
+        if _var_var_20:
+            _var_var_45[date] = _var_var_17
+            _LOGGER.info(
+                "  │  Preserving %d today hourly rows under morning anchor %.2f kWh",
+                _var_var_17,
+                _var_var_21 or 0.0,
+            )
+        for _var_var_26 in hourly_forecast:
+            _var_var_3 = _var_var_26.get("hour")
+            if _var_var_3 is None:
+                continue
+            _var_var_27 = _var_var_26.get("date")
+            if not _var_var_27:
+                _var_var_27 = date
+                _LOGGER.warning(
+                    "  │  ⚠️  Missing date in hour_data for hour %d, using %s",
+                    _var_var_3,
+                    date,
+                )
+            if _var_var_20 and _var_var_27 == date:
+                continue
+            _var_var_46 = f"{_var_var_27}_{_var_var_3:02d}"
+            if _var_var_46 in _var_var_43:
+                _var_var_44 += 1
+                continue
+            _var_var_43.add(_var_var_46)
+            _var_var_45[_var_var_27] = _var_var_45.get(_var_var_27, 0) + 1
+            _var_var_47 = _var_var_26.get("production_kwh", 0.0)
+            _var_var_48 = _var_var_26.get("prediction_kwh_uncapped", _var_var_47)
+            if inverter_max_power > 0:
+                _var_var_49 = inverter_max_power
+                _var_var_47 = min(_var_var_47, _var_var_49)
+            _var_var_50 = f"{_var_var_27}T{_var_var_3:02d}:00:00"
+            _var_var_51 = datetime.fromisoformat(_var_var_27)
+            await self.db.execute(
+                "INSERT OR REPLACE INTO hourly_predictions\n                   (prediction_id, prediction_created_at, prediction_created_hour,\n                    morning_batch_id,\n                    target_datetime, target_date, target_hour,\n                    target_day_of_week, target_day_of_year, target_month, target_season,\n                    prediction_kwh, prediction_kwh_uncapped, prediction_method,\n                    ml_contribution_percent, confidence, is_production_hour,\n                    physics_kwh, ai_kwh, ai_confidence,\n                    lstm_kwh, ridge_kwh, tfs_kwh, tfs_weight,\n                    ghi_before_cap, ghi_after_cap, ghi_cap_applied)\n                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (
+                    _var_var_46,
+                    _var_var_39,
+                    _var_var_39.hour,
+                    morning_batch_id,
+                    _var_var_50,
+                    _var_var_27,
+                    _var_var_3,
+                    _var_var_51.weekday(),
+                    _var_var_51.timetuple().tm_yday,
+                    _var_var_51.month,
+                    get_season(_var_var_51.month),
+                    round(_var_var_47, 4),
+                    round(_var_var_48, 4),
+                    _var_var_26.get("method", "physics"),
+                    _var_var_26.get("ml_contribution", 0),
+                    _var_var_26.get("confidence", 75.0),
+                    6 <= _var_var_3 <= 20,
+                    _var_var_26.get("physics_kwh"),
+                    _var_var_26.get("ai_kwh"),
+                    _var_var_26.get("ai_confidence"),
+                    _var_var_26.get("lstm_kwh"),
+                    _var_var_26.get("ridge_kwh"),
+                    _var_var_26.get("tfs_kwh"),
+                    _var_var_26.get("tfs_weight"),
+                    _var_var_26.get("ghi_before_cap"),
+                    _var_var_26.get("ghi_after_cap"),
+                    _var_var_26.get("ghi_cap_applied"),
+                ),
+            )
+            _var_var_52 = _var_var_26.get("groups")
+            if _var_var_52:
+                _var_var_52 = (
+                    normalize_group_predictions_to_total(_var_var_52, _var_var_47) or []
+                )
+                _var_var_26["groups"] = _var_var_52
+                _var_var_26["panel_group_predictions"] = (
+                    sync_panel_group_prediction_map(_var_var_52)
+                )
+                for _var_var_53 in _var_var_52:
+                    _var_var_54 = _var_var_53.get("name")
+                    _var_var_55 = _var_var_53.get("power_kwh", 0.0)
+                    _var_var_56 = _var_var_53.get("physics_kwh")
+                    _var_var_57 = _var_var_53.get("ai_kwh")
+                    _var_var_58 = _var_var_53.get("lstm_kwh")
+                    _var_var_59 = _var_var_53.get("ridge_kwh")
+                    _var_var_60 = _var_var_53.get("tfs_kwh")
+                    _var_var_61 = _var_var_53.get("tfs_weight")
+                    _var_var_62 = _var_var_53.get("raw_physics_kwh")
+                    _var_var_63 = await self.db.get_active_panel_group_topology_meta(
+                        _var_var_54
+                    )
+                    await self.db.execute(
+                        "INSERT INTO prediction_panel_groups\n                           (prediction_id, group_name, prediction_kwh, physics_kwh, ai_kwh,\n                            lstm_kwh, ridge_kwh, tfs_kwh, tfs_weight, raw_physics_kwh,\n                            config_epoch_id, group_uid, group_lineage_uid, power_wp_at_prediction)\n                           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n                           ON CONFLICT(prediction_id, group_name) DO UPDATE SET\n                               prediction_kwh = excluded.prediction_kwh,\n                               physics_kwh = excluded.physics_kwh,\n                               ai_kwh = excluded.ai_kwh,\n                               lstm_kwh = excluded.lstm_kwh,\n                               ridge_kwh = excluded.ridge_kwh,\n                               tfs_kwh = excluded.tfs_kwh,\n                               tfs_weight = excluded.tfs_weight,\n                               raw_physics_kwh = excluded.raw_physics_kwh,\n                               config_epoch_id = excluded.config_epoch_id,\n                               group_uid = excluded.group_uid,\n                               group_lineage_uid = excluded.group_lineage_uid,\n                               power_wp_at_prediction = excluded.power_wp_at_prediction",
+                        (
+                            _var_var_46,
+                            _var_var_54,
+                            round(_var_var_55, 4),
+                            round(_var_var_56, 4) if _var_var_56 else None,
+                            round(_var_var_57, 4) if _var_var_57 else None,
+                            round(_var_var_58, 4) if _var_var_58 else None,
+                            round(_var_var_59, 4) if _var_var_59 else None,
+                            round(_var_var_60, 4) if _var_var_60 else None,
+                            round(_var_var_61, 3) if _var_var_61 is not None else None,
+                            round(_var_var_62, 4) if _var_var_62 is not None else None,
+                            _var_var_63.get("config_epoch_id"),
+                            _var_var_63.get("group_uid"),
+                            _var_var_63.get("group_lineage_uid"),
+                            _var_var_63.get("power_wp_at_prediction"),
+                        ),
+                    )
+                    continue
+                await self.db.execute(
+                    "UPDATE hourly_predictions SET has_panel_group_predictions = TRUE\n                       WHERE prediction_id = ?",
+                    (_var_var_46,),
+                )
+            _var_var_64 = _var_var_40.get((_var_var_27, _var_var_3), {})
+            if _var_var_64:
+                await self.db.execute(
+                    "INSERT INTO prediction_weather\n                       (prediction_id, weather_type, temperature, solar_radiation_wm2,\n                        wind, humidity, rain, clouds, pressure, source, diffuse_radiation,\n                        direct_radiation)\n                       VALUES (?, 'forecast', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (
+                        _var_var_46,
+                        _var_var_64.get("temperature"),
+                        _var_var_64.get("solar_radiation_wm2"),
+                        _var_var_64.get("wind"),
+                        _var_var_64.get("humidity"),
+                        _var_var_64.get("rain"),
+                        _var_var_64.get("clouds"),
+                        _var_var_64.get("pressure"),
+                        _var_var_64.get("source", "blended"),
+                        _var_var_64.get("diffuse_radiation") or _var_var_64.get("dhi"),
+                        _var_var_64.get("direct_radiation"),
+                    ),
+                )
+                _var_var_65 = _var_var_64.get("correction_snapshot_id")
+                if _var_var_65:
+                    await self.db.insert_weather_forecast_usage_snapshot(
+                        prediction_id=_var_var_46,
+                        morning_batch_id=morning_batch_id,
+                        correction_snapshot_id=_var_var_65,
+                        locked_at=_var_var_39,
+                        target_datetime=_var_var_50,
+                        target_date=_var_var_27,
+                        target_hour=_var_var_3,
+                    )
+                else:
+                    _LOGGER.warning(
+                        "  │  Weather usage provenance unavailable for %s; EOD/MLP learning will skip this hour",
+                        _var_var_46,
+                    )
+            _var_var_66 = astronomy_data.get(f"{_var_var_27}_{_var_var_3:02d}", {})
+            if not _var_var_66:
+                _var_var_66 = astronomy_data.get(str(_var_var_3), {})
+            _var_var_67 = astronomy_data.get(_var_var_27, astronomy_data)
+            if not not _var_var_66:
+                _var_var_68 = _var_var_67.get("sunrise_local")
+                _var_var_69 = _var_var_67.get("sunset_local")
+                _var_var_70 = _var_var_67.get("solar_noon_local")
+                _var_var_71 = _var_var_67.get("daylight_hours", 12.0)
+                _var_var_72 = None
+                _var_var_73 = None
+                _var_var_74 = None
+                _var_var_75 = None
+                try:
+                    from datetime import datetime as _var_var_14
+
+                    _var_var_15 = _var_var_14(
+                        _var_var_51.year,
+                        _var_var_51.month,
+                        _var_var_51.day,
+                        _var_var_3,
+                        30,
+                    )
+
+                    def _parse_ts(ts):
+                        if ts is None:
+                            return
+                        if isinstance(ts, _var_var_14):
+                            return ts.replace(
+                                year=_var_var_15.year,
+                                month=_var_var_15.month,
+                                day=_var_var_15.day,
+                                tzinfo=None,
+                            )
+                        _var_var_108 = str(ts).strip()
+                        if "T" in _var_var_108 or len(_var_var_108) > 10:
+                            try:
+                                _var_var_109 = _var_var_14.fromisoformat(
+                                    _var_var_108.replace("Z", "+00:00")
+                                )
+                                return _var_var_109.replace(
+                                    year=_var_var_15.year,
+                                    month=_var_var_15.month,
+                                    day=_var_var_15.day,
+                                    tzinfo=None,
+                                )
+                            except (ValueError, TypeError):
+                                pass
+                        for _var_var_110 in ("%H:%M:%S", "%H:%M"):
+                            try:
+                                _var_var_111 = _var_var_14.strptime(
+                                    _var_var_108, _var_var_110
+                                )
+                                return _var_var_15.replace(
+                                    hour=_var_var_111.hour,
+                                    minute=_var_var_111.minute,
+                                    second=_var_var_111.second,
+                                )
+                            except (ValueError, TypeError):
+                                continue
+
+                    _var_var_77 = _parse_ts(_var_var_68)
+                    _var_var_78 = _parse_ts(_var_var_69)
+                    _var_var_79 = _parse_ts(_var_var_70)
+                    if _var_var_77 and _var_var_78:
+                        _var_var_80 = (_var_var_78 - _var_var_77).total_seconds()
+                        _var_var_81 = (_var_var_15 - _var_var_77).total_seconds()
+                        _var_var_73 = (
+                            max(0.0, min(1.0, _var_var_81 / _var_var_80))
+                            if _var_var_80 > 0
+                            else 0.5
+                        )
+                        _var_var_74 = max(0.0, _var_var_81 / 3600.0)
+                        _var_var_75 = max(
+                            0.0, (_var_var_78 - _var_var_15).total_seconds() / 3600.0
+                        )
+                    if _var_var_79:
+                        _var_var_72 = (
+                            _var_var_15 - _var_var_79
+                        ).total_seconds() / 3600.0
+                except Exception:
+                    pass
+                await self.db.execute(
+                    "INSERT INTO prediction_astronomy\n                       (prediction_id, sunrise, sunset, solar_noon, daylight_hours,\n                        sun_elevation_deg, sun_azimuth_deg, clear_sky_radiation_wm2,\n                        theoretical_max_kwh, hours_since_solar_noon, day_progress_ratio,\n                        hours_after_sunrise, hours_before_sunset)\n                       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n                       ON CONFLICT(prediction_id) DO UPDATE SET\n                           sunrise = excluded.sunrise,\n                           sunset = excluded.sunset,\n                           solar_noon = excluded.solar_noon,\n                           daylight_hours = excluded.daylight_hours,\n                           sun_elevation_deg = excluded.sun_elevation_deg,\n                           sun_azimuth_deg = excluded.sun_azimuth_deg,\n                           clear_sky_radiation_wm2 = excluded.clear_sky_radiation_wm2,\n                           theoretical_max_kwh = excluded.theoretical_max_kwh,\n                           hours_since_solar_noon = excluded.hours_since_solar_noon,\n                           day_progress_ratio = excluded.day_progress_ratio,\n                           hours_after_sunrise = excluded.hours_after_sunrise,\n                           hours_before_sunset = excluded.hours_before_sunset",
+                    (
+                        _var_var_46,
+                        _var_var_68,
+                        _var_var_69,
+                        _var_var_70,
+                        _var_var_71,
+                        _var_var_66.get("sun_elevation_deg"),
+                        _var_var_66.get("sun_azimuth_deg"),
+                        _var_var_66.get("clear_sky_radiation_wm2"),
+                        _var_var_66.get("theoretical_max_kwh"),
+                        _var_var_72,
+                        _var_var_73,
+                        _var_var_74,
+                        _var_var_75,
+                    ),
+                )
+        _var_var_82 = 0
+        if _var_var_28:
+            for _var_var_83, _var_var_84 in _var_var_28.items():
+                await self.db.execute(
+                    "UPDATE hourly_predictions\n                       SET actual_kwh = ?, has_sensor_data = ?\n                       WHERE prediction_id = ?",
+                    (
+                        _var_var_84["actual_kwh"],
+                        _var_var_84["has_sensor_data"],
+                        _var_var_83,
+                    ),
+                )
+                _var_var_82 += 1
+        if _var_var_29:
+            for (_var_var_83, _var_var_54), _var_var_85 in _var_var_29.items():
+                await self.db.execute(
+                    "INSERT INTO prediction_panel_groups\n                       (prediction_id, group_name, prediction_kwh, actual_kwh, raw_physics_kwh)\n                       VALUES (?, ?, 0.0, ?, NULL)\n                       ON CONFLICT(prediction_id, group_name) DO UPDATE SET\n                           actual_kwh = excluded.actual_kwh",
+                    (_var_var_83, _var_var_54, _var_var_85),
+                )
+        if _var_var_30:
+            for _var_var_83, _var_var_86 in _var_var_30.items():
+                await self.db.execute(
+                    "INSERT INTO prediction_sensor_actual\n                       (prediction_id, temperature_c, humidity_percent,\n                        solar_radiation_wm2, rain_mm, wind_speed_ms)\n                       VALUES (?, ?, ?, ?, ?, ?)\n                       ON CONFLICT(prediction_id) DO UPDATE SET\n                           temperature_c = excluded.temperature_c,\n                           humidity_percent = excluded.humidity_percent,\n                           solar_radiation_wm2 = excluded.solar_radiation_wm2,\n                           rain_mm = excluded.rain_mm,\n                           wind_speed_ms = excluded.wind_speed_ms",
+                    (
+                        _var_var_83,
+                        _var_var_86["temperature_c"],
+                        _var_var_86["humidity_percent"],
+                        _var_var_86["solar_radiation_wm2"],
+                        _var_var_86["rain_mm"],
+                        _var_var_86["wind_speed_ms"],
+                    ),
+                )
+        if _var_var_31:
+            for _var_var_83, _var_var_86 in _var_var_31.items():
+                await self.db.execute(
+                    "INSERT INTO prediction_weather\n                       (prediction_id, weather_type, temperature, solar_radiation_wm2,\n                        wind, humidity, rain, clouds, pressure, lux,\n                        frost_detected, frost_score, frost_confidence)\n                       VALUES (?, 'actual', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n                       ON CONFLICT(prediction_id, weather_type) DO UPDATE SET\n                           temperature = excluded.temperature,\n                           solar_radiation_wm2 = excluded.solar_radiation_wm2,\n                           wind = excluded.wind,\n                           humidity = excluded.humidity,\n                           rain = excluded.rain,\n                           clouds = excluded.clouds,\n                           pressure = excluded.pressure,\n                           lux = excluded.lux,\n                           frost_detected = excluded.frost_detected,\n                           frost_score = excluded.frost_score,\n                           frost_confidence = excluded.frost_confidence",
+                    (
+                        _var_var_83,
+                        _var_var_86["temperature"],
+                        _var_var_86["solar_radiation_wm2"],
+                        _var_var_86["wind"],
+                        _var_var_86["humidity"],
+                        _var_var_86["rain"],
+                        _var_var_86["clouds"],
+                        _var_var_86["pressure"],
+                        _var_var_86["lux"],
+                        _var_var_86["frost_detected"],
+                        _var_var_86["frost_score"],
+                        _var_var_86["frost_confidence"],
+                    ),
+                )
+        if morning_batch_id:
+            try:
+                await self._ensemble_shadow_handler.capture_morning_batch(
+                    morning_batch_id, _var_var_39
+                )
+            except Exception as _var_var_87:
+                raise RuntimeError(
+                    f"mandatory ensemble shadow provenance failed for batch {morning_batch_id}"
+                ) from _var_var_87
+            _var_var_88 = filter_candidate_shadow_for_preserved_today(
+                candidate_shadow, preserve_today=_var_var_20, today=date
+            )
+            if _var_var_88 is not None:
+                try:
+                    _var_var_89 = (
+                        await self._model_candidate_shadow_handler.capture_morning_run(
+                            morning_batch_id, _var_var_88
+                        )
+                    )
+                    _LOGGER.info(
+                        "  │  Candidate shadow evidence captured for batch %s: %d rows",
+                        morning_batch_id,
+                        _var_var_89,
+                    )
+                except Exception as _var_var_90:
+                    raise RuntimeError(
+                        f"mandatory candidate shadow provenance failed for batch {morning_batch_id}"
+                    ) from _var_var_90
+        if _var_var_82 > 0:
+            _LOGGER.info(
+                "  ├─ Restored %d hourly actuals, %d group actuals, %d sensor, %d weather actuals",
+                _var_var_82,
+                len(_var_var_29),
+                len(_var_var_30),
+                len(_var_var_31),
+            )
+        _LOGGER.info(
+            "  ├─ Calculating daily totals from saved predictions for 3 days..."
+        )
+        _var_var_91 = {}
+        for _var_var_92 in range(3):
+            _var_var_93 = (_var_var_24 + _var_var_23(days=_var_var_92)).isoformat()
+            _var_var_94 = await self.db.fetchone(
+                "SELECT SUM(prediction_kwh) as total FROM hourly_predictions WHERE target_date = ?",
+                (_var_var_93,),
+            )
+            _var_var_95 = (
+                _var_var_94["total"] if _var_var_94 and _var_var_94["total"] else 0.0
+            )
+            _var_var_91[_var_var_93] = _var_var_95
+            _LOGGER.info("  │  → %s: %.2f kWh", _var_var_93, _var_var_95)
+        _LOGGER.info("  ├─ Saving daily forecasts to database for 3 days...")
+        _var_var_96 = {}
+        for _var_var_64 in weather_forecast:
+            _var_var_97 = _var_var_64.get("date") or date
+            if _var_var_97:
+                _var_var_96[_var_var_97] = _var_var_96.get(_var_var_97, 0) + 1
+        _var_var_98 = ["today", "tomorrow", "day_after_tomorrow"]
+        _var_var_99 = 0
+        _var_var_100 = 0
+        for _var_var_92, _var_var_101 in enumerate(_var_var_98):
+            _var_var_93 = (_var_var_24 + _var_var_23(days=_var_var_92)).isoformat()
+            _var_var_95 = _var_var_91.get(_var_var_93, 0.0)
+            if _var_var_101 == "today" and _var_var_20:
+                if _var_var_21 is not None:
+                    _var_var_91[_var_var_93] = _var_var_21
+                _LOGGER.info(
+                    "  │  Preserving today lock %.2f kWh source=%s (cycle=%s)",
+                    _var_var_21 or 0.0,
+                    _var_var_22,
+                    forecast_cycle or "unspecified",
+                )
+                _var_var_100 += 1
+                continue
+            _var_var_102 = _var_var_96.get(_var_var_93, 0)
+            _var_var_103 = _var_var_45.get(_var_var_93, 0)
+            if not morning_day_lock_allowed(_var_var_102, _var_var_103):
+                _var_var_100 += 1
+                _LOGGER.info(
+                    "  │  Skipping lock for %s (%s): weather_hours=%d prediction_hours=%d total=%.2f kWh",
+                    _var_var_93,
+                    _var_var_101,
+                    _var_var_102,
+                    _var_var_103,
+                    _var_var_95,
+                )
+                continue
+            _var_var_104 = (
+                _var_var_22 if _var_var_101 == "today" else CANONICAL_TODAY_LOCK_SOURCE
+            )
+            await self.db.execute(
+                "INSERT INTO daily_forecasts\n                   (forecast_type, forecast_date, prediction_kwh, prediction_kwh_raw,\n                    locked, locked_at, source, created_at)\n                   VALUES (?, ?, ?, ?, TRUE, ?, ?, ?)\n                   ON CONFLICT(forecast_type, forecast_date) DO UPDATE SET\n                       prediction_kwh = excluded.prediction_kwh,\n                       prediction_kwh_raw = excluded.prediction_kwh_raw,\n                       locked = excluded.locked,\n                       locked_at = excluded.locked_at,\n                       source = excluded.source",
+                (
+                    _var_var_101,
+                    _var_var_93,
+                    round(_var_var_95, 2),
+                    round(_var_var_95, 2),
+                    _var_var_39,
+                    _var_var_104,
+                    _var_var_39,
+                ),
+            )
+            _var_var_99 += 1
+            continue
+        _LOGGER.debug(
+            "     → Daily forecasts locked=%d skipped=%d locked_at=%s",
+            _var_var_99,
+            _var_var_100,
+            _var_var_39,
+        )
+        _var_var_95 = _var_var_91.get(date, 0.0)
+        _LOGGER.info("  ├─ Updating coordinator expected daily production...")
+        await self.coordinator.data_manager.save_expected_daily_production(
+            round(_var_var_95, 2)
+        )
+        _LOGGER.info("  ├─ Setting morning routine lock for %s...", date)
+        await self.db.execute(
+            "UPDATE coordinator_state\n               SET last_set_date = ?, last_updated = ?\n               WHERE id = 1",
+            (date, _var_var_39),
+        )
+        _LOGGER.debug("     → Lock flag set: last_set_date = %s", date)
+        _var_var_105 = len(_var_var_43)
+        _LOGGER.info("  └─ SUMMARY:")
+        _LOGGER.info("     • Input entries: %d (3 days)", len(hourly_forecast))
+        _LOGGER.info("     • Created predictions: %d", _var_var_105)
+        if _var_var_44 > 0:
+            _LOGGER.info("     • Skipped duplicates: %d", _var_var_44)
+        _LOGGER.info("     • Predictions per day:")
+        for _var_var_27, _var_var_106 in sorted(_var_var_45.items()):
+            _var_var_107 = _var_var_91.get(_var_var_27, 0.0)
+            _LOGGER.info(
+                "       - %s: %d hours, %.2f kWh",
+                _var_var_27,
+                _var_var_106,
+                _var_var_107,
+            )
+        _LOGGER.info("     • Coordinator updated: Yes (today=%.2f kWh)", _var_var_95)
+        return (
+            set(_var_var_45.keys()),
+            _var_var_98,
+            _var_var_91,
+            _var_var_28,
+            _var_var_29,
+            _var_var_95,
+        )
+
     async def _verify_integrity(self, date: str, created_dates: set = None) -> bool:
         """Verify data integrity after creation. @zara"""
         try:

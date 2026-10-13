@@ -131,3 +131,185 @@ def _hubble_best_window(
             2,
         ),
     }
+
+
+async def _hubble_build_memory(
+    db: aiosqlite.Connection,
+    today: date,
+    hourly_rows: list[dict[str, Any]],
+    daily_stats: dict[str, Any],
+    today_metrics: dict[str, Any],
+    hourly_columns: set[str],
+) -> dict[str, Any] | None:
+    _var_var_21 = today.isoformat()
+    _var_var_22 = sum(
+        (float(_var_var_10.get("prediction_kwh") or 0.0) for _var_var_10 in hourly_rows)
+    )
+    _var_var_23 = daily_stats.get("solar_yield_kwh")
+    if _var_var_23 is None:
+        _var_var_23 = today_metrics.get("evaluation_actual_kwh")
+    _var_var_15 = {
+        "forecast_kwh": _var_var_22 if _var_var_22 > 0.2 else None,
+        "yield_kwh": _hubble_round(_var_var_23, 2),
+        "autarky_percent": _hubble_round(daily_stats.get("autarkie_percent"), 1),
+        "home_consumption_kwh": _hubble_round(
+            daily_stats.get("home_consumption_kwh"), 2
+        ),
+        "cloud_avg": _hubble_average(
+            [
+                float(_var_var_10.get("clouds"))
+                for _var_var_10 in hourly_rows
+                if _var_var_10.get("clouds") is not None
+            ]
+        ),
+        "peak_hour": _hubble_peak_hour(hourly_rows),
+    }
+    if _var_var_15["forecast_kwh"] is None and _var_var_15["yield_kwh"] is None:
+        return
+    _var_var_24 = "hp.clouds" if "clouds" in hourly_columns else "NULL AS clouds"
+    async with db.execute(
+        "SELECT hp.target_date,\n                  hp.target_hour,\n                  hp.prediction_kwh,\n                  hp.actual_kwh,\n                  "
+        + _var_var_24
+        + ",\n                  s.solar_yield_kwh,\n                  s.autarkie_percent,\n                  s.home_consumption_kwh\n           FROM hourly_predictions hp\n           LEFT JOIN stats_daily_energy s ON s.date = hp.target_date\n           WHERE hp.target_date < ?\n             AND hp.target_date >= date(?, '-' || ? || ' days')\n           ORDER BY hp.target_date, hp.target_hour",
+        (_var_var_21, _var_var_21, HUBBLE_MEMORY_LOOKBACK_DAYS),
+    ) as _var_var_25:
+        _var_var_26 = [
+            dict(_var_var_10) for _var_var_10 in await _var_var_25.fetchall()
+        ]
+    _var_var_27 = {}
+    for _var_var_10 in _var_var_26:
+        _var_var_28 = _var_var_10.get("target_date")
+        if _var_var_28:
+            _var_var_27.setdefault(str(_var_var_28), []).append(_var_var_10)
+    _var_var_29 = []
+    for _var_var_28, _var_var_30 in _var_var_27.items():
+        _var_var_31 = [
+            float(_var_var_10.get("prediction_kwh") or 0.0)
+            for _var_var_10 in _var_var_30
+        ]
+        _var_var_32 = [
+            float(_var_var_10.get("actual_kwh") or 0.0)
+            for _var_var_10 in _var_var_30
+            if _var_var_10.get("actual_kwh") is not None
+        ]
+        _var_var_33 = _var_var_30[0]
+        _var_var_34 = sum(_var_var_31)
+        _var_var_35 = _var_var_33.get("solar_yield_kwh")
+        if _var_var_35 is None and _var_var_32:
+            _var_var_35 = sum(_var_var_32)
+        if (
+            _var_var_34 <= 0.2
+            or _var_var_35 is None
+            or float(_var_var_35 or 0.0) <= 0.2
+        ):
+            continue
+        _var_var_36 = [
+            float(_var_var_10.get("clouds"))
+            for _var_var_10 in _var_var_30
+            if _var_var_10.get("clouds") is not None
+        ]
+        _var_var_37 = _hubble_best_window(_var_var_30, 8)
+        _var_var_38 = {
+            "date": _var_var_28,
+            "forecast_kwh": _var_var_34,
+            "yield_kwh": float(_var_var_35 or 0.0),
+            "autarky_percent": _hubble_round(_var_var_33.get("autarkie_percent"), 1),
+            "home_consumption_kwh": _hubble_round(
+                _var_var_33.get("home_consumption_kwh"), 2
+            ),
+            "cloud_avg": _hubble_average(_var_var_36),
+            "peak_hour": _hubble_peak_hour(_var_var_30),
+            "window": _var_var_37,
+        }
+        _var_var_39 = 0.0
+        _var_var_39 += _hubble_score_part(
+            _var_var_15["forecast_kwh"],
+            _var_var_38["forecast_kwh"],
+            max(_var_var_15["forecast_kwh"] or 5.0, 5.0),
+            1.4,
+        )
+        _var_var_39 += _hubble_score_part(
+            _var_var_15["yield_kwh"],
+            _var_var_38["yield_kwh"],
+            max(_var_var_15["yield_kwh"] or 5.0, 5.0),
+            1.2,
+        )
+        _var_var_39 += _hubble_score_part(
+            _var_var_15["cloud_avg"], _var_var_38["cloud_avg"], 100.0, 0.8
+        )
+        _var_var_39 += _hubble_score_part(
+            _var_var_15["autarky_percent"], _var_var_38["autarky_percent"], 100.0, 0.6
+        )
+        _var_var_39 += _hubble_score_part(
+            _var_var_15["home_consumption_kwh"],
+            _var_var_38["home_consumption_kwh"],
+            max(_var_var_15["home_consumption_kwh"] or 5.0, 5.0),
+            0.5,
+        )
+        _var_var_39 += _hubble_score_part(
+            _var_var_15["peak_hour"], _var_var_38["peak_hour"], 8.0, 0.5
+        )
+        _var_var_40 = max(0.0, min(100.0, 100.0 - _var_var_39 / 5.0 * 100.0))
+        if _var_var_40 < 45.0:
+            continue
+        _var_var_29.append(
+            {
+                "date": _var_var_28,
+                "similarity_percent": round(_var_var_40, 0),
+                "yield_kwh": _hubble_round(_var_var_38["yield_kwh"], 1),
+                "forecast_kwh": _hubble_round(_var_var_38["forecast_kwh"], 1),
+                "autarky_percent": _var_var_38["autarky_percent"],
+                "peak_hour": _var_var_38["peak_hour"],
+                "window": _var_var_37,
+            }
+        )
+        continue
+    _var_var_29.sort(key=lambda item: item["similarity_percent"], reverse=True)
+    _var_var_41 = _var_var_29[:3]
+    if len(_var_var_41) < HUBBLE_MEMORY_MIN_MATCHES:
+        return
+    _var_var_43 = [
+        int(_var_var_42["window"].get("start_hour"))
+        for _var_var_42 in _var_var_41
+        if _var_var_42.get("window")
+        if _var_var_42["window"].get("start_hour") is not None
+    ]
+    _var_var_44 = None
+    if _var_var_43:
+        _var_var_45 = round(sum(_var_var_43) / len(_var_var_43))
+        _var_var_44 = {"start_hour": _var_var_45, "end_hour": min(_var_var_45 + 2, 23)}
+    _var_var_46 = _hubble_average(
+        [
+            _var_var_42["yield_kwh"]
+            for _var_var_42 in _var_var_41
+            if _var_var_42.get("yield_kwh") is not None
+        ]
+    )
+    _var_var_47 = _hubble_average(
+        [
+            _var_var_42["forecast_kwh"]
+            for _var_var_42 in _var_var_41
+            if _var_var_42.get("forecast_kwh") is not None
+        ]
+    )
+    _var_var_48 = _hubble_average(
+        [_var_var_42["similarity_percent"] for _var_var_42 in _var_var_41]
+    )
+    _var_var_49 = _hubble_average(
+        [
+            _var_var_42["autarky_percent"]
+            for _var_var_42 in _var_var_41
+            if _var_var_42.get("autarky_percent") is not None
+        ]
+    )
+    return {
+        "available": True,
+        "lookback_days": HUBBLE_MEMORY_LOOKBACK_DAYS,
+        "match_count": len(_var_var_41),
+        "matches": _var_var_41,
+        "avg_similarity_percent": _hubble_round(_var_var_48, 0),
+        "avg_yield_kwh": _hubble_round(_var_var_46, 1),
+        "avg_forecast_kwh": _hubble_round(_var_var_47, 1),
+        "avg_autarky_percent": _hubble_round(_var_var_49, 0),
+        "common_window": _var_var_44,
+    }

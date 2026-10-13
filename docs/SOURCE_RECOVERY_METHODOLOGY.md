@@ -2399,3 +2399,38 @@ proof precedes controlled function execution. The full selected suite passes
 196 methods inCPython3.14.2. Published readable coverage becomes100 modules /
 2,637 units; corpus coverage stays14,214/14,291 with77 unresolved. No gain is
 counted twice. Equivalent-source and readable-source goals remain unfinished.
+
+
+## Complete database transactions and remaining API continuations
+
+`owner-recipes-03` adopts 27 new owner bodies in 17 contexts. Their complete
+99-unit trees are checked under the frozen .25/.31 toolchain and unchanged
+comparison rules before publication. Current signatures, decorators, defaults,
+annotations and docstrings remain; parent bodies are adopted before children.
+All older owners sharing a context are re-proved after projection and Black
+formatting. Handler reunion is selected only when original instructions and
+exception coverage agree. Missing SQL, per-hour payloads, calibration queries,
+early exits and persistence scopes come from the immutable original code.
+Closure identifiers may change only if original physical cell/free slots,
+flags, argument order and complete descendant proofs remain intact. Owned
+capture-name controls reject wrong argument/capture order.
+
+The full 274-module audit proves **28 gains / zero losses**, retaining every
+previous complete candidate. Coverage becomes **14,242/14,291 / 246 complete
+candidates**, leaving **49 units (27 instructions / 22 exception tables)**.
+The main database manager is now exact across all **717 units**, including
+transaction deadline/abort cleanup and model candidate persistence. Raw generic
+coverage remains 13,910/134; published readable whole source stays 100/2,637.
+Isolated source now has 345 entries, 149 files, 612 distinct units and 327
+retained owner definitions. New compilation contexts remain non-readable;
+only manifest-listed trees are proved and they must not be imported wholesale.
+The selected 196-method suite's executed bodies remain unchanged. Every public
+source/input hash and all whole/isolated instruction/exception proofs pass.
+
+Native .29 fixes nine of the ten prior async-exit losses, but the complete
+frozen corpus still shows **15 raw gains / one loss**, including the loss of a
+previously complete solar reader. Its ordinary public reader fixtures and CI
+pass; this does not override the corpus failure. The failed stage is preserved
+and stable main remains native .25/source API .31. Investigation of the lost
+protected continuation proceeds in the main thread, independently of source
+reconstruction gains. No comparison rule is loosened to make it pass.

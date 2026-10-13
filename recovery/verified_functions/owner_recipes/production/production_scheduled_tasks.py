@@ -411,6 +411,285 @@ class ScheduledTasksManager:
         )
         return _var_var_147
 
+    async def _train_weather_mlp(self, current_time) -> Dict[str, str]:
+        """Train Weather MLP on historical precision data. @zara"""
+
+        def skipped(reason: str, reason_code: str) -> Dict[str, str]:
+            _LOGGER.info("Weather MLP training skipped [%s]: %s", reason_code, reason)
+            return {
+                "status": "skipped",
+                "reason": reason,
+                "reason_code": reason_code,
+                "impact": "informational",
+            }
+
+        def failed(reason: str, reason_code: str) -> Dict[str, str]:
+            _LOGGER.error("Weather MLP training failed [%s]: %s", reason_code, reason)
+            return {"status": "failed", "reason": reason, "reason_code": reason_code}
+
+        if self._weather_mlp is None:
+            _var_var_23 = "Weather MLP is not configured"
+            return skipped(_var_var_23, "weather_mlp_not_configured")
+        if not self._has_available_local_solar_observation():
+            self._attach_mlp_to_correctors()
+            _var_var_23 = "no currently usable local solar-radiation sensor is configured; provider-only forecasts stay neutral"
+            return skipped(_var_var_23, "weather_mlp_local_sensor_unavailable")
+        try:
+            _var_var_172 = current_time.date().isoformat()
+            _var_var_173 = WEATHER_MLP_TRAINING_CONTRACT_VERSION
+            _var_var_174 = WEATHER_FORECAST_CORRECTION_CONTRACT_VERSION
+            _var_var_175 = await self.db.fetchone(
+                "WITH precision_samples AS (\n                       SELECT wpd.id, wpd.date, wpd.hour, wpd.solar_forecast,\n                              wpd.solar_actual,\n                              CASE WHEN c.correction_snapshot_id IS NOT NULL\n                                     AND c.clouds IS NOT NULL\n                                     AND c.humidity IS NOT NULL\n                                     AND c.pressure IS NOT NULL\n                                     AND c.wind IS NOT NULL\n                                   THEN 1 ELSE 0 END AS has_weather,\n                              CASE WHEN c.sun_elevation IS NOT NULL\n                                   THEN 1 ELSE 0 END AS has_astronomy,\n                              COALESCE(c.sun_elevation, -90.0) AS sun_elevation_deg,\n                              EXISTS(\n                                  SELECT 1 FROM hourly_predictions hp\n                                  WHERE hp.target_date = wpd.date\n                                    AND hp.target_hour = wpd.hour\n                                    AND COALESCE(hp.exclude_from_learning, 0) != 0\n                              ) AS learning_excluded,\n                              EXISTS(\n                                  SELECT 1 FROM hourly_predictions hp\n                                  WHERE hp.target_date = wpd.date\n                                    AND hp.target_hour = wpd.hour\n                                    AND COALESCE(hp.mppt_throttled, 0) != 0\n                              ) AS mppt_excluded,\n                              EXISTS(\n                                  SELECT 1 FROM hourly_predictions hp\n                                  WHERE hp.target_date = wpd.date\n                                    AND hp.target_hour = wpd.hour\n                                    AND (COALESCE(hp.exclude_from_learning, 0) != 0\n                                         OR COALESCE(hp.mppt_throttled, 0) != 0\n                                         OR COALESCE(hp.inverter_clipped, 0) != 0)\n                              ) AS governance_excluded\n                       FROM weather_precision_daily wpd\n                       LEFT JOIN weather_forecast_usage_snapshots u\n                         ON u.usage_snapshot_id = wpd.usage_snapshot_id\n                       LEFT JOIN weather_forecast_correction_snapshots c\n                         ON c.correction_snapshot_id = u.correction_snapshot_id\n                       WHERE wpd.forecast_contract_version = ?\n                         AND COALESCE(wpd.solar_sample_eligible, 0) = 1\n                   )\n                   SELECT\n                       (SELECT COUNT(*)\n                        FROM hourly_weather_actual\n                        WHERE solar_radiation_wm2 IS NOT NULL) AS measured_all_time,\n                       (SELECT COUNT(*)\n                        FROM hourly_weather_actual\n                        WHERE date >= date(?, '-30 days')\n                          AND solar_radiation_wm2 IS NOT NULL) AS measured_30d,\n                       SUM(CASE\n                           WHEN ps.date >= date(?, '-30 days')\n                            AND ps.solar_actual IS NOT NULL THEN 1 ELSE 0\n                       END) AS precision_radiation_30d,\n                       SUM(CASE\n                           WHEN ps.date >= date(?, '-30 days')\n                            AND ps.solar_actual IS NOT NULL\n                            AND ps.has_weather = 1\n                           THEN 1 ELSE 0\n                       END) AS weather_joined_30d,\n                       SUM(CASE\n                           WHEN ps.date >= date(?, '-30 days')\n                            AND ps.solar_actual IS NOT NULL\n                            AND ps.has_astronomy = 1\n                           THEN 1 ELSE 0\n                       END) AS astronomy_joined_30d,\n                       SUM(CASE\n                           WHEN ps.date >= date(?, '-30 days')\n                            AND ps.solar_actual IS NOT NULL\n                            AND ps.has_weather = 1\n                            AND ps.has_astronomy = 1\n                            AND ps.solar_forecast > 10\n                            AND ps.sun_elevation_deg > 5\n                           THEN 1 ELSE 0\n                       END) AS physical_candidates_30d,\n                       SUM(CASE\n                           WHEN ps.date >= date(?, '-30 days')\n                            AND ps.solar_actual IS NOT NULL\n                            AND ps.has_weather = 1\n                            AND ps.has_astronomy = 1\n                            AND ps.solar_forecast > 10\n                            AND ps.sun_elevation_deg > 5\n                            AND ps.learning_excluded = 1\n                           THEN 1 ELSE 0\n                       END) AS learning_excluded_30d,\n                       SUM(CASE\n                           WHEN ps.date >= date(?, '-30 days')\n                            AND ps.solar_actual IS NOT NULL\n                            AND ps.has_weather = 1\n                            AND ps.has_astronomy = 1\n                            AND ps.solar_forecast > 10\n                            AND ps.sun_elevation_deg > 5\n                            AND ps.mppt_excluded = 1\n                           THEN 1 ELSE 0\n                       END) AS mppt_excluded_30d,\n                       SUM(CASE\n                           WHEN ps.date >= date(?, '-30 days')\n                            AND ps.solar_actual IS NOT NULL\n                            AND ps.has_weather = 1\n                            AND ps.has_astronomy = 1\n                            AND ps.solar_forecast > 10\n                            AND ps.sun_elevation_deg > 5\n                            AND ps.governance_excluded = 1\n                           THEN 1 ELSE 0\n                       END) AS governance_excluded_30d,\n                       SUM(CASE\n                           WHEN ps.date >= date(?, '-30 days')\n                            AND ps.solar_actual IS NOT NULL\n                            AND ps.has_weather = 1\n                            AND ps.has_astronomy = 1\n                            AND ps.solar_forecast > 10\n                            AND ps.sun_elevation_deg > 5\n                            AND ps.governance_excluded = 0\n                           THEN 1 ELSE 0\n                       END) AS eligible_30d\n                   FROM precision_samples ps",
+                (_var_var_174,) + (_var_var_172,) * 9,
+            )
+            (
+                _var_var_176,
+                _var_var_177,
+                _var_var_178,
+                _var_var_179,
+                _var_var_180,
+                _var_var_181,
+                _var_var_182,
+                _var_var_183,
+                _var_var_184,
+                _var_var_185,
+            ) = (
+                (int(_var_var_29 or 0) for _var_var_29 in _var_var_175)
+                if _var_var_175
+                else (0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+            )
+            if _var_var_176 == 0:
+                return skipped(
+                    "no physically measured solar-radiation observations are available; Weather MLP requires W/m² sensor data",
+                    "weather_mlp_measured_radiation_unavailable",
+                )
+            if _var_var_177 == 0:
+                return skipped(
+                    "measured solar-radiation observations exist only outside the 30-day training window",
+                    "weather_mlp_training_window_expired",
+                )
+            if _var_var_177 >= 50 and _var_var_178 == 0:
+                _var_var_18 = await self.db.fetchone(
+                    "SELECT\n                           (SELECT COUNT(*) FROM weather_precision_daily\n                             WHERE date >= date(?, '-30 days')\n                               AND forecast_contract_version = ?),\n                           (SELECT COUNT(*) FROM weather_precision_daily\n                             WHERE date >= date(?, '-30 days')\n                               AND COALESCE(forecast_contract_version, '') != ?),\n                           (SELECT COUNT(*) FROM weather_precision_daily\n                             WHERE date >= date(?, '-30 days')\n                               AND forecast_contract_version = ?\n                               AND COALESCE(solar_sample_eligible, 0) = 0\n                               AND solar_exclusion_reason IS NULL),\n                           (SELECT COUNT(*) FROM weather_precision_daily\n                             WHERE date >= date(?, '-30 days')\n                               AND forecast_contract_version = ?\n                               AND COALESCE(solar_sample_eligible, 0) = 1\n                               AND solar_actual IS NULL),\n                           (SELECT COUNT(*)\n                              FROM hourly_weather_actual a\n                              JOIN weather_forecast_usage_snapshots u\n                                ON u.target_date = a.date\n                               AND u.target_hour = a.hour\n                               AND u.contract_version = ?\n                              JOIN weather_forecast_correction_snapshots c\n                                ON c.correction_snapshot_id = u.correction_snapshot_id\n                               AND c.contract_version = ?\n                             WHERE a.date >= date(?, '-30 days')\n                               AND a.solar_radiation_wm2 IS NOT NULL),\n                           (SELECT COUNT(*)\n                              FROM hourly_weather_actual a\n                              JOIN weather_forecast_usage_snapshots u\n                                ON u.target_date = a.date\n                               AND u.target_hour = a.hour\n                               AND u.contract_version = ?\n                              JOIN weather_forecast_correction_snapshots c\n                                ON c.correction_snapshot_id = u.correction_snapshot_id\n                               AND c.contract_version = ?\n                              LEFT JOIN weather_precision_daily wpd\n                                ON wpd.date = a.date\n                               AND wpd.hour = a.hour\n                               AND wpd.forecast_contract_version = ?\n                             WHERE a.date >= date(?, '-30 days')\n                               AND a.solar_radiation_wm2 IS NOT NULL\n                               AND wpd.id IS NULL),\n                           (SELECT solar_exclusion_reason FROM weather_precision_daily\n                             WHERE date >= date(?, '-30 days')\n                               AND forecast_contract_version = ?\n                               AND solar_exclusion_reason IS NOT NULL\n                             GROUP BY solar_exclusion_reason\n                             ORDER BY COUNT(*) DESC LIMIT 1)",
+                    (
+                        _var_var_172,
+                        _var_var_174,
+                        _var_var_172,
+                        _var_var_174,
+                        _var_var_172,
+                        _var_var_174,
+                        _var_var_172,
+                        _var_var_174,
+                        WEATHER_FORECAST_USAGE_CONTRACT_VERSION,
+                        _var_var_174,
+                        _var_var_172,
+                        WEATHER_FORECAST_USAGE_CONTRACT_VERSION,
+                        _var_var_174,
+                        _var_var_174,
+                        _var_var_172,
+                        _var_var_172,
+                        _var_var_174,
+                    ),
+                )
+                (
+                    _var_var_186,
+                    _var_var_187,
+                    _var_var_188,
+                    _var_var_189,
+                    _var_var_190,
+                    _var_var_191,
+                ) = (
+                    tuple((int(_var_var_29 or 0) for _var_var_29 in _var_var_18[:6]))
+                    if _var_var_18
+                    else (0, 0, 0, 0, 0, 0)
+                )
+                _var_var_192 = (_var_var_18[6] if _var_var_18 else None) or "unrecorded"
+                if _var_var_190 == 0:
+                    return skipped(
+                        f"{_var_var_177} measured W/m² observations exist, but no frozen morning weather provenance is available for those hours yet (legacy precision rows in window: {_var_var_187})",
+                        "weather_mlp_precision_samples_unavailable",
+                    )
+                if _var_var_191 > 0:
+                    return failed(
+                        f"Weather MLP pipeline invariant failed: {_var_var_191}/{_var_var_190} measured hours with frozen snapshots produced no weather precision rows",
+                        "weather_mlp_precision_pipeline_invariant",
+                    )
+                if _var_var_188 == 0 and _var_var_189 == 0:
+                    return skipped(
+                        f"{_var_var_186} weather precision rows in the training window carry a recorded exclusion reason (most common: {_var_var_192})",
+                        "weather_mlp_precision_samples_excluded",
+                    )
+                return failed(
+                    f"Weather MLP pipeline invariant failed: {_var_var_177} measured W/m² observations produced no weather precision samples ({_var_var_188} rows without exclusion reason, {_var_var_189} eligible rows without measured GHI)",
+                    "weather_mlp_precision_pipeline_invariant",
+                )
+            if _var_var_178 >= 50 and _var_var_179 < 50:
+                return failed(
+                    f"Weather MLP pipeline invariant failed: only {_var_var_179}/{_var_var_178} precision samples have frozen weather snapshots",
+                    "weather_mlp_missing_weather_join",
+                )
+            if _var_var_178 >= 50 and _var_var_180 < 50:
+                return failed(
+                    f"Weather MLP pipeline invariant failed: only {_var_var_180}/{_var_var_178} precision samples have astronomy rows",
+                    "weather_mlp_missing_astronomy_join",
+                )
+            if _var_var_181 >= 50 and _var_var_185 < 50:
+                _var_var_193 = _var_var_181 - _var_var_185 - _var_var_184
+                if _var_var_193 != 0:
+                    return failed(
+                        f"Weather MLP sample funnel lost {_var_var_181 - _var_var_185} samples, but only {_var_var_184} have explicit learning, MPPT, or clipping flags",
+                        "weather_mlp_sample_funnel_invariant",
+                    )
+                return skipped(
+                    f"Weather MLP governance filter retained {_var_var_185}/{_var_var_181} samples (learning={_var_var_182}, mppt={_var_var_183}, unique_excluded={_var_var_184})",
+                    "weather_mlp_governance_filtered",
+                )
+            if _var_var_185 < 50:
+                return skipped(
+                    f"Weather MLP warm-up: {_var_var_185}/50 valid measured-radiation samples",
+                    "weather_mlp_warmup",
+                )
+            _var_var_126 = await self.db.fetchall(
+                "SELECT wpd.date, wpd.hour, wpd.solar_forecast, wpd.solar_actual, wpd.solar_factor,\n                      c.clouds, c.humidity, c.pressure, c.wind,\n                      c.sun_elevation, c.rain,\n                      c.cloud_cover_low, c.cloud_cover_mid, c.cloud_cover_high,\n                      c.visibility_m, c.static_solar_factor_applied\n               FROM weather_precision_daily wpd\n               JOIN weather_forecast_usage_snapshots u\n                    ON u.usage_snapshot_id = wpd.usage_snapshot_id\n               JOIN weather_forecast_correction_snapshots c\n                    ON c.correction_snapshot_id = u.correction_snapshot_id\n               WHERE wpd.solar_forecast > 10\n                 AND wpd.solar_actual IS NOT NULL\n                 AND c.sun_elevation > 5\n                 AND c.clouds IS NOT NULL\n                 AND c.humidity IS NOT NULL\n                 AND c.pressure IS NOT NULL\n                 AND c.wind IS NOT NULL\n                 AND wpd.forecast_contract_version = ?\n                 AND COALESCE(wpd.solar_sample_eligible, 0) = 1\n                 AND wpd.date >= date(?, '-30 days')\n                 AND NOT EXISTS (\n                     SELECT 1 FROM hourly_predictions hp\n                     WHERE hp.target_date = wpd.date\n                       AND hp.target_hour = wpd.hour\n                       AND (COALESCE(hp.exclude_from_learning, 0) != 0\n                            OR COALESCE(hp.mppt_throttled, 0) != 0\n                            OR COALESCE(hp.inverter_clipped, 0) != 0)\n                 )\n               ORDER BY wpd.date, wpd.hour",
+                (_var_var_174, _var_var_172),
+            )
+            if len(_var_var_126 or []) != _var_var_185:
+                return failed(
+                    f"Weather MLP sample funnel counted {_var_var_185} eligible samples but the loader returned {(len(_var_var_126) if _var_var_126 else 0)}",
+                    "weather_mlp_sample_funnel_invariant",
+                )
+            _var_var_194 = []
+            _var_var_195 = []
+            _var_var_196 = []
+            for _var_var_62 in _var_var_126:
+                (
+                    _var_var_63,
+                    _var_var_116,
+                    _var_var_197,
+                    _var_var_198,
+                    _var_var_199,
+                    _var_var_200,
+                    _var_var_201,
+                    _var_var_202,
+                    _var_var_203,
+                    _var_var_204,
+                    _var_var_205,
+                    _var_var_206,
+                    _var_var_207,
+                    _var_var_208,
+                    _var_var_209,
+                ) = _var_var_62[:15]
+                _var_var_210 = _var_var_62[15] if len(_var_var_62) > 15 else None
+                _var_var_211 = residual_weather_mlp_target(_var_var_199, _var_var_210)
+                if not _var_var_211 is not None:
+                    continue
+                _var_var_212 = build_weather_mlp_features(
+                    raw_ghi=_var_var_197,
+                    cloud_cover=_var_var_200,
+                    sun_elevation=_var_var_204,
+                    humidity=_var_var_201,
+                    pressure=_var_var_202,
+                    wind=_var_var_203,
+                    hour=_var_var_116,
+                    rain=_var_var_205,
+                    cloud_low=_var_var_206,
+                    cloud_mid=_var_var_207,
+                    cloud_high=_var_var_208,
+                )
+                if not _var_var_212 is not None:
+                    continue
+                _var_var_194.append(_var_var_212)
+                _var_var_195.append(_var_var_211)
+                _var_var_196.append(str(_var_var_63))
+            if len(_var_var_194) < 50:
+                return failed(
+                    f"Weather MLP target validation retained {len(_var_var_194)}/{_var_var_185} eligible samples; {_var_var_185 - len(_var_var_194)} solar-factor targets were invalid",
+                    "weather_mlp_target_validation_invariant",
+                )
+            _var_var_213 = held_out_training_shortfall(_var_var_196)
+            if _var_var_213 is not None:
+                return skipped(
+                    f"Weather MLP warm-up: the leanest held-out fold trains on {_var_var_213}/{WEATHER_MLP_MIN_TRAINING_SAMPLES} samples ({len(_var_var_194)} samples over {len(set(_var_var_196))} days)",
+                    "weather_mlp_warmup",
+                )
+            _LOGGER.info(
+                "Weather MLP training: %d samples over %d days, %d features",
+                len(_var_var_194),
+                len(set(_var_var_196)),
+                WEATHER_MLP_FEATURE_COUNT,
+            )
+            _var_var_54 = await self._evaluate_weather_mlp_pooled(
+                _var_var_194, _var_var_195, _var_var_196
+            )
+            if _var_var_54 is None:
+                return skipped(
+                    f"Weather MLP needs at least two training days for a held-out verdict ({len(set(_var_var_196))} available)",
+                    "weather_mlp_insufficient_days",
+                )
+            _var_var_214 = weather_mlp_persist_verdict(_var_var_54)
+            if _var_var_214 is not None:
+                _var_var_23 = f"Weather MLP {_var_var_214}"
+                _var_var_5 = (
+                    _LOGGER.info
+                    if self._weather_mlp_retrain_rejected
+                    else _LOGGER.warning
+                )
+                _var_var_5(
+                    "%s; weights not persisted, serving state unchanged (pooled RMSE %.4f vs static %.4f over %d held-out samples)",
+                    _var_var_23,
+                    _var_var_54["rmse"],
+                    _var_var_54["baseline_rmse"],
+                    _var_var_54["samples"],
+                )
+                self._weather_mlp_retrain_rejected = True
+                return {
+                    "status": "skipped",
+                    "reason": _var_var_23,
+                    "reason_code": "weather_mlp_governance_filtered",
+                    "impact": "informational",
+                }
+            _var_var_215 = self._spawn_weather_mlp()
+            _var_var_53 = await _var_var_215.train(
+                X_data=_var_var_194,
+                y_targets=_var_var_195,
+                epochs=50,
+                validation_split=0.2,
+                early_stopping_patience=10,
+            )
+            if not _var_var_53.get("success"):
+                _var_var_23 = (
+                    _var_var_53.get("error_message")
+                    or "trainer reported unsuccessful completion"
+                )
+                _LOGGER.warning("Weather MLP training failed: %s", _var_var_23)
+                return {"status": "failed", "reason": _var_var_23}
+            _var_var_45 = _var_var_215.get_weights()
+            _var_var_45["accuracy"] = float(_var_var_54["r2"])
+            _var_var_45["rmse"] = float(_var_var_54["rmse"])
+            _var_var_45["training_samples"] = int(
+                _var_var_53.get("training_samples") or len(_var_var_194)
+            )
+            await self.db.save_weather_mlp_weights(
+                _var_var_45, training_contract_version=_var_var_173
+            )
+            self._weather_mlp.set_weights(_var_var_45)
+            self._weather_mlp_retrain_rejected = False
+            self._weather_mlp_weights_loaded = True
+            self._attach_mlp_to_correctors()
+            _LOGGER.info(
+                "Weather MLP trained and saved: pooled R²=%.3f, skill vs static=%+.3f, RMSE=%.4f (static %.4f), %d samples over %d days",
+                _var_var_54["r2"],
+                _var_var_54["skill"],
+                _var_var_54["rmse"],
+                _var_var_54["baseline_rmse"],
+                _var_var_45["training_samples"],
+                len(set(_var_var_196)),
+            )
+            return {"status": "succeeded", "reason": ""}
+        except Exception as _var_var_16:
+            _LOGGER.error("Weather MLP training error: %s", _var_var_16, exc_info=True)
+            return {"status": "failed", "reason": str(_var_var_16)}
+
     async def _collect_sensor_data(self) -> Dict[str, Any]:
         """Collect current sensor data. @zara"""
         _var_var_155 = {}
@@ -1066,6 +1345,149 @@ class ScheduledTasksManager:
                 "Curtailment learning exclusion correction failed: %s", _var_var_16
             )
             return 0
+
+    async def _run_daily_data_hygiene_audit(self, current_time: datetime) -> None:
+        """Run nightly data hygiene audit for the day just ending. @zara"""
+        try:
+            _var_var_366 = self.db
+            _var_var_66 = current_time.date().isoformat()
+            _var_var_382 = getattr(self.coordinator, "solar_capacity", 0.0) or 0.0
+            if _var_var_382 <= 0.0:
+                _var_var_232 = getattr(self.coordinator, "panel_groups", [])
+                _var_var_382 = sum(
+                    (
+                        get_group_capacity_kwp(_var_var_394)
+                        for _var_var_394 in _var_var_232
+                    )
+                )
+            if _var_var_382 <= 0.0:
+                _var_var_382 = 5.0
+            _var_var_126 = await _var_var_366.fetchall(
+                "SELECT target_hour, actual_kwh, physics_kwh, prediction_id\n                   FROM hourly_predictions\n                   WHERE target_date = ?\n                   ORDER BY target_hour",
+                (_var_var_66,),
+            )
+            if not _var_var_126:
+                return
+            _var_var_383 = [
+                float(_var_var_308["actual_kwh"])
+                for _var_var_308 in _var_var_126
+                if _var_var_308["actual_kwh"] is not None
+            ]
+            _var_var_384 = sum(_var_var_383)
+            if _var_var_384 > _var_var_382 * 8.5:
+                Hubble.warning(
+                    f"Auffällig hoher Tagesertrag für den {_var_var_66} erkannt ({_var_var_384:.2f} kWh bei {_var_var_382:.2f} kWp installierter Leistung). Um die Genauigkeit der Prognose-KI nicht zu gefährden, wurden alle Stunden dieses Tages vom Modelltraining und der Clean-Evaluation ausgeschlossen."
+                )
+                await _var_var_366.execute(
+                    "UPDATE hourly_predictions\n                       SET exclude_from_learning = 1,\n                           exclude_from_clean_evaluation = 1,\n                           mppt_throttle_reason = COALESCE(mppt_throttle_reason, 'unplausible_daily_yield_spike')\n                       WHERE target_date = ?",
+                    (_var_var_66,),
+                )
+                await _var_var_366.execute(
+                    "UPDATE prediction_panel_groups\n                       SET exclude_from_learning_group = 1,\n                           exclusion_reason_group = COALESCE(exclusion_reason_group, 'unplausible_daily_yield_spike')\n                       WHERE prediction_id IN (\n                           SELECT prediction_id FROM hourly_predictions WHERE target_date = ?\n                       )",
+                    (_var_var_66,),
+                )
+                await _var_var_366.commit()
+                return
+            _var_var_385 = set()
+            if hasattr(_var_var_366, "is_actual_backfill_blocked"):
+                for _var_var_308 in _var_var_126:
+                    _var_var_116 = int(_var_var_308["target_hour"] or 0)
+                    if await _var_var_366.is_actual_backfill_blocked(
+                        _var_var_66, _var_var_116
+                    ):
+                        _var_var_385.add(_var_var_116)
+            if _var_var_385:
+                _LOGGER.warning(
+                    "EOD actual reconstruction skipped for emergency-quarantined hours on %s: %s",
+                    _var_var_66,
+                    sorted(_var_var_385),
+                )
+            _var_var_386 = [
+                _var_var_308
+                for _var_var_308 in _var_var_126
+                if _var_var_308["actual_kwh"] is None
+                if (_var_var_308["physics_kwh"] or 0.0) > 0.01
+                if int(_var_var_308["target_hour"] or 0) not in _var_var_385
+            ]
+            if _var_var_386:
+                _var_var_387 = await self._resolve_eod_actual_yield(current_time)
+                _var_var_388 = sum(
+                    (
+                        max(0.0, float(_var_var_308["actual_kwh"]))
+                        for _var_var_308 in _var_var_126
+                        if _var_var_308["actual_kwh"] is not None
+                    )
+                )
+                if _var_var_387 is not None:
+                    if _var_var_387 > _var_var_388:
+                        _var_var_389 = _var_var_387 - _var_var_388
+                        _var_var_390 = sum(
+                            (
+                                float(_var_var_308["physics_kwh"] or 0.0)
+                                for _var_var_308 in _var_var_386
+                            )
+                        )
+                        if _var_var_390 <= 0:
+                            _var_var_390 = len(_var_var_386)
+                            _var_var_45 = {
+                                _var_var_308["target_hour"]: 1.0
+                                for _var_var_308 in _var_var_386
+                            }
+                        else:
+                            _var_var_45 = {
+                                _var_var_308["target_hour"]: float(
+                                    _var_var_308["physics_kwh"] or 0.0
+                                )
+                                for _var_var_308 in _var_var_386
+                            }
+                        _var_var_391 = 0
+                        _var_var_232 = getattr(self.coordinator, "panel_groups", [])
+                        _var_var_392 = sum(
+                            (
+                                get_group_capacity_kwp(_var_var_394)
+                                for _var_var_394 in _var_var_232
+                            )
+                        )
+                        for _var_var_308 in _var_var_386:
+                            _var_var_116 = _var_var_308["target_hour"]
+                            _var_var_393 = _var_var_308["prediction_id"]
+                            _var_var_121 = _var_var_45.get(_var_var_116, 1.0)
+                            _var_var_122 = round(
+                                _var_var_121 / _var_var_390 * _var_var_389, 3
+                            )
+                            await _var_var_366.execute(
+                                "UPDATE hourly_predictions\n                               SET actual_kwh = ?,\n                                   exclude_from_learning = 1,\n                                   exclude_from_clean_evaluation = 1,\n                                   has_sensor_data = 1,\n                                   sensor_data_complete = 0,\n                                   mppt_throttle_reason = COALESCE(mppt_throttle_reason, 'reconstructed_gap_interpolation')\n                               WHERE prediction_id = ?",
+                                (_var_var_122, _var_var_393),
+                            )
+                            for _var_var_394 in _var_var_232:
+                                _var_var_395 = _var_var_394.get("name")
+                                if not _var_var_395:
+                                    continue
+                                _var_var_396 = get_group_capacity_kwp(_var_var_394)
+                                _var_var_397 = (
+                                    _var_var_396 / _var_var_392
+                                    if _var_var_392 > 0
+                                    else 1.0 / len(_var_var_232)
+                                )
+                                _var_var_398 = round(_var_var_122 * _var_var_397, 3)
+                                await _var_var_366.execute(
+                                    "UPDATE prediction_panel_groups\n                                   SET actual_kwh = ?,\n                                       exclude_from_learning_group = 1,\n                                       exclusion_reason_group = COALESCE(exclusion_reason_group, 'reconstructed_gap_interpolation')\n                                   WHERE prediction_id = ? AND group_name = ?",
+                                    (_var_var_398, _var_var_393, _var_var_395),
+                                )
+                            _var_var_391 += 1
+                        if _var_var_391 > 0:
+                            await _var_var_366.execute(
+                                "UPDATE hourly_predictions\n                               SET has_panel_group_actuals = TRUE\n                               WHERE target_date = ? AND prediction_id IN (\n                                   SELECT prediction_id FROM hourly_predictions WHERE target_date = ?\n                               )",
+                                (_var_var_66, _var_var_66),
+                            )
+                            await _var_var_366.commit()
+                            Hubble.info(
+                                f"Datenlücke von {_var_var_391} Stunden am {_var_var_66} erkannt. Der Ausfall wurde über die physikalische Erwartungskurve mit insgesamt {_var_var_389:.3f} kWh rekonstruiert und für das KI-Training gesperrt."
+                            )
+        except Exception as _var_var_16:
+            _LOGGER.warning("Daily data hygiene audit failed: %s", _var_var_16)
+        if True:
+            return None
 
     async def _learn_method_performance(self, now: datetime) -> Dict[str, str]:
         """Learn physics vs AI accuracy per condition bucket. @zara V16.0.0

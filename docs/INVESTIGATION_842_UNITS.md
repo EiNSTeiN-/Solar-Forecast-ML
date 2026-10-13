@@ -357,3 +357,15 @@ remaining, 134 complete candidates**. Both weather-reader and solar-reader
 modules now match completely. Published readable source remains **98 modules /
 2,565 units**. Five fresh complete runs prove the final-pass reuse method.
 Other queued source oracles remain excluded until main-thread integration.
+
+
+## Source owner checkpoint 03
+
+The original 842-unit investigation now reaches 14,242/14,291 verified units,
+with 49 remaining. `owner-recipes-03` adds 27 owners and 28 corpus matches with
+zero prior losses; 246 candidate modules match completely. Three simultaneous
+investigators continue disjoint scopes while the main thread owns all tracked
+changes. Readable source remains 100 modules/2,637 units. Native .29 is held
+out of stable main after its full corpus loses one prior reader match, despite
+passing ordinary fixtures. All source gains use stable .25/.31 and unchanged
+instruction and exception-table proof rules.
