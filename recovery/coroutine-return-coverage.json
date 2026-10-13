@@ -3,7 +3,7 @@
   "original_exports_unchanged": true,
   "comparison_rules_unchanged": true,
   "accepted_candidates": 0,
-  "proof_scope": "All instructions/signatures match; one real RETURN_VALUE dispatch slot differs.",
+  "proof_scope": "All nearest-candidate instructions/signatures match; one canonical return-alias dispatch slot differs. Every disputed reference position originates from a protected forward jump, not an actual raw RETURN_VALUE.",
   "ordinary_owned_call_pairs": 5,
   "observable_tracing_hook_difference": true,
   "behavioral_equivalence_verified": false,
@@ -21,7 +21,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "data/data_ml_handler.py",
@@ -36,7 +38,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "data/data_operational_forecast_handler.py",
@@ -51,7 +55,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "data/data_operational_forecast_handler.py",
@@ -66,7 +72,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/grid_price_monitor/storage/price_cache.py",
@@ -81,7 +89,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/consumption/consumption_scheduled_tasks.py",
@@ -96,7 +106,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_hourly_predictions.py",
@@ -111,7 +123,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_ml_handler.py",
@@ -126,7 +140,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_ml_handler.py",
@@ -141,7 +157,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_ml_handler.py",
@@ -156,7 +174,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
@@ -171,7 +191,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_weather_corrector.py",
@@ -186,7 +208,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
@@ -201,7 +225,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
@@ -216,7 +242,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
@@ -231,7 +259,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "extra_features/solar_forecast_eai/data/data_weather_expert_blender.py",
@@ -246,7 +276,9 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     },
     {
       "module_path": "production/production_scheduled_tasks.py",
@@ -261,7 +293,15 @@
         "intrinsic": "INTRINSIC_STOPITERATION_ERROR"
       },
       "all_previous_neighbors_retained": true,
-      "accepted": false
+      "accepted": false,
+      "reference_canonical_return_origin": "protected_forward_jump_alias",
+      "reference_effective_exit_intrinsic_coverage_retained": true
     }
-  ]
+  ],
+  "raw_provenance_verified_units": 17,
+  "actual_raw_return_instructions_at_disputed_positions": 0,
+  "effective_normalized_terminal_intrinsic_coverage_retained": true,
+  "observable_tracing_hook_difference_scope": "Owned literal actual-return-hole negative control; not a direct runtime counterexample for the seventeen protected forward-jump aliases.",
+  "production_alias_runtime_equivalence_verified": false,
+  "acceptance_policy_changed": false
 }

@@ -5,11 +5,17 @@ signatures, but fail the unchanged exception-table proof. Every earlier matching
 neighbor is retained. These candidates remain private, unaccepted, and excluded
 from corpus and readable-source counts. The original exports are unchanged.
 
-Each difference affects one real `RETURN_VALUE`: the reference has no handler
-there, while stock CPython 3.14.2 assigns a depth-zero, `lasti`-preserving jump
-to `INTRINSIC_STOPITERATION_ERROR`. No application error handler differs in these
-specific candidates. This describes local evidence; it does not establish how
-the protection process changed the reference or prove general impossibility.
+Each difference affects one **canonical** `RETURN_VALUE`: the reference has no
+handler at that comparison position, while stock CPython 3.14.2 assigns a
+depth-zero, `lasti`-preserving route to `INTRINSIC_STOPITERATION_ERROR`. Raw
+opcode mapping now identifies all seventeen positions as protected forward
+jumps that the existing shared-return rule represents as returns. They are not
+raw return instructions. The jumps originally have non-lasti user-handler
+coverage, which the existing alias rule removes from the canonical dispatch
+map. Their effective normalized exit targets retain intrinsic cleanup coverage.
+No application handler differs in the nearest private candidates after that
+normalization. These observations do not establish whole runtime equivalence
+or prove general source impossibility.
 
 CPython establishes an outer cleanup wrapper for coroutines. Its unwind logic
 keeps that wrapper active while emitting a return, and flowgraph construction
@@ -30,12 +36,21 @@ stock code converts it into `RuntimeError('coroutine raised StopIteration')`;
 the owned return-hole control propagates `StopIteration`. Both tests pass.
 No production bytecode is modified or executed in this test.
 
-Consequently this difference is **observable**, even though normal owned calls
-agree. Treating it as an allowed variance would change the goal's equivalence
-definition and would require an explicit decision. No blanket runtime-equivalence
-claim follows, and no arbitrary exception region may be ignored. Until then,
-the strict result remains failure. The separately unresolved WeatherExpert
-instruction-layout mismatch is not covered by this classification.
+The owned real-return-hole difference is **observable**, even though ordinary
+owned calls agree. It remains a useful negative control against arbitrary
+exception removal. It does not reproduce the protected jump/return provenance
+of these seventeen production comparison positions and must not be presented
+as a direct runtime counterexample for them. Actual user-return sites in the
+raw protected code retain intrinsic routes; runtime-exit normalization makes
+those earlier physical returns unreachable after replacing an exit jump.
+The final protected leave/return tail is separate from the disputed alias.
+
+Any proposed alias-specific treatment still needs a precise rule, controls
+that retain every real return and meaningful handler, and an explicit decision
+before expanding the current accepted comparison policy. No blanket runtime
+equivalence claim follows, and no arbitrary exception region may be ignored.
+Until then, the strict result remains failure. The separately unresolved
+WeatherExpert instruction-layout mismatch is not covered by this classification.
 
 ## Classified units
 

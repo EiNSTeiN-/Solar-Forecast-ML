@@ -4024,5 +4024,77 @@
     "all_prior_matched_paths_retained": true,
     "all_unmatched_shapes_and_names_unchanged": true,
     "vendor_modules_imported": 0
+  },
+  "final_readable_checkpoint": {
+    "freeze": {
+      "stage": "readable-candidates-01",
+      "raw_evidence_reused_from": "unused-local-names-02",
+      "all_274_raw_generated_sources_and_exports_byte_identical": true,
+      "comparator_sha256": "810071a10fe86f5c49498e2f086518076207d9e5c0164376c55dbde958a15400",
+      "complete_readable_public_modules": 262,
+      "complete_private_crypto_modules": 1,
+      "partial_readable_contexts": 11,
+      "source_modules_compiled": 274,
+      "complete_source_goal_achieved": false,
+      "new_corpus_gains": 0,
+      "all_prior_unit_paths_retained": true,
+      "original_inputs_unchanged": true,
+      "private_crypto_source_in_public_fork": false,
+      "vendor_modules_imported": 0,
+      "summary": {
+        "protected_modules": 274,
+        "bytecode_verified_modules": 274,
+        "source_compiles_modules": 274,
+        "all_units_match_modules": 263,
+        "reference_units": 14291,
+        "matched_units": 14273,
+        "input_files_unchanged": true,
+        "vendor_modules_imported": 0,
+        "behavioral_equivalence_verified": false,
+        "unit_results": {
+          "normalized_bytecode_match": 14273,
+          "exception_table": 17,
+          "instructions": 1
+        },
+        "scopes": {
+          "main": 99,
+          "grid_price_monitor": 23,
+          "sfml_stats": 77,
+          "solar_forecast_eai": 64,
+          "weather_fusion_ai": 11
+        }
+      }
+    },
+    "retention": {
+      "baseline": "unused-local-names-02",
+      "stage": "readable-candidates-01",
+      "comparator_unchanged": false,
+      "comparator_sha256": "810071a10fe86f5c49498e2f086518076207d9e5c0164376c55dbde958a15400",
+      "raw": {
+        "previous": 13929,
+        "matched": 13929,
+        "gained": 0,
+        "lost": 0,
+        "whole_modules": 138,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [],
+        "new_complete_modules": []
+      },
+      "composite": {
+        "previous": 14273,
+        "matched": 14273,
+        "gained": 0,
+        "lost": 0,
+        "whole_modules": 263,
+        "lost_complete_modules": [],
+        "loss_paths": [],
+        "gained_paths": [],
+        "new_complete_modules": []
+      },
+      "retention_passes": true
+    },
+    "complete_goal_achieved": false,
+    "protected_exports_and_keys_in_report": false
   }
 }

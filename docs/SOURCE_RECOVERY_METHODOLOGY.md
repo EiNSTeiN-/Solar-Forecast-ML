@@ -3626,3 +3626,32 @@ No recovered module body, PyArmor runtime, Home Assistant or real I/O is run.
 The public whole-module total remains **262 / 13,355**, with one additional
 private crypto module /30 units counted separately. The 17 coroutine-return
 coverage gaps and one WeatherExpert terminal-layout gap remain unaccepted.
+
+
+## Full readable checkpoint retains every previous proof
+
+The final private source overlay includes all274 contexts:262 public complete
+modules, one locally retained crypto module, and11 explicitly incomplete
+readable contexts. All274 compile under the same frozen .37 verifier. The
+complete corpus remains **14,273/14,291** matches with **263** complete
+modules:17 exception-table failures and one instruction-layout failure remain.
+Every previous passing unit path and complete module is retained, with zero
+gains or losses. Public source contains no private crypto keying material.
+
+Raw generated sources, bytecode exports and the comparison algorithm are
+byte-identical to `unused-local-names-02`, so its **13,929 /138-module** raw
+evidence is explicitly reused rather than rerunning unchanged generation.
+The complete current readable overlay is independently recompiled/recompared
+and its full path sets checked against that checkpoint. See
+`recovery/final-readable-checkpoint.json`. No original protected input changed,
+no integration body or PyArmor runtime was imported, and no Home Assistant
+configuration was modified. Full recovery remains unfinished.
+
+The raw opcode mapping also corrects an earlier diagnostic description: the
+17 disputed canonical returns originate from protected forward-jump aliases,
+not raw return instructions. The existing alias rule removes their non-lasti
+user-handler slots while their effective exit targets retain intrinsic coverage.
+The owned actual-return-hole tracing test remains a negative control, rather
+than a direct runtime counterexample for those aliases. The corrected scope
+is documented in `docs/COROUTINE_RETURN_COVERAGE.md`; no comparison rule or
+acceptance count is changed.
