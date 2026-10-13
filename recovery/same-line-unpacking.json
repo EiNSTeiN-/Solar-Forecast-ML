@@ -9,8 +9,8 @@
   "reference_exports_and_comparison_rules_unchanged": true,
   "source_bytecode_or_exception_tables_patched": false,
   "owned_witness_test_file": "recovery/tests/test_same_line_unpacking.py",
-  "owned_test_methods": 2,
-  "owned_tests_passed": 2,
+  "owned_test_methods": 4,
+  "owned_tests_passed": 4,
   "split_layout_strictly_rejected": true,
   "kept_layout_full_instructions_and_exceptions_match": true,
   "wrong_return_values_strictly_rejected": true,
@@ -28,5 +28,20 @@
     "original_exports_and_comparison_rules_unchanged": true,
     "manifest_sha256": "36026ef128d3a60fd1656e50a6da5b256428ce650fd2d358f46f83275ddffa14",
     "vendor_modules_imported": 0
+  },
+  "generator_target_extension": {
+    "module_path": "extra_features/sfml_stats/weather_collector.py",
+    "unit_path": "<module>/_is_explicit_amount_precipitation#1/<genexpr>#2",
+    "first_formatted_module_matches": 42,
+    "reference_units": 43,
+    "kept_layout_module_matches": 43,
+    "remedy": "Keep only the nested repeated-target tuple and generator iterator header together on one physical line with fmt: skip; retain multiline formatting around the condition",
+    "full_instruction_exception_and_metadata_proofs_pass": true,
+    "ast_unchanged": true,
+    "owned_generator_methods_passed": 2,
+    "new_corpus_matches": 0,
+    "instruction_and_exception_criteria_changed": false,
+    "selected_suite_210_precedes_these_two_new_tests": true,
+    "longest_formatted_module_line": 153
   }
 }

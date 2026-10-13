@@ -31,6 +31,26 @@ KEPT_LINE = """async def route(fetch):
     first, second, discarded_component, discarded_component = await fetch()  # fmt: skip
     return first, second
 """
+GENERATOR_SAME_LINE = """def route(rows):
+    return all(value is None or amount is not None for (value, discarded, discarded, discarded), amount in rows)
+"""
+GENERATOR_SPLIT_LINES = """def route(rows):
+    return all(
+        value is None or amount is not None
+        for (
+            value,
+            discarded,
+            discarded,
+            discarded,
+        ), amount in rows
+    )
+"""
+GENERATOR_KEPT_LINE = """def route(rows):
+    return all(
+        value is None or amount is not None
+        for (value, discarded, discarded, discarded), amount in rows  # fmt: skip
+    )
+"""
 
 
 def function(source):
@@ -79,6 +99,41 @@ class SameLineUnpackingTests(unittest.TestCase):
         wrong = KEPT_LINE.replace("return first, second", "return second, first")
         _, incorrect = function(wrong)
         self.assertFalse(compare(reference, incorrect)["all_units_match"])
+
+    def test_split_nested_generator_target_changes_real_unpacking_instructions(self):
+        original, reference = function(GENERATOR_SAME_LINE)
+        split, candidate = function(GENERATOR_SPLIT_LINES)
+        report = compare(reference, candidate)
+        self.assertFalse(report['all_units_match'])
+        failures = [entry for entry in report['entries'] if not entry['matched']]
+        self.assertEqual(len(failures), 1)
+        self.assertTrue(failures[0]['unit'].endswith('/<genexpr>#1'))
+        self.assertEqual(failures[0]['reason'], 'instructions')
+        self.assertIn(('POP_TOP', None), failures[0]['reference'])
+        scenarios = [[], [((None, 1, 2, 3), None)], [((5, 1, 2, 3), 0)],
+                     [((5, 1, 2, 3), None)], [((None, 1, 2, 3), 2), ((5, 1, 2, 3), None)],
+                     [((), None)], [((1, 2), 3)], [((1, 2, 3, 4, 5), 6)]]
+
+        def outcome(route, values):
+            try:
+                return 'value', route(values)
+            except (TypeError, ValueError) as error:
+                return type(error).__name__, str(error)
+
+        for values in scenarios:
+            self.assertEqual(outcome(original, values), outcome(split, values))
+
+    def test_generator_header_alone_can_keep_the_proved_target_layout(self):
+        original, reference = function(GENERATOR_SAME_LINE)
+        kept, candidate = function(GENERATOR_KEPT_LINE)
+        report = compare(reference, candidate)
+        self.assertTrue(report['all_units_match'])
+        self.assertEqual(report['matched_units'], 3)
+        for values in ([], [((None, 1, 2, 3), None)], [((5, 1, 2, 3), 0)], [((5, 1, 2, 3), None)]):
+            self.assertEqual(original(values), kept(values))
+        wrong = GENERATOR_KEPT_LINE.replace('amount is not None', 'amount is None')
+        _, incorrect = function(wrong)
+        self.assertFalse(compare(reference, incorrect)['all_units_match'])
 
 
 if __name__ == "__main__":

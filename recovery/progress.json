@@ -565,7 +565,7 @@
       "matched_units": 39,
       "reference_units": 39,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 39
     },
     {
@@ -617,7 +617,7 @@
       "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherForecastCorrector#1/_load_correction_factors#1",
         "<module>/WeatherForecastCorrector#1/_load_raw_forecasts#1"
@@ -1236,7 +1236,7 @@
       "matched_units": 44,
       "reference_units": 44,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ModernAnalyticsView#1/_days#1"
       ],
@@ -1760,7 +1760,7 @@
       "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/HourlyBillingAggregator#1/_aggregate_hour_with_lock_retry#1"
       ],
@@ -1936,7 +1936,7 @@
       "matched_units": 46,
       "reference_units": 46,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/fill_gap_from_daily_costs#1"
       ],
@@ -2056,7 +2056,7 @@
       "matched_units": 44,
       "reference_units": 44,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SurplusAvailableBinarySensor#1/_async_refresh#1"
       ],
@@ -2088,7 +2088,7 @@
       "matched_units": 43,
       "reference_units": 43,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/WeatherDataCollector#1/_load_from_solar_forecast_ml#1",
         "<module>/WeatherDataCollector#1/_load_ki_forecast_data#1"
@@ -3495,7 +3495,7 @@
       "matched_units": 60,
       "reference_units": 60,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 60
     },
     {
@@ -3576,7 +3576,7 @@
       "matched_units": 44,
       "reference_units": 44,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/EmergencyOutageService#1/_invalidate_learning#1"
       ],

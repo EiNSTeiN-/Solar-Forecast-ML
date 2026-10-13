@@ -3285,3 +3285,38 @@ passes **210 methods in 152.75 seconds** against a frozen **186-module /
 14 source/coverage methods. Only selected proved definitions and owned
 stand-ins execute; no integration module or native PyArmor runtime is loaded.
 See `recovery/unused-local-slot-layout.json` and the owned reservation tests.
+
+
+## Readable sensor protocols, hourly accounting, weather correction and recovery services
+
+Root-authored source names **824 bindings across
+142 actual scopes**, exposing **436
+already-proved units**. It removes 171 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**195 modules / 11,544 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/core/yearly_history.py` | 46 | 126 | 17 |
+| `services/service_emergency_outage.py` | 44 | 63 | 16 |
+| `data/data_startup_initializer.py` | 39 | 100 | 16 |
+| `extra_features/sfml_stats/core/hourly_aggregator.py` | 58 | 163 | 24 |
+| `extra_features/sfml_stats/api/modern.py` | 44 | 32 | 11 |
+| `extra_features/sfml_stats/sensors/binary_sensors.py` | 44 | 31 | 6 |
+| `extra_features/sfml_stats/weather_collector.py` | 43 | 128 | 25 |
+| `sensors/sensor_mixins.py` | 60 | 13 | 6 |
+| `data/data_weather_corrector.py` | 58 | 168 | 21 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Names expose yearly fees and calendar coverage; emergency acknowledgment and existing audit operations; startup SQL provenance; hourly Recorder/energy fallback and charge attribution; public API and replay closures; sensor thresholds, cache and MRO protocols; and DNI/DHI/MLP/Kalman correction provenance. Weather collection keeps one nested repeated-target generator header on a single physical line with fmt: skip while formatting the surrounding condition normally. The failed Black split is preserved privately, the corrected 43-unit tree proves every instruction and exception region, and two new owned regressions demonstrate ordinary-outcome agreement versus a real strict instruction mismatch. Recovery services execute only against owned stand-ins during investigative checks, with no actual HA, backups, repair operations or database writes.
+
+The previously passed 210-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
