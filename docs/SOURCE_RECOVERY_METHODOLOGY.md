@@ -2171,3 +2171,38 @@ cases**, with one existing unpacker expected failure. Input payloads, comparator
 rules and retained definition overrides are unchanged; no vendor module or
 PyArmor runtime is imported. Queued investigator source oracles are excluded
 from these regenerated gains.
+
+
+## Physical local-slot boundary preservation (0.4.30 / 0.6.24)
+
+Removing the original unused armor local can shift a real variable from
+physical slot 64 to 63, changing CPython's definite-assignment checked loads.
+A dead `if False: __assert_armored__ = None` reserves only the original slot;
+it restores no armor operation, key or runtime dependency. Trials require the
+original hidden nonparameter local, an exact one-local count difference and
+checked-load evidence of the 64-to-63 crossing. At most eight statement
+boundaries after the original docstring are tried. Full owner/descendant
+instructions and exception tables, followed by module retention, decide.
+Nearby 62/63/65/66 slot controls and already matching code remain unchanged.
+Changed work, handler coverage and invented locals are rejected.
+
+`physical-local-slots-01` freezes source API `75923fb4fbac7602551dfec6fe0aae6bd72962c5` with native
+`4c02fc60a7aae297ced8a84e884aeb46b58fda55`. Removing only the new pass and its final
+invocation proves every earlier algorithm's AST unchanged; comparator bytes
+are identical. All 274 prior native captures and original exports are hashed.
+Five fresh complete recovery runs give byte-for-byte identical source and all
+report fields for the three repaired modules and two unchanged controls.
+Generation takes 18.4 seconds with four workers;
+every source receives fresh independent raw and composite audits.
+
+Both views gain **3 and lose zero**: raw **13,890 units / 132 complete
+candidates**, composite **13,895/14,291 / 132 complete candidates**.
+**396 remain: 357 instruction and 39 exception mismatches**. All 274 compile;
+218 are structurally complete. The readable subset remains **98 modules /
+2,565 units**, separately proved by 183 application methods. Five owned
+methods and one full export-pipeline method cover compiler boundaries,
+ordinary values/errors, docstrings/children and strict negative controls.
+All **206 unpacker cases** pass with one existing expected failure; native
+retains 35 Rust and 59 behavior methods. Inputs, comparator and retained
+definition overrides are unchanged. No vendor module or armor runtime is
+imported. Investigators' other queued oracles are excluded from these gains.

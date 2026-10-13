@@ -328,3 +328,13 @@ Raw gains 1, composite gains 1, with zero losses:
 **13,892/14,291 matches, 399 remaining,
 132 complete candidates**. Readable source remains
 **98 modules / 2,565 units**. Investigators' separate source oracles stay queued.
+
+
+## Physical local-slot checkpoint
+
+`physical-local-slots-01` audits every module and adds three exact matches
+with zero prior raw or composite matches lost. This reaches
+**13,895/14,291 matches, 396 remaining, 132 complete candidates**.
+The readable subset remains **98 modules / 2,565 units**. Five fresh complete
+recoveries independently establish the final-pass reuse method. Other queued
+source oracles remain excluded until root authors and validates them.

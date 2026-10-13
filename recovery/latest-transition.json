@@ -1,12 +1,12 @@
 {
-  "previous_stage": "guarded-else-01",
-  "current_stage": "saved-boolean-01",
-  "new_matching_units": 1,
+  "previous_stage": "saved-boolean-01",
+  "current_stage": "physical-local-slots-01",
+  "new_matching_units": 3,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 1,
+  "raw_new_matching_units": 3,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 1,
+  "source_repair_gains": 3,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 650,
@@ -18,14 +18,22 @@
   "verified_shared_try_fragments": 136,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13887,
+  "raw_decompiler_matched_units": 13890,
   "raw_all_units_match_modules": 132,
-  "manually_reconstructed_candidate_matched_units": 13892,
+  "manually_reconstructed_candidate_matched_units": 13895,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
+      "module_path": "ai/ai_predictor.py",
+      "unit_path": "<module>/AIPredictor#1/_process_hour_data_for_training#1"
+    },
+    {
+      "module_path": "extra_features/sfml_stats/core/billing.py",
+      "unit_path": "<module>/BillingCalculator#1/async_calculate_billing#1"
+    },
+    {
       "module_path": "extra_features/sfml_stats/core/ems.py",
-      "unit_path": "<module>/EMSManager#1/note_external_smc_enable#1"
+      "unit_path": "<module>/EMSManager#1/_intelligence#1"
     }
   ],
   "rejected_intermediate_stage": {
@@ -45,5 +53,6 @@
   "verified_residual_statement_shapes": 69,
   "verified_substantive_value_shapes": 6,
   "verified_shared_guard_shapes": 13,
-  "verified_payload_and_handler_shapes": 39
+  "verified_payload_and_handler_shapes": 39,
+  "verified_physical_local_slots": 3
 }
