@@ -2138,3 +2138,36 @@ cases**, with one existing unpacker expected failure. Input payloads, comparator
 rules and retained definition overrides are unchanged; no vendor module or
 PyArmor runtime is imported. Queued investigator source oracles are excluded
 from these regenerated gains.
+
+
+## Saved Boolean operands and OR tails (0.4.29 / 0.6.24)
+
+A successful modern AND-in-OR value fold consumes only the
+exact saved COPY operand. The callee/NULL and other argument prefix remain
+intact. Additional OR links qualify only through their COPY/TO_BOOL/true-jump
+protocol to the same merge, with matching POP cleanup. Arbitrary branches and
+different merge targets are rejected. Nine owned simple/compound/assigned
+layouts and argument-prefix controls cover 113 paired value, call-order and
+error cases with exact instruction and exception bytes.
+
+`saved-boolean-01` pins native `4c02fc60a7aae297ced8a84e884aeb46b58fda55` and unchanged source API
+`7eddc1a2e089b1cabf1fca1ed5799eeee99fff0b`. All 274 native outputs and
+diagnostics are compared: 269 identical sources
+are reused, 5 changed sources regenerated,
+and every source receives fresh raw and composite fidelity audits. Generation
+takes 265.0 seconds with four workers.
+
+Raw gains **1** to **13,887 / 132
+complete candidates**. Composite gains **1** to
+**13,892/14,291 / 132 complete
+candidates**. Both lose **zero**. **399 remain**, with
+**360 instruction and
+39 exception mismatches**.
+All 274 sources compile; 218 are structurally
+complete. The readable subset remains **98 modules / 2,565 units**; all 183
+application methods and their full-module references remain independently
+proved. Local checks pass **35 Rust, 59 behavior and 200 unpacker
+cases**, with one existing unpacker expected failure. Input payloads, comparator
+rules and retained definition overrides are unchanged; no vendor module or
+PyArmor runtime is imported. Queued investigator source oracles are excluded
+from these regenerated gains.

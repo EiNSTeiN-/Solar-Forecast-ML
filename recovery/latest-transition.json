@@ -1,15 +1,15 @@
 {
-  "previous_stage": "payload-handler-01",
-  "current_stage": "guarded-else-01",
-  "new_matching_units": 3,
+  "previous_stage": "guarded-else-01",
+  "current_stage": "saved-boolean-01",
+  "new_matching_units": 1,
   "previous_matches_lost": 0,
-  "raw_new_matching_units": 3,
+  "raw_new_matching_units": 1,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 3,
+  "source_repair_gains": 1,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
-  "verified_shared_return_shapes": 649,
+  "verified_shared_return_shapes": 650,
   "verified_shared_branch_return_shapes": 69,
   "verified_try_return_scopes": 250,
   "verified_capture_name_order": 60,
@@ -18,22 +18,14 @@
   "verified_shared_try_fragments": 136,
   "verified_definition_overrides": 2,
   "verified_code_units_in_overrides": 0,
-  "raw_decompiler_matched_units": 13886,
+  "raw_decompiler_matched_units": 13887,
   "raw_all_units_match_modules": 132,
-  "manually_reconstructed_candidate_matched_units": 13891,
+  "manually_reconstructed_candidate_matched_units": 13892,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     {
-      "module_path": "extra_features/grid_price_monitor/coordinator.py",
-      "unit_path": "<module>/GridPriceMonitorCoordinator#1/async_initialize_storage#1"
-    },
-    {
-      "module_path": "extra_features/sfml_stats/api/tomorrow.py",
-      "unit_path": "<module>/_day_timeline#1"
-    },
-    {
-      "module_path": "sensors/sensor_base.py",
-      "unit_path": "<module>/ConservativePlanningForecastSensor#1/_load_current_forecast_caps#1"
+      "module_path": "extra_features/sfml_stats/core/ems.py",
+      "unit_path": "<module>/EMSManager#1/note_external_smc_enable#1"
     }
   ],
   "rejected_intermediate_stage": {

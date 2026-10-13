@@ -319,3 +319,12 @@ Raw gains 3, composite gains 3, with zero losses:
 **13,891/14,291 matches, 400 remaining,
 132 complete candidates**. Readable source remains
 **98 modules / 2,565 units**. Investigators' separate source oracles stay queued.
+
+
+## Saved Boolean operands and OR tails
+
+`saved-boolean-01` audits all 274 modules, retaining every prior raw and composite match.
+Raw gains 1, composite gains 1, with zero losses:
+**13,892/14,291 matches, 399 remaining,
+132 complete candidates**. Readable source remains
+**98 modules / 2,565 units**. Investigators' separate source oracles stay queued.
