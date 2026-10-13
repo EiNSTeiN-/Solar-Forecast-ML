@@ -328,7 +328,7 @@
       "matched_units": 36,
       "reference_units": 36,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/StartupDataResolver#1/_sensor_retry_loop#1"
       ],
@@ -356,7 +356,7 @@
       "matched_units": 43,
       "reference_units": 43,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/EnsembleShadowHandler#1/select_canonical_batch_rows#1"
       ],
@@ -589,7 +589,7 @@
       "matched_units": 35,
       "reference_units": 35,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/VisibilityLearner#1/learn_from_day#1"
       ],
@@ -799,7 +799,7 @@
       "matched_units": 40,
       "reference_units": 40,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ElectricityPriceService#1/fetch_day_ahead_prices#1"
       ],
@@ -1218,7 +1218,7 @@
       "matched_units": 39,
       "reference_units": 39,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_hubble_best_window#1",
         "<module>/_hubble_build_memory#1",
@@ -1264,7 +1264,7 @@
       "matched_units": 42,
       "reference_units": 42,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_live_payload#1"
       ],
@@ -1280,7 +1280,7 @@
       "matched_units": 42,
       "reference_units": 42,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SettingsDashboardView#1/_collect_ai_info#1",
         "<module>/SettingsDashboardView#1/get#1"
@@ -1615,7 +1615,7 @@
       "matched_units": 39,
       "reference_units": 39,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/_bounded_number#1"
       ],
@@ -1804,7 +1804,7 @@
       "matched_units": 36,
       "reference_units": 36,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 36
     },
     {
@@ -2008,7 +2008,7 @@
       "matched_units": 40,
       "reference_units": 40,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 40
     },
     {
@@ -2402,7 +2402,7 @@
       "matched_units": 36,
       "reference_units": 36,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/StartupDataResolver#1/_sensor_retry_loop#1"
       ],
@@ -2539,7 +2539,7 @@
       "matched_units": 37,
       "reference_units": 37,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ShadowDetector#1/_apply_learned_patterns#1"
       ],
@@ -3100,7 +3100,7 @@
       "matched_units": 40,
       "reference_units": 40,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ForecastOrchestrator#1/_calculate_candidate_shadow_pair#1",
         "<module>/ForecastOrchestrator#1/is_production_hour#1"
@@ -3519,7 +3519,7 @@
       "matched_units": 36,
       "reference_units": 36,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 36
     },
     {
@@ -3531,7 +3531,7 @@
       "matched_units": 36,
       "reference_units": 36,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SystemStatusSensor#1/_get_hourly_forecast_for_day#1"
       ],
@@ -3656,7 +3656,7 @@
       "matched_units": 37,
       "reference_units": 37,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/SystemReportGenerator#1/_calculate_seasonal_stats#1",
         "<module>/SystemReportGenerator#1/_load_physics_telemetry#1"

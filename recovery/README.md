@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-195 readable whole modules (11,544 nested units) and passes 210 selected
+211 readable whole modules (12,158 nested units) and passes 210 selected
 test methods (196 application checks and fourteen source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -1145,6 +1145,48 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 Names expose yearly fees and calendar coverage; emergency acknowledgment and existing audit operations; startup SQL provenance; hourly Recorder/energy fallback and charge attribution; public API and replay closures; sensor thresholds, cache and MRO protocols; and DNI/DHI/MLP/Kalman correction provenance. Weather collection keeps one nested repeated-target generator header on a single physical line with fmt: skip while formatting the surrounding condition normally. The failed Black split is preserved privately, the corrected 43-unit tree proves every instruction and exception region, and two new owned regressions demonstrate ordinary-outcome agreement versus a real strict instruction mismatch. Recovery services execute only against owned stand-ins during investigative checks, with no actual HA, backups, repair operations or database writes.
+
+The previously passed 210-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable forecast orchestration, sensor status, dashboard queries and shared energy context
+
+Root-authored source names **1,232 bindings across
+222 actual scopes**, exposing **614
+already-proved units**. It removes 234 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**211 modules / 12,158 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `forecast/forecast_orchestrator.py` | 40 | 144 | 18 |
+| `data/data_visibility_learner.py` | 35 | 58 | 9 |
+| `data/data_ensemble_shadow.py` | 43 | 123 | 20 |
+| `extra_features/grid_price_monitor/core/price_service.py` | 40 | 47 | 13 |
+| `services/service_system_report.py` | 37 | 102 | 16 |
+| `core/core_startup_data_resolver.py` | 36 | 37 | 9 |
+| `extra_features/sfml_stats/api/premium_dashboard.py` | 42 | 96 | 13 |
+| `extra_features/sfml_stats/api/settings_views.py` | 42 | 105 | 14 |
+| `extra_features/sfml_stats/readers/modern_analytics_reader.py` | 40 | 54 | 13 |
+| `extra_features/sfml_stats/api/hubble.py` | 39 | 72 | 15 |
+| `extra_features/solar_forecast_eai/data/data_shadow_detection.py` | 37 | 133 | 12 |
+| `extra_features/solar_forecast_eai/core/core_startup_data_resolver.py` | 36 | 37 | 9 |
+| `extra_features/sfml_stats/core/energy_context.py` | 39 | 100 | 20 |
+| `extra_features/sfml_stats/core/price_mode.py` | 36 | 45 | 15 |
+| `sensors/sensor_states.py` | 36 | 35 | 13 |
+| `sensors/sensor_system_status.py` | 36 | 44 | 13 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Names distinguish champion/candidate forecast histories, canonical shadow evaluation rows, price EUR/MWh versus ct/kWh, report geometry and energy units, non-null startup cache validity, prediction versus actual dashboard evidence, settings service/read-back values, replay/cache mergers, Hubble battery/time/config captures, shadow-learning measured versus estimated group data, energy profile medians and consumer subtraction, price mode fallback origins, and configured/missing/unknown/unavailable sensor counts and diagnostics. All original imports, license/readiness gates, callback signatures, schema fields, source units and ordered physical captures remain fixed. Selected proved definitions use owned mocks for investigative controls; no full integration module or real services, reports, provider calls or persistence run during verification.
 
 The previously passed 210-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or

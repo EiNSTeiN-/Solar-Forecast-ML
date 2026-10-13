@@ -183,10 +183,28 @@
       "behavior_tests": 2
     },
     {
+      "path": "core/core_startup_data_resolver.py",
+      "original_payload_sha256": "70688d62290218d263ad910d8c2e9268d32ff9fea99906ec72da10c4d61c997c",
+      "reconstructed_source_sha256": "070fbca396c552b0b11ffbbd5cdcba0c0b28975456154987de8ee3b30160fcd3",
+      "matched_units": 36,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "data/data_daily_summaries.py",
       "original_payload_sha256": "a054befbce27195265759ece07a36da0acb95ad31e1110cd9513a05117a956f4",
       "reconstructed_source_sha256": "8f4eb4a8abc9ba30b52816363d68bf183f2a4b3b4682a68057593de158c4eb87",
       "matched_units": 73,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "data/data_ensemble_shadow.py",
+      "original_payload_sha256": "faec71737d6b838db6d35e300a820226e1e790e0a71c639adb2a61fb63b4e84e",
+      "reconstructed_source_sha256": "a458382f05774cbcb5495e464a931939ec1b85f32dff35b78feb5cc43402baad",
+      "matched_units": 43,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -307,6 +325,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 5
+    },
+    {
+      "path": "data/data_visibility_learner.py",
+      "original_payload_sha256": "408bc807f0a0e752c2f013f9f2fb2f4362ccf32a761d284e05108a3aac8f9de5",
+      "reconstructed_source_sha256": "c17f1f8762f1c70e8060159428c1406591c0639bb96febb00cb0fc09420bf604",
+      "matched_units": 35,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "data/data_weather_actual_tracker.py",
@@ -434,6 +461,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/grid_price_monitor/core/price_service.py",
+      "original_payload_sha256": "f565753f1ba28ace69ca8ccb11801e83ff81872d8631cffa8c88d6474d5dc131",
+      "reconstructed_source_sha256": "57063e33900eb4fd33ed7ed152002f2d51b24b78267a1062a2d92ee0b491c1f4",
+      "matched_units": 40,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "extra_features/grid_price_monitor/core/thresholds.py",
@@ -679,6 +715,15 @@
       "behavior_tests": 5
     },
     {
+      "path": "extra_features/sfml_stats/api/hubble.py",
+      "original_payload_sha256": "6fa0ba6b9ea3e394708de4f1e5b50ca3e61388111c18bc2b1adf36bf8432a079",
+      "reconstructed_source_sha256": "dc0f37c7264cce04539195a81f5fe276b20a8c0d837e85ff3970776208d13fa1",
+      "matched_units": 39,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/api/modern.py",
       "original_payload_sha256": "797ab9e7c0e86c630d34be3d79457f8f71f846c087d626e8b2b1f4ffbd8a855a",
       "reconstructed_source_sha256": "53f8ce91e5be5e965fc5f143fff15b72c1dca62f1f4346368dcf1d7707f433bb",
@@ -695,6 +740,24 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/api/premium_dashboard.py",
+      "original_payload_sha256": "f663857376e435d1bfb4c7d5b93765a603c43124f4a37dbf1549c44f27b263f5",
+      "reconstructed_source_sha256": "5a2718935b9d813419a990b53837e05eff1ef961407afb92e0403185fdbe3e28",
+      "matched_units": 42,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/sfml_stats/api/settings_views.py",
+      "original_payload_sha256": "c3fad5e7706fafaf9e4b413f9daef3ed940254c6e389fd436cbdf99f581487f3",
+      "reconstructed_source_sha256": "933c32294602b741b2decc80a7fb5b71de7264cb2f899a79ea1ab9b210fa1a21",
+      "matched_units": 42,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "extra_features/sfml_stats/api/smart_charging.py",
@@ -817,6 +880,15 @@
       "neutral_compiler_reservation_names": true
     },
     {
+      "path": "extra_features/sfml_stats/core/energy_context.py",
+      "original_payload_sha256": "471ec0567088d9f1be260dfd833c6a2a325afa84b2ed2bec1a981a298c5f9939",
+      "reconstructed_source_sha256": "6feb27c60959b8003e66cf64aa916eefb3789e99a117bc5c1923e139caf9663a",
+      "matched_units": 39,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/core/energy_efficiency.py",
       "original_payload_sha256": "9944e6dbe2bb0d9059343cfe31fb10ec39db7b2c381a01fae91a40919fe25e14",
       "reconstructed_source_sha256": "9c9c911cadef1381f9d2f220cdfd44f0d4f4ceeed0a1708d47b0ae88f3985fc1",
@@ -907,6 +979,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/core/price_mode.py",
+      "original_payload_sha256": "ff10264dbad39885c188b7f49fef5427d5c7d49ab511a095897958e891fa1922",
+      "reconstructed_source_sha256": "a4e199ade069fb064aaa5362a1e7c414a019f1f8f3a8c82d042755bfe34f1128",
+      "matched_units": 36,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/core/smart_charging.py",
       "original_payload_sha256": "a0989996f94907d63a0dd435f17ec0d6d9c2ac61a829f44001a03d3da6a1b4f1",
       "reconstructed_source_sha256": "78ac4d0ef61dbb89c486ea0463ef37e2a4ac3c3e2fbc1c45d0896f571b960f68",
@@ -983,6 +1064,15 @@
       "original_payload_sha256": "96ee1ea0e53b4f460263910bbb22b6dead7fbdfa772aec13f9017b3e4b238797",
       "reconstructed_source_sha256": "b62885ec60fd0f1b02f7cbef2fca41c6917e5d90c8e3d6e4c604753f603b19a5",
       "matched_units": 49,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/sfml_stats/readers/modern_analytics_reader.py",
+      "original_payload_sha256": "0a9995512dd5f959fc7d064d87fbd624e5fb0cefd18e04cbbd0d64e01f92bc92",
+      "reconstructed_source_sha256": "bcaa293a57e07454efa5988b06350966c9f4292cd38374f0d0c6df1dab7132a1",
+      "matched_units": 40,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -1159,6 +1249,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/solar_forecast_eai/core/core_startup_data_resolver.py",
+      "original_payload_sha256": "c59395147ab9c28ea5352951d01779ab016093aa3d0d38c318ad3653a3ba2228",
+      "reconstructed_source_sha256": "814470dd0d56f34497cf6cedd189c37e0377f26da904a878298c169b91efddfc",
+      "matched_units": 36,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/data/data_daily_summaries.py",
       "original_payload_sha256": "eb4f95889e758b995b02844755d998149700ca97794e58a7f310b61e49be43ab",
       "reconstructed_source_sha256": "2507c054089ec04aebf17f3201cddcadf3bd662b7c4cd407f005b83ffd3d227c",
@@ -1199,6 +1298,15 @@
       "original_payload_sha256": "dc09533de24e120c4b06b6023c23dc72c7abca8437f706241876bef1df0f6b5a",
       "reconstructed_source_sha256": "b4c6fb63522801d7a7252f78a7deb3b257fcfa929202c8c5d2b5398ed9611a43",
       "matched_units": 60,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_shadow_detection.py",
+      "original_payload_sha256": "8f345cb6655a5a2e884fa12a0376c2ebb5a681245e9bd6858e74c7d97d4be98a",
+      "reconstructed_source_sha256": "c22efe9a80e138fe16e4636b9a636519e72e7115ecc5222b78583765eba262b4",
+      "matched_units": 37,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -1494,6 +1602,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "forecast/forecast_orchestrator.py",
+      "original_payload_sha256": "32b8a5cc3af8d304c0cc520523bf3b232079a01e35ae644b926667b5a54afd01",
+      "reconstructed_source_sha256": "97fe943dc77378b44ae5a083dc4fdd60c58157f4c57b6a50dfaebc190b6785bf",
+      "matched_units": 40,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "forecast/forecast_rule_based_strategy.py",
       "original_payload_sha256": "4532008d632f56333b302210f0389eacb6a5af251ef3ae74360b1078df506d05",
       "reconstructed_source_sha256": "edd12f1de9dd5b02f31e66ee948b8885ea8a0d73af483663094fa4d18c954919",
@@ -1712,6 +1829,24 @@
       "behavior_tests": 0
     },
     {
+      "path": "sensors/sensor_states.py",
+      "original_payload_sha256": "09aed6809c63495a7030029fe1bf831188b2f748a6a496b31158ee1e43098a54",
+      "reconstructed_source_sha256": "7ea62c03c0c339a08cb88f6f776f574282bb9b8eeab816393e1397f8c1fd9234",
+      "matched_units": 36,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "sensors/sensor_system_status.py",
+      "original_payload_sha256": "a68fff413bff712c1e27b6687858e7a068c827849f64a687f5aac45f7b35f201",
+      "reconstructed_source_sha256": "f9aedc447242d51c3522764cff9c1c4b2ab1fbf06491a957ce17da0390e9a564",
+      "matched_units": 36,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "services/service_daily_briefing.py",
       "original_payload_sha256": "155663029eaab2b7f5db3b17b96f023d93746fa7ad15826cc8a9b6c917582461",
       "reconstructed_source_sha256": "e2cca5ed50dcd1da09becb26aa9f2f4d0084dca99b8b880b867645fa84739f1c",
@@ -1764,8 +1899,17 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "services/service_system_report.py",
+      "original_payload_sha256": "cf410e492e5320dd7ab13934c13433588bae486a19659656c1a3087765c9a57c",
+      "reconstructed_source_sha256": "b43bd6082b05e8dab5f1ec357d64e0729360bd7806e6071ba2d531f9eb113ef6",
+      "matched_units": 37,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 11544
+  "total_matched_units": 12158
 }

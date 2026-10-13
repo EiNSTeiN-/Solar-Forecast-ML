@@ -3320,3 +3320,45 @@ Names expose yearly fees and calendar coverage; emergency acknowledgment and exi
 The previously passed 210-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable forecast orchestration, sensor status, dashboard queries and shared energy context
+
+Root-authored source names **1,232 bindings across
+222 actual scopes**, exposing **614
+already-proved units**. It removes 234 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**211 modules / 12,158 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `forecast/forecast_orchestrator.py` | 40 | 144 | 18 |
+| `data/data_visibility_learner.py` | 35 | 58 | 9 |
+| `data/data_ensemble_shadow.py` | 43 | 123 | 20 |
+| `extra_features/grid_price_monitor/core/price_service.py` | 40 | 47 | 13 |
+| `services/service_system_report.py` | 37 | 102 | 16 |
+| `core/core_startup_data_resolver.py` | 36 | 37 | 9 |
+| `extra_features/sfml_stats/api/premium_dashboard.py` | 42 | 96 | 13 |
+| `extra_features/sfml_stats/api/settings_views.py` | 42 | 105 | 14 |
+| `extra_features/sfml_stats/readers/modern_analytics_reader.py` | 40 | 54 | 13 |
+| `extra_features/sfml_stats/api/hubble.py` | 39 | 72 | 15 |
+| `extra_features/solar_forecast_eai/data/data_shadow_detection.py` | 37 | 133 | 12 |
+| `extra_features/solar_forecast_eai/core/core_startup_data_resolver.py` | 36 | 37 | 9 |
+| `extra_features/sfml_stats/core/energy_context.py` | 39 | 100 | 20 |
+| `extra_features/sfml_stats/core/price_mode.py` | 36 | 45 | 15 |
+| `sensors/sensor_states.py` | 36 | 35 | 13 |
+| `sensors/sensor_system_status.py` | 36 | 44 | 13 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Names distinguish champion/candidate forecast histories, canonical shadow evaluation rows, price EUR/MWh versus ct/kWh, report geometry and energy units, non-null startup cache validity, prediction versus actual dashboard evidence, settings service/read-back values, replay/cache mergers, Hubble battery/time/config captures, shadow-learning measured versus estimated group data, energy profile medians and consumer subtraction, price mode fallback origins, and configured/missing/unknown/unavailable sensor counts and diagnostics. All original imports, license/readiness gates, callback signatures, schema fields, source units and ordered physical captures remain fixed. Selected proved definitions use owned mocks for investigative controls; no full integration module or real services, reports, provider calls or persistence run during verification.
+
+The previously passed 210-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
