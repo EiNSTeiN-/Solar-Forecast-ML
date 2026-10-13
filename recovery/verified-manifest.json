@@ -767,6 +767,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/power_sources_collector.py",
+      "original_payload_sha256": "c711495d7144a453e3abaf63428c251b45adafaf3749d53978fbc1d4a55ce809",
+      "reconstructed_source_sha256": "48a185d1c60c864bc8af26bcd4a1fdb9cfe5053f89ea6e4528aebd324f32886c",
+      "matched_units": 76,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/readers/weather_energy_reader.py",
       "original_payload_sha256": "14191caaadb7086818499b88bb6091d6131910f229ce9db4fa39ee09e77eb0e2",
       "reconstructed_source_sha256": "a2b065bcf7b0829eaeb006ab83fb3b52550dbbe72dcd42439e968713d1bc34c4",
@@ -819,6 +828,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/ai/ai_predictor.py",
+      "original_payload_sha256": "3e513a1607be834ece017d2fcdcca5c7c1b1b1b09e6472332ab2094e5dbb9ea7",
+      "reconstructed_source_sha256": "b0f5ee7b083fe34622a75f2b756a3aab9ac11e15e93a96fdafcfe00c413fcdf0",
+      "matched_units": 76,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "extra_features/solar_forecast_eai/ai/ai_tiny_ridge.py",
@@ -1280,6 +1298,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "services/service_registry.py",
+      "original_payload_sha256": "c46be85f06417277af86cc6b54331569fc466283074b36514a30ab96f988d791",
+      "reconstructed_source_sha256": "926bf609cc7fcd1d92a280ab8b4157546e7159d6b7ff2ac7cd88ddd7f5cf0538",
+      "matched_units": 58,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "services/service_repair_tool.py",
       "original_payload_sha256": "b1888cef5289e37da90999668ef058ce8dee18dd089ba1b04f5c40c79142605d",
       "reconstructed_source_sha256": "60b183a6bcd74eef5df5472dce7d52706d87690ee692ae3719fd8438f727a6db",
@@ -1290,5 +1317,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 8573
+  "total_matched_units": 8783
 }

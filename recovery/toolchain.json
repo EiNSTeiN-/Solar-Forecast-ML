@@ -18,7 +18,7 @@
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 73,
-    "selected_module_behavior_tests_passed": 206,
+    "selected_module_behavior_tests_passed": 208,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 143,
-    "complete_readable_module_code_units": 8573,
+    "complete_readable_module_matches": 146,
+    "complete_readable_module_code_units": 8783,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -734,7 +734,7 @@
       }
     },
     "stable_toolchain_unchanged": false,
-    "selected_suite_reuse": "The full selected suite passes206 methods in137.636seconds using the immutable .36 generation and121-module readable snapshot:196application methods and10source/coverage methods. Subsequent naming publications retain exact complete compiled trees. All current public source/hash/subtree proofs pass; no whole integration or armor runtime imports.",
+    "selected_suite_reuse": "The full selected suite passes 208 methods in 134.153 seconds using immutable API .36 exports and a frozen 143-module / 8,573-unit readable source snapshot: 196 application methods and 12 source/coverage methods. Subsequent naming publications retain exact complete compiled trees. All current public source/hash/subtree proofs pass; no whole integration or armor runtime is imported.",
     "full_native_retention": {
       "baseline": "owner-recipes-05",
       "stage": "promoted-exit-tools-01",
@@ -1813,6 +1813,78 @@
       "removed_empty_artifacts": 90,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
+    },
+    "readable-batch-19": {
+      "modules": [
+        {
+          "module_path": "services/service_registry.py",
+          "matched_units": 58,
+          "scoped_maps": 22,
+          "renamed_bindings": 112,
+          "removed_empty_artifacts": 27,
+          "source_sha256": "926bf609cc7fcd1d92a280ab8b4157546e7159d6b7ff2ac7cd88ddd7f5cf0538",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/ai/ai_predictor.py",
+          "matched_units": 76,
+          "scoped_maps": 33,
+          "renamed_bindings": 222,
+          "removed_empty_artifacts": 45,
+          "source_sha256": "b0f5ee7b083fe34622a75f2b756a3aab9ac11e15e93a96fdafcfe00c413fcdf0",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 1,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/power_sources_collector.py",
+          "matched_units": 76,
+          "scoped_maps": 31,
+          "renamed_bindings": 218,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "48a185d1c60c864bc8af26bcd4a1fdb9cfe5053f89ea6e4528aebd324f32886c",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 146,
+      "readable_units": 8783,
+      "new_readable_modules": 3,
+      "new_readable_units": 210,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 552,
+      "scoped_maps": 86,
+      "removed_empty_artifacts": 81,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "selected_source_coverage_test_methods": 12,
+    "selected_suite_latest_run": {
+      "tests_run": 208,
+      "failures": 0,
+      "errors": 0,
+      "expected_failures": 0,
+      "success": true,
+      "seconds": 134.153,
+      "readable_snapshot_modules": 143,
+      "readable_snapshot_units": 8573,
+      "source_api": "0.4.36-einstein.1",
+      "backend": "0.6.30-einstein.1",
+      "original_exports_and_comparison_rules_unchanged": true,
+      "manifest_sha256": "36026ef128d3a60fd1656e50a6da5b256428ce650fd2d358f46f83275ddffa14",
+      "vendor_modules_imported": 0
     }
   }
 }

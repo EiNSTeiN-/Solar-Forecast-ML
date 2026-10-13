@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-143 readable whole modules (8,573 nested units) and passes 206 selected
+146 readable whole modules (8,783 nested units) and passes 206 selected
 test methods (196 application checks and ten source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -423,7 +423,7 @@ remains with an explanation; it performs no runtime work.
 
 All three complete trees still prove exact normalized instructions **and
 exception tables** after Black formatting. They increase readable coverage to
-**104 modules /3,968 units**, with **zero new corpus match credit**. Every old and
+**104 modules / 3,968 units**, with **zero new corpus match credit**. Every old and
 new public source/hash/subtree proof passes. The selected suite passes
 **201 methods in168.722seconds** (196 application methods plus five source
 construction methods); no complete integration or armor runtime is imported.
@@ -452,7 +452,7 @@ Two additional complete modules expose 169 already-proved units with 239
 descriptive local/capture bindings across 49 scopes. They remove 72 non-docstring
 empty artifacts. Complete instruction and exception proofs still pass after
 Black formatting. All current public source hashes and complete/subtree proofs
-pass: **106 readable modules /4,137 units**. This changes no corpus match count.
+pass: **106 readable modules / 4,137 units**. This changes no corpus match count.
 Public parameters, global/attribute names, imported objects, literal schemas,
 signatures, flags, documentation, and ordered closure slots remain fixed.
 
@@ -488,7 +488,7 @@ Six root-authored naming refactors publish **845 already-proved units** with
 **1,827 descriptive bindings across346 actual code scopes**. Ninety non-docstring
 empty artifacts are removed. Complete instructions and exception tables remain
 exact after Black formatting, and every current public source/hash/subtree proof
-passes. Readable coverage reaches **112 modules /4,982 units**; this adds **zero
+passes. Readable coverage reaches **112 modules / 4,982 units**; this adds **zero
 corpus matches** and changes no comparison rule.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -521,10 +521,10 @@ behavior coverage remain distinct; full source recovery is unfinished.
 
 Root-authored source names **1,865 bindings across
 304 actual scopes**, exposing **689
-already-proved units**. It removes63 non-docstring
+already-proved units**. It removes 63 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**115 modules /5,671 units**, with
+**115 modules / 5,671 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -541,7 +541,7 @@ data flow and contracts, without claiming original local spelling.
 
 The EMS names preserve the thirteen-slot nested flush capture layout. The rule-based strategy preserves its target-date capture and distinguishes weighted forecasts, adaptive weights and group mappings. Formatting initially added a trailing newline to one original docstring and failed the signature proof (207/208). Restore that exact value with an escaped string literal, format again and verify every docstring value. The rejected formatted source remains private evidence; the published source passes208/208. Actual SQL, model and payload fields remain fixed.
 
-The previously passed203-method selected suite remains separate from these
+The previously passed 203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -550,10 +550,10 @@ armor runtime is imported. Full source and readable recovery remain unfinished.
 
 Root-authored source names **965 bindings across
 216 actual scopes**, exposing **479
-already-proved units**. It removes243 non-docstring
+already-proved units**. It removes 243 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**118 modules /6,150 units**, with
+**118 modules / 6,150 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -570,7 +570,7 @@ data flow and contracts, without claiming original local spelling.
 
 The prediction source preserves heartbeat ownership and lease-loss versus external-cancellation routes, feature ordering, model field names, and residual allocations. Model promotion preserves twenty-four capture contracts. The GPM API names distinguish internal rows from customer-visible DTOs, CSV bytes, form fields and upload readers while preserving privacy schemas, BOM/profile/language handling and upload limits. The imports retain their actual modules and objects; only local aliases are renamed.
 
-The previously passed203-method selected suite remains separate from these
+The previously passed 203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -579,10 +579,10 @@ armor runtime is imported. Full source and readable recovery remain unfinished.
 
 Root-authored source names **863 bindings across
 137 actual scopes**, exposing **370
-already-proved units**. It removes144 non-docstring
+already-proved units**. It removes 144 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**121 modules /6,520 units**, with
+**121 modules / 6,520 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -599,7 +599,7 @@ data flow and contracts, without claiming original local spelling.
 
 Correction allocation distinguishes decimal amounts from integer cents and preserves captured array order, allocation ties, audit hashes and transaction cleanup. Weather blending names distinguish cache timestamps and TTLs, expert objects and identifiers, cloud layers, normalized weights, rollback snapshots and snow-learning thresholds. Six original weather docstring values are restored after formatting. Physics calibration retains clamp parameters and bound defaults; two local aliases keep their actual imported objects.
 
-The previously passed203-method selected suite remains separate from these
+The previously passed 203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -608,10 +608,10 @@ armor runtime is imported. Full source and readable recovery remain unfinished.
 
 Root-authored source names **699 bindings across
 124 actual scopes**, exposing **333
-already-proved units**. It removes54 non-docstring
+already-proved units**. It removes 54 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**124 modules /6,853 units**, with
+**124 modules / 6,853 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -628,7 +628,7 @@ data flow and contracts, without claiming original local spelling.
 
 GPM coordination preserves the license recheck callback captures, provider/cache fields, current-hour selection and retry cancellation. Corrected energy distinguishes raw versus corrected kWh, scaling bases, prices, cost units and read-only query rows; the public values capture stays fixed in all three generator children. Thermodynamics preserves sorting lambdas, actual time imports, engine U-factor restoration and heating/hot-water energy routing. Formatting preserves each original docstring value.
 
-The previously passed203-method selected suite remains separate from these
+The previously passed 203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -637,10 +637,10 @@ armor runtime is imported. Full source and readable recovery remain unfinished.
 
 Root-authored source names **559 bindings across
 112 actual scopes**, exposing **296
-already-proved units**. It removes27 non-docstring
+already-proved units**. It removes 27 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**127 modules /7,149 units**, with
+**127 modules / 7,149 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -657,7 +657,7 @@ data flow and contracts, without claiming original local spelling.
 
 The shared API names clarify release integrity paths, client addresses and networks, completed/clean evaluation counters, database fallback and forecast-versus-actual error denominators. Tomorrow views preserve the max-export and selected-day captures while distinguishing timeline quality, SOC, journal records and period totals. Weather intelligence preserves independent station-versus-recorder provenance, official-alert priority, warning evidence, trend thresholds and HTTP cancellation routes.
 
-The previously passed203-method selected suite remains separate from these
+The previously passed 203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -692,10 +692,10 @@ readability work keep the overall recovery goal active.
 
 Root-authored source names **521 bindings across
 104 actual scopes**, exposing **272
-already-proved units**. It removes63 non-docstring
+already-proved units**. It removes 63 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**130 modules /7,421 units**, with
+**130 modules / 7,421 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -712,7 +712,7 @@ data flow and contracts, without claiming original local spelling.
 
 Actual-weather tracking preserves the freeze detector recent-values capture, compiler annotation/class captures, sensor constants and fog imports while distinguishing measurements, units and lifecycle state. The data manager keeps forecast locks, database interfaces, persisted profiles and optional join fields intact. Open-Meteo names distinguish provider-specific radiation, missing versus zero values, date coverage, endpoint failover and retries; shared rate-limit list identity, daylight-saving boundaries and cancellation routes remain unchanged.
 
-The previously passed206-method selected suite remains separate from these
+The previously passed 206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -721,10 +721,10 @@ armor runtime is imported. Full source and readable recovery remain unfinished.
 
 Root-authored source names **199 bindings across
 46 actual scopes**, exposing **176
-already-proved units**. It removes72 non-docstring
+already-proved units**. It removes 72 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**132 modules /7,597 units**, with
+**132 modules / 7,597 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -740,7 +740,7 @@ data flow and contracts, without claiming original local spelling.
 
 Energy AI data-manager names distinguish power in kW from legacy database column names; the original hour-zero truthiness fallback and stored schemas remain intact. The weather precision tracker retains cloud, combined, expert, hourly and seasonal capture ordering, including cutoff before self, and preserves optional imported symbols while naming their local bindings. Both complete modules retain docstring values, parameters, instructions and exception coverage after formatting.
 
-The previously passed206-method selected suite remains separate from these
+The previously passed 206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -749,10 +749,10 @@ armor runtime is imported. Full source and readable recovery remain unfinished.
 
 Root-authored source names **1,089 bindings across
 143 actual scopes**, exposing **365
-already-proved units**. It removes9 non-docstring
+already-proved units**. It removes 9 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**135 modules /7,962 units**, with
+**135 modules / 7,962 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -769,7 +769,7 @@ data flow and contracts, without claiming original local spelling.
 
 Both JSON migration modules now distinguish persisted record types, sparse model indices, pending statements and transaction accounting, including generic _localN bindings restored by earlier reconstruction. Public lambda parameters and separately owned generator targets remain intact. The station adapter keeps Recorder imported symbols and eleven ordered captures intact. Root AST renaming is followed by the already-verified API .36 multiline-return layout pass before Black; full-module proof confirms both _count_entries owners and _state_timestamp retain exact instructions and exception coverage. Plain AST collapse remains a failing negative control. No comparator rule or original bytecode changed.
 
-The previously passed206-method selected suite remains separate from these
+The previously passed 206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -778,10 +778,10 @@ armor runtime is imported. Full source and readable recovery remain unfinished.
 
 Root-authored source names **587 bindings across
 123 actual scopes**, exposing **314
-already-proved units**. It removes90 non-docstring
+already-proved units**. It removes 90 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**139 modules /8,276 units**, with
+**139 modules / 8,276 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -799,7 +799,7 @@ data flow and contracts, without claiming original local spelling.
 
 Telemetry names keep the original stamp-learning and pruning boundaries, quantile parameters and capture routes. Consumer views preserve config/read/entity resolver ordering and actual Recorder and heating imports. Energy AI observation names distinguish rain counters/rates, fog confidence, per-group state and radiation versus production ratios; cancellation, notifications and SQL remain unchanged. Root-authored DEV-mode names expose canonical payloads, signatures, install hashes, expiry listeners and admin services; all original authorization and validation branches remain intact. A separate nonexecuting naming audit of the first 135 published modules finds no remaining opaque non-parameter bindings.
 
-The previously passed206-method selected suite remains separate from these
+The previously passed 206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
 
@@ -808,10 +808,10 @@ armor runtime is imported. Full source and readable recovery remain unfinished.
 
 Root-authored source names **526 bindings across
 116 actual scopes**, exposing **297
-already-proved units**. It removes90 non-docstring
+already-proved units**. It removes 90 non-docstring
 empty artifacts. Full instruction and exception proofs pass after formatting;
 every current public source/hash/subtree proof passes. Readable coverage reaches
-**143 modules /8,573 units**, with
+**143 modules / 8,573 units**, with
 **zero new corpus matches** and unchanged comparison rules.
 
 | Module | Exact units | Named bindings | Actual scopes |
@@ -829,6 +829,60 @@ data flow and contracts, without claiming original local spelling.
 
 Shadow-pattern learning preserves the singleton declaration and independently owned generators. Radiation ensemble names expose confidence residuals, provider alignment, source renormalization, radiation partition and Kalman bias without changing original calculations or gates. Candidate-shadow names distinguish serving and trial models and retained evaluation records. Root-authored notification names distinguish message sections, percentage values, weather measurements and snow-depth estimates while keeping original options, notification IDs, texts, dispatch order and exception behavior. Full proofs run after every formatting pass; zero additional corpus match credit is claimed.
 
-The previously passed206-method selected suite remains separate from these
+The previously passed 206-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable service registry, Energy AI predictor and power-source collector
+
+Root-authored source names **552 bindings across
+86 actual scopes**, exposing **210
+already-proved units**. It removes 81 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**146 modules / 8,783 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `services/service_registry.py` | 58 | 112 | 22 |
+| `extra_features/solar_forecast_eai/ai/ai_predictor.py` | 76 | 222 | 33 |
+| `extra_features/sfml_stats/power_sources_collector.py` | 76 | 218 | 31 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Root-authored registry names distinguish service definitions, governed search results, retained trial candidates, operational forecast settings, retrospective predictions and quarantine-aware shadow backfill records. GridSearchOptimizer, call, detect_hardware and self retain ordered closure slots; DEV-only filtering and all original service gates remain intact. Energy AI predictor names retain training-hours/date and prediction-scale capture order and original feature/persistence schemas. Its first formatted proof rejected analyze_feature_importance: splitting a repeated-target tuple across lines changed POP_TOP into an additional STORE_FAST. Retaining the independently proved same-line assignment with a narrow fmt: skip comment restores all 76 instruction and exception proofs without changing comparison rules; the failing attempt is retained privately. Power-source collector names distinguish W from kWh and charge from discharge while preserving Recorder period-end/start ordering and actual imported symbols.
+
+The previously passed 206-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Repeated-target tuple layout survives readable formatting
+
+The Energy AI predictor's first readable formatting pass matched 75 of its 76
+units. In `analyze_feature_importance`, wrapping the repeated-target unpacking
+assignment changed one `POP_TOP` into `STORE_FAST`. The comparator rejected this
+instruction difference; the failed attempt remains private and was not published.
+
+The root formatter now retains a proved same-line repeated-target assignment
+with a narrow `# fmt: skip` comment. The complete formatted predictor again
+matches all 76 units, including exception coverage. This preserves the original
+assignment and its discarded value; no comparison rule or bytecode is changed.
+
+`recovery/tests/test_same_line_unpacking.py` reproduces the effect using owned
+literal code. Its two tests reject line-split instructions and changed return
+values, prove the kept layout, and compare normal, malformed-tuple, error and
+cancellation outcomes. These witnesses do not execute the integration.
+
+The full selected suite subsequently passed **208 methods** in **134.153 seconds**
+against frozen API .36 exports and a **143-module / 8,573-unit** readable snapshot:
+196 application methods and 12 source/coverage methods. Later naming batches
+receive full static source proofs separately. This is selected behavior coverage,
+not execution or proof of the entire integration. Machine-readable evidence is
+in `recovery/same-line-unpacking.json` and `recovery/toolchain.json`.

@@ -1,0 +1,32 @@
+{
+  "module_path": "extra_features/solar_forecast_eai/ai/ai_predictor.py",
+  "unit_path": "<module>/AIPredictor#1/analyze_feature_importance#1",
+  "first_formatted_module_matches": 75,
+  "reference_units": 76,
+  "first_failure": "instructions: repeated-target tuple changed POP_TOP into STORE_FAST after line splitting",
+  "kept_layout_module_matches": 76,
+  "remedy": "Keep this already-proved repeated-target unpacking assignment on one physical line with fmt: skip; all other formatting remains standard",
+  "reference_exports_and_comparison_rules_unchanged": true,
+  "source_bytecode_or_exception_tables_patched": false,
+  "owned_witness_test_file": "recovery/tests/test_same_line_unpacking.py",
+  "owned_test_methods": 2,
+  "owned_tests_passed": 2,
+  "split_layout_strictly_rejected": true,
+  "kept_layout_full_instructions_and_exceptions_match": true,
+  "wrong_return_values_strictly_rejected": true,
+  "selected_suite": {
+    "tests_run": 208,
+    "failures": 0,
+    "errors": 0,
+    "expected_failures": 0,
+    "success": true,
+    "seconds": 134.153,
+    "readable_snapshot_modules": 143,
+    "readable_snapshot_units": 8573,
+    "source_api": "0.4.36-einstein.1",
+    "backend": "0.6.30-einstein.1",
+    "original_exports_and_comparison_rules_unchanged": true,
+    "manifest_sha256": "36026ef128d3a60fd1656e50a6da5b256428ce650fd2d358f46f83275ddffa14",
+    "vendor_modules_imported": 0
+  }
+}

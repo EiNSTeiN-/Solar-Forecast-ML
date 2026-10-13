@@ -2068,7 +2068,7 @@
       "matched_units": 76,
       "reference_units": 76,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/PowerSourcesCollector#1/_backfill_efficiency_day#1",
         "<module>/PowerSourcesCollector#1/_backfill_efficiency_history#1",
@@ -2288,7 +2288,7 @@
       "matched_units": 76,
       "reference_units": 76,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/AIPredictor#1/initialize#1"
       ],
@@ -3852,7 +3852,7 @@
       "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ServiceRegistry#1/_handle_backfill_shadow_detection#1"
       ],
