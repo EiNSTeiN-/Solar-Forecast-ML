@@ -218,6 +218,15 @@
       "behavior_tests": 5
     },
     {
+      "path": "data/data_weather_expert_blender.py",
+      "original_payload_sha256": "e80f53b1d005096304abacc8ad0f665a6c82304720cd1cae1fe37c2eacfd4ff1",
+      "reconstructed_source_sha256": "5822ac9d87131c08bbeb7ce588dbeefe0f96e815dd9e6ef0ce9df30e1aa5f627",
+      "matched_units": 122,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "data/data_weather_kalman.py",
       "original_payload_sha256": "09f02ca65ed6a0541751f72168659d548538a38bfd7d6d77e25c96921437c902",
       "reconstructed_source_sha256": "4f52d1b104a9536c7f8478955ae53e2c5de389312264b3502fdd24cb0b3dfa6e",
@@ -522,6 +531,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/core/corrections.py",
+      "original_payload_sha256": "466551e596c9c809b26d1512574635ef0606c00a153eac68d134a4188c9d9198",
+      "reconstructed_source_sha256": "601eaf057b4d69e2097ddd8ca8189051373869ece0cf92c4535c01576e1a7324",
+      "matched_units": 127,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "extra_features/sfml_stats/core/dev_mode.py",
@@ -911,6 +929,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "physics/physics_calibrator.py",
+      "original_payload_sha256": "c62e403f6f2ec789539efb174fca64591ff2355b643893f53e1f7adb2ed851d6",
+      "reconstructed_source_sha256": "47fcdf6b41ca9c60530b0afacbc9e972dca76308fc8dd63d6e1a7dcce65966fc",
+      "matched_units": 121,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "physics/physics_engine.py",
       "original_payload_sha256": "7b511578f11602df8a59707294996e7e4ecd3ca91c6a1ac3f808247a358bd15e",
       "reconstructed_source_sha256": "740950e8c9dfbca720eba1ae4861c8587ac8c9b959ab9a4b64e11f11bee847ed",
@@ -1065,5 +1092,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 6150
+  "total_matched_units": 6520
 }

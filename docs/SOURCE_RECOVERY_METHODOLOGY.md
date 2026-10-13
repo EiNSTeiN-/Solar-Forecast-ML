@@ -2744,3 +2744,32 @@ The prediction source preserves heartbeat ownership and lease-loss versus extern
 The previously passed203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable correction allocation, weather blending and physics calibration
+
+Root-authored source names **863 bindings across
+137 actual scopes**, exposing **370
+already-proved units**. It removes144 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**121 modules /6,520 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/core/corrections.py` | 127 | 315 | 52 |
+| `data/data_weather_expert_blender.py` | 122 | 234 | 40 |
+| `physics/physics_calibrator.py` | 121 | 314 | 45 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Correction allocation distinguishes decimal amounts from integer cents and preserves captured array order, allocation ties, audit hashes and transaction cleanup. Weather blending names distinguish cache timestamps and TTLs, expert objects and identifiers, cloud layers, normalized weights, rollback snapshots and snow-learning thresholds. Six original weather docstring values are restored after formatting. Physics calibration retains clamp parameters and bound defaults; two local aliases keep their actual imported objects.
+
+The previously passed203-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.

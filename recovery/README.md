@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-118 readable whole modules (6,150 nested units) and passes 203 selected
+121 readable whole modules (6,520 nested units) and passes 203 selected
 test methods (196 application checks and seven source/coverage checks). The full
 corpus has 260 completely matched candidate modules and 14,270/14,291 matching
 units; 21 units remain. Candidate fidelity
@@ -569,6 +569,35 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 The prediction source preserves heartbeat ownership and lease-loss versus external-cancellation routes, feature ordering, model field names, and residual allocations. Model promotion preserves twenty-four capture contracts. The GPM API names distinguish internal rows from customer-visible DTOs, CSV bytes, form fields and upload readers while preserving privacy schemas, BOM/profile/language handling and upload limits. The imports retain their actual modules and objects; only local aliases are renamed.
+
+The previously passed203-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable correction allocation, weather blending and physics calibration
+
+Root-authored source names **863 bindings across
+137 actual scopes**, exposing **370
+already-proved units**. It removes144 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**121 modules /6,520 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/core/corrections.py` | 127 | 315 | 52 |
+| `data/data_weather_expert_blender.py` | 122 | 234 | 40 |
+| `physics/physics_calibrator.py` | 121 | 314 | 45 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Correction allocation distinguishes decimal amounts from integer cents and preserves captured array order, allocation ties, audit hashes and transaction cleanup. Weather blending names distinguish cache timestamps and TTLs, expert objects and identifiers, cloud layers, normalized weights, rollback snapshots and snow-learning thresholds. Six original weather docstring values are restored after formatting. Physics calibration retains clamp parameters and bound defaults; two local aliases keep their actual imported objects.
 
 The previously passed203-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or

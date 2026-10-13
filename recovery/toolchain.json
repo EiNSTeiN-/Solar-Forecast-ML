@@ -177,10 +177,14 @@
       "candidate_layout_test_methods": 2,
       "candidate_layout_paired_scenarios": 19,
       "intrinsic_return_coverage_test_methods": 2,
-      "intrinsic_return_coverage_result": "Two separate owned tests pass. Identical instructions with a missing coroutine-return cleanup interval fail the unchanged strict comparator. Five ordinary calls agree; a tracing-hook StopIteration produces an observable propagation difference."
+      "intrinsic_return_coverage_result": "Two separate owned tests pass. Identical instructions with a missing coroutine-return cleanup interval fail the unchanged strict comparator. Five ordinary calls agree; a tracing-hook StopIteration produces an observable propagation difference.",
+      "terminal_rethrow_layout_test_methods": 3,
+      "terminal_rethrow_owned_behavior_pairs": 12,
+      "terminal_rethrow_research_only": true,
+      "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 118,
-    "complete_readable_module_code_units": 6150,
+    "complete_readable_module_matches": 121,
+    "complete_readable_module_code_units": 6520,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1176,6 +1180,56 @@
       "renamed_bindings": 965,
       "scoped_maps": 216,
       "removed_empty_artifacts": 243,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-11": {
+      "modules": [
+        {
+          "module_path": "extra_features/sfml_stats/core/corrections.py",
+          "matched_units": 127,
+          "scoped_maps": 52,
+          "renamed_bindings": 315,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "601eaf057b4d69e2097ddd8ca8189051373869ece0cf92c4535c01576e1a7324",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "data/data_weather_expert_blender.py",
+          "matched_units": 122,
+          "scoped_maps": 40,
+          "renamed_bindings": 234,
+          "removed_empty_artifacts": 72,
+          "source_sha256": "5822ac9d87131c08bbeb7ce588dbeefe0f96e815dd9e6ef0ce9df30e1aa5f627",
+          "docstring_values_restored_after_formatting": 6,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "physics/physics_calibrator.py",
+          "matched_units": 121,
+          "scoped_maps": 45,
+          "renamed_bindings": 314,
+          "removed_empty_artifacts": 54,
+          "source_sha256": "47fcdf6b41ca9c60530b0afacbc9e972dca76308fc8dd63d6e1a7dcce65966fc",
+          "docstring_values_restored_after_formatting": 2,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 121,
+      "readable_units": 6520,
+      "new_readable_modules": 3,
+      "new_readable_units": 370,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 863,
+      "scoped_maps": 137,
+      "removed_empty_artifacts": 144,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }

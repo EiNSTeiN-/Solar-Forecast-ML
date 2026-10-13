@@ -1,0 +1,21 @@
+{
+  "research_only": true,
+  "strict_comparator_and_reference_unchanged": true,
+  "candidate_not_accepted": true,
+  "new_corpus_match_credit": 0,
+  "reference_instruction_count": 263,
+  "candidate_instruction_count": 262,
+  "duplicate_terminal_indices": [
+    255
+  ],
+  "duplicate_terminals_have_identical_handlers": true,
+  "signature_equal": true,
+  "instruction_graph_equal_after_redirecting_only_the_duplicate": true,
+  "dispatch_equal_after_redirecting_only_the_duplicate": true,
+  "remaining_dispatch_differences": [],
+  "unresolved_markers": [],
+  "module_path": "extra_features/weather_fusion_ai/weather_experts.py",
+  "unit_path": "<module>/WeatherExpert#1/_get_json#1",
+  "owned_test_methods": 3,
+  "owned_behavior_pairs": 12
+}
