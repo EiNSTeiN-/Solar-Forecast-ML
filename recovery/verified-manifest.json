@@ -515,6 +515,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/core/ems.py",
+      "original_payload_sha256": "a378dffb9fdb5d72cc7247e79e41c5eda6a6664e1b0c44bb1de089044acca4f1",
+      "reconstructed_source_sha256": "30670b2488e70e84700f1703a9dd3f5e1bc8e40e81ba9aa68198533fa22ba161",
+      "matched_units": 244,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/core/energy_efficiency.py",
       "original_payload_sha256": "9944e6dbe2bb0d9059343cfe31fb10ec39db7b2c381a01fae91a40919fe25e14",
       "reconstructed_source_sha256": "9c9c911cadef1381f9d2f220cdfd44f0d4f4ceeed0a1708d47b0ae88f3985fc1",
@@ -722,6 +731,15 @@
       "behavior_tests": 0
     },
     {
+      "path": "extra_features/solar_forecast_eai/data/db_manager.py",
+      "original_payload_sha256": "597ae6c2af80fb90a8adea63b85c1008e372657b76d10b8e23662e7f18fcc380",
+      "reconstructed_source_sha256": "4a8173beefaa686586f89a224a6db529fe909b6128561c387b0d9c623d0bd8dd",
+      "matched_units": 237,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/data/eai_consumption_sample_store.py",
       "original_payload_sha256": "51e7883a348f73447b99469737168fb81dace35b1568e1888efd62c0e10e80b2",
       "reconstructed_source_sha256": "efd07280dc5e9def2c5095db971b6245eed12b515b45f8bfb6f657a2f3626b3d",
@@ -828,6 +846,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "forecast/forecast_rule_based_strategy.py",
+      "original_payload_sha256": "4532008d632f56333b302210f0389eacb6a5af251ef3ae74360b1078df506d05",
+      "reconstructed_source_sha256": "2e954cb6ffe125ac3dc64e02cc2f76c1505d08f750a3ea0779ebbf456eea315f",
+      "matched_units": 208,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "forecast/forecast_sun_gate.py",
@@ -1011,5 +1038,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 4982
+  "total_matched_units": 5671
 }

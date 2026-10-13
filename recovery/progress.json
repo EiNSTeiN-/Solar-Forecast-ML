@@ -1729,7 +1729,7 @@
       "matched_units": 244,
       "reference_units": 244,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/EMSManager#1/_energy_context#1",
         "<module>/EMSManager#1/_issue_tokens#1",
@@ -2905,7 +2905,7 @@
       "matched_units": 237,
       "reference_units": 237,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DatabaseManager#1/_backfill_astronomy_enrichment_v1640#1",
         "<module>/DatabaseManager#1/_migrate_snow_tracking_table_v161#1",
@@ -3407,7 +3407,7 @@
       "matched_units": 208,
       "reference_units": 208,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/RuleBasedForecastStrategy#1/_calculate_hour_production#1",
         "<module>/RuleBasedForecastStrategy#1/_default_astronomy#1",

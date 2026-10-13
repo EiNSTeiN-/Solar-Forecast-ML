@@ -179,8 +179,8 @@
       "intrinsic_return_coverage_test_methods": 2,
       "intrinsic_return_coverage_result": "Two separate owned tests pass. Identical instructions with a missing coroutine-return cleanup interval fail the unchanged strict comparator. Five ordinary calls agree; a tracing-hook StopIteration produces an observable propagation difference."
     },
-    "complete_readable_module_matches": 112,
-    "complete_readable_module_code_units": 4982,
+    "complete_readable_module_matches": 115,
+    "complete_readable_module_code_units": 5671,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -1076,6 +1076,56 @@
       "renamed_bindings": 1827,
       "scoped_maps": 346,
       "removed_empty_artifacts": 90,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-09": {
+      "modules": [
+        {
+          "module_path": "extra_features/solar_forecast_eai/data/db_manager.py",
+          "matched_units": 237,
+          "scoped_maps": 90,
+          "renamed_bindings": 416,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "4a8173beefaa686586f89a224a6db529fe909b6128561c387b0d9c623d0bd8dd",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "forecast/forecast_rule_based_strategy.py",
+          "matched_units": 208,
+          "scoped_maps": 99,
+          "renamed_bindings": 773,
+          "removed_empty_artifacts": 27,
+          "source_sha256": "2e954cb6ffe125ac3dc64e02cc2f76c1505d08f750a3ea0779ebbf456eea315f",
+          "docstring_values_restored_after_formatting": 2,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/core/ems.py",
+          "matched_units": 244,
+          "scoped_maps": 115,
+          "renamed_bindings": 676,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "30670b2488e70e84700f1703a9dd3f5e1bc8e40e81ba9aa68198533fa22ba161",
+          "docstring_values_restored_after_formatting": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 115,
+      "readable_units": 5671,
+      "new_readable_modules": 3,
+      "new_readable_units": 689,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 1865,
+      "scoped_maps": 304,
+      "removed_empty_artifacts": 63,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }

@@ -2686,3 +2686,32 @@ publications. Their complete compiled trees remain exact; the separate owned
 investigatory controls are not added to that test-method count. No full
 integration or armor runtime is imported. Candidate, readability and controlled
 behavior coverage remain distinct; full source recovery is unfinished.
+
+
+## Readable Energy AI database, rule-based strategy and EMS
+
+Root-authored source names **1,865 bindings across
+304 actual scopes**, exposing **689
+already-proved units**. It removes63 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**115 modules /5,671 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/solar_forecast_eai/data/db_manager.py` | 237 | 416 | 90 |
+| `forecast/forecast_rule_based_strategy.py` | 208 | 773 | 99 |
+| `extra_features/sfml_stats/core/ems.py` | 244 | 676 | 115 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+The EMS names preserve the thirteen-slot nested flush capture layout. The rule-based strategy preserves its target-date capture and distinguishes weighted forecasts, adaptive weights and group mappings. Formatting initially added a trailing newline to one original docstring and failed the signature proof (207/208). Restore that exact value with an escaped string literal, format again and verify every docstring value. The rejected formatted source remains private evidence; the published source passes208/208. Actual SQL, model and payload fields remain fixed.
+
+The previously passed203-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
