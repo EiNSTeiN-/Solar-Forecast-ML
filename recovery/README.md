@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-211 readable whole modules (12,158 nested units) and passes 212 selected
+221 readable whole modules (12,488 nested units) and passes 212 selected
 test methods (196 application checks and sixteen source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -1210,3 +1210,39 @@ PyArmor runtime is imported. Later naming publications require complete
 static source/hash/subtree proofs and separate owned investigatory controls.
 The 18 strict coroutine/terminal differences remain unresolved and uncounted.
 See `recovery/selected-suite-latest.json` and the unpacking evidence.
+
+
+## Readable STATS projections, weather routes, price storage and model-search features
+
+Root-authored source names **669 bindings across
+111 actual scopes**, exposing **330
+already-proved units**. It removes 171 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**221 modules / 12,488 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/api/eai.py` | 38 | 54 | 17 |
+| `extra_features/sfml_stats/api/weather_views.py` | 38 | 200 | 15 |
+| `extra_features/sfml_stats/core/shadow_context.py` | 37 | 60 | 20 |
+| `extra_features/sfml_stats/api/support.py` | 35 | 75 | 11 |
+| `extra_features/grid_price_monitor/core/battery_tracker.py` | 30 | 22 | 5 |
+| `extra_features/grid_price_monitor/storage/history_manager.py` | 30 | 55 | 8 |
+| `extra_features/grid_price_monitor/storage/price_writer.py` | 27 | 51 | 9 |
+| `ai/ai_grid_search.py` | 32 | 42 | 9 |
+| `extra_features/solar_forecast_eai/ai/ai_grid_search.py` | 32 | 40 | 9 |
+| `ai/ai_feature_engineering.py` | 31 | 70 | 8 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Names expose bounded recursive EAI projections, explicit temperature ranges, weather/clothing/moon/cutoff fields, shadow eligibility and occurrence weighting, support privacy/cooldown/provider captures, battery Left Riemann integration and resets, price-history timestamps and retention, correction-preserving writes and transaction/dispatch order, paired grid-search hyperparameters and trials, and fixed feature-vector order/units. Existing main/EAI grid-search differences are preserved: their forwarded inputs and all-raised-search success result differ. Feature engineering implements 27 base plus 3 group features despite older prose claiming 25 plus 3; code and docstring values remain unchanged and the discrepancy is recorded for fidelity. All business behavior, external interfaces, import objects, schemas and ordered captures are retained; owned bounded controls perform no real persistence, report submission, hardware detection or model training.
+
+The previously passed 212-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
