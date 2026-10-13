@@ -2103,3 +2103,38 @@ complete selected application suite passes **183 methods**. Published readable
 totals become **98 modules / 2,565 units**; corpus remains **13,888/14,291**,
 with **403 unresolved units**. No extra corpus match is claimed, comparison
 rules remain unchanged, and no live integration or PyArmor runtime is imported.
+
+
+## Authoritative Else ownership (0.4.29 / 0.6.23)
+
+A condition inside a modern finite Else can share its merge
+without ending the Else. The immediately preceding unconditional then-arm
+skip authoritatively establishes that span. Keeping it open preserves guarded
+query/result ownership and prevents reads of an unassigned row on the other
+branch. Legacy, inferred and TryElse bounds keep their prior behavior.
+Eighteen owned literal/call/subscript and optional-fallback layouts plus six
+strict query/independent-guard controls pass exact instruction and exception
+bytes. Three new methods cover 900 paired normal, missing/invalid row, query
+failure and cancellation paths.
+
+`guarded-else-01` pins native `41f20ab4a32dbc1a9649be49b665fa1ac4cb11e8` and unchanged source API
+`7eddc1a2e089b1cabf1fca1ed5799eeee99fff0b`. All 274 native outputs and
+diagnostics are compared: 215 identical sources
+are reused, 59 changed sources regenerated,
+and every source receives fresh raw and composite fidelity audits. Generation
+takes 900.9 seconds with four workers.
+
+Raw gains **3** to **13,886 / 132
+complete candidates**. Composite gains **3** to
+**13,891/14,291 / 132 complete
+candidates**. Both lose **zero**. **400 remain**, with
+**361 instruction and
+39 exception mismatches**.
+All 274 sources compile; 217 are structurally
+complete. The readable subset remains **98 modules / 2,565 units**; all 183
+application methods and their full-module references remain independently
+proved. Local checks pass **35 Rust, 57 behavior and 200 unpacker
+cases**, with one existing unpacker expected failure. Input payloads, comparator
+rules and retained definition overrides are unchanged; no vendor module or
+PyArmor runtime is imported. Queued investigator source oracles are excluded
+from these regenerated gains.

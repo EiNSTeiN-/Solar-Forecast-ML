@@ -310,3 +310,12 @@ The readable subset remains **96 modules / 2,517 units**. Five fresh recovery
 cross-checks prove the final-pass reuse method against full generation.
 Investigators' substantive source oracles remain queued and are counted only
 after main-thread authoring and full retention validation.
+
+
+## Authoritative Else ownership
+
+`guarded-else-01` audits all 274 modules, retaining every prior raw and composite match.
+Raw gains 3, composite gains 3, with zero losses:
+**13,891/14,291 matches, 400 remaining,
+132 complete candidates**. Readable source remains
+**98 modules / 2,565 units**. Investigators' separate source oracles stay queued.
