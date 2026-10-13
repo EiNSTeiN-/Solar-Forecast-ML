@@ -2351,3 +2351,29 @@ Passing owned fixtures does not override a global retention failure. Source
 reconstruction publication proceeds independently on the known stable tools.
 Three investigators continue disjoint residual scopes alongside the authoring
 main thread. Full equivalence and readable-source goals remain incomplete.
+
+
+## Follow-up owner reconstructions
+
+`owner-recipes-02` adds sixteen full owners with26 distinct tree units. Their
+body/header preservation and module-wide retention gates use the same frozen
+tools and comparison rules. Repairs restore shadow-query lifetime, the missing
+datetime `.hour` arm, protected learning results and configuration cleanup,
+intrinsic assertions, ML disagreement penalties and fallback selection,
+schema/scheduled-task loop ownership, morning notification initializedness,
+rule forecasts, post-season learning diagnostics and CSV row/error handling.
+The source is compiled and checked; no inferred SQL or sensor dependency is
+invented. All older owners sharing a changed compilation context are re-proved
+before any source hash changes. Old immutable source/input evidence remains.
+
+The full274-module audit proves **16 additional units / zero prior losses**,
+retaining every previously complete candidate. Composite coverage is now
+**14,214/14,291 /233 complete candidates**, with **77 remaining (47 instruction
+/30 exception-table mismatches)**. Raw coverage stays13,910/134 on native.25
+and unpacker.31. Readable whole modules remain99/2,587. Isolated evidence now
+has318 entries in142 contexts,515 distinct units and300 retained definitions;
+the sixteen new owners are not classified as readable replacement modules.
+All public source/input hashes and every listed owner/descendant proof pass.
+The192 passing selected methods and their executed source inputs are unchanged;
+new source units receive full static proofs rather than another behavior claim.
+The equivalent-source and readable-source goals remain incomplete.

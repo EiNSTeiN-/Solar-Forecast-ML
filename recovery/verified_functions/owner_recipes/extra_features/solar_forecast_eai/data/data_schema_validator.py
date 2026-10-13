@@ -11,6 +11,47 @@ from .data_io import DataManagerIO
 
 class DataSchemaValidator(DataManagerIO):
 
+    async def validate_and_migrate_all(self) -> bool:
+        """Validate all database tables and ensure schema integrity. @zara
+
+        This method:
+        1. Verifies all required tables exist
+        2. Checks essential columns are present
+        3. Initializes singleton config tables with defaults if empty
+        4. Logs all validation actions
+
+        Returns:
+            True if all validations pass, False otherwise
+        """
+        try:
+            _LOGGER.info("=== Database Schema Validation Starting ===")
+            _var_var_0 = True
+            for _var_var_1, _var_var_2 in REQUIRED_TABLES.items():
+                _var_var_3 = await self._validate_table(_var_var_1, _var_var_2)
+                if not _var_var_3:
+                    _var_var_0 = False
+                    self._log(f"Table validation failed: {_var_var_1}")
+            await self._ensure_physics_learning_config()
+            await self._ensure_visibility_learning()
+            await self._ensure_coordinator_state()
+            if self.migration_log:
+                _LOGGER.info("=== Schema Validation Summary ===")
+                for _var_var_4 in self.migration_log:
+                    _LOGGER.info("  %s", _var_var_4)
+            else:
+                _LOGGER.info("All database tables valid - no changes needed")
+            if self.healed_tables:
+                _LOGGER.info(
+                    "Initialized %d table(s): %s",
+                    len(self.healed_tables),
+                    ", ".join(self.healed_tables),
+                )
+            _LOGGER.info("=== Database Schema Validation Complete ===")
+            return _var_var_0
+        except Exception as _var_var_5:
+            _LOGGER.error("Schema validation failed: %s", _var_var_5, exc_info=True)
+            return False
+
     async def validate_table_integrity(self, table_name: str) -> Dict[str, Any]:
         """Check integrity of a specific table. @zara
 

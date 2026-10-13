@@ -995,6 +995,220 @@ class ScheduledTasksManager:
             )
         return None if True else None
 
+    async def _learn_group_method_performance(self, now: datetime) -> None:
+        """Learn per-group method accuracy (Physics vs AI vs LSTM vs Ridge). @zara V16.4.0
+
+        For each panel group, computes MAE of each prediction method against actual
+        production, bucketed by (cloud_bucket, hour_bucket, season). Determines which
+        method is most accurate per group per condition. This data feeds the graduated
+        safeguard to make data-driven decisions about AI vs Physics blending.
+
+        Silent no-op when no per-group actual data is available.
+        """
+        try:
+            _var_var_231 = self.db
+            _var_var_25 = now.date().isoformat()
+            _var_var_28 = await _var_var_231.fetchall(
+                "SELECT ppg.group_name, hp.target_hour,\n                          ppg.physics_kwh, ppg.ai_kwh,\n                          ppg.lstm_kwh, ppg.ridge_kwh,\n                          ppg.actual_kwh,\n                          pw.clouds\n                   FROM prediction_panel_groups ppg\n                   JOIN hourly_predictions hp ON ppg.prediction_id = hp.prediction_id\n                   LEFT JOIN prediction_weather pw ON hp.prediction_id = pw.prediction_id\n                       AND pw.weather_type = 'forecast'\n                   WHERE hp.target_date = ?\n                     AND ppg.actual_kwh IS NOT NULL AND ppg.actual_kwh > 0\n                     AND ppg.physics_kwh IS NOT NULL\n                     AND (hp.exclude_from_learning = FALSE OR hp.exclude_from_learning IS NULL)\n                     AND (ppg.exclude_from_learning_group = FALSE OR ppg.exclude_from_learning_group IS NULL)",
+                (_var_var_25,),
+            )
+            if not _var_var_28:
+                _LOGGER.debug(
+                    "Group method performance: No per-group actual data for %s",
+                    _var_var_25,
+                )
+                return
+            _var_var_237 = {}
+            for _var_var_36 in _var_var_28:
+                _var_var_306 = _var_var_36[0]
+                _var_var_37 = _var_var_36[1]
+                _var_var_322 = _var_var_36[2]
+                _var_var_323 = _var_var_36[3]
+                _var_var_307 = _var_var_36[4]
+                _var_var_308 = _var_var_36[5]
+                _var_var_38 = _var_var_36[6]
+                _var_var_241 = _var_var_36[7] or 50
+                _var_var_242 = (
+                    "clear"
+                    if _var_var_241 < 30
+                    else "partly_cloudy" if _var_var_241 < 70 else "overcast"
+                )
+                _var_var_243 = (
+                    "morning"
+                    if _var_var_37 < 10
+                    else "midday" if _var_var_37 < 15 else "afternoon"
+                )
+                _var_var_244 = (_var_var_306, _var_var_242, _var_var_243)
+                if _var_var_244 not in _var_var_237:
+                    _var_var_237[_var_var_244] = {
+                        "physics": [],
+                        "ai": [],
+                        "lstm": [],
+                        "ridge": [],
+                        "blend": [],
+                    }
+                _var_var_237[_var_var_244]["physics"].append(
+                    abs(_var_var_322 - _var_var_38)
+                )
+                if _var_var_323 is not None and _var_var_323 > 0:
+                    _var_var_237[_var_var_244]["ai"].append(
+                        abs(_var_var_323 - _var_var_38)
+                    )
+                if _var_var_307 is not None and _var_var_307 > 0:
+                    _var_var_237[_var_var_244]["lstm"].append(
+                        abs(_var_var_307 - _var_var_38)
+                    )
+                if _var_var_308 is not None and _var_var_308 > 0:
+                    _var_var_237[_var_var_244]["ridge"].append(
+                        abs(_var_var_308 - _var_var_38)
+                    )
+            if not _var_var_237:
+                return
+            _var_var_245 = 0.3
+            _var_var_246 = get_season(now.month)
+            _var_var_311 = 0
+            for (
+                _var_var_306,
+                _var_var_242,
+                _var_var_243,
+            ), _var_var_166 in _var_var_237.items():
+                _var_var_247 = sum(_var_var_166["physics"]) / len(
+                    _var_var_166["physics"]
+                )
+                _var_var_249 = (
+                    sum(_var_var_166["ai"]) / len(_var_var_166["ai"])
+                    if _var_var_166["ai"]
+                    else None
+                )
+                _var_var_312 = (
+                    sum(_var_var_166["lstm"]) / len(_var_var_166["lstm"])
+                    if _var_var_166["lstm"]
+                    else None
+                )
+                _var_var_313 = (
+                    sum(_var_var_166["ridge"]) / len(_var_var_166["ridge"])
+                    if _var_var_166["ridge"]
+                    else None
+                )
+                _var_var_324 = {"physics": _var_var_247}
+                if _var_var_249 is not None:
+                    _var_var_324["ai"] = _var_var_249
+                if _var_var_312 is not None:
+                    _var_var_324["lstm"] = _var_var_312
+                if _var_var_313 is not None:
+                    _var_var_324["ridge"] = _var_var_313
+                _var_var_325 = min(_var_var_324, key=_var_var_324.get)
+                if _var_var_249 and _var_var_249 > 0 and (_var_var_247 > 0):
+                    _var_var_326 = _var_var_247 / _var_var_249
+                    _var_var_256 = max(0.5, min(2.0, _var_var_326))
+                else:
+                    _var_var_256 = 1.0
+                for _var_var_250 in (None, _var_var_246):
+                    _var_var_62 = await _var_var_231.fetchone(
+                        "SELECT physics_mae, ai_mae, lstm_mae, ridge_mae,\n                                  sample_count\n                           FROM group_method_performance\n                           WHERE group_name = ? AND cloud_bucket = ? AND hour_bucket = ?\n                               AND season IS ?",
+                        (_var_var_306, _var_var_242, _var_var_243, _var_var_250),
+                    )
+                    if _var_var_62 and _var_var_62[4] and (_var_var_62[4] > 0):
+                        _var_var_327 = (
+                            _var_var_245 * _var_var_247
+                            + (1 - _var_var_245) * _var_var_62[0]
+                        )
+                        _var_var_328 = (
+                            _var_var_245 * _var_var_249
+                            + (1 - _var_var_245) * _var_var_62[1]
+                            if _var_var_249 and _var_var_62[1]
+                            else _var_var_249
+                        )
+                        _var_var_329 = (
+                            _var_var_245 * _var_var_312
+                            + (1 - _var_var_245) * _var_var_62[2]
+                            if _var_var_312 and _var_var_62[2]
+                            else _var_var_312
+                        )
+                        _var_var_330 = (
+                            _var_var_245 * _var_var_313
+                            + (1 - _var_var_245) * _var_var_62[3]
+                            if _var_var_313 and _var_var_62[3]
+                            else _var_var_313
+                        )
+                        _var_var_254 = _var_var_62[4] + len(_var_var_166["physics"])
+                    else:
+                        _var_var_327 = _var_var_247
+                        _var_var_328 = _var_var_249
+                        _var_var_329 = _var_var_312
+                        _var_var_330 = _var_var_313
+                        _var_var_254 = len(_var_var_166["physics"])
+                    _var_var_331 = {"physics": _var_var_327}
+                    if _var_var_328 is not None:
+                        _var_var_331["ai"] = _var_var_328
+                    if _var_var_329 is not None:
+                        _var_var_331["lstm"] = _var_var_329
+                    if _var_var_330 is not None:
+                        _var_var_331["ridge"] = _var_var_330
+                    _var_var_332 = min(_var_var_331, key=_var_var_331.get)
+                    if _var_var_328 and _var_var_328 > 0 and (_var_var_327 > 0):
+                        _var_var_333 = max(0.5, min(2.0, _var_var_327 / _var_var_328))
+                    else:
+                        _var_var_333 = 1.0
+                    _var_var_257 = (
+                        _var_var_306,
+                        _var_var_242,
+                        _var_var_243,
+                        _var_var_250,
+                        round(_var_var_327, 6),
+                        round(_var_var_328, 6) if _var_var_328 else None,
+                        round(_var_var_329, 6) if _var_var_329 else None,
+                        round(_var_var_330, 6) if _var_var_330 else None,
+                        None,
+                        _var_var_332,
+                        round(_var_var_333, 4),
+                        _var_var_254,
+                        now,
+                    )
+                    if _var_var_250 is None:
+                        async with _var_var_231.transaction():
+                            await _var_var_231.execute(
+                                "DELETE FROM group_method_performance\n                                   WHERE group_name = ? AND cloud_bucket = ? AND hour_bucket = ?\n                                       AND season IS NULL",
+                                (_var_var_306, _var_var_242, _var_var_243),
+                                auto_commit=False,
+                            )
+                            await _var_var_231.execute(
+                                "INSERT INTO group_method_performance\n                                   (group_name, cloud_bucket, hour_bucket, season,\n                                    physics_mae, ai_mae, lstm_mae, ridge_mae, blend_mae,\n                                    best_method, ai_advantage_factor, sample_count, last_updated)\n                                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                                _var_var_257,
+                                auto_commit=False,
+                            )
+                    else:
+                        await _var_var_231.execute(
+                            "INSERT INTO group_method_performance\n                               (group_name, cloud_bucket, hour_bucket, season,\n                                physics_mae, ai_mae, lstm_mae, ridge_mae, blend_mae,\n                                best_method, ai_advantage_factor, sample_count, last_updated)\n                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n                               ON CONFLICT(group_name, cloud_bucket, hour_bucket, season) DO UPDATE SET\n                                   physics_mae = excluded.physics_mae,\n                                   ai_mae = excluded.ai_mae,\n                                   lstm_mae = excluded.lstm_mae,\n                                   ridge_mae = excluded.ridge_mae,\n                                   blend_mae = excluded.blend_mae,\n                                   best_method = excluded.best_method,\n                                   ai_advantage_factor = excluded.ai_advantage_factor,\n                                   sample_count = excluded.sample_count,\n                                   last_updated = excluded.last_updated",
+                            _var_var_257,
+                            auto_commit=True,
+                        )
+                    _var_var_311 += 1
+                _LOGGER.info(
+                    "Group method learning [%s/%s/%s]: physics=%.4f ai=%s lstm=%s ridge=%s best=%s advantage=%.2f (%d samples)",
+                    _var_var_306,
+                    _var_var_242,
+                    _var_var_243,
+                    _var_var_247,
+                    f"{_var_var_249:.4f}" if _var_var_249 else "N/A",
+                    f"{_var_var_312:.4f}" if _var_var_312 else "N/A",
+                    f"{_var_var_313:.4f}" if _var_var_313 else "N/A",
+                    _var_var_325,
+                    _var_var_256,
+                    _var_var_254,
+                )
+                continue
+            _LOGGER.info(
+                "Group method performance learning completed for %s: %d buckets updated",
+                _var_var_25,
+                _var_var_311,
+            )
+        except Exception as _var_var_2:
+            _LOGGER.error(
+                f"Group method performance learning error: {_var_var_2}", exc_info=True
+            )
+        return None if True else None
+
     async def _run_weather_expert_learning(self, now: datetime) -> None:
         """Learn weather expert weights from today's actual observations. @zara"""
         try:

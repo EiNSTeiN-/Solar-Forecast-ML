@@ -936,6 +936,137 @@ class ScheduledTasksManager:
             )
             return {"status": "failed", "reason": str(_var_var_16)}
 
+    async def _correct_curtailment_learning_exclusions(self, now: datetime) -> int:
+        """Retroactively quarantine flow-proven curtailment before learning uses it."""
+        try:
+            _var_var_366 = self.db
+            _var_var_370 = await _var_var_366.fetchone(
+                f"SELECT COUNT(*)\n                    FROM hourly_predictions\n                    WHERE COALESCE(mppt_throttle_reason, '') IN ({CURTAILMENT_THROTTLE_REASON_SQL})\n                      AND COALESCE(exclude_from_learning, 0) = 0"
+            )
+            _var_var_371 = int(_var_var_370[0] or 0) if _var_var_370 else 0
+            if _var_var_371 > 0:
+                await _var_var_366.execute(
+                    f"UPDATE hourly_predictions\n                           SET exclude_from_learning = 1,\n                               exclude_from_clean_evaluation = 1\n                         WHERE COALESCE(mppt_throttle_reason, '') IN ({CURTAILMENT_THROTTLE_REASON_SQL})\n                           AND COALESCE(exclude_from_learning, 0) = 0"
+                )
+                await _var_var_366.commit()
+                _LOGGER.info(
+                    "Throttle-reason learning quarantine: %d hours excluded from learning",
+                    _var_var_371,
+                )
+            _var_var_66 = now.date().isoformat()
+            _var_var_367 = (now - timedelta(days=14)).date().isoformat()
+            _var_var_105 = self._get_sensor_config()
+            _var_var_372 = bool(_var_var_105.get("zero_export_mode", False))
+            _var_var_373 = bool(_var_var_105.get("has_battery", False))
+            _var_var_374 = _var_var_105.get(
+                "max_grid_export_w", DEFAULT_MAX_GRID_EXPORT_W
+            )
+            _var_var_375 = MorningRoutineHandler._effective_export_limit_w(
+                _var_var_374, _var_var_372
+            )
+            _var_var_376 = MorningRoutineHandler._cap_tolerance_w(_var_var_375)
+            _var_var_126 = await _var_var_366.fetchall(
+                "WITH flow_hour AS (\n                       SELECT date,\n                              hour,\n                              COUNT(*) AS samples,\n                              SUM(CASE WHEN solar_to_battery_w <= ? THEN 1 ELSE 0 END) AS low_battery_samples,\n                              SUM(CASE\n                                      WHEN solar_to_battery_w <= ?\n                                       AND solar_to_grid_w <= ?\n                                       AND house_consumption_w > ?\n                                       AND solar_to_house_w >= house_consumption_w * ?\n                                      THEN 1 ELSE 0\n                                  END) AS house_match_samples,\n                              SUM(CASE\n                                      WHEN house_consumption_w > ?\n                                       AND (\n                                           solar_to_house_w >= house_consumption_w * ?\n                                           OR grid_to_house_w <= ?\n                                       )\n                                      THEN 1 ELSE 0\n                                  END) AS house_covered_samples,\n                              SUM(CASE\n                                      WHEN ? > 0\n                                       AND (\n                                           ABS(solar_power_w - ?) <= ?\n                                           OR ABS(solar_to_grid_w - ?) <= ?\n                                           OR ABS(solar_power_w - (house_consumption_w + ?)) <= ?\n                                       )\n                                      THEN 1 ELSE 0\n                                  END) AS cap_limit_samples,\n                              AVG(solar_to_battery_w) AS avg_battery_w,\n                              AVG(solar_power_w) AS avg_solar_w,\n                              AVG(house_consumption_w) AS avg_house_w,\n                              AVG(solar_to_house_w) AS avg_solar_to_house_w,\n                              AVG(solar_to_grid_w) AS avg_solar_to_grid_w,\n                              MAX(battery_soc) AS max_battery_soc,\n                              AVG(battery_soc) AS avg_battery_soc\n                       FROM stats_power_sources\n                       GROUP BY date, hour\n                   )\n                   SELECT hp.prediction_id, hp.target_date, hp.target_hour,\n                          hp.actual_kwh, pa.theoretical_max_kwh,\n                          pw.solar_radiation_wm2, pw.clouds,\n                          fh.samples, fh.low_battery_samples,\n                          fh.house_match_samples, fh.house_covered_samples,\n                          fh.cap_limit_samples, fh.avg_battery_w,\n                          fh.avg_solar_w, fh.avg_house_w,\n                          fh.avg_solar_to_house_w, fh.avg_solar_to_grid_w,\n                          fh.max_battery_soc, fh.avg_battery_soc\n                   FROM hourly_predictions hp\n                   JOIN prediction_astronomy pa ON pa.prediction_id = hp.prediction_id\n                   LEFT JOIN prediction_weather pw\n                          ON pw.prediction_id = hp.prediction_id\n                         AND pw.weather_type = 'actual'\n                   LEFT JOIN flow_hour fh\n                          ON fh.date = hp.target_date\n                         AND fh.hour = hp.target_hour\n                   WHERE hp.target_date >= ?\n                     AND hp.target_date <= ?\n                     AND hp.actual_kwh IS NOT NULL\n                     AND hp.actual_kwh > 0.01\n                     AND hp.prediction_kwh > 0.05\n                     AND pa.theoretical_max_kwh > 0\n                     AND COALESCE(hp.exclude_from_learning, 0) = 0\n                     AND COALESCE(hp.mppt_throttled, 0) = 0\n                     AND COALESCE(hp.inverter_clipped, 0) = 0",
+                (
+                    CURTAILMENT_FLOW_LOW_BATTERY_W,
+                    CURTAILMENT_FLOW_LOW_BATTERY_W,
+                    CURTAILMENT_FLOW_LOW_BATTERY_W,
+                    CURTAILMENT_FLOW_MIN_HOUSE_W,
+                    CURTAILMENT_FLOW_HOUSE_MATCH_RATIO,
+                    CURTAILMENT_FLOW_MIN_HOUSE_W,
+                    CURTAILMENT_FLOW_HOUSE_MATCH_RATIO,
+                    CURTAILMENT_FLOW_LOW_BATTERY_W,
+                    _var_var_375,
+                    _var_var_375,
+                    _var_var_376,
+                    _var_var_375,
+                    _var_var_376,
+                    _var_var_375,
+                    _var_var_376,
+                    _var_var_367,
+                    _var_var_66,
+                ),
+            )
+            _var_var_266 = 0
+            for _var_var_62 in _var_var_126:
+                _var_var_368 = _var_var_62[0]
+                _var_var_238 = _var_var_62[1]
+                _var_var_116 = int(_var_var_62[2] or 0)
+                _var_var_320 = float(_var_var_62[3] or 0.0)
+                _var_var_369 = float(_var_var_62[4] or 0.0)
+                _var_var_377 = _var_var_62[5]
+                _var_var_378 = _var_var_62[6]
+                _var_var_379 = {
+                    "samples": int(_var_var_62[7] or 0),
+                    "low_battery_samples": int(_var_var_62[8] or 0),
+                    "house_match_samples": int(_var_var_62[9] or 0),
+                    "house_covered_samples": int(_var_var_62[10] or 0),
+                    "cap_limit_samples": int(_var_var_62[11] or 0),
+                    "avg_battery_w": float(_var_var_62[12] or 0.0),
+                    "avg_solar_w": float(_var_var_62[13] or 0.0),
+                    "avg_house_w": float(_var_var_62[14] or 0.0),
+                    "avg_solar_to_house_w": float(_var_var_62[15] or 0.0),
+                    "avg_solar_to_grid_w": float(_var_var_62[16] or 0.0),
+                    "max_battery_soc": (
+                        float(_var_var_62[17]) if _var_var_62[17] is not None else None
+                    ),
+                    "avg_battery_soc": (
+                        float(_var_var_62[18]) if _var_var_62[18] is not None else None
+                    ),
+                    "export_limit_w": _var_var_375,
+                    "cap_tolerance_w": _var_var_376,
+                }
+                _var_var_156 = {
+                    "solar_radiation_wm2": (
+                        float(_var_var_377) if _var_var_377 is not None else None
+                    ),
+                    "cloud_cover_percent": (
+                        float(_var_var_378) if _var_var_378 is not None else None
+                    ),
+                }
+                _var_var_104 = {"theoretical_max_kwh": _var_var_369}
+                _var_var_380 = MorningRoutineHandler.evaluate_curtailment_state(
+                    actual_kwh=_var_var_320,
+                    solar_to_battery_power=None,
+                    weather_actual=_var_var_156,
+                    astronomy_data=_var_var_104,
+                    flow_evidence=_var_var_379,
+                    max_grid_export_w=_var_var_374,
+                    zero_export_mode=_var_var_372,
+                    has_battery=_var_var_373,
+                )
+                if not _var_var_380["quarantine"]:
+                    continue
+                _var_var_23 = _var_var_380["reason"]
+                _var_var_381 = 1 if _var_var_380["hard"] else 0
+                await _var_var_366.execute(
+                    "UPDATE hourly_predictions\n                       SET exclude_from_learning = 1,\n                           exclude_from_clean_evaluation = 1,\n                           mppt_throttled = CASE WHEN ? = 1 THEN 1 ELSE mppt_throttled END,\n                           mppt_throttle_reason = COALESCE(mppt_throttle_reason, ?)\n                       WHERE prediction_id = ?\n                         AND COALESCE(exclude_from_learning, 0) = 0",
+                    (_var_var_381, _var_var_23, _var_var_368),
+                )
+                _var_var_266 += 1
+                _LOGGER.info(
+                    "Curtailment learning quarantine %s H%02d: actual=%.3f kWh, theoretical=%.3f kWh, reason=%s",
+                    _var_var_238,
+                    _var_var_116,
+                    _var_var_320,
+                    _var_var_369,
+                    _var_var_23,
+                )
+                if _var_var_266 % 10 == 0:
+                    await asyncio.sleep(0)
+            if _var_var_266 > 0:
+                await _var_var_366.commit()
+                _LOGGER.info(
+                    "Retroactively quarantined %d curtailment-contaminated learning hours",
+                    _var_var_266,
+                )
+            return _var_var_266 + _var_var_371
+        except Exception as _var_var_16:
+            _LOGGER.warning(
+                "Curtailment learning exclusion correction failed: %s", _var_var_16
+            )
+            return 0
+
     async def _learn_method_performance(self, now: datetime) -> Dict[str, str]:
         """Learn physics vs AI accuracy per condition bucket. @zara V16.0.0
 

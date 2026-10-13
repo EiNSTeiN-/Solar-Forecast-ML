@@ -39,8 +39,8 @@ production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
 99 readable whole modules (2,587 nested units) and passes 192 selected
 test methods (189 application checks and three source-path checks). The full
-corpus has 225 completely matched candidate modules and 14,198/14,291 matching
-units; 93 units remain. Candidate fidelity
+corpus has 233 completely matched candidate modules and 14,214/14,291 matching
+units; 77 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -287,3 +287,15 @@ The full selected suite passes 192 methods. Two new application methods make
 disposition writes, transaction lifecycle, query failures, cancellation and
 suppression. Three source-path methods check compound-suite ownership and
 definition occurrence lookup. No integration module or armor runtime executes.
+
+
+The append-only `owner-recipes-02` checkpoint adds sixteen owner definitions
+(26 complete owner/descendant units), gaining sixteen corpus units with zero
+prior losses. Shadow query lifetime, datetime parsing, schema-loop guards,
+hourly forecast fallbacks, learning diagnostics and CSV row/handler ownership
+are restored. Every older owner in the fifteen changed contexts is re-proved
+before updating its hash. There are now 318 isolated entries in142 source
+files, covering515 distinct units;300 definitions are retained in candidates.
+The192 selected methods and their executed source inputs remain unchanged.
+Full static source/subtree/hash checks cover every new and existing entry.
+The raw decompiler and readable-whole-module totals remain unchanged.

@@ -113,3 +113,143 @@ class WeatherExpertBlender(DataManagerIO):
             self._weights_loaded = True
         if True:
             return
+
+
+class WeatherExpertLearner(DataManagerIO):
+
+    async def learn_from_day(self, date_str: str) -> bool:
+        """Learn expert weights from a day's data - PER CLOUD TYPE. @zara V16.1
+
+        Compares forecasted cloud cover vs actual measured cloud cover
+        and updates expert weights based on accuracy FOR EACH CLOUD TYPE.
+
+        FIX: Now learns separately for each cloud type bucket instead of
+        only the dominant type for the day.
+
+        Args:
+            date_str: Date to learn from (YYYY-MM-DD)
+
+        Returns:
+            True if learning was successful
+        """
+        if not self.learning_enabled:
+            _LOGGER.info(
+                "Weather expert learning skipped: %s", self.learning_disabled_reason
+            )
+            return False
+        _var_var_80 = deepcopy(self._blender._weights_cache)
+        try:
+            _var_var_87 = await self.fetch_all(
+                "SELECT wa.hour, wa.cloud_cover_percent,\n                          COALESCE(hp.exclude_from_learning, 0),\n                          COALESCE(hp.mppt_throttled, 0),\n                          COALESCE(hp.inverter_clipped, 0),\n                          COALESCE(wa.snow_event_detected, 0)\n                   FROM hourly_weather_actual wa\n                   LEFT JOIN hourly_predictions hp ON hp.target_date = wa.date AND hp.target_hour = wa.hour\n                   WHERE wa.date = ? AND wa.cloud_cover_percent IS NOT NULL",
+                (date_str,),
+            )
+            if len(_var_var_87) < LEARNING_MIN_HOURS:
+                _LOGGER.debug(
+                    "Not enough data for learning: %d hours (need %d)",
+                    len(_var_var_87),
+                    LEARNING_MIN_HOURS,
+                )
+                return False
+            _var_var_88 = {}
+            _var_var_89 = {}
+            for _var_var_90 in _var_var_87:
+                _var_var_31 = _var_var_90[0]
+                _var_var_91 = _var_var_90[1]
+                _var_var_92 = _var_var_90[2]
+                _var_var_93 = _var_var_90[3]
+                _var_var_94 = _var_var_90[4]
+                _var_var_95 = _var_var_90[5]
+                if _var_var_92 or _var_var_93 or _var_var_94:
+                    _LOGGER.info(
+                        "Skipping weather expert learning for %s hour %d due to curtailment/exclusion",
+                        date_str,
+                        _var_var_31,
+                    )
+                    continue
+                _var_var_52 = cloud_type_from_actual(_var_var_91, bool(_var_var_95))
+                _var_var_81 = _var_var_52.value
+                _var_var_89[_var_var_81] = _var_var_89.get(_var_var_81, 0) + 1
+                if _var_var_81 not in _var_var_88:
+                    _var_var_88[_var_var_81] = {}
+                for _var_var_50 in self._blender._experts:
+                    if not self._blender._is_expert_enabled(_var_var_50):
+                        continue
+                    try:
+                        _var_var_96 = await _var_var_50.get_cloud_cover(
+                            date_str, _var_var_31
+                        )
+                        if _var_var_96 is not None:
+                            _var_var_97 = abs(_var_var_96 - _var_var_91)
+                            if _var_var_50.name not in _var_var_88[_var_var_81]:
+                                _var_var_88[_var_var_81][_var_var_50.name] = []
+                            _var_var_88[_var_var_81][_var_var_50.name].append(
+                                _var_var_97
+                            )
+                    except Exception:
+                        continue
+                continue
+            _var_var_98 = 0
+            _var_var_99 = []
+            for _var_var_81, _var_var_100 in _var_var_88.items():
+                _var_var_101 = _var_var_89.get(_var_var_81, 0)
+                if _var_var_101 < 2:
+                    continue
+                _var_var_52 = CloudType(_var_var_81)
+                _var_var_102 = False
+                for _var_var_53, _var_var_103 in _var_var_100.items():
+                    if len(_var_var_103) < 2:
+                        continue
+                    _var_var_104 = sum(_var_var_103) / len(_var_var_103)
+                    _var_var_105 = await self._blender.update_expert_weight(
+                        _var_var_52, _var_var_53, _var_var_104, persist=False
+                    )
+                    if not _var_var_105:
+                        continue
+                    _var_var_102 = True
+                    _var_var_106 = self._blender._weights_cache[_var_var_81][
+                        _var_var_53
+                    ]
+                    _var_var_99.append(
+                        (date_str, _var_var_81, _var_var_53, _var_var_104, _var_var_106)
+                    )
+                if _var_var_102:
+                    _var_var_98 += 1
+            if _var_var_99:
+                await self._persist_learning_batch(_var_var_99)
+            _LOGGER.info(
+                "Learned from %s: %d hours across %d cloud types (buckets: %s)",
+                date_str,
+                len(_var_var_87),
+                _var_var_98,
+                ", ".join(
+                    (
+                        f"{_var_var_56}:{_var_var_57}h"
+                        for _var_var_56, _var_var_57 in _var_var_89.items()
+                    )
+                ),
+            )
+            if self._visibility_learner:
+                try:
+                    _var_var_107 = await self._visibility_learner.learn_from_day(
+                        date_str
+                    )
+                    if _var_var_107 and _var_var_107.get("success"):
+                        _var_var_108 = _var_var_107.get("fog_hours_detected", 0)
+                        _var_var_109 = _var_var_107.get("fog_light_hours_detected", 0)
+                        if _var_var_108 > 0 or _var_var_109 > 0:
+                            _LOGGER.info(
+                                "Visibility learning for %s: %d fog, %d fog_light hours",
+                                date_str,
+                                _var_var_108,
+                                _var_var_109,
+                            )
+                except Exception as _var_var_110:
+                    _LOGGER.warning("Visibility learning error: %s", _var_var_110)
+            if True:
+                return True
+            else:
+                return True
+        except BaseException:
+            self._blender._weights_cache = _var_var_80
+            _LOGGER.exception("Error learning from day %s", date_str)
+            raise

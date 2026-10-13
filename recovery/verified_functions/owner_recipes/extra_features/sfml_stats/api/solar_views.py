@@ -133,6 +133,353 @@ async def _corrected_finalized_solar_values(start_date: str) -> dict[str, float]
         return _var_var_169
 
 
+class SolarDataView(HomeAssistantView):
+
+    @local_only
+    async def get(self, request: Request) -> Response:
+        """Return solar data. @zara"""
+        _var_var_181 = max(1, min(int(request.query.get("days", 7)), 365))
+        _var_var_182 = request.query.get("hourly", "true").lower() == "true"
+        _var_var_157 = _query_local_date(request)
+        _var_var_183 = _var_var_157 - timedelta(days=_var_var_181 - 1)
+        _var_var_169 = {
+            "success": True,
+            "timestamp": ha_now(context.HASS).isoformat(),
+            "time_context": _time_context(),
+            "selected_date": _var_var_157.isoformat(),
+            "data": {},
+        }
+        try:
+            _var_var_84 = _get_solar_reader()
+            _var_var_184 = await _var_var_84.async_get_daily_summaries(
+                start_date=_var_var_183, end_date=_var_var_157
+            )
+            async with _get_db() as _var_var_32:
+                async with _var_var_32.execute(
+                    "SELECT target_date, target_hour, prediction_kwh, actual_kwh,\n                              exclude_from_learning, exclude_from_clean_evaluation,\n                              mppt_throttled, mppt_throttle_reason,\n                              inverter_clipped, has_weather_alert,\n                              weather_alert_type\n                       FROM hourly_predictions\n                       WHERE target_date BETWEEN ? AND ?\n                       ORDER BY target_date, target_hour",
+                    (_var_var_183.isoformat(), _var_var_157.isoformat()),
+                ) as _var_var_33:
+                    _var_var_61 = await _var_var_33.fetchall()
+            _var_var_185 = _build_learning_basis_by_day(_var_var_61)
+            _var_var_186 = {
+                (
+                    _var_var_30["target_date"],
+                    int(_var_var_30["target_hour"] or 0),
+                ): _clean_evaluation_flags(_var_var_30)
+                for _var_var_30 in _var_var_61
+            }
+            _var_var_169["data"]["daily"] = [
+                {
+                    "date": _var_var_187.date.isoformat(),
+                    "overall": {
+                        "predicted_total_kwh": _var_var_187.predicted_total_kwh,
+                        "actual_total_kwh": _var_var_187.actual_total_kwh,
+                        "accuracy_percent": _var_var_187.accuracy_percent,
+                        **_build_daily_summary_forecast_metrics(
+                            _var_var_187.predicted_total_kwh,
+                            _var_var_187.actual_total_kwh,
+                            _var_var_187.evaluation_predicted_kwh,
+                            _var_var_187.evaluation_actual_kwh,
+                            _var_var_187.accuracy_percent,
+                        ),
+                        "error_kwh": _var_var_187.error_kwh,
+                        "production_hours": _var_var_187.production_hours,
+                        "peak_hour": _var_var_187.peak_hour,
+                        "peak_kwh": _var_var_187.peak_kwh,
+                        "evaluation_predicted_kwh": _var_var_187.evaluation_predicted_kwh,
+                        "evaluation_actual_kwh": _var_var_187.evaluation_actual_kwh,
+                        "evaluation_coverage_percent": _var_var_187.evaluation_coverage_percent,
+                        "excluded_hours_count": _var_var_187.excluded_hours_count,
+                        "excluded_mppt_hours_count": _var_var_187.excluded_mppt_hours_count,
+                        "evaluation_hours_count": _var_var_187.evaluation_hours_count,
+                        "production_candidate_hours_count": _var_var_187.production_candidate_hours_count,
+                        "missing_actual_hours_count": _var_var_187.missing_actual_hours_count,
+                        "excluded_weather_alert_hours_count": _var_var_187.excluded_weather_alert_hours_count,
+                        "excluded_inverter_clipped_hours_count": _var_var_187.excluded_inverter_clipped_hours_count,
+                        "excluded_reason_breakdown_json": _var_var_187.excluded_reason_breakdown_json,
+                        **_var_var_185.get(_var_var_187.date.isoformat(), {}),
+                    },
+                    "time_windows": {
+                        "morning_accuracy": _var_var_187.morning_accuracy,
+                        "midday_accuracy": _var_var_187.midday_accuracy,
+                        "afternoon_accuracy": _var_var_187.afternoon_accuracy,
+                    },
+                    "ml_metrics": {
+                        "mae": _var_var_187.ml_mae,
+                        "rmse": _var_var_187.ml_rmse,
+                        "r2_score": _var_var_187.ml_r2_score,
+                    },
+                }
+                for _var_var_187 in _var_var_184
+            ]
+        except Exception as _var_var_171:
+            _LOGGER.error(
+                "Error loading daily summaries from database: %s", _var_var_171
+            )
+            _var_var_169["data"]["daily"] = []
+        if _var_var_182:
+            try:
+                _var_var_84 = _get_solar_reader()
+                _var_var_188 = []
+                _var_var_189 = _var_var_183
+                while _var_var_189 <= _var_var_157:
+                    _var_var_190 = await _var_var_84.async_get_hourly_predictions(
+                        target_date=_var_var_189
+                    )
+                    for _var_var_191 in _var_var_190:
+                        _var_var_192 = _var_var_186.get(
+                            (
+                                _var_var_191.target_date.isoformat(),
+                                int(_var_var_191.target_hour or 0),
+                            ),
+                            {},
+                        )
+                        _var_var_188.append(
+                            {
+                                "target_datetime": _var_var_191.target_datetime.isoformat(),
+                                "target_hour": _var_var_191.target_hour,
+                                "target_date": _var_var_191.target_date.isoformat(),
+                                "prediction_kwh": _var_var_191.prediction_kwh,
+                                "actual_kwh": _var_var_191.actual_kwh,
+                                "accuracy_percent": _var_var_191.accuracy_percent,
+                                "error_kwh": _var_var_191.error_kwh,
+                                "prediction_method": _var_var_191.prediction_method,
+                                "ml_contribution_percent": _var_var_191.ml_contribution_percent,
+                                "confidence": _var_var_191.confidence,
+                                "temperature": _var_var_191.temperature,
+                                "solar_radiation": _var_var_191.solar_radiation,
+                                "clouds": _var_var_191.clouds,
+                                "sun_elevation": _var_var_191.sun_elevation,
+                                "theoretical_max_kwh": _var_var_191.theoretical_max_kwh,
+                                **_var_var_192,
+                            }
+                        )
+                    _var_var_189 += timedelta(days=1)
+                _var_var_169["data"]["hourly"] = _var_var_188
+            except Exception as _var_var_171:
+                _LOGGER.error(
+                    "Error loading hourly predictions from database: %s", _var_var_171
+                )
+                _var_var_169["data"]["hourly"] = []
+            try:
+                _var_var_84 = _get_solar_reader()
+                _var_var_193 = await _var_var_84.async_get_operational_hybrid_forecast(
+                    target_date=_var_var_157
+                )
+                if _var_var_193:
+                    _var_var_169["data"]["hybrid"] = {
+                        "available": True,
+                        "target_date": _var_var_193.target_date.isoformat(),
+                        "total_kwh": _var_var_193.total_kwh,
+                        "ops_today_row_kwh": _var_var_193.ops_today_row_kwh,
+                        "ops_today_row_scope": _var_var_193.ops_today_row_scope,
+                        "hourly": [
+                            {
+                                "target_hour": _var_var_194.target_hour,
+                                "target_date": _var_var_194.target_date.isoformat(),
+                                "prediction_kwh": _var_var_194.prediction_kwh,
+                                "snapshot_type": _var_var_194.snapshot_type,
+                                "source_track": _var_var_194.source_track,
+                                "snapshot_sequence": _var_var_194.snapshot_sequence,
+                                "trigger_source": _var_var_194.trigger_source,
+                                "reforecast_cutoff_hour": _var_var_194.reforecast_cutoff_hour,
+                            }
+                            for _var_var_194 in _var_var_193.hourly
+                        ],
+                    }
+                else:
+                    _var_var_169["data"]["hybrid"] = {"available": False, "hourly": []}
+            except Exception as _var_var_171:
+                _LOGGER.error(
+                    "Error loading operational hybrid forecast from database: %s",
+                    _var_var_171,
+                )
+                _var_var_169["data"]["hybrid"] = {"available": False, "hourly": []}
+            try:
+                _var_var_84 = _get_solar_reader()
+                _var_var_195 = (
+                    await _var_var_84.async_get_conservative_planning_forecast(
+                        target_date=_var_var_157
+                    )
+                )
+                if _var_var_195:
+                    _var_var_169["data"]["conservative"] = {
+                        "available": True,
+                        "target_date": _var_var_195.target_date.isoformat(),
+                        "total_kwh": _var_var_195.total_kwh,
+                        "updated_at": _var_var_195.updated_at,
+                        "source": "daily_forecast_tracking",
+                        "hourly": [
+                            {
+                                "target_hour": _var_var_194.target_hour,
+                                "target_date": _var_var_194.target_date.isoformat(),
+                                "prediction_kwh": _var_var_194.prediction_kwh,
+                            }
+                            for _var_var_194 in _var_var_195.hourly
+                        ],
+                    }
+                else:
+                    _var_var_169["data"]["conservative"] = {
+                        "available": False,
+                        "hourly": [],
+                    }
+            except Exception as _var_var_171:
+                _LOGGER.error(
+                    "Error loading conservative planning forecast from database: %s",
+                    _var_var_171,
+                )
+                _var_var_169["data"]["conservative"] = {
+                    "available": False,
+                    "hourly": [],
+                }
+        _var_var_196 = await _get_weather_from_db(
+            days=_var_var_181, start_date=_var_var_183, end_date=_var_var_157
+        )
+        if _var_var_196:
+            _var_var_169["data"]["weather"] = _var_var_196
+        _var_var_197 = await _get_weather_forecast_from_db(
+            days=_var_var_181, start_date=_var_var_183, end_date=_var_var_157
+        )
+        if _var_var_197:
+            _var_var_169["data"]["weather_corrected"] = _var_var_197
+        try:
+            _var_var_84 = _get_solar_reader()
+            _var_var_198 = await _var_var_84.async_get_model_state()
+            if _var_var_198:
+                _var_var_169["data"]["ai_state"] = {
+                    "model_loaded": _var_var_198.model_loaded,
+                    "algorithm_used": _var_var_198.algorithm_used,
+                    "training_samples": _var_var_198.training_samples,
+                    "current_accuracy": _var_var_198.current_accuracy,
+                    "last_training": (
+                        _var_var_198.last_training.isoformat()
+                        if _var_var_198.last_training
+                        else None
+                    ),
+                    "peak_power_kw": _var_var_198.peak_power_kw,
+                    "feature_weights": _var_var_198.feature_weights,
+                    "feature_importance": _var_var_198.feature_importance,
+                }
+        except Exception as _var_var_171:
+            _LOGGER.error(
+                "Error loading AI model state from database: %s", _var_var_171
+            )
+        try:
+            _var_var_84 = _get_solar_reader()
+            _var_var_86 = await _var_var_84.async_get_daily_forecasts()
+            _var_var_199 = _var_var_86.get("today")
+            _var_var_87 = _var_var_86.get("tomorrow")
+            _var_var_200 = _var_var_86.get("day_after_tomorrow")
+            _var_var_169["data"]["forecasts"] = {
+                "today": {
+                    "prediction_kwh": (
+                        _var_var_199.prediction_kwh if _var_var_199 else None
+                    ),
+                    "prediction_kwh_display": (
+                        f"{_var_var_199.prediction_kwh:.2f}" if _var_var_199 else None
+                    ),
+                },
+                "tomorrow": {
+                    "date": (
+                        _var_var_87.forecast_date.isoformat()
+                        if _var_var_87 and _var_var_87.forecast_date
+                        else None
+                    ),
+                    "prediction_kwh": (
+                        _var_var_87.prediction_kwh if _var_var_87 else None
+                    ),
+                    "prediction_kwh_display": (
+                        f"{_var_var_87.prediction_kwh:.2f}" if _var_var_87 else None
+                    ),
+                },
+                "day_after_tomorrow": {
+                    "date": (
+                        _var_var_200.forecast_date.isoformat()
+                        if _var_var_200 and _var_var_200.forecast_date
+                        else None
+                    ),
+                    "prediction_kwh": (
+                        _var_var_200.prediction_kwh if _var_var_200 else None
+                    ),
+                    "prediction_kwh_display": (
+                        f"{_var_var_200.prediction_kwh:.2f}" if _var_var_200 else None
+                    ),
+                },
+            }
+        except Exception as _var_var_171:
+            _LOGGER.error("Error loading forecasts from database: %s", _var_var_171)
+            _var_var_169["data"]["forecasts"] = {
+                "today": {"prediction_kwh": None, "prediction_kwh_display": None},
+                "tomorrow": {
+                    "date": None,
+                    "prediction_kwh": None,
+                    "prediction_kwh_display": None,
+                },
+                "day_after_tomorrow": {
+                    "date": None,
+                    "prediction_kwh": None,
+                    "prediction_kwh_display": None,
+                },
+            }
+        try:
+            _var_var_201 = _var_var_183.isoformat()
+            async with _get_db() as _var_var_32:
+                async with _var_var_32.execute(
+                    "SELECT cache_date, sunrise, sunset, daylight_hours\n                       FROM astronomy_cache\n                       WHERE cache_date >= ? AND cache_date <= ? AND hour = 12\n                       ORDER BY cache_date",
+                    (_var_var_201, _var_var_157.isoformat()),
+                ) as _var_var_33:
+                    _var_var_202 = await _var_var_33.fetchall()
+            if _var_var_202:
+                _var_var_169["data"]["astronomy"] = {
+                    _var_var_203["cache_date"]: {
+                        "daylight_hours": _var_var_203["daylight_hours"],
+                        "sunrise": _var_var_203["sunrise"],
+                        "sunset": _var_var_203["sunset"],
+                    }
+                    for _var_var_203 in _var_var_202
+                }
+        except Exception as _var_var_171:
+            _LOGGER.error("Error loading astronomy history from DB: %s", _var_var_171)
+        try:
+            _var_var_84 = _get_solar_reader()
+            A_recovered_capture_0006 = ha_today(context.HASS)
+            _var_var_83 = A_recovered_capture_0006 + timedelta(days=1)
+            _var_var_204 = A_recovered_capture_0006 + timedelta(days=2)
+            _var_var_205 = {}
+            for _var_var_157 in (A_recovered_capture_0006, _var_var_83, _var_var_204):
+                _var_var_206 = await _var_var_84.async_get_hourly_predictions(
+                    target_date=_var_var_157
+                )
+                if _var_var_206:
+                    _var_var_207 = []
+                    for _var_var_191 in _var_var_206:
+                        _var_var_207.append(
+                            {
+                                "hour": _var_var_191.target_hour,
+                                "prediction_kwh": _var_var_191.prediction_kwh,
+                                "actual_kwh": _var_var_191.actual_kwh,
+                            }
+                        )
+                    _var_var_205[_var_var_157.isoformat()] = {
+                        "date": _var_var_157.isoformat(),
+                        "hourly": _var_var_207,
+                        "total_kwh": sum(
+                            (
+                                _var_var_191.prediction_kwh
+                                for _var_var_191 in _var_var_206
+                            )
+                        ),
+                    }
+            if _var_var_205:
+                _var_var_169["data"]["multi_day_hourly"] = _var_var_205
+        except Exception as _var_var_171:
+            _LOGGER.error(
+                "Error loading multi-day hourly forecast from database: %s",
+                _var_var_171,
+            )
+        return web.json_response(_var_var_169)
+
+
 def _resolve_entity_id_by_unique_suffix(
     entity_domain: str,
     platform: str,

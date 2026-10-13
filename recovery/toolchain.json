@@ -188,7 +188,7 @@
       "unpacker_native_build": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000565",
       "unpacker_security": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38328000506"
     },
-    "retained_definition_count": 284,
+    "retained_definition_count": 300,
     "independently_verified_source_files": 16,
     "previous_ci_shared_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193009204",
@@ -303,7 +303,7 @@
       "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
       "unchanged_source_composite_gains": 0,
       "unchanged_source_raw_gains": 0,
-      "new_source_composite_gains": 283,
+      "new_source_composite_gains": 16,
       "new_source_raw_gains": 0,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
@@ -675,12 +675,12 @@
     },
     "selected_application_behavior_test_methods": 189,
     "source_definition_path_test_methods": 3,
-    "owner_compilation_context_files": 121,
-    "owner_compilation_context_entries": 282,
-    "owner_compilation_context_distinct_units": 464,
-    "all_isolated_source_files": 139,
-    "all_isolated_entries": 302,
-    "all_isolated_distinct_proved_units": 489,
+    "owner_compilation_context_files": 124,
+    "owner_compilation_context_entries": 298,
+    "owner_compilation_context_distinct_units": 490,
+    "all_isolated_source_files": 142,
+    "all_isolated_entries": 318,
+    "all_isolated_distinct_proved_units": 515,
     "previous_comparison_variance_before_owner_recipes": {
       "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
       "unchanged_source_composite_gains": 0,
@@ -699,14 +699,15 @@
         "loss_paths": []
       },
       "composite": {
-        "previous": 13915,
-        "matched": 14198,
-        "gained": 283,
+        "previous": 14198,
+        "matched": 14214,
+        "gained": 16,
         "lost": 0,
-        "whole_modules": 225,
+        "whole_modules": 233,
         "loss_paths": []
       }
     },
-    "stable_toolchain_unchanged": true
+    "stable_toolchain_unchanged": true,
+    "selected_suite_reuse": "The 192 passing methods and all source inputs they execute are unchanged; newly added owners are verified statically with full subtree/neighbor retention."
   }
 }
