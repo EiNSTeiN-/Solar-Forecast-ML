@@ -194,7 +194,7 @@
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534872",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38339534861"
     },
-    "retained_definition_count": 351,
+    "retained_definition_count": 352,
     "independently_verified_source_files": 154,
     "previous_ci_shared_returns": {
       "unpacker_python314": "https://github.com/EiNSTeiN-/Pyarmor-Static-Unpack-1shot/actions/runs/38193009204",
@@ -385,9 +385,9 @@
       "backend_behavior": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742682",
       "backend_build_test_clippy": "https://github.com/EiNSTeiN-/pycdc-modern/actions/runs/38281742615"
     },
-    "isolated_manifest_entries": 369,
+    "isolated_manifest_entries": 370,
     "isolated_source_files": 154,
-    "isolated_distinct_code_units": 657,
+    "isolated_distinct_code_units": 661,
     "previous_comparison_variance_before_callable_returns": {
       "rule": "Unchanged fail-closed rules from the preceding padded-return checkpoint",
       "unchanged_source_composite_gains": 0,
@@ -682,11 +682,11 @@
     "selected_application_behavior_test_methods": 196,
     "source_definition_path_test_methods": 3,
     "owner_compilation_context_files": 136,
-    "owner_compilation_context_entries": 349,
-    "owner_compilation_context_distinct_units": 632,
+    "owner_compilation_context_entries": 350,
+    "owner_compilation_context_distinct_units": 636,
     "all_isolated_source_files": 154,
-    "all_isolated_entries": 369,
-    "all_isolated_distinct_proved_units": 657,
+    "all_isolated_entries": 370,
+    "all_isolated_distinct_proved_units": 661,
     "previous_comparison_variance_before_owner_recipes": {
       "rule": "Unchanged fail-closed rules from the statement-scopes checkpoint",
       "unchanged_source_composite_gains": 0,
@@ -708,51 +708,21 @@
         "new_complete_modules": []
       },
       "composite": {
-        "previous": 14261,
-        "matched": 14268,
-        "gained": 7,
+        "previous": 14268,
+        "matched": 14269,
+        "gained": 1,
         "lost": 0,
-        "whole_modules": 258,
+        "whole_modules": 259,
         "lost_complete_modules": [],
         "loss_paths": [],
         "gained_paths": [
           [
-            "extra_features/sfml_stats/api/shadow_views.py",
-            "<module>/ShadowMovementView#1/get#1"
-          ],
-          [
-            "extra_features/sfml_stats/api/solar_views.py",
-            "<module>/_get_sfml_panel_groups#1"
-          ],
-          [
-            "extra_features/sfml_stats/core/forecast_collector.py",
-            "<module>/ForecastComparisonCollector#1/async_migrate_historical_forecasts#1"
-          ],
-          [
-            "extra_features/solar_forecast_eai/data/data_weather_precision.py",
-            "<module>/WeatherPrecisionTracker#1/_update_rolling_averages#1"
-          ],
-          [
-            "production/production_adaptive_forecast.py",
-            "<module>/AdaptiveForecastEngine#1/_execute_correction#1"
-          ],
-          [
-            "sensors/sensor_actual_sot.py",
-            "<module>/ActualLiveStateManager#1/async_refresh#1"
-          ],
-          [
-            "sensors/sensor_shadow_detection.py",
-            "<module>/ShadowTodaySensor#1/_get_today_analysis#1"
+            "coordinator.py",
+            "<module>/SolarForecastMLCoordinator#1/_validate_panel_group_power_sensors_with_grace#1"
           ]
         ],
         "new_complete_modules": [
-          "extra_features/sfml_stats/api/shadow_views.py",
-          "extra_features/sfml_stats/api/solar_views.py",
-          "extra_features/sfml_stats/core/forecast_collector.py",
-          "extra_features/solar_forecast_eai/data/data_weather_precision.py",
-          "production/production_adaptive_forecast.py",
-          "sensors/sensor_actual_sot.py",
-          "sensors/sensor_shadow_detection.py"
+          "coordinator.py"
         ]
       }
     },

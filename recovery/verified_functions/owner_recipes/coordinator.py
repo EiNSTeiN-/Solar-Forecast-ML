@@ -371,6 +371,106 @@ class SolarForecastMLCoordinator(DataUpdateCoordinator):
             raise
         return None if True else None
 
+    async def _validate_panel_group_power_sensors_with_grace(self) -> None:
+        _var_var_67 = self.panel_groups or []
+        if not _var_var_67:
+            await Hubble.async_create_issue(
+                self.hass,
+                "panel_group_power_sensors_missing",
+                "Panel group power sensors missing",
+                "Solar Forecast ML now requires panel groups with power sensors. Reconfigure the integration and assign a power sensor to each panel group.",
+            )
+            _LOGGER.error(
+                "Panel group power validation failed: no panel groups configured"
+            )
+            return
+        _var_var_70 = [
+            str(_var_var_69.get("name") or f"Gruppe {_var_var_68 + 1}")
+            for _var_var_68, _var_var_69 in enumerate(_var_var_67)
+            if not str(_var_var_69.get("power_sensor") or "").strip()
+        ]
+        if _var_var_70:
+            await Hubble.async_create_issue(
+                self.hass,
+                "panel_group_power_sensors_missing",
+                "Panel group power sensors missing",
+                "Every panel group needs a configured power sensor after this breaking update. Missing groups: "
+                + ", ".join(_var_var_70),
+            )
+            _LOGGER.error(
+                "Panel group power validation failed: missing power_sensor for %s",
+                ", ".join(_var_var_70),
+            )
+            return
+        _var_var_71 = 6
+        _var_var_72 = 10
+        _var_var_73 = []
+        for _var_var_74 in range(1, _var_var_71 + 1):
+            _var_var_73 = []
+            for _var_var_68, _var_var_69 in enumerate(_var_var_67):
+                _var_var_75 = str(
+                    _var_var_69.get("name") or f"Gruppe {_var_var_68 + 1}"
+                )
+                _var_var_76 = str(_var_var_69.get("power_sensor") or "").strip()
+                _var_var_8 = self.hass.states.get(_var_var_76)
+                if _var_var_8 is None:
+                    _var_var_73.append((_var_var_75, _var_var_76, "entity_not_found"))
+                    continue
+                if _var_var_8.state in (None, "", "unknown", "unavailable"):
+                    _var_var_73.append(
+                        (_var_var_75, _var_var_76, str(_var_var_8.state or "empty"))
+                    )
+                    continue
+                try:
+                    float(str(_var_var_8.state).replace(",", "."))
+                except (TypeError, ValueError):
+                    _var_var_73.append((_var_var_75, _var_var_76, "non_numeric"))
+                    continue
+            if not _var_var_73:
+                await Hubble.async_dismiss_issue(
+                    self.hass, "panel_group_power_sensors_missing"
+                )
+                _LOGGER.debug(
+                    "Panel group power sensors validated after startup grace: %d groups",
+                    len(_var_var_67),
+                )
+                return
+            if _var_var_74 < _var_var_71:
+                _LOGGER.debug(
+                    "Panel group power sensors not ready yet (%d/%d). Retrying in %ds: %s",
+                    _var_var_74,
+                    _var_var_71,
+                    _var_var_72,
+                    "; ".join(
+                        (
+                            f"{_var_var_77}={_var_var_76} ({_var_var_78})"
+                            for _var_var_77, _var_var_76, _var_var_78 in _var_var_73
+                        )
+                    ),
+                )
+                await asyncio.sleep(_var_var_72)
+        await Hubble.async_create_issue(
+            self.hass,
+            "panel_group_power_sensors_missing",
+            "Panel group power sensors unavailable",
+            "Panel group power sensors stayed unavailable after startup grace: "
+            + "; ".join(
+                (
+                    f"{_var_var_77}: {_var_var_76} ({_var_var_78})"
+                    for _var_var_77, _var_var_76, _var_var_78 in _var_var_73
+                )
+            ),
+        )
+        _LOGGER.error(
+            "Panel group power validation failed after startup grace: %s",
+            "; ".join(
+                (
+                    f"{_var_var_77}: {_var_var_76} ({_var_var_78})"
+                    for _var_var_77, _var_var_76, _var_var_78 in _var_var_73
+                )
+            ),
+        )
+
     async def _async_update_data(self):
         """Fetch data from API endpoint. @zara"""
         try:

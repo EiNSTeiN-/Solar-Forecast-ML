@@ -5952,15 +5952,15 @@
     }
   ],
   "current_checkpoint": {
-    "stage": "owner-recipes-06",
-    "matched_units": 14268,
-    "remaining_units": 23,
-    "complete_candidate_modules": 258,
-    "source_reconstruction_gains": 7,
+    "stage": "owner-recipes-07",
+    "matched_units": 14269,
+    "remaining_units": 22,
+    "complete_candidate_modules": 259,
+    "source_reconstruction_gains": 1,
     "previous_matches_lost": 0,
-    "owner_entries_added": 7,
-    "complete_owner_tree_units": 15,
-    "source_context_files": 7,
+    "owner_entries_added": 1,
+    "complete_owner_tree_units": 4,
+    "source_context_files": 1,
     "comparison_rules_changed": false,
     "stable_native_version": "0.6.30-einstein.1",
     "stable_unpacker_version": "0.4.34-einstein.1"

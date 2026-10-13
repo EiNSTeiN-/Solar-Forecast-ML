@@ -39,8 +39,8 @@ production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
 104 readable whole modules (3,968 nested units) and passes 201 selected
 test methods (196 application checks and five source-construction checks). The full
-corpus has 258 completely matched candidate modules and 14,268/14,291 matching
-units; 23 units remain. Candidate fidelity
+corpus has 259 completely matched candidate modules and 14,269/14,291 matching
+units; 22 units remain. Candidate fidelity
 and published readable source are counted separately.
 Physics, neural-network gradients/training/restore and controlled repair
 transactions are now covered too. The MLP checks require NumPy; this checkpoint
@@ -434,3 +434,13 @@ check keyword defaults/docstrings, and reject a wrong retained body. Successful
 layout recovery does not certify that body's semantics: independent complete
 candidate comparison remains mandatory. The generic .35 corpus gate is recorded
 separately from these already-matched readability changes.
+
+
+The `owner-recipes-07` checkpoint adds 1 exact owner bodies across 1
+changed contexts, gaining 1 corpus matches with zero losses. Its 4
+proved owner-tree units include previously matched descendants. Reconstructed owners restore original work and its guards, contexts and error scopes. Every old
+and new public source/hash/subtree proof passes. There are 370
+isolated entries in 154 files, covering
+661 distinct units; 352
+definitions are retained. These new contexts remain non-readable. The frozen
+0.6.30-einstein.1/0.4.34-einstein.1 generation tools and selected suite's executed bodies remain unchanged.

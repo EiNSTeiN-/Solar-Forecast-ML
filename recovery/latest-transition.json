@@ -1,12 +1,12 @@
 {
-  "previous_stage": "promoted-exit-tools-01",
-  "current_stage": "owner-recipes-06",
-  "new_matching_units": 7,
+  "previous_stage": "owner-recipes-06",
+  "current_stage": "owner-recipes-07",
+  "new_matching_units": 1,
   "previous_matches_lost": 0,
   "raw_new_matching_units": 0,
   "raw_previous_matches_lost": 0,
   "comparison_only_gains": 0,
-  "source_repair_gains": 7,
+  "source_repair_gains": 1,
   "comparison_rules_changed": false,
   "remaining_goal_complete": false,
   "verified_shared_return_shapes": 653,
@@ -16,40 +16,16 @@
   "verified_compound_return_shapes": 12,
   "verified_attribute_callable_values": 5,
   "verified_shared_try_fragments": 140,
-  "verified_definition_overrides": 351,
+  "verified_definition_overrides": 352,
   "verified_code_units_in_overrides": 0,
   "raw_decompiler_matched_units": 13925,
   "raw_all_units_match_modules": 137,
-  "manually_reconstructed_candidate_matched_units": 14268,
+  "manually_reconstructed_candidate_matched_units": 14269,
   "readable_isolated_generator_units": 7,
   "new_unit_paths": [
     [
-      "extra_features/sfml_stats/api/shadow_views.py",
-      "<module>/ShadowMovementView#1/get#1"
-    ],
-    [
-      "extra_features/sfml_stats/api/solar_views.py",
-      "<module>/_get_sfml_panel_groups#1"
-    ],
-    [
-      "extra_features/sfml_stats/core/forecast_collector.py",
-      "<module>/ForecastComparisonCollector#1/async_migrate_historical_forecasts#1"
-    ],
-    [
-      "extra_features/solar_forecast_eai/data/data_weather_precision.py",
-      "<module>/WeatherPrecisionTracker#1/_update_rolling_averages#1"
-    ],
-    [
-      "production/production_adaptive_forecast.py",
-      "<module>/AdaptiveForecastEngine#1/_execute_correction#1"
-    ],
-    [
-      "sensors/sensor_actual_sot.py",
-      "<module>/ActualLiveStateManager#1/async_refresh#1"
-    ],
-    [
-      "sensors/sensor_shadow_detection.py",
-      "<module>/ShadowTodaySensor#1/_get_today_analysis#1"
+      "coordinator.py",
+      "<module>/SolarForecastMLCoordinator#1/_validate_panel_group_power_sensors_with_grace#1"
     ]
   ],
   "rejected_intermediate_stage": {
@@ -62,13 +38,7 @@
   "verified_expanded_keyword_merges": 0,
   "verified_loop_rejection_guards": 10,
   "new_complete_candidate_modules": [
-    "extra_features/sfml_stats/api/shadow_views.py",
-    "extra_features/sfml_stats/api/solar_views.py",
-    "extra_features/sfml_stats/core/forecast_collector.py",
-    "extra_features/solar_forecast_eai/data/data_weather_precision.py",
-    "production/production_adaptive_forecast.py",
-    "sensors/sensor_actual_sot.py",
-    "sensors/sensor_shadow_detection.py"
+    "coordinator.py"
   ],
   "new_readable_modules": [],
   "verified_coupled_statement_shapes": 79,
@@ -80,10 +50,10 @@
   "verified_payload_and_handler_shapes": 39,
   "verified_physical_local_slots": 3,
   "verified_displaced_context_results": 8,
-  "source_reconstructed_owners": 7,
-  "source_compilation_context_files": 7,
-  "newly_proved_owner_tree_units": 15,
-  "isolated_distinct_proved_units": 657,
+  "source_reconstructed_owners": 1,
+  "source_compilation_context_files": 1,
+  "newly_proved_owner_tree_units": 4,
+  "isolated_distinct_proved_units": 661,
   "generic_decompiler_gains": 15,
   "rejected_async_normal_exit_checkpoint": {
     "stage": "async-normal-exits-01",

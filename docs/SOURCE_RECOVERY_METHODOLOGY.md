@@ -2594,3 +2594,24 @@ check keyword defaults/docstrings, and reject a wrong retained body. Successful
 layout recovery does not certify that body's semantics: independent complete
 candidate comparison remains mandatory. The generic .35 corpus gate is recorded
 separately from these already-matched readability changes.
+
+
+## owner-recipes-07: complete owner and neighbor proofs
+
+`owner-recipes-07` adopts 1 reconstructed bodies after full owner/descendant
+and module-retention proofs. Reconstructed owners restore original work and its guards, contexts and error scopes. No alias assignments or comparator
+changes are introduced. Owned controls reject wrong closure order, absent writes,
+changed scope and omitted error paths.
+
+All 274 candidates compile. The complete corpus gains **1 / zero losses**,
+reaching **14,269/14,291 / 259 complete candidates**, leaving **22
+units (5 instructions / 17 exception tables)**.
+Raw generic coverage remains 13,925/137 in this frozen source-only checkpoint;
+readable whole source stays 104/3,968.
+There are 370 isolated entries, 154
+files and 661 distinct proved units. Source-only
+proofs are counted separately from generic decompiler or readable-source gains.
+All published hashes and complete source/owner proofs pass. Previously tested
+selected function bodies are unchanged; no blanket runtime-equivalence claim is
+made for the new application owners. Full source and readability goals remain
+active. Earlier native gains are not credited to these source bodies.
