@@ -352,7 +352,7 @@
       "matched_units": 73,
       "reference_units": 73,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DailySummariesHandler#1/create_daily_summary#1"
       ],
@@ -545,7 +545,7 @@
       "matched_units": 67,
       "reference_units": 67,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/ShadowDetector#1/_apply_learned_patterns#1",
         "<module>/ShadowDetector#1/_first_numeric#1"
@@ -1397,7 +1397,7 @@
       "matched_units": 60,
       "reference_units": 60,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate",
+      "source_origin": "manual_reconstruction",
       "source_units": 60
     },
     {
@@ -1559,7 +1559,7 @@
       "matched_units": 60,
       "reference_units": 60,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/BillingCalculator#1/_get_dynamic_costs_from_db#1"
       ],
@@ -2352,7 +2352,7 @@
       "matched_units": 58,
       "reference_units": 58,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/EAIRecommendationEngine#1/_build_snapshot#1"
       ],
@@ -2639,7 +2639,7 @@
       "matched_units": 60,
       "reference_units": 60,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/OpenMeteoClient#1/_fetch_visibility_from_default_model#1"
       ],

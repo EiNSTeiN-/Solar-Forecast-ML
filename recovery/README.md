@@ -37,7 +37,7 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-159 readable whole modules (9,668 nested units) and passes 206 selected
+165 readable whole modules (10,046 nested units) and passes 206 selected
 test methods (196 application checks and ten source/coverage checks). The full
 corpus has 263 completely matched candidate modules and 14,273/14,291 matching
 units; 18 units remain. Candidate fidelity
@@ -973,6 +973,38 @@ and parent-owned assignment expressions are protected. Names follow existing
 data flow and contracts, without claiming original local spelling.
 
 Morning forecasting names retain ordered datetime/hour-midpoint captures, original lock/sunrise precedence, deduplication and hour-zero decisions, current-day candidate filtering, retry/cancellation and quarantine gates. Energy AI daily summaries keep residual energy distinct from exceptions and preserve mean-actual capture order, missing/zero observations, retained forecast/weather metrics and SQL payloads. Billing view names retain allocated fee, tariff, own-supply, export and import capture routing and original pricing/JSON/month validation. All complete root-formatted modules keep exact instruction and exception coverage; source-only naming earns zero new corpus matches.
+
+The previously passed 208-method selected suite remains separate from these
+static naming proofs and owned investigatory controls. No full integration or
+armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Readable charging, billing, daily evaluation, weather client and shadow detection
+
+Root-authored source names **830 bindings across
+143 actual scopes**, exposing **378
+already-proved units**. It removes 90 non-docstring
+empty artifacts. Full instruction and exception proofs pass after formatting;
+every current public source/hash/subtree proof passes. Readable coverage reaches
+**165 modules / 10,046 units**, with
+**zero new corpus matches** and unchanged comparison rules.
+
+| Module | Exact units | Named bindings | Actual scopes |
+| --- | ---: | ---: | ---: |
+| `extra_features/sfml_stats/api/smart_charging.py` | 60 | 89 | 22 |
+| `data/data_daily_summaries.py` | 73 | 153 | 36 |
+| `extra_features/solar_forecast_eai/data/data_open_meteo_client.py` | 60 | 96 | 19 |
+| `extra_features/sfml_stats/core/billing.py` | 60 | 199 | 26 |
+| `extra_features/solar_forecast_eai/automation.py` | 58 | 95 | 15 |
+| `data/data_shadow_detection.py` | 67 | 198 | 25 |
+
+Public parameters, imports, globals/attributes, schemas, documentation,
+signatures/defaults/decorators/annotations, flags and ordered closure slots stay
+fixed. Actual generator targets follow their own scopes; `.0`, lambda shadows
+and parent-owned assignment expressions are protected. Names follow existing
+data flow and contracts, without claiming original local spelling.
+
+Smart-charging API keeps the already-proved multiline forecast-price return through API .36 restoration and Black. Daily evaluation names retain clean exclusion versus total-yield distinctions, window/MAPE/R2 boundaries, weather normalization and month cutoffs. Open-Meteo names preserve zero versus missing radiation, provider arrays, cache/rate guards and original database/HTTP contracts. Billing names retain correction and dynamic-price capture routing, currency units, calendar decisions and real imports. Energy AI automation preserves all license/readiness/trial/passive gates and listener lifecycle. Shadow detection names preserve measured/estimated group ratios, sensor precedence, technical limits, frost ownership, peer persistence and transaction cancellation. Full whole-module formatting proofs protect original instructions, exception coverage, interfaces and schemas; no new corpus match credit is claimed.
 
 The previously passed 208-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or

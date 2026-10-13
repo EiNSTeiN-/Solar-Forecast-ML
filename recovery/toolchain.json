@@ -183,8 +183,8 @@
       "terminal_rethrow_research_only": true,
       "terminal_rethrow_new_match_credit": 0
     },
-    "complete_readable_module_matches": 159,
-    "complete_readable_module_code_units": 9668,
+    "complete_readable_module_matches": 165,
+    "complete_readable_module_code_units": 10046,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -2107,6 +2107,106 @@
       "renamed_bindings": 564,
       "scoped_maps": 89,
       "removed_empty_artifacts": 117,
+      "all_full_instruction_and_exception_proofs_pass": true,
+      "comparison_rules_unchanged": true
+    },
+    "readable-batch-23": {
+      "modules": [
+        {
+          "module_path": "extra_features/sfml_stats/api/smart_charging.py",
+          "matched_units": 60,
+          "scoped_maps": 22,
+          "renamed_bindings": 89,
+          "removed_empty_artifacts": 0,
+          "source_sha256": "38c80276434b071fb941e542184a76287f8a956def8b6e97642e5beaf627a1c4",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [
+            "<module>/_forecast_price_for_hour#1"
+          ],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "data/data_daily_summaries.py",
+          "matched_units": 73,
+          "scoped_maps": 36,
+          "renamed_bindings": 153,
+          "removed_empty_artifacts": 18,
+          "source_sha256": "8f4eb4a8abc9ba30b52816363d68bf183f2a4b3b4682a68057593de158c4eb87",
+          "docstring_values_restored_after_formatting": 9,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/data/data_open_meteo_client.py",
+          "matched_units": 60,
+          "scoped_maps": 19,
+          "renamed_bindings": 96,
+          "removed_empty_artifacts": 27,
+          "source_sha256": "b4c6fb63522801d7a7252f78a7deb3b257fcfa929202c8c5d2b5398ed9611a43",
+          "docstring_values_restored_after_formatting": 6,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/sfml_stats/core/billing.py",
+          "matched_units": 60,
+          "scoped_maps": 26,
+          "renamed_bindings": 199,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "6663006dc7d1ca5c116ce6484348b9b9edcfdcf8672e2654d00eea68a23177d4",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "extra_features/solar_forecast_eai/automation.py",
+          "matched_units": 58,
+          "scoped_maps": 15,
+          "renamed_bindings": 95,
+          "removed_empty_artifacts": 9,
+          "source_sha256": "8ce3de8e21eb6c64be0811217ee9a17c0d46ae9b906831ca53558e81945fc0bd",
+          "docstring_values_restored_after_formatting": 0,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        },
+        {
+          "module_path": "data/data_shadow_detection.py",
+          "matched_units": 67,
+          "scoped_maps": 25,
+          "renamed_bindings": 198,
+          "removed_empty_artifacts": 27,
+          "source_sha256": "a7fab2f32898f7045c5b306085cff4b2010fb31891b3b9d16fc9de056cd73e9d",
+          "docstring_values_restored_after_formatting": 8,
+          "verified_return_layout_owners": [],
+          "same_line_unpacking_preserved": 0,
+          "remaining_internal_name_scopes": 0,
+          "parameters_metadata_docstrings_preserved": true,
+          "new_corpus_match_credit": 0
+        }
+      ],
+      "readable_modules": 165,
+      "readable_units": 10046,
+      "new_readable_modules": 6,
+      "new_readable_units": 378,
+      "new_corpus_matches": 0,
+      "renamed_bindings": 830,
+      "scoped_maps": 143,
+      "removed_empty_artifacts": 90,
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true
     }

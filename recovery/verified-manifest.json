@@ -182,6 +182,15 @@
       "behavior_tests": 2
     },
     {
+      "path": "data/data_daily_summaries.py",
+      "original_payload_sha256": "a054befbce27195265759ece07a36da0acb95ad31e1110cd9513a05117a956f4",
+      "reconstructed_source_sha256": "8f4eb4a8abc9ba30b52816363d68bf183f2a4b3b4682a68057593de158c4eb87",
+      "matched_units": 73,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "data/data_forecast_handler.py",
       "original_payload_sha256": "4b8087292cd8252af09e1ef739b5cd436d058b86719483526ff9e593ff74abd4",
       "reconstructed_source_sha256": "9317b8f7b2906b98991b7e52990e4bee83228cb89191b70c624973a06740936d",
@@ -240,6 +249,15 @@
       "original_payload_sha256": "8b15ed3198b12396ee3a6d46a9f71ab9a2495700452adf40bf1b40ad8093bd7e",
       "reconstructed_source_sha256": "26cff96b75968e3338ff0337c02591bb95eaf2980ca12fbc7af5a23c37bbe844",
       "matched_units": 90,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "data/data_shadow_detection.py",
+      "original_payload_sha256": "0d9d184a48faa6469da742e6972e47413caf7301877a3a22b3326b0c12f7d338",
+      "reconstructed_source_sha256": "a7fab2f32898f7045c5b306085cff4b2010fb31891b3b9d16fc9de056cd73e9d",
+      "matched_units": 67,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -614,6 +632,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/sfml_stats/api/smart_charging.py",
+      "original_payload_sha256": "eb66bdcb128893626b7221e231e9e53852b4eab6c179da0108c52531adf1b8f9",
+      "reconstructed_source_sha256": "38c80276434b071fb941e542184a76287f8a956def8b6e97642e5beaf627a1c4",
+      "matched_units": 60,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/sfml_stats/api/solar_views.py",
       "original_payload_sha256": "d86d44b9f22fbe856448acce42a100b09de26fa81d4670fcb90ec8093a1d5b2b",
       "reconstructed_source_sha256": "b84a61d2a1af003346b6165af2f5a394a48021233cd438cd76773cf9a0c57e9e",
@@ -657,6 +684,15 @@
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 1
+    },
+    {
+      "path": "extra_features/sfml_stats/core/billing.py",
+      "original_payload_sha256": "870d16c7fe70cdb0ebf3d0deafb29d6b0fdbd2f3c9489ac955617735038ffd37",
+      "reconstructed_source_sha256": "6663006dc7d1ca5c116ce6484348b9b9edcfdcf8672e2654d00eea68a23177d4",
+      "matched_units": 60,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
     },
     {
       "path": "extra_features/sfml_stats/core/consumer_atlas.py",
@@ -902,6 +938,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "extra_features/solar_forecast_eai/automation.py",
+      "original_payload_sha256": "fb0605905e021c8f043d5d5e634d87716c285bf4d1bc449794ffd671eb472b90",
+      "reconstructed_source_sha256": "8ce3de8e21eb6c64be0811217ee9a17c0d46ae9b906831ca53558e81945fc0bd",
+      "matched_units": 58,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
       "path": "extra_features/solar_forecast_eai/capability.py",
       "original_payload_sha256": "2a42c2606b8f5082b7e5312f31c76de57664648055e5850be48740ee18acf638",
       "reconstructed_source_sha256": "60db1cc41d7e474b71bf87b3cc7e327837559b3b43d9204eab98f2aa6e744d2d",
@@ -951,6 +996,15 @@
       "original_payload_sha256": "c8b4f57db8057383c3b51560d454030fcef8c58ae6675ef158dd703fbd922bcd",
       "reconstructed_source_sha256": "d3b0667a4e24c2e980d7ec92ce06802bbf5d5bfcbf67675419f4fc9a09777345",
       "matched_units": 88,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 0
+    },
+    {
+      "path": "extra_features/solar_forecast_eai/data/data_open_meteo_client.py",
+      "original_payload_sha256": "dc09533de24e120c4b06b6023c23dc72c7abca8437f706241876bef1df0f6b5a",
+      "reconstructed_source_sha256": "b4c6fb63522801d7a7252f78a7deb3b257fcfa929202c8c5d2b5398ed9611a43",
+      "matched_units": 60,
       "all_units_match": true,
       "readability_refactored": true,
       "behavior_tests": 0
@@ -1434,5 +1488,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 9668
+  "total_matched_units": 10046
 }
