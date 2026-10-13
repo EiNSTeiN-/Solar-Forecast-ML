@@ -1,0 +1,23 @@
+{
+  "private_readable_modules": 1,
+  "private_readable_units": 30,
+  "contains_no_product_key_material": true,
+  "entries": [
+    {
+      "module_path": "core/core_artifact_crypto.py",
+      "private_source_location": "ignored local recovery/root-private-readable-crypto-01/core/core_artifact_crypto.py",
+      "source_sha256": "678c1dca2fc097d7330746c64a3e951e2a6343a5bd808f9db2f63867975bda58",
+      "original_payload_sha256": "c2efd54390bc811bf883c48538f95843efa20a3761eafc085451039a588a44f8",
+      "exact_complete_units": 30,
+      "all_instruction_exception_and_metadata_proofs_pass": true,
+      "scoped_maps": 5,
+      "renamed_bindings": 14,
+      "new_corpus_match_credit": 0,
+      "public_source_withheld": true,
+      "reason": "The complete module includes fixed product keying material for local model-artifact encryption; exact source stays in the ignored local directory. No service authentication occurs in this module.",
+      "owned_crypto_controls_use_fresh_fixture_material": true,
+      "owned_paired_cases_passed": 87,
+      "strict_negative_controls_passed": 6
+    }
+  ]
+}

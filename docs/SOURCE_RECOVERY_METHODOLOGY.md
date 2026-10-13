@@ -3417,3 +3417,22 @@ Names expose bounded recursive EAI projections, explicit temperature ranges, wea
 The previously passed 212-method selected suite remains separate from these
 static naming proofs and owned investigatory controls. No full integration or
 armor runtime is imported. Full source and readable recovery remain unfinished.
+
+
+## Private complete artifact-encryption source
+
+`core/core_artifact_crypto.py` is independently reconstructed and readable:
+**30 complete units**, with 14 descriptive local names across five scopes.
+All instructions, exception regions, signatures, schemas, documentation and
+ordered captures prove against the unchanged protected input. Six strict
+negatives reject changed parameters, compression boundaries, nonce/envelope
+sizes, decoding and authenticated-context order. Owned crypto fixtures compare
+87 cases using wholly fresh keys, identities, nonces and data.
+
+The exact source includes fixed product keying material used to encrypt local
+model-artifact envelopes; it does not authenticate to an external service.
+The complete source and literal material stay in the ignored local recovery
+area. Only hashes and proof counts are published in the private-readable
+manifest. This module is counted separately from public readable files and
+receives no new corpus-match credit. Sequence headers, derived keys and raw
+cryptographic diagnostics remain outside tracked artifacts.

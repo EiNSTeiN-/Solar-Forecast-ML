@@ -3319,6 +3319,9 @@
       "all_full_instruction_and_exception_proofs_pass": true,
       "comparison_rules_unchanged": true,
       "pinned_comparator_sha256": "810071a10fe86f5c49498e2f086518076207d9e5c0164376c55dbde958a15400"
-    }
+    },
+    "private_complete_readable_modules": 1,
+    "private_complete_readable_units": 30,
+    "private_source_in_public_fork": false
   }
 }
