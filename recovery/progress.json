@@ -762,7 +762,7 @@
       "matched_units": 717,
       "reference_units": 717,
       "input_unchanged": true,
-      "source_origin": "decompiler_candidate_with_verified_units",
+      "source_origin": "manual_reconstruction",
       "retained_source_units": [
         "<module>/DatabaseManager#1/_backfill_astronomy_enrichment_v1640#1",
         "<module>/DatabaseManager#1/_migrate_ai_model_cycle_evaluation_v42#1",

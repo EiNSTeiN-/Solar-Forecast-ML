@@ -37,8 +37,8 @@ capability gates and isolated dashboard/initialization trees.
 Sensor collection/startup, panel calibration and snow, astronomy cache rows and
 production windows, and price-statistics storage are also compared, including
 handled database failures and cancellation. The current checkpoint publishes
-100 readable whole modules (2,637 nested units) and passes 196 selected
-test methods (193 application checks and three source-path checks). The full
+101 readable whole modules (3,354 nested units) and passes 199 selected
+test methods (196 application checks and three source-path checks). The full
 corpus has 249 completely matched candidate modules and 14,256/14,291 matching
 units; 35 units remain. Candidate fidelity
 and published readable source are counted separately.
@@ -340,3 +340,17 @@ isolated entries in 150 files, covering
 637 distinct units; 339
 definitions are retained. These new contexts remain non-readable. Stable .25/.31
 tools and the selected suite's executed function bodies remain unchanged.
+
+
+The database manager is now readable whole source with all 717 nested units
+proved. The main thread names 1,457 local/capture bindings across 316 scopes,
+preserving physical closure order, signatures, defaults, annotations, dependency
+symbols and docstrings. Twenty-seven standalone empty artifacts are removed;
+compiler-sensitive guards and returns remain where their complete proofs require
+them. Three new methods compare 60 owned transaction scenarios: write-lock and
+owner/depth handling, successful and failed BEGIN/COMMIT, active partial BEGIN,
+savepoint release/rollback, body failures/cancellation, closed/unmanaged storage,
+future/expired/active deadlines and progress-handler restoration. Complete proof
+precedes each selected function's controlled execution. The full selected suite
+passes 199 methods. Readable coverage becomes 101 modules/3,354 units; the already
+proved database receives no additional corpus match credit.

@@ -200,6 +200,15 @@
       "behavior_tests": 1
     },
     {
+      "path": "data/db_manager.py",
+      "original_payload_sha256": "88c8537bea71fce990fe0cd9577cd77d81b45da2fc5b0dba8614c84d46dabb8d",
+      "reconstructed_source_sha256": "176324ade9ffd5a24d0ca083b25a659ffbdde55b05790f7ee4d6fcce000107bd",
+      "matched_units": 717,
+      "all_units_match": true,
+      "readability_refactored": true,
+      "behavior_tests": 3
+    },
+    {
       "path": "data/schema_sql.py",
       "original_payload_sha256": "d869f5b83237bcbad3fbc17bd9ae19cea207829c88febedbd1bf3f30dd984e7a",
       "reconstructed_source_sha256": "6be930eac101e0fe75ded8f3bfd8da76681fb1b8405fb5df7af8d76131043ab3",
@@ -903,5 +912,5 @@
     }
   ],
   "complete_goal": false,
-  "total_matched_units": 2637
+  "total_matched_units": 3354
 }

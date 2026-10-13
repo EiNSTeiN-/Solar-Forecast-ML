@@ -2459,3 +2459,35 @@ All published hashes and complete source/owner proofs pass. Previously tested
 selected function bodies are unchanged; no blanket runtime-equivalence claim is
 made for the new application owners. Full source and readability goals remain
 active. Native .30's full frozen retention gate is separately pending.
+
+
+## Readable database manager with physical closure ordering
+
+The root-authored database file names 1,457 internal bindings in 316 scopes,
+including migrations, database reads/writes, transaction deadlines, provenance,
+model promotion, calibration and weather/forecast storage. Names follow existing
+fields and data flow; original spelling is not claimed. The compiler's actual
+local/cell/free ownership determines rename propagation into nested functions
+and generators. Imported module/symbol names remain fixed; only their owned local
+aliases change. Bindings remain injective and never collide with parameters or
+existing locals. The final two generated commit captures become
+`in_owned_transaction`, preserving their order after `auto_commit` and before
+other free variables. No assignment is added to force closure order.
+
+Twenty-seven non-docstring empty expressions are removed. Existing docstrings,
+all parameters/flags/dependency names, compiler-sensitive initializedness slots,
+and protected control-flow shapes are preserved. The entire **717-unit tree**
+still matches original instructions and exception tables after Black formatting.
+Wrong closure order, parameter collisions, lost docstrings and apparently
+redundant return simplification are negative controls. Readable whole-source
+coverage grows to **101 modules / 3,354 units**, with no new corpus match credit.
+
+Three new application methods compare **60 paired transaction scenarios** with
+owned asynchronous connections, locks, clock, deadlines and controlled failure
+paths. They validate outer/nested owner/depth state, serialized writes, active
+partial BEGIN failures, COMMIT/rollback, savepoint cleanup, cancellation, closed
+and unmanaged storage, deadline expiry and restored progress handlers. No whole
+integration module, database file or armor runtime executes. The full selected
+suite passes **199 methods** in **156.712 seconds**, including 196 application
+methods and three source-definition-path methods. This does not claim exhaustive
+runtime equivalence for every application code path.

@@ -17,7 +17,7 @@
     "native_expected_failures": 1,
     "backend_existing_tests_passed": 35,
     "backend_behavior_tests_passed": 62,
-    "selected_module_behavior_tests_passed": 196,
+    "selected_module_behavior_tests_passed": 199,
     "integration_modules_imported": 0,
     "whole_goal_complete": false,
     "additional_checks": {
@@ -170,10 +170,12 @@
       "candidate_reconciliation_paired_scenarios": 42,
       "owner_body_source_preservation": "Signatures, decorators, annotations, defaults and docstrings preserved; every inserted owner and all descendants fully proved.",
       "csv_import_behavior_methods": 4,
-      "csv_import_paired_scenarios": 130
+      "csv_import_paired_scenarios": 130,
+      "database_transaction_behavior_methods": 3,
+      "database_transaction_paired_scenarios": 60
     },
-    "complete_readable_module_matches": 100,
-    "complete_readable_module_code_units": 2637,
+    "complete_readable_module_matches": 101,
+    "complete_readable_module_code_units": 3354,
     "shadow_group_behavior_input_cases": 409,
     "retained_readable_function_units": 8,
     "independently_verified_readable_function_units": 18,
@@ -675,7 +677,7 @@
       "new_source_raw_gains": 12,
       "instruction_branches_calls_and_exception_dispatch_remain_significant": true
     },
-    "selected_application_behavior_test_methods": 193,
+    "selected_application_behavior_test_methods": 196,
     "source_definition_path_test_methods": 3,
     "owner_compilation_context_files": 132,
     "owner_compilation_context_entries": 337,
@@ -777,6 +779,6 @@
       }
     },
     "stable_toolchain_unchanged": true,
-    "selected_suite_reuse": "The 196-method selected suite passed after readable CSV preparation. This source-only checkpoint changes no readable module or tested function body; every new/older public source hash and owner subtree is independently re-proved."
+    "selected_suite_reuse": "The complete selected suite passes199 methods in156.712seconds after readable database preparation:196application methods plus3definition-path methods. Whole source proof precedes controlled execution; no integration or armor runtime imports."
   }
 }
